@@ -13,8 +13,13 @@ const app = new Elysia({ prefix: "/rmu-api" })
   // cors
   .use(
     cors({
-      origin: ["http://localhost:3181", "https://alumni.rmu.ac.th","http://10.110.29.111:3181"],
+      origin: [
+        "http://localhost:3181",
+        "https://alumni.rmu.ac.th",
+      ],
       credentials: true,
+      allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     }),
   )
   // jwt
@@ -31,6 +36,12 @@ const app = new Elysia({ prefix: "/rmu-api" })
       assets: "./public",
     }),
   )
+  // check api
+  .get("/health", ({ set }) => {
+    set.status = 200;
+    return { ok: true };
+  })
+
   // auth
   .use(authRoutes)
   // alumni
