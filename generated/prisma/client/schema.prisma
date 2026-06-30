@@ -14,6 +14,26 @@ datasource db {
   provider = "postgresql"
 }
 
+model roles {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+}
+
+model regis_alumni {
+  id               Int     @id @default(autoincrement())
+  alumni_id        String? @unique
+  alumni           alumni? @relation(fields: [alumni_id], references: [alumni_id])
+  email            String
+  tel              String
+  slip_payment_url String
+  isApproved       String  @default("pending")
+
+  status String @default("active")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
 model alumni {
   alumni_id      String  @id @unique
   prefix         String
@@ -23,19 +43,25 @@ model alumni {
   passwordHash   String?
   allowedAccount Boolean @default(false)
   canUse         Boolean @default(true)
-  year_start     Int?
-  year_end       Int?
+  year_start     String?
+  year_end       String?
 
-  facultyId    Int?
-  departmentId Int?
-  edu_levelId  Int?
+  facultyId    String?
+  departmentId String?
+  edu_levelId  String?
+  otp          otp?
 
-  work_expreriences work_expreriences[]
-  user_privacy      user_privacy?
+  work_expreriences  work_expreriences[]
+  study_expreriences studey_expreriences[]
+  user_privacy       user_privacy?
 
-  createtAt       DateTime         @default(now())
-  updatedAt       DateTime         @default(now())
-  alumni_contract alumni_contract?
+  createtAt        DateTime          @default(now())
+  updatedAt        DateTime          @default(now())
+  alumni_contract  alumni_contract?
+  regis_alumni     regis_alumni?
+  importHistory    import_history?   @relation(fields: [import_historyId], references: [id])
+  import_historyId String?
+  sendTextHistory  sendTextHistory[]
 }
 
 model alumni_contract {
@@ -76,6 +102,15 @@ model work_expreriences {
   isInThai           Boolean  @default(true)
   remark             String?
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  alumniId String?
+  alumni   alumni? @relation(fields: [alumniId], references: [alumni_id])
+}
+
+model studey_expreriences {
+  id              Int     @id @default(autoincrement())
   edu_level       String?
   continued_study Boolean @default(false)
   edu_faculty     String?
@@ -84,6 +119,10 @@ model work_expreriences {
   year_start      String?
   year_end        String?
   edu_performance String?
+  isCurrent       Boolean @default(false)
+  isInThai        Boolean @default(true)
+  place           String?
+  remark          String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
@@ -127,15 +166,72 @@ model professor {
   univercity_position String?
   allowedAccount      Boolean @default(false)
   email               String?
+  otp                 otp?
 
-  facultyId    Int?
-  departmentId Int?
+  sendTextHistory sendTextHistory[]
 
-  user_privacy    user_privacy?
-  alumni_contract alumni_contract[]
+  facultyId    String?
+  departmentId String?
+
+  user_privacy     user_privacy?
+  alumni_contract  alumni_contract[]
+  importHistory    import_history?   @relation(fields: [import_historyId], references: [id])
+  import_historyId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+}
+
+model admin {
+  admin_id     String    @id @unique @default(uuid())
+  prefix       String
+  fname        String
+  lname        String
+  username     String    @unique
+  profile      String?
+  passwordHash String
+  canUse       Boolean   @default(true)
+  email        String?
+  tel          String?
+  lastestLogin DateTime?
+
+  sendTextHistory sendTextHistory[]
+
+  otp           otp?
+  importHistory import_history[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model sendTextHistory {
+  id            Int      @id @default(autoincrement())
+  alumni_sender String?
+  alumniId      String?
+  professorId   String?
+  sender_type   String?  @default("admin")
+  adminId       String?
+  title         String
+  detail        String
+  category      String?
+  createdAt     DateTime @default(now())
+
+  professor professor? @relation(fields: [professorId], references: [professor_id])
+  admin     admin?     @relation(fields: [adminId], references: [admin_id])
+  alumni    alumni?    @relation(fields: [alumni_sender], references: [alumni_id])
+}
+
+model otp {
+  id          Int      @id @default(autoincrement())
+  code        String
+  alumniId    String?  @unique
+  professorId String?  @unique
+  adminId     String?  @unique
+  createdAt   DateTime @default(now())
+
+  professor professor? @relation(fields: [professorId], references: [professor_id])
+  admin     admin?     @relation(fields: [adminId], references: [admin_id])
+  alumni    alumni?    @relation(fields: [alumniId], references: [alumni_id])
 }
 
 model news_donatios {
@@ -156,4 +252,44 @@ model news_donatios {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+}
+
+model import_history {
+  id         String @id @default(cuid())
+  file_name  String
+  file_size  Int?
+  total_rows Int
+
+  import_type String // alumni, student, employee  // pending, processing, completed, failed
+
+  imported_by String
+  admin       admin  @relation(fields: [imported_by], references: [admin_id])
+
+  alumni      alumni[]
+  professor   professor[]
+  started_at  DateTime
+  finished_at DateTime?
+
+  created_at DateTime @default(now())
+}
+
+model setting {
+  id                           Int     @id @default(autoincrement())
+  regis_payment_qrcode         String?
+  regis_payment                Int?
+  fac_sheet_link               String?
+  dep_sheet_link               String?
+  regis_payment_account_name   String?
+  regis_payment_account_number String?
+  regis_payment_account_back   String?
+  skipAlumniDuplicate          Boolean @default(true)
+  skipPersonelDuplicate        Boolean @default(true)
+  allowedAlumniAccount         Boolean @default(true)
+  allowedPersonelAccount       Boolean @default(true)
+  allowedAdminAccount          Boolean @default(true)
+  allowedNotifyAlumniRegis     Boolean @default(true)
+  allowedNotifyAlumniEditRegis Boolean @default(true)
+  notify_email                 String?
+  backup_folderid              String?
+  filebackup_folderid          String?
 }

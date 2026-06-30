@@ -2,8 +2,9 @@ import bcryptjs from "bcryptjs";
 import path from "path";
 import { unlink } from "fs/promises";
 import { existsSync } from "fs";
-import { sftpConfig, transporter } from "../config/config";
+import { envConfig, sftpConfig, transporter } from "../config/config";
 import prisma from "../libs/prisma";
+import { randomNum } from "./auth.controller";
 
 export const alumniController = {
   profile: async ({ store, set }) => {
@@ -49,21 +50,30 @@ export const alumniController = {
             ...commonSelect,
             alumni_id: true,
             year_start: true,
+            year_end: true,
             updatedAt: true,
             work_expreriences: {
               take: 1,
               where: { isCurrent: true },
               select: {
-                continued_study: true,
                 company_place: true,
                 job_position: true,
                 company_name: true,
-                edu_dep: true,
-                edu_university: true,
+
                 isCurrent: true,
-                edu_level: true,
               },
               orderBy: { createdAt: "desc" },
+            },
+            study_expreriences: {
+              where: {
+                isCurrent: true,
+              },
+              select: {
+                edu_dep: true,
+                edu_faculty: true,
+                edu_level: true,
+                edu_university: true,
+              },
             },
             alumni_contract: {
               select: {
@@ -185,7 +195,7 @@ export const alumniController = {
       if (!hadContract) {
         create = await prisma.alumni_contract.create({
           data: {
-            id: hadContract.id,
+            [idField]: id,
             phone1,
             phone2,
             email1,
@@ -269,7 +279,7 @@ export const alumniController = {
           const delLocalPath = path.join(
             import.meta.dir,
             "../public/upload",
-            hadImage.profile
+            hadImage.profile,
           );
           const delRemotePath = process.env.SFTP_PATH + hadImage.profile;
 
@@ -367,7 +377,7 @@ export const alumniController = {
       const imgPath = path.join(
         import.meta.dir,
         "../public/upload",
-        profile.profile
+        profile.profile,
       );
       if (existsSync(imgPath)) {
         await unlink(imgPath);
@@ -425,7 +435,7 @@ export const alumniController = {
         });
       } else {
         update = await prisma.alumni_contract.update({
-          where: { [idField]: id },
+          where: { id: hadContract.id },
           data: {
             address,
             tambon,
@@ -543,11 +553,50 @@ export const alumniController = {
   },
   work_create: async ({ body, store, set }) => {
     try {
-      const { salary, ...rest } = body;
+      const {
+        salary,
+        edu_level,
+        edu_faculty,
+        edu_dep,
+        edu_university,
+        year_start,
+        year_end,
+        edu_performance,
+        continued_study,
+        isCurrent,
+        ...rest
+      } = body;
 
+      if (continued_study) {
+        await prisma.studey_expreriences.create({
+          data: {
+            alumni: {
+              connect: {
+                alumni_id: store?.user?.id,
+              },
+            },
+            place: body?.company_place,
+            isCurrent,
+            edu_level,
+            edu_faculty,
+            edu_dep,
+            edu_university,
+            year_start,
+            year_end,
+            edu_performance,
+            continued_study,
+          },
+        });
+        set.status = 200; // ใช้ 201 สำหรับ create success
+        return { ok: true };
+      }
       await prisma.work_expreriences.create({
         data: {
-          alumniId: store.user.id,
+          alumni: {
+            connect: {
+              alumni_id: store?.user?.id,
+            },
+          },
           salary: Number(salary),
           ...rest,
         },
@@ -576,12 +625,12 @@ export const alumniController = {
         currentJob === 0
           ? null
           : currentJob === 3
-          ? {
-              continued_study: true,
-            }
-          : {
-              isCurrent: currentJob === 1 ? true : false,
-            };
+            ? {
+                continued_study: true,
+              }
+            : {
+                isCurrent: currentJob === 1 ? true : false,
+              };
 
       const [
         workExprerience,
@@ -590,6 +639,7 @@ export const alumniController = {
         avgSalary,
         currentSalary,
         minSalary,
+        study_ex,
       ] = await Promise.all([
         prisma.work_expreriences.findMany({
           take: 10,
@@ -652,14 +702,6 @@ export const alumniController = {
             job_responsibility: true,
             job_skills: true,
             remark: true,
-            continued_study: true,
-            edu_level: true,
-            edu_dep: true,
-            edu_faculty: true,
-            edu_performance: true,
-            year_end: true,
-            year_start: true,
-            edu_university: true,
             isOnTheLine: true,
             isInThai: true,
             alumniId: true,
@@ -718,7 +760,6 @@ export const alumniController = {
         prisma.work_expreriences.count({
           where: {
             alumniId: id,
-            continued_study: false,
           },
         }),
         prisma.work_expreriences.aggregate({
@@ -738,7 +779,6 @@ export const alumniController = {
         prisma.work_expreriences.aggregate({
           where: {
             alumniId: id,
-            continued_study: false,
             isCurrent: true,
           },
           _sum: {
@@ -748,16 +788,34 @@ export const alumniController = {
         prisma.work_expreriences.aggregate({
           where: {
             alumniId: id,
-            continued_study: false,
           },
           _min: {
             salary: true,
           },
         }),
+        prisma.studey_expreriences.findMany({
+          where: {
+            alumniId: id,
+          },
+          select: {
+            id: true,
+            alumniId: true,
+            continued_study: true,
+            edu_dep: true,
+            edu_faculty: true,
+            edu_level: true,
+            place: true,
+            edu_performance: true,
+            year_start: true,
+            isCurrent: true,
+            year_end: true,
+            edu_university: true,
+          },
+        }),
       ]);
       set.status = 200;
       return {
-        workExprerience,
+        workExprerience: [...workExprerience, ...study_ex],
         totalPage: Math.ceil(total / 10) < 1 ? 1 : Math.ceil(total / 10),
         dataAvg: {
           workTimes,
@@ -773,10 +831,21 @@ export const alumniController = {
       set.status = 500;
     }
   },
-  delete_work: async ({ params, set }) => {
+  delete_work: async ({ params, set, query }) => {
     try {
       const { id } = params;
+      const { std } = query;
 
+      if (std) {
+        const del = await prisma.studey_expreriences.delete({
+          where: {
+            id: Number(id),
+          },
+        });
+        if (!del) return (set.status = 400);
+        set.status = 200;
+        return { ok: true };
+      }
       const del = await prisma.work_expreriences.delete({
         where: {
           id: Number(id),
@@ -792,12 +861,50 @@ export const alumniController = {
       return { err };
     }
   },
-  work_update: async ({ body, params, set }) => {
+  work_update: async ({ body, params, set, query }) => {
     try {
       const { id } = params;
       if (!id) return (set.status = 400);
-      const { salary, ...rest } = body;
+      const {
+        salary,
+        edu_level,
+        edu_faculty,
+        edu_dep,
+        edu_university,
+        year_start,
+        year_end,
+        edu_performance,
+        continued_study,
+        isCurrent,
+        ...rest
+      } = body;
 
+      const { std } = query;
+
+      if (std) {
+        const update = await prisma.studey_expreriences.update({
+          where: {
+            id: Number(id),
+          },
+          data: {
+            place: body?.company_place,
+            isCurrent,
+            edu_level,
+            edu_faculty,
+            edu_dep,
+            edu_university,
+            year_start,
+            year_end,
+            edu_performance,
+            continued_study,
+            updatedAt: new Date(),
+          },
+        });
+        if (!update) return (set.status = 400);
+
+        set.status = 200;
+        return { ok: true };
+      }
       const update = await prisma.work_expreriences.update({
         where: {
           id: Number(id),
@@ -853,7 +960,7 @@ export const alumniController = {
 
       const isMatch = await bcryptjs.compare(
         currentPass,
-        user.passwordHash || ""
+        user.passwordHash || "",
       );
       if (role < 2 && !isMatch) {
         return { err: "รหัสผ่านปัจจุบันไม่ถูกต้อง" };
@@ -885,9 +992,8 @@ export const alumniController = {
 
       if (!update) return (set.status = 400);
 
-      set.headers[
-        "Set-Cookie"
-      ] = `token=; HttpOnly; Secure; Path=/; SameSite=Strict; Max-Age=0`;
+      set.headers["Set-Cookie"] =
+        `token=; HttpOnly; Secure; Path=/; SameSite=Strict; Max-Age=0`;
 
       set.status = 200;
       return { ok: true };
@@ -913,14 +1019,12 @@ export const alumniController = {
       const type = 1;
       const skip = take * (Number(page) - 1);
 
-      const facQuery = fac ? { facultyId: Number(fac) } : {};
-      let depIdQuery = dep ? { departmentId: Number(dep) } : {};
+      const facQuery = fac ? { facultyId: fac } : {};
+      let depIdQuery = dep ? { departmentId: dep } : {};
       const yearStartQ =
-        selectYearStart && type < 2
-          ? { year_start: Number(selectYearStart) }
-          : {};
+        selectYearStart && type < 2 ? { year_start: selectYearStart } : {};
       const yearEndQ =
-        selectYearEnd && type < 2 ? { year_end: Number(selectYearEnd) } : {};
+        selectYearEnd && type < 2 ? { year_end: selectYearEnd } : {};
 
       // search conditions
       const searchConditions = search
@@ -930,12 +1034,12 @@ export const alumniController = {
             { lname: { contains: search, mode: "insensitive" } },
             {
               year_start: {
-                equals: Number(search),
+                contains: search,
               },
             },
             {
               year_end: {
-                equals: Number(search),
+                contains: search,
               },
             },
           ]
@@ -971,6 +1075,12 @@ export const alumniController = {
             updatedAt: true,
             year_start: true,
             year_end: true,
+            regis_alumni: {
+              select: {
+                isApproved: true,
+                id: true,
+              },
+            },
           }
         : {
             professor_id: true,
@@ -1023,7 +1133,6 @@ export const alumniController = {
       return { err };
     }
   },
-
   get_user_byId: async ({ params, set }) => {
     try {
       const { id, roleId } = params;
@@ -1059,17 +1168,25 @@ export const alumniController = {
                     isCurrent: true,
                     job_detail: true,
                     remark: true,
+                  },
+                  orderBy: {
+                    isCurrent: "desc",
+                  },
+                },
+                study_expreriences: {
+                  select: {
+                    id: true,
+                    alumniId: true,
                     continued_study: true,
                     edu_dep: true,
                     edu_faculty: true,
                     edu_level: true,
+                    place: true,
                     edu_performance: true,
-                    edu_university: true,
-                    year_end: true,
                     year_start: true,
-                  },
-                  orderBy: {
-                    isCurrent: "desc",
+                    isCurrent: true,
+                    year_end: true,
+                    edu_university: true,
                   },
                 },
                 user_privacy: {
@@ -1105,13 +1222,11 @@ export const alumniController = {
             prisma.work_expreriences.count({
               where: {
                 alumniId: id,
-                continued_study: false,
               },
             }),
             prisma.work_expreriences.aggregate({
               where: {
                 alumniId: id,
-                continued_study: false,
               },
               _avg: {
                 salary: true,
@@ -1126,7 +1241,7 @@ export const alumniController = {
             prisma.work_expreriences.aggregate({
               where: {
                 alumniId: id,
-                continued_study: false,
+
                 isCurrent: true,
               },
               _sum: {
@@ -1209,6 +1324,7 @@ export const alumniController = {
       if (!id || !text || !roleId) return (set.status = 400);
 
       const senderRole = Number(store.user.roleId);
+
       let sender;
       if (senderRole < 2) {
         sender = await prisma.alumni.findUnique({
@@ -1282,7 +1398,7 @@ export const alumniController = {
           },
         });
       }
-      if (!emailTo.email1 && !emailTo.email2) {
+      if (!emailTo?.email1 && !emailTo?.email2) {
         return { err: "ไม่พบอีเมลที่สามารถส่งได้" };
       }
 
@@ -1348,12 +1464,379 @@ export const alumniController = {
       };
 
       await transporter.sendMail(mailOptions);
+      await prisma.sendTextHistory.create({
+        data: {
+          sender_type: senderRole < 2 ? "alumni" : "professor",
+          detail: text,
+          title:
+            senderRole < 2
+              ? "ศิษย์เก่าส่งข้อความหาศิษย์เก่า"
+              : "อาจารย์ส่งข้อความถึงศิษย์เก่า",
+          ...(senderRole < 2
+            ? {
+                alumni: {
+                  connect: {
+                    alumni_id: store.user.id,
+                  },
+                },
+              }
+            : {
+                professor: {
+                  connect: {
+                    professor_id: store.user.id,
+                  },
+                },
+              }),
+          alumniId: id,
+        },
+      });
       set.status = 200;
       return { ok: true };
     } catch (err) {
       console.error(err);
       set.status = 500;
       return { err };
+    }
+  },
+  get_alumni_list: async ({ set, query }) => {
+    try {
+      const {
+        facultyId,
+        search,
+        departmentId,
+        selectYearStart,
+        selectYearEnd,
+        take,
+        sort,
+        page,
+        regis_status,
+      } = query;
+      const skip = Number(take) * (Number(page) - 1);
+      let filter = {};
+      if (search) {
+        filter = {
+          OR: [
+            {
+              alumni_id: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+            {
+              prefix: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+            {
+              fname: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+            {
+              lname: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+          ],
+        };
+      }
+      if (facultyId) {
+        filter = {
+          ...filter,
+          facultyId,
+        };
+      }
+      if (departmentId) {
+        filter = {
+          ...filter,
+          departmentId,
+        };
+      }
+      if (regis_status !== "all" && regis_status !== "no-regis") {
+        filter = {
+          ...filter,
+          regis_alumni: {
+            isApproved: regis_status,
+          },
+        };
+      }
+      if (regis_status === "no-regis") {
+        filter = {
+          ...filter,
+          regis_alumni: null,
+        };
+      }
+      if (selectYearStart) {
+        filter = {
+          ...filter,
+          year_start: selectYearStart,
+        };
+      }
+      if (selectYearEnd) {
+        filter = {
+          ...filter,
+          year_end: selectYearEnd,
+        };
+      }
+
+      const [data, total] = await Promise.all([
+        prisma.alumni.findMany({
+          take: Number(take),
+          skip,
+          orderBy: {
+            ...JSON.parse(sort),
+          },
+          where: filter,
+          select: {
+            alumni_id: true,
+            prefix: true,
+            fname: true,
+            lname: true,
+            facultyId: true,
+            departmentId: true,
+            year_start: true,
+            year_end: true,
+            regis_alumni: {
+              select: {
+                isApproved: true,
+              },
+            },
+          },
+        }),
+        prisma.alumni.count({ where: filter }),
+      ]);
+
+      set.status = 200;
+      return {
+        data,
+        total,
+        totalPage: Math.ceil(total / take) < 1 ? 1 : Math.ceil(total / take),
+      };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  edit_regis_get_otp: async ({ set, body }) => {
+    try {
+      const { alumni_id } = body;
+      console.log("🚀 ~ body:", body);
+      if (!alumni_id) return (set.status = 400);
+
+      const alumni = await prisma.regis_alumni.findFirst({
+        where: { alumni_id },
+      });
+      if (!alumni)
+        return { err: "ไม่พบข้อมูลการลงทะเบียน ไม่สามารถดำเนินการได้" };
+
+      const otp = randomNum();
+      await prisma.$transaction(async (t) => {
+        await t.otp.deleteMany({
+          where: {
+            alumniId: alumni_id,
+          },
+        });
+        const newOTP = await t.otp.create({
+          data: {
+            code: otp,
+            alumniId: alumni_id,
+          },
+        });
+        if (!newOTP) return (set.status = 400);
+
+        // sendmail
+        const mailOptions = {
+          from: envConfig.mail_user,
+          to: alumni_id + "@rmu.ac.th",
+          subject: "รหัสยืนยันตัวตนขอแก้ไขหลักฐานการชำระค่าลงทะเบียน",
+          text: `รหัสยืนยันตัวตนสำหรับแก้ไขหลักฐานการชำระค่าลงทะเบียนของคุณ\n"${otp}"`,
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        set.status = 200;
+        return { ok: true };
+      });
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  regis_edit_check_otp: async ({ set, body }) => {
+    try {
+      const { otp, alumni_id } = body;
+      if (!otp || !alumni_id) return (set.status = 400);
+
+      const findCorrectOTP = await prisma.otp.findFirst({
+        where: {
+          code: otp,
+          alumniId: alumni_id,
+        },
+      });
+      if (!findCorrectOTP) return { err: "รหัสยืนยันตัวตนไม่ถูกต้อง" };
+
+      await prisma.otp.deleteMany({
+        where: {
+          code: otp,
+          alumniId: alumni_id,
+        },
+      });
+
+      const regisData = await prisma.regis_alumni.findFirst({
+        where: {
+          alumni_id,
+        },
+        select: {
+          slip_payment_url: true,
+          tel: true,
+          id: true,
+        },
+      });
+
+      set.status = 200;
+      return { ok: true, regisData };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  regis_edit_slip: async ({ set, body }) => {
+    try {
+      const { regisDataId, alumni_id, slip, tel } = body;
+      if (!regisDataId || !alumni_id || !slip || !tel)
+        return (set.status = 400);
+
+      const oldRegisData = await prisma.regis_alumni.findFirst({
+        where: {
+          alumni_id,
+        },
+        select: {
+          id: true,
+          slip_payment_url: true,
+        },
+      });
+      if (!oldRegisData) return (set.status = 400);
+
+      // delete old slip
+      const sftp = await sftpConfig();
+      // ลบไฟล์ในเครื่อง
+      const imgPath = path.join(
+        import.meta.dir,
+        "../public/upload",
+        oldRegisData.slip_payment_url,
+      );
+      if (existsSync(imgPath)) {
+        await unlink(imgPath);
+        const remotePath =
+          process.env.SFTP_PATH + oldRegisData.slip_payment_url;
+        await sftp.delete(remotePath);
+      }
+
+      const sanitizedName =
+        slip?.name?.replace(/[^a-zA-Z0-9.-]/g, "_") || "image.jpg";
+      const imgName = `${Date.now()}_${sanitizedName}`;
+
+      // Local path (Windows)
+      const localPath = `./public/upload/${imgName}`;
+      const remotePath = process.env.SFTP_PATH + imgName;
+
+      // บันทึกไฟล์ใน local
+      await Bun.write(localPath, slip);
+
+      // ตรวจสอบว่าโฟลเดอร์บนเซิร์ฟเวอร์มีอยู่ไหม
+      const remoteDir = remotePath.substring(0, remotePath.lastIndexOf("/"));
+      try {
+        await sftp.mkdir(remoteDir, true);
+      } catch (mkdirerr) {
+        // โฟลเดอร์อาจมีอยู่แล้ว
+        if (mkdirerr.code !== 4) {
+          throw mkdirerr;
+        }
+      }
+
+      // อัปโหลดไปยังเซิร์ฟเวอร์ผ่าน SFTP
+      await sftp.put(localPath, remotePath, {
+        writeStreamOptions: {
+          flags: "w",
+          mode: 0o666,
+        },
+      });
+
+      // ตรวจสอบว่าอัปโหลดสำเร็จ
+      const uploaded = await sftp.exists(remotePath);
+      if (!uploaded) {
+        throw new err("File upload verification failed");
+      }
+
+      // บันทึกลงฐานข้อมูล
+      const update = await prisma.regis_alumni.update({
+        where: {
+          id: Number(regisDataId),
+        },
+        data: {
+          tel,
+          slip_payment_url: imgName,
+          updatedAt: new Date(),
+        },
+        select: {
+          alumni: {
+            select: {
+              alumni_id: true,
+              fname: true,
+              prefix: true,
+              lname: true,
+            },
+          },
+        },
+      });
+      if (!update) return (set.status = 400);
+
+      // notify rmu email
+      const setting = await prisma.setting.findMany({
+        select: {
+          notify_email: true,
+          allowedNotifyAlumniEditRegis: true,
+        },
+      });
+
+      if (setting[0].allowedNotifyAlumniEditRegis) {
+        const mailOptions = {
+          from: envConfig.mail_user,
+          to: setting[0].notify_email || envConfig.mail_user,
+          subject: "แจ้งเตือน: มีการแก้ไขข้อมูลการลงทะเบียนศิษย์เก่า",
+          text: `
+เรียน ผู้ดูแลระบบ
+
+มีนักศึกษาได้ทำการแก้ไขข้อมูลการลงทะเบียนศิษย์เก่าในระบบเรียบร้อยแล้ว
+
+รายละเอียดผู้ลงทะเบียน
+- รหัสนักศึกษา: ${update.alumni.alumni_id}
+- ชื่อ-นามสกุล: ${update.alumni.prefix}${update.alumni.fname} ${update.alumni.lname}
+- อีเมล: ${update.alumni.alumni_id || "-"}@rmu.ac.th
+- วันเวลา: ${new Date().toLocaleString("th-TH")}
+
+กรุณาเข้าสู่ระบบสารสนเทศเครือข่ายศิษย์เก่าเพื่อตรวจสอบข้อมูลและดำเนินการพิจารณาต่อไป
+
+ระบบสารสนเทศเครือข่ายศิษย์เก่า
+มหาวิทยาลัยราชภัฏมหาสารคาม
+  `,
+        };
+
+        await transporter.sendMail(mailOptions);
+      }
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
     }
   },
 };

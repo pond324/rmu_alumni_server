@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "professor" ALTER COLUMN "facultyId" SET DATA TYPE TEXT,
+ALTER COLUMN "departmentId" SET DATA TYPE TEXT;

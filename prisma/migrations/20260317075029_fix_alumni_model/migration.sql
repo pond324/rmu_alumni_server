@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "alumni" ALTER COLUMN "departmentId" SET DATA TYPE TEXT,
+ALTER COLUMN "edu_levelId" SET DATA TYPE TEXT,
+ALTER COLUMN "facultyId" SET DATA TYPE TEXT;

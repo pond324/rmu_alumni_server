@@ -1,7 +1,5 @@
 import prisma from "../libs/prisma.js";
 
-
-
 export const dashboardController = {
   getAll_AVG: async ({ store, set, query }) => {
     try {
@@ -23,21 +21,21 @@ export const dashboardController = {
         filterCondition = { facultyId };
       } // roleId > 3 จะได้ filterCondition = {}
       if (query?.facultyId) {
-        filterCondition = { facultyId: Number(query.facultyId) };
+        filterCondition = { facultyId: query.facultyId };
       }
       if (query?.departmentId) {
-        filterCondition = { departmentId: Number(query.departmentId) };
+        filterCondition = { departmentId: query.departmentId };
       }
       if (query?.selectYearStart) {
         filterCondition = {
           ...filterCondition,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filterCondition = {
           ...filterCondition,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
 
@@ -61,7 +59,7 @@ export const dashboardController = {
           where: {
             ...filterCondition,
             work_expreriences: {
-              some: { isCurrent: true, continued_study: false },
+              some: { isCurrent: true },
             },
           },
         }),
@@ -74,7 +72,7 @@ export const dashboardController = {
         prisma.alumni.count({
           where: {
             ...filterCondition,
-            work_expreriences: {
+            study_expreriences: {
               some: { continued_study: true, edu_level: "ปริญญาโท" },
             },
           },
@@ -83,7 +81,7 @@ export const dashboardController = {
         prisma.alumni.count({
           where: {
             ...filterCondition,
-            work_expreriences: {
+            study_expreriences: {
               some: { continued_study: true, edu_level: "ปริญญาเอก" },
             },
           },
@@ -121,7 +119,6 @@ export const dashboardController = {
           by: ["company_place"],
           where: {
             alumni: filterCondition,
-            continued_study: false,
             isInThai: true,
           },
           _count: {
@@ -148,7 +145,7 @@ export const dashboardController = {
         prisma.alumni.count({
           where: {
             ...filterCondition,
-            work_expreriences: {
+            study_expreriences: {
               some: {
                 continued_study: true,
                 isCurrent: true,
@@ -163,7 +160,6 @@ export const dashboardController = {
             work_expreriences: {
               some: {
                 isInThai: false,
-                continued_study: false,
               },
             },
           },
@@ -172,7 +168,7 @@ export const dashboardController = {
         prisma.alumni.count({
           where: {
             ...filterCondition,
-            work_expreriences: {
+            study_expreriences: {
               some: {
                 isInThai: false,
                 continued_study: true,
@@ -227,18 +223,18 @@ export const dashboardController = {
               facultyId,
             };
       if (query?.facultyId) {
-        whereQuery = { facultyId: Number(query?.facultyId) };
+        whereQuery = { facultyId: query?.facultyId };
       }
       if (query?.selectYearStart) {
         whereQuery = {
           ...whereQuery,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         whereQuery = {
           ...whereQuery,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       const [working, unemployed] = await Promise.all([
@@ -270,7 +266,7 @@ export const dashboardController = {
         const u = unemployed.find((x) =>
           roleId < 3 || query?.facultyId
             ? x.departmentId === w.departmentId
-            : x.facultyId === w.facultyId
+            : x.facultyId === w.facultyId,
         ) || {
           _count: { alumni_id: 0 },
         };
@@ -292,6 +288,7 @@ export const dashboardController = {
       });
 
       set.status = 200;
+      // console.log("🚀 ~ result:", result)
       return result;
     } catch (err) {
       console.error(err);
@@ -306,7 +303,7 @@ export const dashboardController = {
 
       const { facultyId: facId, selectYearStart, selectYearEnd } = query;
 
-      let facultyId = facId ? Number(facId) : null;
+      let facultyId = facId;
 
       // ถ้าเป็นอาจารย์ (roleId = 3) → ดึง facultyId ของอาจารย์คนนั้น
       if (roleId === 3) {
@@ -330,10 +327,10 @@ export const dashboardController = {
 
       // ถ้ามีปีเริ่มหรือปีจบ → filter ตาม alumni
       if (selectYearStart) {
-        whereClause.alumni.year_start = Number(selectYearStart);
+        whereClause.alumni.year_start = selectYearStart;
       }
       if (selectYearEnd) {
-        whereClause.alumni.year_end = Number(selectYearEnd);
+        whereClause.alumni.year_end = selectYearEnd;
       }
 
       // Query: groupBy ศิษย์เก่า เพื่อเฉลี่ยเงินเดือน
@@ -416,28 +413,28 @@ export const dashboardController = {
         roleId > 3
           ? null
           : roleId < 3
-          ? {
-              departmentId,
-            }
-          : {
-              facultyId,
-            };
+            ? {
+                departmentId,
+              }
+            : {
+                facultyId,
+              };
       if (query?.facultyId) {
-        queryStr = { facultyId: Number(query?.facultyId) };
+        queryStr = { facultyId: query?.facultyId };
       }
       if (query?.departmentId) {
-        queryStr = { departmentId: Number(query?.departmentId) };
+        queryStr = { departmentId: query?.departmentId };
       }
       if (query?.selectYearStart) {
         queryStr = {
           ...queryStr,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         queryStr = {
           ...queryStr,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       const result = await prisma.work_expreriences.groupBy({
@@ -493,29 +490,29 @@ export const dashboardController = {
         roleId > 3
           ? null
           : roleId < 3
-          ? {
-              departmentId,
-            }
-          : {
-              facultyId,
-            };
+            ? {
+                departmentId,
+              }
+            : {
+                facultyId,
+              };
 
       if (query?.facultyId) {
-        queryStr = { facultyId: Number(query?.facultyId) };
+        queryStr = { facultyId: query?.facultyId };
       }
       if (query?.departmentId) {
-        queryStr = { departmentId: Number(query?.departmentId) };
+        queryStr = { departmentId: query?.departmentId };
       }
       if (query?.selectYearStart) {
         queryStr = {
           ...queryStr,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         queryStr = {
           ...queryStr,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
 
@@ -524,7 +521,7 @@ export const dashboardController = {
           by: ["company_place"],
           where: {
             alumni: { ...queryStr },
-            continued_study: false,
+
             isInThai: true,
           },
           _count: {
@@ -541,7 +538,6 @@ export const dashboardController = {
             ...queryStr,
             work_expreriences: {
               some: {
-                continued_study: false,
                 isInThai: true,
               },
             },
@@ -575,25 +571,25 @@ export const dashboardController = {
         roleId > 3
           ? null
           : roleId < 3
-          ? {
-              departmentId,
-            }
-          : {
-              facultyId,
-            };
+            ? {
+                departmentId,
+              }
+            : {
+                facultyId,
+              };
       if (query?.facultyId) {
-        queryStr = { facultyId: Number(query?.facultyId) };
+        queryStr = { facultyId: query?.facultyId };
       }
       if (query?.selectYearStart) {
         queryStr = {
           ...queryStr,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         queryStr = {
           ...queryStr,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       // groupBy ตามคณะ
@@ -602,11 +598,6 @@ export const dashboardController = {
         _count: { alumni_id: true },
         where: {
           ...queryStr,
-          work_expreriences: {
-            some: {
-              continued_study: false,
-            },
-          },
         },
         orderBy: {
           _count: { alumni_id: "desc" },
@@ -665,29 +656,29 @@ export const dashboardController = {
         roleId > 3
           ? null
           : roleId < 3
-          ? {
-              departmentId,
-            }
-          : {
-              facultyId,
-            };
+            ? {
+                departmentId,
+              }
+            : {
+                facultyId,
+              };
 
       if (query?.facultyId) {
-        queryStr = { facultyId: Number(query?.facultyId) };
+        queryStr = { facultyId: query?.facultyId };
       }
       if (query?.departmentId) {
-        queryStr = { departmentId: Number(query?.departmentId) };
+        queryStr = { departmentId: query?.departmentId };
       }
       if (query?.selectYearStart) {
         queryStr = {
           ...queryStr,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         queryStr = {
           ...queryStr,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
 
@@ -749,10 +740,8 @@ export const dashboardController = {
         selectYearEnd,
       } = query;
       const skip = take * (page - 1);
-      const yearStartQ = selectYearStart
-        ? { year_start: Number(selectYearStart) }
-        : {};
-      const yearEndQ = selectYearEnd ? { year_end: Number(selectYearEnd) } : {};
+      const yearStartQ = selectYearStart ? { year_start: selectYearStart } : {};
+      const yearEndQ = selectYearEnd ? { year_end: selectYearEnd } : {};
 
       const { facultyId: userFac, departmentId: userDep } =
         await prisma.professor.findUnique({
@@ -772,21 +761,21 @@ export const dashboardController = {
         filter = { departmentId: userDep };
       }
       if (facultyId) {
-        filter = { facultyId: Number(facultyId) };
+        filter = { facultyId };
       }
       if (departmentId) {
-        filter = { departmentId: Number(departmentId) };
+        filter = { departmentId };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       if (search) {
@@ -813,7 +802,7 @@ export const dashboardController = {
             },
             {
               year_start: {
-                equals: Number(search),
+                contains: search,
               },
             },
           ],
@@ -896,10 +885,8 @@ export const dashboardController = {
         selectYearEnd,
       } = query;
       const skip = take * (page - 1);
-      const yearStartQ = selectYearStart
-        ? { year_start: Number(selectYearStart) }
-        : {};
-      const yearEndQ = selectYearEnd ? { year_end: Number(selectYearEnd) } : {};
+      const yearStartQ = selectYearStart ? { year_start: selectYearStart } : {};
+      const yearEndQ = selectYearEnd ? { year_end: selectYearEnd } : {};
 
       const { facultyId: userFac, departmentId: userDep } =
         await prisma.professor.findUnique({
@@ -919,21 +906,21 @@ export const dashboardController = {
         filter = { departmentId: userDep };
       }
       if (facultyId) {
-        filter = { facultyId: Number(facultyId) };
+        filter = { facultyId };
       }
       if (departmentId) {
-        filter = { departmentId: Number(departmentId) };
+        filter = { departmentId };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       if (search) {
@@ -960,7 +947,7 @@ export const dashboardController = {
             },
             {
               year_start: {
-                equals: Number(search),
+                contains: search,
               },
             },
             {
@@ -1033,20 +1020,24 @@ export const dashboardController = {
             facultyId: true,
             year_end: true,
             departmentId: true,
-            work_expreriences: {
+            study_expreriences: {
               take: 1,
               where: {
                 isCurrent: true,
               },
               select: {
-                continued_study: true,
-                job_position: true,
-                company_place: true,
-                company_name: true,
+                // continued_study: true,
+                // job_position: true,
+                // company_place: true,
+                // company_name: true,
+                // edu_university: true,
+                edu_dep: true,
+                edu_level: true,
+                edu_faculty: true,
                 edu_university: true,
               },
               orderBy: {
-                end_date: "desc",
+                year_end: "desc",
               },
             },
           },
@@ -1089,10 +1080,8 @@ export const dashboardController = {
         selectYearEnd,
       } = query;
       const skip = take * (page - 1);
-      const yearStartQ = selectYearStart
-        ? { year_start: Number(selectYearStart) }
-        : {};
-      const yearEndQ = selectYearEnd ? { year_end: Number(selectYearEnd) } : {};
+      const yearStartQ = selectYearStart ? { year_start: selectYearStart } : {};
+      const yearEndQ = selectYearEnd ? { year_end: selectYearEnd } : {};
 
       const { facultyId: userFac, departmentId: userDep } =
         await prisma.professor.findUnique({
@@ -1112,21 +1101,21 @@ export const dashboardController = {
         filter = { departmentId: userDep };
       }
       if (facultyId) {
-        filter = { facultyId: Number(facultyId) };
+        filter = { facultyId: facultyId };
       }
       if (departmentId) {
-        filter = { departmentId: Number(departmentId) };
+        filter = { departmentId: departmentId };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       if (search) {
@@ -1153,7 +1142,7 @@ export const dashboardController = {
             },
             {
               year_start: {
-                equals: Number(search),
+                contains: search,
               },
             },
           ],
@@ -1238,24 +1227,24 @@ export const dashboardController = {
 
       if (facultyId) {
         filter = {
-          facultyId: Number(facultyId),
+          facultyId,
         };
       }
       if (departmentId) {
         filter = {
-          departmentId: Number(departmentId),
+          departmentId,
         };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
 
@@ -1265,7 +1254,6 @@ export const dashboardController = {
             ...filter,
             work_expreriences: {
               some: {
-                continued_study: false,
                 isInThai: true,
               },
             },
@@ -1276,7 +1264,6 @@ export const dashboardController = {
             ...filter,
             work_expreriences: {
               some: {
-                continued_study: false,
                 isInThai: false,
               },
             },
@@ -1288,7 +1275,6 @@ export const dashboardController = {
             alumni: {
               ...filter,
             },
-            continued_study: false,
             isInThai: false,
           },
           _count: {
@@ -1345,24 +1331,24 @@ export const dashboardController = {
 
       if (facultyId) {
         filter = {
-          facultyId: Number(facultyId),
+          facultyId,
         };
       }
       if (departmentId) {
         filter = {
-          departmentId: Number(departmentId),
+          departmentId,
         };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       if (search) {
@@ -1394,7 +1380,7 @@ export const dashboardController = {
               },
             },
             {
-              work_expreriences: {
+              study_expreriences: {
                 some: {
                   edu_university: {
                     contains: search,
@@ -1404,19 +1390,9 @@ export const dashboardController = {
               },
             },
             {
-              work_expreriences: {
+              study_expreriences: {
                 some: {
                   edu_dep: {
-                    contains: search,
-                    mode: "insensitive",
-                  },
-                },
-              },
-            },
-            {
-              work_expreriences: {
-                some: {
-                  company_place: {
                     contains: search,
                     mode: "insensitive",
                   },
@@ -1449,7 +1425,7 @@ export const dashboardController = {
             year_end: true,
             facultyId: true,
             departmentId: true,
-            work_expreriences: {
+            study_expreriences: {
               take: 1,
               where: {
                 continued_study: true,
@@ -1468,7 +1444,7 @@ export const dashboardController = {
         prisma.alumni.count({
           where: {
             ...filter,
-            work_expreriences: {
+            study_expreriences: {
               some: {
                 continued_study: true,
                 edu_level: type < 2 ? "ปริญญาโท" : "ปริญญาเอก",
@@ -1520,24 +1496,24 @@ export const dashboardController = {
 
       if (facultyId) {
         filter = {
-          facultyId: Number(facultyId),
+          facultyId,
         };
       }
       if (departmentId) {
         filter = {
-          departmentId: Number(departmentId),
+          departmentId,
         };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       if (search) {
@@ -1617,7 +1593,6 @@ export const dashboardController = {
             work_expreriences: {
               take: 1,
               where: {
-                continued_study: false,
                 isInThai: false,
               },
               select: {
@@ -1679,21 +1654,21 @@ export const dashboardController = {
         filterCondition = { facultyId };
       } // roleId > 3 จะได้ filterCondition = {}
       if (query?.facultyId) {
-        filterCondition = { facultyId: Number(query.facultyId) };
+        filterCondition = { facultyId: query.facultyId };
       }
       if (query?.departmentId) {
-        filterCondition = { departmentId: Number(query.departmentId) };
+        filterCondition = { departmentId: query.departmentId };
       }
       if (query?.selectYearStart) {
         filterCondition = {
           ...filterCondition,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filterCondition = {
           ...filterCondition,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
 
@@ -1765,24 +1740,24 @@ export const dashboardController = {
 
       if (facultyId) {
         filter = {
-          facultyId: Number(facultyId),
+          facultyId,
         };
       }
       if (departmentId) {
         filter = {
-          departmentId: Number(departmentId),
+          departmentId,
         };
       }
       if (query?.selectYearStart) {
         filter = {
           ...filter,
-          year_start: Number(query?.selectYearStart),
+          year_start: query?.selectYearStart,
         };
       }
       if (query?.selectYearEnd) {
         filter = {
           ...filter,
-          year_end: Number(query?.selectYearEnd),
+          year_end: query?.selectYearEnd,
         };
       }
       if (search) {
@@ -1854,7 +1829,7 @@ export const dashboardController = {
           take: Number(take),
           skip,
           where: {
-            work_expreriences: {
+            study_expreriences: {
               some: {
                 isInThai: false,
                 continued_study: true,
@@ -1871,7 +1846,7 @@ export const dashboardController = {
             departmentId: true,
             year_end: true,
             year_start: true,
-            work_expreriences: {
+            study_expreriences: {
               take: 1,
               where: {
                 continued_study: true,
@@ -1881,7 +1856,6 @@ export const dashboardController = {
                 year_end: true,
                 year_start: true,
                 edu_university: true,
-                company_place: true,
               },
               orderBy: {
                 createdAt: "desc",
@@ -1894,7 +1868,7 @@ export const dashboardController = {
         }),
         prisma.alumni.count({
           where: {
-            work_expreriences: {
+            study_expreriences: {
               some: {
                 isInThai: false,
                 continued_study: true,

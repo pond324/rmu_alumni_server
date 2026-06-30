@@ -13,9 +13,9 @@ const app = new Elysia({ prefix: "/rmu-api" })
   // cors
   .use(
     cors({
-      origin: ["http://localhost:3181","https://alumni.rmu.ac.th"],
+      origin: ["http://localhost:3181", "https://alumni.rmu.ac.th","http://10.110.29.111:3181"],
       credentials: true,
-    })
+    }),
   )
   // jwt
   .use(
@@ -23,13 +23,13 @@ const app = new Elysia({ prefix: "/rmu-api" })
       secret: envConfig.jwt_secret,
       name: "jwt",
       exp: "1d",
-    })
+    }),
   )
   .use(
     staticPlugin({
-      prefix: "",
+      prefix: "/",
       assets: "./public",
-    })
+    }),
   )
   // auth
   .use(authRoutes)
@@ -44,5 +44,5 @@ const app = new Elysia({ prefix: "/rmu-api" })
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}
-   ${envConfig.port}`
+   ${envConfig.port}`,
 );

@@ -23,13 +23,21 @@ const authRoutes = new Elysia({ prefix: "/auth" })
             // ✅ เพิ่ม logging
             console.warn(`Rate limit exceeded: ${req.ip}`);
           },
-        })
+        }),
       )
       .post("/login", authController.login)
+      // auth otp
+      .post("/key-auth", authController.authSuccess)
+      // register
+      .post("/regis-check-user", authController.regis_checkuser)
+      // check otp regis
+      .post("/regis-check-otp", authController.regis_checkotp)
+      // register alumni
+      .post("/regis-alumni", authController.regis_create_password)
+      // upload slip
+      .post("/regis-upload-slip", authController.regis_upload_slip)
   )
 
-  // auth otp
-  .post("/key-auth", authController.authSuccess)
   // check login
   .get("/check-user", authController.checkLogin, {
     beforeHandle: middleware.auth,
@@ -39,6 +47,7 @@ const authRoutes = new Elysia({ prefix: "/auth" })
   // forgot password check
   .post("/forgot-pass/checkuser", authController.forgotpass_checkuser)
   // save new pass
-  .put("/forgot-pass/newpass", authController.forgotpass_newpass);
+  .put("/forgot-pass/newpass", authController.forgotpass_newpass)
+ 
 
 export default authRoutes;

@@ -9,8 +9,6 @@ export const envConfig = {
   mail_port: process.env.MAIL_PORT,
   mail_user: process.env.MAIL_USER,
   mail_pass: process.env.MAIL_PASS,
-  cloudinary_url: process.env.CLOUDINARY_URL,
-  upload_preset: process.env.UPLOAD_PRESET,
 };
 
 export const transporter = nodemailler.createTransport({

@@ -120,6 +120,23 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.RolesScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.Regis_alumniScalarFieldEnum = {
+  id: 'id',
+  alumni_id: 'alumni_id',
+  email: 'email',
+  tel: 'tel',
+  slip_payment_url: 'slip_payment_url',
+  isApproved: 'isApproved',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.AlumniScalarFieldEnum = {
   alumni_id: 'alumni_id',
   prefix: 'prefix',
@@ -135,7 +152,8 @@ exports.Prisma.AlumniScalarFieldEnum = {
   departmentId: 'departmentId',
   edu_levelId: 'edu_levelId',
   createtAt: 'createtAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  import_historyId: 'import_historyId'
 };
 
 exports.Prisma.Alumni_contractScalarFieldEnum = {
@@ -171,6 +189,13 @@ exports.Prisma.Work_expreriencesScalarFieldEnum = {
   isCurrent: 'isCurrent',
   isInThai: 'isInThai',
   remark: 'remark',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  alumniId: 'alumniId'
+};
+
+exports.Prisma.Studey_expreriencesScalarFieldEnum = {
+  id: 'id',
   edu_level: 'edu_level',
   continued_study: 'continued_study',
   edu_faculty: 'edu_faculty',
@@ -179,6 +204,10 @@ exports.Prisma.Work_expreriencesScalarFieldEnum = {
   year_start: 'year_start',
   year_end: 'year_end',
   edu_performance: 'edu_performance',
+  isCurrent: 'isCurrent',
+  isInThai: 'isInThai',
+  place: 'place',
+  remark: 'remark',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   alumniId: 'alumniId'
@@ -215,8 +244,47 @@ exports.Prisma.ProfessorScalarFieldEnum = {
   email: 'email',
   facultyId: 'facultyId',
   departmentId: 'departmentId',
+  import_historyId: 'import_historyId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdminScalarFieldEnum = {
+  admin_id: 'admin_id',
+  prefix: 'prefix',
+  fname: 'fname',
+  lname: 'lname',
+  username: 'username',
+  profile: 'profile',
+  passwordHash: 'passwordHash',
+  canUse: 'canUse',
+  email: 'email',
+  tel: 'tel',
+  lastestLogin: 'lastestLogin',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SendTextHistoryScalarFieldEnum = {
+  id: 'id',
+  alumni_sender: 'alumni_sender',
+  alumniId: 'alumniId',
+  professorId: 'professorId',
+  sender_type: 'sender_type',
+  adminId: 'adminId',
+  title: 'title',
+  detail: 'detail',
+  category: 'category',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.OtpScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  alumniId: 'alumniId',
+  professorId: 'professorId',
+  adminId: 'adminId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.News_donatiosScalarFieldEnum = {
@@ -238,6 +306,39 @@ exports.Prisma.News_donatiosScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.Import_historyScalarFieldEnum = {
+  id: 'id',
+  file_name: 'file_name',
+  file_size: 'file_size',
+  total_rows: 'total_rows',
+  import_type: 'import_type',
+  imported_by: 'imported_by',
+  started_at: 'started_at',
+  finished_at: 'finished_at',
+  created_at: 'created_at'
+};
+
+exports.Prisma.SettingScalarFieldEnum = {
+  id: 'id',
+  regis_payment_qrcode: 'regis_payment_qrcode',
+  regis_payment: 'regis_payment',
+  fac_sheet_link: 'fac_sheet_link',
+  dep_sheet_link: 'dep_sheet_link',
+  regis_payment_account_name: 'regis_payment_account_name',
+  regis_payment_account_number: 'regis_payment_account_number',
+  regis_payment_account_back: 'regis_payment_account_back',
+  skipAlumniDuplicate: 'skipAlumniDuplicate',
+  skipPersonelDuplicate: 'skipPersonelDuplicate',
+  allowedAlumniAccount: 'allowedAlumniAccount',
+  allowedPersonelAccount: 'allowedPersonelAccount',
+  allowedAdminAccount: 'allowedAdminAccount',
+  allowedNotifyAlumniRegis: 'allowedNotifyAlumniRegis',
+  allowedNotifyAlumniEditRegis: 'allowedNotifyAlumniEditRegis',
+  notify_email: 'notify_email',
+  backup_folderid: 'backup_folderid',
+  filebackup_folderid: 'filebackup_folderid'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -255,12 +356,20 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
+  roles: 'roles',
+  regis_alumni: 'regis_alumni',
   alumni: 'alumni',
   alumni_contract: 'alumni_contract',
   work_expreriences: 'work_expreriences',
+  studey_expreriences: 'studey_expreriences',
   user_privacy: 'user_privacy',
   professor: 'professor',
-  news_donatios: 'news_donatios'
+  admin: 'admin',
+  sendTextHistory: 'sendTextHistory',
+  otp: 'otp',
+  news_donatios: 'news_donatios',
+  import_history: 'import_history',
+  setting: 'setting'
 };
 
 /**

@@ -65,4 +65,12 @@ export const alumniRoutes = new Elysia({ prefix: "/alumni" })
   // get contract
   .get("/contract", alumniController.get_contract, {
     beforeHandle: middleware.auth,
-  });
+  })
+  // regis alumni list
+  .get("/regis-alumni-list", alumniController.get_alumni_list)
+  // regis edit get otp
+  .post("/regis-otp-edit", alumniController.edit_regis_get_otp)
+  // regis edit check otp
+  .post("/edit-regis-otp-check",alumniController.regis_edit_check_otp)
+  // regis edit slip
+  .put("/regis-edit-slip",alumniController.regis_edit_slip)

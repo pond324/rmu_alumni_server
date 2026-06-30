@@ -14,6 +14,16 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
+ * Model roles
+ * 
+ */
+export type roles = $Result.DefaultSelection<Prisma.$rolesPayload>
+/**
+ * Model regis_alumni
+ * 
+ */
+export type regis_alumni = $Result.DefaultSelection<Prisma.$regis_alumniPayload>
+/**
  * Model alumni
  * 
  */
@@ -29,6 +39,11 @@ export type alumni_contract = $Result.DefaultSelection<Prisma.$alumni_contractPa
  */
 export type work_expreriences = $Result.DefaultSelection<Prisma.$work_expreriencesPayload>
 /**
+ * Model studey_expreriences
+ * 
+ */
+export type studey_expreriences = $Result.DefaultSelection<Prisma.$studey_expreriencesPayload>
+/**
  * Model user_privacy
  * 
  */
@@ -39,10 +54,35 @@ export type user_privacy = $Result.DefaultSelection<Prisma.$user_privacyPayload>
  */
 export type professor = $Result.DefaultSelection<Prisma.$professorPayload>
 /**
+ * Model admin
+ * 
+ */
+export type admin = $Result.DefaultSelection<Prisma.$adminPayload>
+/**
+ * Model sendTextHistory
+ * 
+ */
+export type sendTextHistory = $Result.DefaultSelection<Prisma.$sendTextHistoryPayload>
+/**
+ * Model otp
+ * 
+ */
+export type otp = $Result.DefaultSelection<Prisma.$otpPayload>
+/**
  * Model news_donatios
  * 
  */
 export type news_donatios = $Result.DefaultSelection<Prisma.$news_donatiosPayload>
+/**
+ * Model import_history
+ * 
+ */
+export type import_history = $Result.DefaultSelection<Prisma.$import_historyPayload>
+/**
+ * Model setting
+ * 
+ */
+export type setting = $Result.DefaultSelection<Prisma.$settingPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -51,8 +91,8 @@ export type news_donatios = $Result.DefaultSelection<Prisma.$news_donatiosPayloa
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Alumni
- * const alumni = await prisma.alumni.findMany()
+ * // Fetch zero or more Roles
+ * const roles = await prisma.roles.findMany()
  * ```
  *
  *
@@ -72,8 +112,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Alumni
-   * const alumni = await prisma.alumni.findMany()
+   * // Fetch zero or more Roles
+   * const roles = await prisma.roles.findMany()
    * ```
    *
    *
@@ -162,6 +202,26 @@ export class PrismaClient<
   }>>
 
       /**
+   * `prisma.roles`: Exposes CRUD operations for the **roles** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Roles
+    * const roles = await prisma.roles.findMany()
+    * ```
+    */
+  get roles(): Prisma.rolesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.regis_alumni`: Exposes CRUD operations for the **regis_alumni** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Regis_alumni
+    * const regis_alumni = await prisma.regis_alumni.findMany()
+    * ```
+    */
+  get regis_alumni(): Prisma.regis_alumniDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.alumni`: Exposes CRUD operations for the **alumni** model.
     * Example usage:
     * ```ts
@@ -192,6 +252,16 @@ export class PrismaClient<
   get work_expreriences(): Prisma.work_expreriencesDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.studey_expreriences`: Exposes CRUD operations for the **studey_expreriences** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Studey_expreriences
+    * const studey_expreriences = await prisma.studey_expreriences.findMany()
+    * ```
+    */
+  get studey_expreriences(): Prisma.studey_expreriencesDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.user_privacy`: Exposes CRUD operations for the **user_privacy** model.
     * Example usage:
     * ```ts
@@ -212,6 +282,36 @@ export class PrismaClient<
   get professor(): Prisma.professorDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.admin`: Exposes CRUD operations for the **admin** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Admins
+    * const admins = await prisma.admin.findMany()
+    * ```
+    */
+  get admin(): Prisma.adminDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.sendTextHistory`: Exposes CRUD operations for the **sendTextHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SendTextHistories
+    * const sendTextHistories = await prisma.sendTextHistory.findMany()
+    * ```
+    */
+  get sendTextHistory(): Prisma.sendTextHistoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.otp`: Exposes CRUD operations for the **otp** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Otps
+    * const otps = await prisma.otp.findMany()
+    * ```
+    */
+  get otp(): Prisma.otpDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.news_donatios`: Exposes CRUD operations for the **news_donatios** model.
     * Example usage:
     * ```ts
@@ -220,6 +320,26 @@ export class PrismaClient<
     * ```
     */
   get news_donatios(): Prisma.news_donatiosDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.import_history`: Exposes CRUD operations for the **import_history** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Import_histories
+    * const import_histories = await prisma.import_history.findMany()
+    * ```
+    */
+  get import_history(): Prisma.import_historyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.setting`: Exposes CRUD operations for the **setting** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Settings
+    * const settings = await prisma.setting.findMany()
+    * ```
+    */
+  get setting(): Prisma.settingDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -654,12 +774,20 @@ export namespace Prisma {
 
 
   export const ModelName: {
+    roles: 'roles',
+    regis_alumni: 'regis_alumni',
     alumni: 'alumni',
     alumni_contract: 'alumni_contract',
     work_expreriences: 'work_expreriences',
+    studey_expreriences: 'studey_expreriences',
     user_privacy: 'user_privacy',
     professor: 'professor',
-    news_donatios: 'news_donatios'
+    admin: 'admin',
+    sendTextHistory: 'sendTextHistory',
+    otp: 'otp',
+    news_donatios: 'news_donatios',
+    import_history: 'import_history',
+    setting: 'setting'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -675,10 +803,158 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "alumni" | "alumni_contract" | "work_expreriences" | "user_privacy" | "professor" | "news_donatios"
+      modelProps: "roles" | "regis_alumni" | "alumni" | "alumni_contract" | "work_expreriences" | "studey_expreriences" | "user_privacy" | "professor" | "admin" | "sendTextHistory" | "otp" | "news_donatios" | "import_history" | "setting"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
+      roles: {
+        payload: Prisma.$rolesPayload<ExtArgs>
+        fields: Prisma.rolesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.rolesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.rolesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>
+          }
+          findFirst: {
+            args: Prisma.rolesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.rolesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>
+          }
+          findMany: {
+            args: Prisma.rolesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>[]
+          }
+          create: {
+            args: Prisma.rolesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>
+          }
+          createMany: {
+            args: Prisma.rolesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.rolesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>[]
+          }
+          delete: {
+            args: Prisma.rolesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>
+          }
+          update: {
+            args: Prisma.rolesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>
+          }
+          deleteMany: {
+            args: Prisma.rolesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.rolesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.rolesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>[]
+          }
+          upsert: {
+            args: Prisma.rolesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$rolesPayload>
+          }
+          aggregate: {
+            args: Prisma.RolesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRoles>
+          }
+          groupBy: {
+            args: Prisma.rolesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RolesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.rolesCountArgs<ExtArgs>
+            result: $Utils.Optional<RolesCountAggregateOutputType> | number
+          }
+        }
+      }
+      regis_alumni: {
+        payload: Prisma.$regis_alumniPayload<ExtArgs>
+        fields: Prisma.regis_alumniFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.regis_alumniFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.regis_alumniFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>
+          }
+          findFirst: {
+            args: Prisma.regis_alumniFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.regis_alumniFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>
+          }
+          findMany: {
+            args: Prisma.regis_alumniFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>[]
+          }
+          create: {
+            args: Prisma.regis_alumniCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>
+          }
+          createMany: {
+            args: Prisma.regis_alumniCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.regis_alumniCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>[]
+          }
+          delete: {
+            args: Prisma.regis_alumniDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>
+          }
+          update: {
+            args: Prisma.regis_alumniUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>
+          }
+          deleteMany: {
+            args: Prisma.regis_alumniDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.regis_alumniUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.regis_alumniUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>[]
+          }
+          upsert: {
+            args: Prisma.regis_alumniUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$regis_alumniPayload>
+          }
+          aggregate: {
+            args: Prisma.Regis_alumniAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRegis_alumni>
+          }
+          groupBy: {
+            args: Prisma.regis_alumniGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Regis_alumniGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.regis_alumniCountArgs<ExtArgs>
+            result: $Utils.Optional<Regis_alumniCountAggregateOutputType> | number
+          }
+        }
+      }
       alumni: {
         payload: Prisma.$alumniPayload<ExtArgs>
         fields: Prisma.alumniFieldRefs
@@ -901,6 +1177,80 @@ export namespace Prisma {
           }
         }
       }
+      studey_expreriences: {
+        payload: Prisma.$studey_expreriencesPayload<ExtArgs>
+        fields: Prisma.studey_expreriencesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.studey_expreriencesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.studey_expreriencesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>
+          }
+          findFirst: {
+            args: Prisma.studey_expreriencesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.studey_expreriencesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>
+          }
+          findMany: {
+            args: Prisma.studey_expreriencesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>[]
+          }
+          create: {
+            args: Prisma.studey_expreriencesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>
+          }
+          createMany: {
+            args: Prisma.studey_expreriencesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.studey_expreriencesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>[]
+          }
+          delete: {
+            args: Prisma.studey_expreriencesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>
+          }
+          update: {
+            args: Prisma.studey_expreriencesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>
+          }
+          deleteMany: {
+            args: Prisma.studey_expreriencesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.studey_expreriencesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.studey_expreriencesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>[]
+          }
+          upsert: {
+            args: Prisma.studey_expreriencesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$studey_expreriencesPayload>
+          }
+          aggregate: {
+            args: Prisma.Studey_expreriencesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStudey_expreriences>
+          }
+          groupBy: {
+            args: Prisma.studey_expreriencesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Studey_expreriencesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.studey_expreriencesCountArgs<ExtArgs>
+            result: $Utils.Optional<Studey_expreriencesCountAggregateOutputType> | number
+          }
+        }
+      }
       user_privacy: {
         payload: Prisma.$user_privacyPayload<ExtArgs>
         fields: Prisma.user_privacyFieldRefs
@@ -1049,6 +1399,228 @@ export namespace Prisma {
           }
         }
       }
+      admin: {
+        payload: Prisma.$adminPayload<ExtArgs>
+        fields: Prisma.adminFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.adminFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.adminFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>
+          }
+          findFirst: {
+            args: Prisma.adminFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.adminFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>
+          }
+          findMany: {
+            args: Prisma.adminFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>[]
+          }
+          create: {
+            args: Prisma.adminCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>
+          }
+          createMany: {
+            args: Prisma.adminCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.adminCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>[]
+          }
+          delete: {
+            args: Prisma.adminDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>
+          }
+          update: {
+            args: Prisma.adminUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>
+          }
+          deleteMany: {
+            args: Prisma.adminDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.adminUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.adminUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>[]
+          }
+          upsert: {
+            args: Prisma.adminUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$adminPayload>
+          }
+          aggregate: {
+            args: Prisma.AdminAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdmin>
+          }
+          groupBy: {
+            args: Prisma.adminGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdminGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.adminCountArgs<ExtArgs>
+            result: $Utils.Optional<AdminCountAggregateOutputType> | number
+          }
+        }
+      }
+      sendTextHistory: {
+        payload: Prisma.$sendTextHistoryPayload<ExtArgs>
+        fields: Prisma.sendTextHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.sendTextHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.sendTextHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.sendTextHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.sendTextHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.sendTextHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.sendTextHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.sendTextHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.sendTextHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.sendTextHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>
+          }
+          update: {
+            args: Prisma.sendTextHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.sendTextHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.sendTextHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.sendTextHistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.sendTextHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sendTextHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.SendTextHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSendTextHistory>
+          }
+          groupBy: {
+            args: Prisma.sendTextHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SendTextHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.sendTextHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<SendTextHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      otp: {
+        payload: Prisma.$otpPayload<ExtArgs>
+        fields: Prisma.otpFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.otpFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.otpFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>
+          }
+          findFirst: {
+            args: Prisma.otpFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.otpFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>
+          }
+          findMany: {
+            args: Prisma.otpFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>[]
+          }
+          create: {
+            args: Prisma.otpCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>
+          }
+          createMany: {
+            args: Prisma.otpCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.otpCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>[]
+          }
+          delete: {
+            args: Prisma.otpDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>
+          }
+          update: {
+            args: Prisma.otpUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>
+          }
+          deleteMany: {
+            args: Prisma.otpDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.otpUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.otpUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>[]
+          }
+          upsert: {
+            args: Prisma.otpUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$otpPayload>
+          }
+          aggregate: {
+            args: Prisma.OtpAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOtp>
+          }
+          groupBy: {
+            args: Prisma.otpGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OtpGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.otpCountArgs<ExtArgs>
+            result: $Utils.Optional<OtpCountAggregateOutputType> | number
+          }
+        }
+      }
       news_donatios: {
         payload: Prisma.$news_donatiosPayload<ExtArgs>
         fields: Prisma.news_donatiosFieldRefs
@@ -1120,6 +1692,154 @@ export namespace Prisma {
           count: {
             args: Prisma.news_donatiosCountArgs<ExtArgs>
             result: $Utils.Optional<News_donatiosCountAggregateOutputType> | number
+          }
+        }
+      }
+      import_history: {
+        payload: Prisma.$import_historyPayload<ExtArgs>
+        fields: Prisma.import_historyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.import_historyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.import_historyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>
+          }
+          findFirst: {
+            args: Prisma.import_historyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.import_historyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>
+          }
+          findMany: {
+            args: Prisma.import_historyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>[]
+          }
+          create: {
+            args: Prisma.import_historyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>
+          }
+          createMany: {
+            args: Prisma.import_historyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.import_historyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>[]
+          }
+          delete: {
+            args: Prisma.import_historyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>
+          }
+          update: {
+            args: Prisma.import_historyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>
+          }
+          deleteMany: {
+            args: Prisma.import_historyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.import_historyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.import_historyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>[]
+          }
+          upsert: {
+            args: Prisma.import_historyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$import_historyPayload>
+          }
+          aggregate: {
+            args: Prisma.Import_historyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateImport_history>
+          }
+          groupBy: {
+            args: Prisma.import_historyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Import_historyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.import_historyCountArgs<ExtArgs>
+            result: $Utils.Optional<Import_historyCountAggregateOutputType> | number
+          }
+        }
+      }
+      setting: {
+        payload: Prisma.$settingPayload<ExtArgs>
+        fields: Prisma.settingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.settingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.settingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>
+          }
+          findFirst: {
+            args: Prisma.settingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.settingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>
+          }
+          findMany: {
+            args: Prisma.settingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>[]
+          }
+          create: {
+            args: Prisma.settingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>
+          }
+          createMany: {
+            args: Prisma.settingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.settingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>[]
+          }
+          delete: {
+            args: Prisma.settingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>
+          }
+          update: {
+            args: Prisma.settingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>
+          }
+          deleteMany: {
+            args: Prisma.settingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.settingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.settingUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>[]
+          }
+          upsert: {
+            args: Prisma.settingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$settingPayload>
+          }
+          aggregate: {
+            args: Prisma.SettingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSetting>
+          }
+          groupBy: {
+            args: Prisma.settingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SettingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.settingCountArgs<ExtArgs>
+            result: $Utils.Optional<SettingCountAggregateOutputType> | number
           }
         }
       }
@@ -1231,12 +1951,20 @@ export namespace Prisma {
     comments?: runtime.SqlCommenterPlugin[]
   }
   export type GlobalOmitConfig = {
+    roles?: rolesOmit
+    regis_alumni?: regis_alumniOmit
     alumni?: alumniOmit
     alumni_contract?: alumni_contractOmit
     work_expreriences?: work_expreriencesOmit
+    studey_expreriences?: studey_expreriencesOmit
     user_privacy?: user_privacyOmit
     professor?: professorOmit
+    admin?: adminOmit
+    sendTextHistory?: sendTextHistoryOmit
+    otp?: otpOmit
     news_donatios?: news_donatiosOmit
+    import_history?: import_historyOmit
+    setting?: settingOmit
   }
 
   /* Types for Logging */
@@ -1318,10 +2046,14 @@ export namespace Prisma {
 
   export type AlumniCountOutputType = {
     work_expreriences: number
+    study_expreriences: number
+    sendTextHistory: number
   }
 
   export type AlumniCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     work_expreriences?: boolean | AlumniCountOutputTypeCountWork_expreriencesArgs
+    study_expreriences?: boolean | AlumniCountOutputTypeCountStudy_expreriencesArgs
+    sendTextHistory?: boolean | AlumniCountOutputTypeCountSendTextHistoryArgs
   }
 
   // Custom InputTypes
@@ -1342,16 +2074,32 @@ export namespace Prisma {
     where?: work_expreriencesWhereInput
   }
 
+  /**
+   * AlumniCountOutputType without action
+   */
+  export type AlumniCountOutputTypeCountStudy_expreriencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: studey_expreriencesWhereInput
+  }
+
+  /**
+   * AlumniCountOutputType without action
+   */
+  export type AlumniCountOutputTypeCountSendTextHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sendTextHistoryWhereInput
+  }
+
 
   /**
    * Count Type ProfessorCountOutputType
    */
 
   export type ProfessorCountOutputType = {
+    sendTextHistory: number
     alumni_contract: number
   }
 
   export type ProfessorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sendTextHistory?: boolean | ProfessorCountOutputTypeCountSendTextHistoryArgs
     alumni_contract?: boolean | ProfessorCountOutputTypeCountAlumni_contractArgs
   }
 
@@ -1369,8 +2117,95 @@ export namespace Prisma {
   /**
    * ProfessorCountOutputType without action
    */
+  export type ProfessorCountOutputTypeCountSendTextHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sendTextHistoryWhereInput
+  }
+
+  /**
+   * ProfessorCountOutputType without action
+   */
   export type ProfessorCountOutputTypeCountAlumni_contractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: alumni_contractWhereInput
+  }
+
+
+  /**
+   * Count Type AdminCountOutputType
+   */
+
+  export type AdminCountOutputType = {
+    sendTextHistory: number
+    importHistory: number
+  }
+
+  export type AdminCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sendTextHistory?: boolean | AdminCountOutputTypeCountSendTextHistoryArgs
+    importHistory?: boolean | AdminCountOutputTypeCountImportHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AdminCountOutputType without action
+   */
+  export type AdminCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdminCountOutputType
+     */
+    select?: AdminCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AdminCountOutputType without action
+   */
+  export type AdminCountOutputTypeCountSendTextHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sendTextHistoryWhereInput
+  }
+
+  /**
+   * AdminCountOutputType without action
+   */
+  export type AdminCountOutputTypeCountImportHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: import_historyWhereInput
+  }
+
+
+  /**
+   * Count Type Import_historyCountOutputType
+   */
+
+  export type Import_historyCountOutputType = {
+    alumni: number
+    professor: number
+  }
+
+  export type Import_historyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | Import_historyCountOutputTypeCountAlumniArgs
+    professor?: boolean | Import_historyCountOutputTypeCountProfessorArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Import_historyCountOutputType without action
+   */
+  export type Import_historyCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Import_historyCountOutputType
+     */
+    select?: Import_historyCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Import_historyCountOutputType without action
+   */
+  export type Import_historyCountOutputTypeCountAlumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: alumniWhereInput
+  }
+
+  /**
+   * Import_historyCountOutputType without action
+   */
+  export type Import_historyCountOutputTypeCountProfessorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: professorWhereInput
   }
 
 
@@ -1379,31 +2214,2166 @@ export namespace Prisma {
    */
 
   /**
+   * Model roles
+   */
+
+  export type AggregateRoles = {
+    _count: RolesCountAggregateOutputType | null
+    _avg: RolesAvgAggregateOutputType | null
+    _sum: RolesSumAggregateOutputType | null
+    _min: RolesMinAggregateOutputType | null
+    _max: RolesMaxAggregateOutputType | null
+  }
+
+  export type RolesAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type RolesSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type RolesMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type RolesMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type RolesCountAggregateOutputType = {
+    id: number
+    name: number
+    _all: number
+  }
+
+
+  export type RolesAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type RolesSumAggregateInputType = {
+    id?: true
+  }
+
+  export type RolesMinAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type RolesMaxAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type RolesCountAggregateInputType = {
+    id?: true
+    name?: true
+    _all?: true
+  }
+
+  export type RolesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which roles to aggregate.
+     */
+    where?: rolesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of roles to fetch.
+     */
+    orderBy?: rolesOrderByWithRelationInput | rolesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: rolesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned roles
+    **/
+    _count?: true | RolesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RolesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RolesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RolesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RolesMaxAggregateInputType
+  }
+
+  export type GetRolesAggregateType<T extends RolesAggregateArgs> = {
+        [P in keyof T & keyof AggregateRoles]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRoles[P]>
+      : GetScalarType<T[P], AggregateRoles[P]>
+  }
+
+
+
+
+  export type rolesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: rolesWhereInput
+    orderBy?: rolesOrderByWithAggregationInput | rolesOrderByWithAggregationInput[]
+    by: RolesScalarFieldEnum[] | RolesScalarFieldEnum
+    having?: rolesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RolesCountAggregateInputType | true
+    _avg?: RolesAvgAggregateInputType
+    _sum?: RolesSumAggregateInputType
+    _min?: RolesMinAggregateInputType
+    _max?: RolesMaxAggregateInputType
+  }
+
+  export type RolesGroupByOutputType = {
+    id: number
+    name: string
+    _count: RolesCountAggregateOutputType | null
+    _avg: RolesAvgAggregateOutputType | null
+    _sum: RolesSumAggregateOutputType | null
+    _min: RolesMinAggregateOutputType | null
+    _max: RolesMaxAggregateOutputType | null
+  }
+
+  type GetRolesGroupByPayload<T extends rolesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RolesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RolesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RolesGroupByOutputType[P]>
+            : GetScalarType<T[P], RolesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type rolesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["roles"]>
+
+  export type rolesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["roles"]>
+
+  export type rolesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["roles"]>
+
+  export type rolesSelectScalar = {
+    id?: boolean
+    name?: boolean
+  }
+
+  export type rolesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["roles"]>
+
+  export type $rolesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "roles"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+    }, ExtArgs["result"]["roles"]>
+    composites: {}
+  }
+
+  type rolesGetPayload<S extends boolean | null | undefined | rolesDefaultArgs> = $Result.GetResult<Prisma.$rolesPayload, S>
+
+  type rolesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<rolesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RolesCountAggregateInputType | true
+    }
+
+  export interface rolesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['roles'], meta: { name: 'roles' } }
+    /**
+     * Find zero or one Roles that matches the filter.
+     * @param {rolesFindUniqueArgs} args - Arguments to find a Roles
+     * @example
+     * // Get one Roles
+     * const roles = await prisma.roles.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends rolesFindUniqueArgs>(args: SelectSubset<T, rolesFindUniqueArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Roles that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {rolesFindUniqueOrThrowArgs} args - Arguments to find a Roles
+     * @example
+     * // Get one Roles
+     * const roles = await prisma.roles.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends rolesFindUniqueOrThrowArgs>(args: SelectSubset<T, rolesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Roles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rolesFindFirstArgs} args - Arguments to find a Roles
+     * @example
+     * // Get one Roles
+     * const roles = await prisma.roles.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends rolesFindFirstArgs>(args?: SelectSubset<T, rolesFindFirstArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Roles that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rolesFindFirstOrThrowArgs} args - Arguments to find a Roles
+     * @example
+     * // Get one Roles
+     * const roles = await prisma.roles.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends rolesFindFirstOrThrowArgs>(args?: SelectSubset<T, rolesFindFirstOrThrowArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Roles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rolesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Roles
+     * const roles = await prisma.roles.findMany()
+     * 
+     * // Get first 10 Roles
+     * const roles = await prisma.roles.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const rolesWithIdOnly = await prisma.roles.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends rolesFindManyArgs>(args?: SelectSubset<T, rolesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Roles.
+     * @param {rolesCreateArgs} args - Arguments to create a Roles.
+     * @example
+     * // Create one Roles
+     * const Roles = await prisma.roles.create({
+     *   data: {
+     *     // ... data to create a Roles
+     *   }
+     * })
+     * 
+     */
+    create<T extends rolesCreateArgs>(args: SelectSubset<T, rolesCreateArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Roles.
+     * @param {rolesCreateManyArgs} args - Arguments to create many Roles.
+     * @example
+     * // Create many Roles
+     * const roles = await prisma.roles.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends rolesCreateManyArgs>(args?: SelectSubset<T, rolesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Roles and returns the data saved in the database.
+     * @param {rolesCreateManyAndReturnArgs} args - Arguments to create many Roles.
+     * @example
+     * // Create many Roles
+     * const roles = await prisma.roles.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Roles and only return the `id`
+     * const rolesWithIdOnly = await prisma.roles.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends rolesCreateManyAndReturnArgs>(args?: SelectSubset<T, rolesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Roles.
+     * @param {rolesDeleteArgs} args - Arguments to delete one Roles.
+     * @example
+     * // Delete one Roles
+     * const Roles = await prisma.roles.delete({
+     *   where: {
+     *     // ... filter to delete one Roles
+     *   }
+     * })
+     * 
+     */
+    delete<T extends rolesDeleteArgs>(args: SelectSubset<T, rolesDeleteArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Roles.
+     * @param {rolesUpdateArgs} args - Arguments to update one Roles.
+     * @example
+     * // Update one Roles
+     * const roles = await prisma.roles.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends rolesUpdateArgs>(args: SelectSubset<T, rolesUpdateArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Roles.
+     * @param {rolesDeleteManyArgs} args - Arguments to filter Roles to delete.
+     * @example
+     * // Delete a few Roles
+     * const { count } = await prisma.roles.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends rolesDeleteManyArgs>(args?: SelectSubset<T, rolesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rolesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Roles
+     * const roles = await prisma.roles.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends rolesUpdateManyArgs>(args: SelectSubset<T, rolesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Roles and returns the data updated in the database.
+     * @param {rolesUpdateManyAndReturnArgs} args - Arguments to update many Roles.
+     * @example
+     * // Update many Roles
+     * const roles = await prisma.roles.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Roles and only return the `id`
+     * const rolesWithIdOnly = await prisma.roles.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends rolesUpdateManyAndReturnArgs>(args: SelectSubset<T, rolesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Roles.
+     * @param {rolesUpsertArgs} args - Arguments to update or create a Roles.
+     * @example
+     * // Update or create a Roles
+     * const roles = await prisma.roles.upsert({
+     *   create: {
+     *     // ... data to create a Roles
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Roles we want to update
+     *   }
+     * })
+     */
+    upsert<T extends rolesUpsertArgs>(args: SelectSubset<T, rolesUpsertArgs<ExtArgs>>): Prisma__rolesClient<$Result.GetResult<Prisma.$rolesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rolesCountArgs} args - Arguments to filter Roles to count.
+     * @example
+     * // Count the number of Roles
+     * const count = await prisma.roles.count({
+     *   where: {
+     *     // ... the filter for the Roles we want to count
+     *   }
+     * })
+    **/
+    count<T extends rolesCountArgs>(
+      args?: Subset<T, rolesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RolesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RolesAggregateArgs>(args: Subset<T, RolesAggregateArgs>): Prisma.PrismaPromise<GetRolesAggregateType<T>>
+
+    /**
+     * Group by Roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {rolesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends rolesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: rolesGroupByArgs['orderBy'] }
+        : { orderBy?: rolesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, rolesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRolesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the roles model
+   */
+  readonly fields: rolesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for roles.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__rolesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the roles model
+   */
+  interface rolesFieldRefs {
+    readonly id: FieldRef<"roles", 'Int'>
+    readonly name: FieldRef<"roles", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * roles findUnique
+   */
+  export type rolesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * Filter, which roles to fetch.
+     */
+    where: rolesWhereUniqueInput
+  }
+
+  /**
+   * roles findUniqueOrThrow
+   */
+  export type rolesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * Filter, which roles to fetch.
+     */
+    where: rolesWhereUniqueInput
+  }
+
+  /**
+   * roles findFirst
+   */
+  export type rolesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * Filter, which roles to fetch.
+     */
+    where?: rolesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of roles to fetch.
+     */
+    orderBy?: rolesOrderByWithRelationInput | rolesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for roles.
+     */
+    cursor?: rolesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of roles.
+     */
+    distinct?: RolesScalarFieldEnum | RolesScalarFieldEnum[]
+  }
+
+  /**
+   * roles findFirstOrThrow
+   */
+  export type rolesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * Filter, which roles to fetch.
+     */
+    where?: rolesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of roles to fetch.
+     */
+    orderBy?: rolesOrderByWithRelationInput | rolesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for roles.
+     */
+    cursor?: rolesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of roles.
+     */
+    distinct?: RolesScalarFieldEnum | RolesScalarFieldEnum[]
+  }
+
+  /**
+   * roles findMany
+   */
+  export type rolesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * Filter, which roles to fetch.
+     */
+    where?: rolesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of roles to fetch.
+     */
+    orderBy?: rolesOrderByWithRelationInput | rolesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing roles.
+     */
+    cursor?: rolesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` roles.
+     */
+    skip?: number
+    distinct?: RolesScalarFieldEnum | RolesScalarFieldEnum[]
+  }
+
+  /**
+   * roles create
+   */
+  export type rolesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * The data needed to create a roles.
+     */
+    data: XOR<rolesCreateInput, rolesUncheckedCreateInput>
+  }
+
+  /**
+   * roles createMany
+   */
+  export type rolesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many roles.
+     */
+    data: rolesCreateManyInput | rolesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * roles createManyAndReturn
+   */
+  export type rolesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * The data used to create many roles.
+     */
+    data: rolesCreateManyInput | rolesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * roles update
+   */
+  export type rolesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * The data needed to update a roles.
+     */
+    data: XOR<rolesUpdateInput, rolesUncheckedUpdateInput>
+    /**
+     * Choose, which roles to update.
+     */
+    where: rolesWhereUniqueInput
+  }
+
+  /**
+   * roles updateMany
+   */
+  export type rolesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update roles.
+     */
+    data: XOR<rolesUpdateManyMutationInput, rolesUncheckedUpdateManyInput>
+    /**
+     * Filter which roles to update
+     */
+    where?: rolesWhereInput
+    /**
+     * Limit how many roles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * roles updateManyAndReturn
+   */
+  export type rolesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * The data used to update roles.
+     */
+    data: XOR<rolesUpdateManyMutationInput, rolesUncheckedUpdateManyInput>
+    /**
+     * Filter which roles to update
+     */
+    where?: rolesWhereInput
+    /**
+     * Limit how many roles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * roles upsert
+   */
+  export type rolesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * The filter to search for the roles to update in case it exists.
+     */
+    where: rolesWhereUniqueInput
+    /**
+     * In case the roles found by the `where` argument doesn't exist, create a new roles with this data.
+     */
+    create: XOR<rolesCreateInput, rolesUncheckedCreateInput>
+    /**
+     * In case the roles was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<rolesUpdateInput, rolesUncheckedUpdateInput>
+  }
+
+  /**
+   * roles delete
+   */
+  export type rolesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+    /**
+     * Filter which roles to delete.
+     */
+    where: rolesWhereUniqueInput
+  }
+
+  /**
+   * roles deleteMany
+   */
+  export type rolesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which roles to delete
+     */
+    where?: rolesWhereInput
+    /**
+     * Limit how many roles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * roles without action
+   */
+  export type rolesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the roles
+     */
+    select?: rolesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the roles
+     */
+    omit?: rolesOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model regis_alumni
+   */
+
+  export type AggregateRegis_alumni = {
+    _count: Regis_alumniCountAggregateOutputType | null
+    _avg: Regis_alumniAvgAggregateOutputType | null
+    _sum: Regis_alumniSumAggregateOutputType | null
+    _min: Regis_alumniMinAggregateOutputType | null
+    _max: Regis_alumniMaxAggregateOutputType | null
+  }
+
+  export type Regis_alumniAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Regis_alumniSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Regis_alumniMinAggregateOutputType = {
+    id: number | null
+    alumni_id: string | null
+    email: string | null
+    tel: string | null
+    slip_payment_url: string | null
+    isApproved: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type Regis_alumniMaxAggregateOutputType = {
+    id: number | null
+    alumni_id: string | null
+    email: string | null
+    tel: string | null
+    slip_payment_url: string | null
+    isApproved: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type Regis_alumniCountAggregateOutputType = {
+    id: number
+    alumni_id: number
+    email: number
+    tel: number
+    slip_payment_url: number
+    isApproved: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type Regis_alumniAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Regis_alumniSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Regis_alumniMinAggregateInputType = {
+    id?: true
+    alumni_id?: true
+    email?: true
+    tel?: true
+    slip_payment_url?: true
+    isApproved?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type Regis_alumniMaxAggregateInputType = {
+    id?: true
+    alumni_id?: true
+    email?: true
+    tel?: true
+    slip_payment_url?: true
+    isApproved?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type Regis_alumniCountAggregateInputType = {
+    id?: true
+    alumni_id?: true
+    email?: true
+    tel?: true
+    slip_payment_url?: true
+    isApproved?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type Regis_alumniAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which regis_alumni to aggregate.
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of regis_alumni to fetch.
+     */
+    orderBy?: regis_alumniOrderByWithRelationInput | regis_alumniOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: regis_alumniWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` regis_alumni from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` regis_alumni.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned regis_alumni
+    **/
+    _count?: true | Regis_alumniCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Regis_alumniAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Regis_alumniSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Regis_alumniMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Regis_alumniMaxAggregateInputType
+  }
+
+  export type GetRegis_alumniAggregateType<T extends Regis_alumniAggregateArgs> = {
+        [P in keyof T & keyof AggregateRegis_alumni]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRegis_alumni[P]>
+      : GetScalarType<T[P], AggregateRegis_alumni[P]>
+  }
+
+
+
+
+  export type regis_alumniGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: regis_alumniWhereInput
+    orderBy?: regis_alumniOrderByWithAggregationInput | regis_alumniOrderByWithAggregationInput[]
+    by: Regis_alumniScalarFieldEnum[] | Regis_alumniScalarFieldEnum
+    having?: regis_alumniScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Regis_alumniCountAggregateInputType | true
+    _avg?: Regis_alumniAvgAggregateInputType
+    _sum?: Regis_alumniSumAggregateInputType
+    _min?: Regis_alumniMinAggregateInputType
+    _max?: Regis_alumniMaxAggregateInputType
+  }
+
+  export type Regis_alumniGroupByOutputType = {
+    id: number
+    alumni_id: string | null
+    email: string
+    tel: string
+    slip_payment_url: string
+    isApproved: string
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: Regis_alumniCountAggregateOutputType | null
+    _avg: Regis_alumniAvgAggregateOutputType | null
+    _sum: Regis_alumniSumAggregateOutputType | null
+    _min: Regis_alumniMinAggregateOutputType | null
+    _max: Regis_alumniMaxAggregateOutputType | null
+  }
+
+  type GetRegis_alumniGroupByPayload<T extends regis_alumniGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Regis_alumniGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Regis_alumniGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Regis_alumniGroupByOutputType[P]>
+            : GetScalarType<T[P], Regis_alumniGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type regis_alumniSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alumni_id?: boolean
+    email?: boolean
+    tel?: boolean
+    slip_payment_url?: boolean
+    isApproved?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumni?: boolean | regis_alumni$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["regis_alumni"]>
+
+  export type regis_alumniSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alumni_id?: boolean
+    email?: boolean
+    tel?: boolean
+    slip_payment_url?: boolean
+    isApproved?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumni?: boolean | regis_alumni$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["regis_alumni"]>
+
+  export type regis_alumniSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alumni_id?: boolean
+    email?: boolean
+    tel?: boolean
+    slip_payment_url?: boolean
+    isApproved?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumni?: boolean | regis_alumni$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["regis_alumni"]>
+
+  export type regis_alumniSelectScalar = {
+    id?: boolean
+    alumni_id?: boolean
+    email?: boolean
+    tel?: boolean
+    slip_payment_url?: boolean
+    isApproved?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type regis_alumniOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alumni_id" | "email" | "tel" | "slip_payment_url" | "isApproved" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["regis_alumni"]>
+  export type regis_alumniInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | regis_alumni$alumniArgs<ExtArgs>
+  }
+  export type regis_alumniIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | regis_alumni$alumniArgs<ExtArgs>
+  }
+  export type regis_alumniIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | regis_alumni$alumniArgs<ExtArgs>
+  }
+
+  export type $regis_alumniPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "regis_alumni"
+    objects: {
+      alumni: Prisma.$alumniPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      alumni_id: string | null
+      email: string
+      tel: string
+      slip_payment_url: string
+      isApproved: string
+      status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["regis_alumni"]>
+    composites: {}
+  }
+
+  type regis_alumniGetPayload<S extends boolean | null | undefined | regis_alumniDefaultArgs> = $Result.GetResult<Prisma.$regis_alumniPayload, S>
+
+  type regis_alumniCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<regis_alumniFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Regis_alumniCountAggregateInputType | true
+    }
+
+  export interface regis_alumniDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['regis_alumni'], meta: { name: 'regis_alumni' } }
+    /**
+     * Find zero or one Regis_alumni that matches the filter.
+     * @param {regis_alumniFindUniqueArgs} args - Arguments to find a Regis_alumni
+     * @example
+     * // Get one Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends regis_alumniFindUniqueArgs>(args: SelectSubset<T, regis_alumniFindUniqueArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Regis_alumni that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {regis_alumniFindUniqueOrThrowArgs} args - Arguments to find a Regis_alumni
+     * @example
+     * // Get one Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends regis_alumniFindUniqueOrThrowArgs>(args: SelectSubset<T, regis_alumniFindUniqueOrThrowArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Regis_alumni that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {regis_alumniFindFirstArgs} args - Arguments to find a Regis_alumni
+     * @example
+     * // Get one Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends regis_alumniFindFirstArgs>(args?: SelectSubset<T, regis_alumniFindFirstArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Regis_alumni that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {regis_alumniFindFirstOrThrowArgs} args - Arguments to find a Regis_alumni
+     * @example
+     * // Get one Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends regis_alumniFindFirstOrThrowArgs>(args?: SelectSubset<T, regis_alumniFindFirstOrThrowArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Regis_alumni that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {regis_alumniFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.findMany()
+     * 
+     * // Get first 10 Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const regis_alumniWithIdOnly = await prisma.regis_alumni.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends regis_alumniFindManyArgs>(args?: SelectSubset<T, regis_alumniFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Regis_alumni.
+     * @param {regis_alumniCreateArgs} args - Arguments to create a Regis_alumni.
+     * @example
+     * // Create one Regis_alumni
+     * const Regis_alumni = await prisma.regis_alumni.create({
+     *   data: {
+     *     // ... data to create a Regis_alumni
+     *   }
+     * })
+     * 
+     */
+    create<T extends regis_alumniCreateArgs>(args: SelectSubset<T, regis_alumniCreateArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Regis_alumni.
+     * @param {regis_alumniCreateManyArgs} args - Arguments to create many Regis_alumni.
+     * @example
+     * // Create many Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends regis_alumniCreateManyArgs>(args?: SelectSubset<T, regis_alumniCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Regis_alumni and returns the data saved in the database.
+     * @param {regis_alumniCreateManyAndReturnArgs} args - Arguments to create many Regis_alumni.
+     * @example
+     * // Create many Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Regis_alumni and only return the `id`
+     * const regis_alumniWithIdOnly = await prisma.regis_alumni.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends regis_alumniCreateManyAndReturnArgs>(args?: SelectSubset<T, regis_alumniCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Regis_alumni.
+     * @param {regis_alumniDeleteArgs} args - Arguments to delete one Regis_alumni.
+     * @example
+     * // Delete one Regis_alumni
+     * const Regis_alumni = await prisma.regis_alumni.delete({
+     *   where: {
+     *     // ... filter to delete one Regis_alumni
+     *   }
+     * })
+     * 
+     */
+    delete<T extends regis_alumniDeleteArgs>(args: SelectSubset<T, regis_alumniDeleteArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Regis_alumni.
+     * @param {regis_alumniUpdateArgs} args - Arguments to update one Regis_alumni.
+     * @example
+     * // Update one Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends regis_alumniUpdateArgs>(args: SelectSubset<T, regis_alumniUpdateArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Regis_alumni.
+     * @param {regis_alumniDeleteManyArgs} args - Arguments to filter Regis_alumni to delete.
+     * @example
+     * // Delete a few Regis_alumni
+     * const { count } = await prisma.regis_alumni.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends regis_alumniDeleteManyArgs>(args?: SelectSubset<T, regis_alumniDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Regis_alumni.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {regis_alumniUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends regis_alumniUpdateManyArgs>(args: SelectSubset<T, regis_alumniUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Regis_alumni and returns the data updated in the database.
+     * @param {regis_alumniUpdateManyAndReturnArgs} args - Arguments to update many Regis_alumni.
+     * @example
+     * // Update many Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Regis_alumni and only return the `id`
+     * const regis_alumniWithIdOnly = await prisma.regis_alumni.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends regis_alumniUpdateManyAndReturnArgs>(args: SelectSubset<T, regis_alumniUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Regis_alumni.
+     * @param {regis_alumniUpsertArgs} args - Arguments to update or create a Regis_alumni.
+     * @example
+     * // Update or create a Regis_alumni
+     * const regis_alumni = await prisma.regis_alumni.upsert({
+     *   create: {
+     *     // ... data to create a Regis_alumni
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Regis_alumni we want to update
+     *   }
+     * })
+     */
+    upsert<T extends regis_alumniUpsertArgs>(args: SelectSubset<T, regis_alumniUpsertArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Regis_alumni.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {regis_alumniCountArgs} args - Arguments to filter Regis_alumni to count.
+     * @example
+     * // Count the number of Regis_alumni
+     * const count = await prisma.regis_alumni.count({
+     *   where: {
+     *     // ... the filter for the Regis_alumni we want to count
+     *   }
+     * })
+    **/
+    count<T extends regis_alumniCountArgs>(
+      args?: Subset<T, regis_alumniCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Regis_alumniCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Regis_alumni.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Regis_alumniAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Regis_alumniAggregateArgs>(args: Subset<T, Regis_alumniAggregateArgs>): Prisma.PrismaPromise<GetRegis_alumniAggregateType<T>>
+
+    /**
+     * Group by Regis_alumni.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {regis_alumniGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends regis_alumniGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: regis_alumniGroupByArgs['orderBy'] }
+        : { orderBy?: regis_alumniGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, regis_alumniGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRegis_alumniGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the regis_alumni model
+   */
+  readonly fields: regis_alumniFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for regis_alumni.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__regis_alumniClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alumni<T extends regis_alumni$alumniArgs<ExtArgs> = {}>(args?: Subset<T, regis_alumni$alumniArgs<ExtArgs>>): Prisma__alumniClient<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the regis_alumni model
+   */
+  interface regis_alumniFieldRefs {
+    readonly id: FieldRef<"regis_alumni", 'Int'>
+    readonly alumni_id: FieldRef<"regis_alumni", 'String'>
+    readonly email: FieldRef<"regis_alumni", 'String'>
+    readonly tel: FieldRef<"regis_alumni", 'String'>
+    readonly slip_payment_url: FieldRef<"regis_alumni", 'String'>
+    readonly isApproved: FieldRef<"regis_alumni", 'String'>
+    readonly status: FieldRef<"regis_alumni", 'String'>
+    readonly createdAt: FieldRef<"regis_alumni", 'DateTime'>
+    readonly updatedAt: FieldRef<"regis_alumni", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * regis_alumni findUnique
+   */
+  export type regis_alumniFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * Filter, which regis_alumni to fetch.
+     */
+    where: regis_alumniWhereUniqueInput
+  }
+
+  /**
+   * regis_alumni findUniqueOrThrow
+   */
+  export type regis_alumniFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * Filter, which regis_alumni to fetch.
+     */
+    where: regis_alumniWhereUniqueInput
+  }
+
+  /**
+   * regis_alumni findFirst
+   */
+  export type regis_alumniFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * Filter, which regis_alumni to fetch.
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of regis_alumni to fetch.
+     */
+    orderBy?: regis_alumniOrderByWithRelationInput | regis_alumniOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for regis_alumni.
+     */
+    cursor?: regis_alumniWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` regis_alumni from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` regis_alumni.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of regis_alumni.
+     */
+    distinct?: Regis_alumniScalarFieldEnum | Regis_alumniScalarFieldEnum[]
+  }
+
+  /**
+   * regis_alumni findFirstOrThrow
+   */
+  export type regis_alumniFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * Filter, which regis_alumni to fetch.
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of regis_alumni to fetch.
+     */
+    orderBy?: regis_alumniOrderByWithRelationInput | regis_alumniOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for regis_alumni.
+     */
+    cursor?: regis_alumniWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` regis_alumni from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` regis_alumni.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of regis_alumni.
+     */
+    distinct?: Regis_alumniScalarFieldEnum | Regis_alumniScalarFieldEnum[]
+  }
+
+  /**
+   * regis_alumni findMany
+   */
+  export type regis_alumniFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * Filter, which regis_alumni to fetch.
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of regis_alumni to fetch.
+     */
+    orderBy?: regis_alumniOrderByWithRelationInput | regis_alumniOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing regis_alumni.
+     */
+    cursor?: regis_alumniWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` regis_alumni from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` regis_alumni.
+     */
+    skip?: number
+    distinct?: Regis_alumniScalarFieldEnum | Regis_alumniScalarFieldEnum[]
+  }
+
+  /**
+   * regis_alumni create
+   */
+  export type regis_alumniCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * The data needed to create a regis_alumni.
+     */
+    data: XOR<regis_alumniCreateInput, regis_alumniUncheckedCreateInput>
+  }
+
+  /**
+   * regis_alumni createMany
+   */
+  export type regis_alumniCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many regis_alumni.
+     */
+    data: regis_alumniCreateManyInput | regis_alumniCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * regis_alumni createManyAndReturn
+   */
+  export type regis_alumniCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * The data used to create many regis_alumni.
+     */
+    data: regis_alumniCreateManyInput | regis_alumniCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * regis_alumni update
+   */
+  export type regis_alumniUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * The data needed to update a regis_alumni.
+     */
+    data: XOR<regis_alumniUpdateInput, regis_alumniUncheckedUpdateInput>
+    /**
+     * Choose, which regis_alumni to update.
+     */
+    where: regis_alumniWhereUniqueInput
+  }
+
+  /**
+   * regis_alumni updateMany
+   */
+  export type regis_alumniUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update regis_alumni.
+     */
+    data: XOR<regis_alumniUpdateManyMutationInput, regis_alumniUncheckedUpdateManyInput>
+    /**
+     * Filter which regis_alumni to update
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * Limit how many regis_alumni to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * regis_alumni updateManyAndReturn
+   */
+  export type regis_alumniUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * The data used to update regis_alumni.
+     */
+    data: XOR<regis_alumniUpdateManyMutationInput, regis_alumniUncheckedUpdateManyInput>
+    /**
+     * Filter which regis_alumni to update
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * Limit how many regis_alumni to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * regis_alumni upsert
+   */
+  export type regis_alumniUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * The filter to search for the regis_alumni to update in case it exists.
+     */
+    where: regis_alumniWhereUniqueInput
+    /**
+     * In case the regis_alumni found by the `where` argument doesn't exist, create a new regis_alumni with this data.
+     */
+    create: XOR<regis_alumniCreateInput, regis_alumniUncheckedCreateInput>
+    /**
+     * In case the regis_alumni was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<regis_alumniUpdateInput, regis_alumniUncheckedUpdateInput>
+  }
+
+  /**
+   * regis_alumni delete
+   */
+  export type regis_alumniDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    /**
+     * Filter which regis_alumni to delete.
+     */
+    where: regis_alumniWhereUniqueInput
+  }
+
+  /**
+   * regis_alumni deleteMany
+   */
+  export type regis_alumniDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which regis_alumni to delete
+     */
+    where?: regis_alumniWhereInput
+    /**
+     * Limit how many regis_alumni to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * regis_alumni.alumni
+   */
+  export type regis_alumni$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+  }
+
+  /**
+   * regis_alumni without action
+   */
+  export type regis_alumniDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model alumni
    */
 
   export type AggregateAlumni = {
     _count: AlumniCountAggregateOutputType | null
-    _avg: AlumniAvgAggregateOutputType | null
-    _sum: AlumniSumAggregateOutputType | null
     _min: AlumniMinAggregateOutputType | null
     _max: AlumniMaxAggregateOutputType | null
-  }
-
-  export type AlumniAvgAggregateOutputType = {
-    year_start: number | null
-    year_end: number | null
-    facultyId: number | null
-    departmentId: number | null
-    edu_levelId: number | null
-  }
-
-  export type AlumniSumAggregateOutputType = {
-    year_start: number | null
-    year_end: number | null
-    facultyId: number | null
-    departmentId: number | null
-    edu_levelId: number | null
   }
 
   export type AlumniMinAggregateOutputType = {
@@ -1415,13 +4385,14 @@ export namespace Prisma {
     passwordHash: string | null
     allowedAccount: boolean | null
     canUse: boolean | null
-    year_start: number | null
-    year_end: number | null
-    facultyId: number | null
-    departmentId: number | null
-    edu_levelId: number | null
+    year_start: string | null
+    year_end: string | null
+    facultyId: string | null
+    departmentId: string | null
+    edu_levelId: string | null
     createtAt: Date | null
     updatedAt: Date | null
+    import_historyId: string | null
   }
 
   export type AlumniMaxAggregateOutputType = {
@@ -1433,13 +4404,14 @@ export namespace Prisma {
     passwordHash: string | null
     allowedAccount: boolean | null
     canUse: boolean | null
-    year_start: number | null
-    year_end: number | null
-    facultyId: number | null
-    departmentId: number | null
-    edu_levelId: number | null
+    year_start: string | null
+    year_end: string | null
+    facultyId: string | null
+    departmentId: string | null
+    edu_levelId: string | null
     createtAt: Date | null
     updatedAt: Date | null
+    import_historyId: string | null
   }
 
   export type AlumniCountAggregateOutputType = {
@@ -1458,25 +4430,10 @@ export namespace Prisma {
     edu_levelId: number
     createtAt: number
     updatedAt: number
+    import_historyId: number
     _all: number
   }
 
-
-  export type AlumniAvgAggregateInputType = {
-    year_start?: true
-    year_end?: true
-    facultyId?: true
-    departmentId?: true
-    edu_levelId?: true
-  }
-
-  export type AlumniSumAggregateInputType = {
-    year_start?: true
-    year_end?: true
-    facultyId?: true
-    departmentId?: true
-    edu_levelId?: true
-  }
 
   export type AlumniMinAggregateInputType = {
     alumni_id?: true
@@ -1494,6 +4451,7 @@ export namespace Prisma {
     edu_levelId?: true
     createtAt?: true
     updatedAt?: true
+    import_historyId?: true
   }
 
   export type AlumniMaxAggregateInputType = {
@@ -1512,6 +4470,7 @@ export namespace Prisma {
     edu_levelId?: true
     createtAt?: true
     updatedAt?: true
+    import_historyId?: true
   }
 
   export type AlumniCountAggregateInputType = {
@@ -1530,6 +4489,7 @@ export namespace Prisma {
     edu_levelId?: true
     createtAt?: true
     updatedAt?: true
+    import_historyId?: true
     _all?: true
   }
 
@@ -1571,18 +4531,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: AlumniAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AlumniSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: AlumniMinAggregateInputType
@@ -1613,8 +4561,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: AlumniCountAggregateInputType | true
-    _avg?: AlumniAvgAggregateInputType
-    _sum?: AlumniSumAggregateInputType
     _min?: AlumniMinAggregateInputType
     _max?: AlumniMaxAggregateInputType
   }
@@ -1628,16 +4574,15 @@ export namespace Prisma {
     passwordHash: string | null
     allowedAccount: boolean
     canUse: boolean
-    year_start: number | null
-    year_end: number | null
-    facultyId: number | null
-    departmentId: number | null
-    edu_levelId: number | null
+    year_start: string | null
+    year_end: string | null
+    facultyId: string | null
+    departmentId: string | null
+    edu_levelId: string | null
     createtAt: Date
     updatedAt: Date
+    import_historyId: string | null
     _count: AlumniCountAggregateOutputType | null
-    _avg: AlumniAvgAggregateOutputType | null
-    _sum: AlumniSumAggregateOutputType | null
     _min: AlumniMinAggregateOutputType | null
     _max: AlumniMaxAggregateOutputType | null
   }
@@ -1672,9 +4617,15 @@ export namespace Prisma {
     edu_levelId?: boolean
     createtAt?: boolean
     updatedAt?: boolean
+    import_historyId?: boolean
+    otp?: boolean | alumni$otpArgs<ExtArgs>
     work_expreriences?: boolean | alumni$work_expreriencesArgs<ExtArgs>
+    study_expreriences?: boolean | alumni$study_expreriencesArgs<ExtArgs>
     user_privacy?: boolean | alumni$user_privacyArgs<ExtArgs>
     alumni_contract?: boolean | alumni$alumni_contractArgs<ExtArgs>
+    regis_alumni?: boolean | alumni$regis_alumniArgs<ExtArgs>
+    importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+    sendTextHistory?: boolean | alumni$sendTextHistoryArgs<ExtArgs>
     _count?: boolean | AlumniCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["alumni"]>
 
@@ -1694,6 +4645,8 @@ export namespace Prisma {
     edu_levelId?: boolean
     createtAt?: boolean
     updatedAt?: boolean
+    import_historyId?: boolean
+    importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
   }, ExtArgs["result"]["alumni"]>
 
   export type alumniSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1712,6 +4665,8 @@ export namespace Prisma {
     edu_levelId?: boolean
     createtAt?: boolean
     updatedAt?: boolean
+    import_historyId?: boolean
+    importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
   }, ExtArgs["result"]["alumni"]>
 
   export type alumniSelectScalar = {
@@ -1730,24 +4685,39 @@ export namespace Prisma {
     edu_levelId?: boolean
     createtAt?: boolean
     updatedAt?: boolean
+    import_historyId?: boolean
   }
 
-  export type alumniOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"alumni_id" | "prefix" | "fname" | "lname" | "profile" | "passwordHash" | "allowedAccount" | "canUse" | "year_start" | "year_end" | "facultyId" | "departmentId" | "edu_levelId" | "createtAt" | "updatedAt", ExtArgs["result"]["alumni"]>
+  export type alumniOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"alumni_id" | "prefix" | "fname" | "lname" | "profile" | "passwordHash" | "allowedAccount" | "canUse" | "year_start" | "year_end" | "facultyId" | "departmentId" | "edu_levelId" | "createtAt" | "updatedAt" | "import_historyId", ExtArgs["result"]["alumni"]>
   export type alumniInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    otp?: boolean | alumni$otpArgs<ExtArgs>
     work_expreriences?: boolean | alumni$work_expreriencesArgs<ExtArgs>
+    study_expreriences?: boolean | alumni$study_expreriencesArgs<ExtArgs>
     user_privacy?: boolean | alumni$user_privacyArgs<ExtArgs>
     alumni_contract?: boolean | alumni$alumni_contractArgs<ExtArgs>
+    regis_alumni?: boolean | alumni$regis_alumniArgs<ExtArgs>
+    importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+    sendTextHistory?: boolean | alumni$sendTextHistoryArgs<ExtArgs>
     _count?: boolean | AlumniCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type alumniIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type alumniIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type alumniIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+  }
+  export type alumniIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+  }
 
   export type $alumniPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "alumni"
     objects: {
+      otp: Prisma.$otpPayload<ExtArgs> | null
       work_expreriences: Prisma.$work_expreriencesPayload<ExtArgs>[]
+      study_expreriences: Prisma.$studey_expreriencesPayload<ExtArgs>[]
       user_privacy: Prisma.$user_privacyPayload<ExtArgs> | null
       alumni_contract: Prisma.$alumni_contractPayload<ExtArgs> | null
+      regis_alumni: Prisma.$regis_alumniPayload<ExtArgs> | null
+      importHistory: Prisma.$import_historyPayload<ExtArgs> | null
+      sendTextHistory: Prisma.$sendTextHistoryPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       alumni_id: string
@@ -1758,13 +4728,14 @@ export namespace Prisma {
       passwordHash: string | null
       allowedAccount: boolean
       canUse: boolean
-      year_start: number | null
-      year_end: number | null
-      facultyId: number | null
-      departmentId: number | null
-      edu_levelId: number | null
+      year_start: string | null
+      year_end: string | null
+      facultyId: string | null
+      departmentId: string | null
+      edu_levelId: string | null
       createtAt: Date
       updatedAt: Date
+      import_historyId: string | null
     }, ExtArgs["result"]["alumni"]>
     composites: {}
   }
@@ -2159,9 +5130,14 @@ export namespace Prisma {
    */
   export interface Prisma__alumniClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    otp<T extends alumni$otpArgs<ExtArgs> = {}>(args?: Subset<T, alumni$otpArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     work_expreriences<T extends alumni$work_expreriencesArgs<ExtArgs> = {}>(args?: Subset<T, alumni$work_expreriencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$work_expreriencesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    study_expreriences<T extends alumni$study_expreriencesArgs<ExtArgs> = {}>(args?: Subset<T, alumni$study_expreriencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user_privacy<T extends alumni$user_privacyArgs<ExtArgs> = {}>(args?: Subset<T, alumni$user_privacyArgs<ExtArgs>>): Prisma__user_privacyClient<$Result.GetResult<Prisma.$user_privacyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     alumni_contract<T extends alumni$alumni_contractArgs<ExtArgs> = {}>(args?: Subset<T, alumni$alumni_contractArgs<ExtArgs>>): Prisma__alumni_contractClient<$Result.GetResult<Prisma.$alumni_contractPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    regis_alumni<T extends alumni$regis_alumniArgs<ExtArgs> = {}>(args?: Subset<T, alumni$regis_alumniArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    importHistory<T extends alumni$importHistoryArgs<ExtArgs> = {}>(args?: Subset<T, alumni$importHistoryArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    sendTextHistory<T extends alumni$sendTextHistoryArgs<ExtArgs> = {}>(args?: Subset<T, alumni$sendTextHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2199,13 +5175,14 @@ export namespace Prisma {
     readonly passwordHash: FieldRef<"alumni", 'String'>
     readonly allowedAccount: FieldRef<"alumni", 'Boolean'>
     readonly canUse: FieldRef<"alumni", 'Boolean'>
-    readonly year_start: FieldRef<"alumni", 'Int'>
-    readonly year_end: FieldRef<"alumni", 'Int'>
-    readonly facultyId: FieldRef<"alumni", 'Int'>
-    readonly departmentId: FieldRef<"alumni", 'Int'>
-    readonly edu_levelId: FieldRef<"alumni", 'Int'>
+    readonly year_start: FieldRef<"alumni", 'String'>
+    readonly year_end: FieldRef<"alumni", 'String'>
+    readonly facultyId: FieldRef<"alumni", 'String'>
+    readonly departmentId: FieldRef<"alumni", 'String'>
+    readonly edu_levelId: FieldRef<"alumni", 'String'>
     readonly createtAt: FieldRef<"alumni", 'DateTime'>
     readonly updatedAt: FieldRef<"alumni", 'DateTime'>
+    readonly import_historyId: FieldRef<"alumni", 'String'>
   }
     
 
@@ -2455,6 +5432,10 @@ export namespace Prisma {
      */
     data: alumniCreateManyInput | alumniCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2525,6 +5506,10 @@ export namespace Prisma {
      * Limit how many alumni to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2594,6 +5579,25 @@ export namespace Prisma {
   }
 
   /**
+   * alumni.otp
+   */
+  export type alumni$otpArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    where?: otpWhereInput
+  }
+
+  /**
    * alumni.work_expreriences
    */
   export type alumni$work_expreriencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2615,6 +5619,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Work_expreriencesScalarFieldEnum | Work_expreriencesScalarFieldEnum[]
+  }
+
+  /**
+   * alumni.study_expreriences
+   */
+  export type alumni$study_expreriencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    where?: studey_expreriencesWhereInput
+    orderBy?: studey_expreriencesOrderByWithRelationInput | studey_expreriencesOrderByWithRelationInput[]
+    cursor?: studey_expreriencesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Studey_expreriencesScalarFieldEnum | Studey_expreriencesScalarFieldEnum[]
   }
 
   /**
@@ -2653,6 +5681,68 @@ export namespace Prisma {
      */
     include?: alumni_contractInclude<ExtArgs> | null
     where?: alumni_contractWhereInput
+  }
+
+  /**
+   * alumni.regis_alumni
+   */
+  export type alumni$regis_alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the regis_alumni
+     */
+    select?: regis_alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the regis_alumni
+     */
+    omit?: regis_alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: regis_alumniInclude<ExtArgs> | null
+    where?: regis_alumniWhereInput
+  }
+
+  /**
+   * alumni.importHistory
+   */
+  export type alumni$importHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    where?: import_historyWhereInput
+  }
+
+  /**
+   * alumni.sendTextHistory
+   */
+  export type alumni$sendTextHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    where?: sendTextHistoryWhereInput
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    cursor?: sendTextHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
   }
 
   /**
@@ -3979,14 +7069,6 @@ export namespace Prisma {
     isCurrent: boolean | null
     isInThai: boolean | null
     remark: string | null
-    edu_level: string | null
-    continued_study: boolean | null
-    edu_faculty: string | null
-    edu_dep: string | null
-    edu_university: string | null
-    year_start: string | null
-    year_end: string | null
-    edu_performance: string | null
     createdAt: Date | null
     updatedAt: Date | null
     alumniId: string | null
@@ -4007,14 +7089,6 @@ export namespace Prisma {
     isCurrent: boolean | null
     isInThai: boolean | null
     remark: string | null
-    edu_level: string | null
-    continued_study: boolean | null
-    edu_faculty: string | null
-    edu_dep: string | null
-    edu_university: string | null
-    year_start: string | null
-    year_end: string | null
-    edu_performance: string | null
     createdAt: Date | null
     updatedAt: Date | null
     alumniId: string | null
@@ -4035,14 +7109,6 @@ export namespace Prisma {
     isCurrent: number
     isInThai: number
     remark: number
-    edu_level: number
-    continued_study: number
-    edu_faculty: number
-    edu_dep: number
-    edu_university: number
-    year_start: number
-    year_end: number
-    edu_performance: number
     createdAt: number
     updatedAt: number
     alumniId: number
@@ -4075,14 +7141,6 @@ export namespace Prisma {
     isCurrent?: true
     isInThai?: true
     remark?: true
-    edu_level?: true
-    continued_study?: true
-    edu_faculty?: true
-    edu_dep?: true
-    edu_university?: true
-    year_start?: true
-    year_end?: true
-    edu_performance?: true
     createdAt?: true
     updatedAt?: true
     alumniId?: true
@@ -4103,14 +7161,6 @@ export namespace Prisma {
     isCurrent?: true
     isInThai?: true
     remark?: true
-    edu_level?: true
-    continued_study?: true
-    edu_faculty?: true
-    edu_dep?: true
-    edu_university?: true
-    year_start?: true
-    year_end?: true
-    edu_performance?: true
     createdAt?: true
     updatedAt?: true
     alumniId?: true
@@ -4131,14 +7181,6 @@ export namespace Prisma {
     isCurrent?: true
     isInThai?: true
     remark?: true
-    edu_level?: true
-    continued_study?: true
-    edu_faculty?: true
-    edu_dep?: true
-    edu_university?: true
-    year_start?: true
-    year_end?: true
-    edu_performance?: true
     createdAt?: true
     updatedAt?: true
     alumniId?: true
@@ -4246,14 +7288,6 @@ export namespace Prisma {
     isCurrent: boolean
     isInThai: boolean
     remark: string | null
-    edu_level: string | null
-    continued_study: boolean
-    edu_faculty: string | null
-    edu_dep: string | null
-    edu_university: string | null
-    year_start: string | null
-    year_end: string | null
-    edu_performance: string | null
     createdAt: Date
     updatedAt: Date
     alumniId: string | null
@@ -4293,14 +7327,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: boolean
-    edu_level?: boolean
-    continued_study?: boolean
-    edu_faculty?: boolean
-    edu_dep?: boolean
-    edu_university?: boolean
-    year_start?: boolean
-    year_end?: boolean
-    edu_performance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alumniId?: boolean
@@ -4322,14 +7348,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: boolean
-    edu_level?: boolean
-    continued_study?: boolean
-    edu_faculty?: boolean
-    edu_dep?: boolean
-    edu_university?: boolean
-    year_start?: boolean
-    year_end?: boolean
-    edu_performance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alumniId?: boolean
@@ -4351,14 +7369,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: boolean
-    edu_level?: boolean
-    continued_study?: boolean
-    edu_faculty?: boolean
-    edu_dep?: boolean
-    edu_university?: boolean
-    year_start?: boolean
-    year_end?: boolean
-    edu_performance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alumniId?: boolean
@@ -4380,20 +7390,12 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: boolean
-    edu_level?: boolean
-    continued_study?: boolean
-    edu_faculty?: boolean
-    edu_dep?: boolean
-    edu_university?: boolean
-    year_start?: boolean
-    year_end?: boolean
-    edu_performance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alumniId?: boolean
   }
 
-  export type work_expreriencesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "isOnTheLine" | "job_position" | "company_name" | "company_place" | "start_date" | "end_date" | "job_detail" | "job_responsibility" | "job_skills" | "salary" | "isCurrent" | "isInThai" | "remark" | "edu_level" | "continued_study" | "edu_faculty" | "edu_dep" | "edu_university" | "year_start" | "year_end" | "edu_performance" | "createdAt" | "updatedAt" | "alumniId", ExtArgs["result"]["work_expreriences"]>
+  export type work_expreriencesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "isOnTheLine" | "job_position" | "company_name" | "company_place" | "start_date" | "end_date" | "job_detail" | "job_responsibility" | "job_skills" | "salary" | "isCurrent" | "isInThai" | "remark" | "createdAt" | "updatedAt" | "alumniId", ExtArgs["result"]["work_expreriences"]>
   export type work_expreriencesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alumni?: boolean | work_expreriences$alumniArgs<ExtArgs>
   }
@@ -4424,14 +7426,6 @@ export namespace Prisma {
       isCurrent: boolean
       isInThai: boolean
       remark: string | null
-      edu_level: string | null
-      continued_study: boolean
-      edu_faculty: string | null
-      edu_dep: string | null
-      edu_university: string | null
-      year_start: string | null
-      year_end: string | null
-      edu_performance: string | null
       createdAt: Date
       updatedAt: Date
       alumniId: string | null
@@ -4873,14 +7867,6 @@ export namespace Prisma {
     readonly isCurrent: FieldRef<"work_expreriences", 'Boolean'>
     readonly isInThai: FieldRef<"work_expreriences", 'Boolean'>
     readonly remark: FieldRef<"work_expreriences", 'String'>
-    readonly edu_level: FieldRef<"work_expreriences", 'String'>
-    readonly continued_study: FieldRef<"work_expreriences", 'Boolean'>
-    readonly edu_faculty: FieldRef<"work_expreriences", 'String'>
-    readonly edu_dep: FieldRef<"work_expreriences", 'String'>
-    readonly edu_university: FieldRef<"work_expreriences", 'String'>
-    readonly year_start: FieldRef<"work_expreriences", 'String'>
-    readonly year_end: FieldRef<"work_expreriences", 'String'>
-    readonly edu_performance: FieldRef<"work_expreriences", 'String'>
     readonly createdAt: FieldRef<"work_expreriences", 'DateTime'>
     readonly updatedAt: FieldRef<"work_expreriences", 'DateTime'>
     readonly alumniId: FieldRef<"work_expreriences", 'String'>
@@ -5314,6 +8300,1260 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: work_expreriencesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model studey_expreriences
+   */
+
+  export type AggregateStudey_expreriences = {
+    _count: Studey_expreriencesCountAggregateOutputType | null
+    _avg: Studey_expreriencesAvgAggregateOutputType | null
+    _sum: Studey_expreriencesSumAggregateOutputType | null
+    _min: Studey_expreriencesMinAggregateOutputType | null
+    _max: Studey_expreriencesMaxAggregateOutputType | null
+  }
+
+  export type Studey_expreriencesAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Studey_expreriencesSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Studey_expreriencesMinAggregateOutputType = {
+    id: number | null
+    edu_level: string | null
+    continued_study: boolean | null
+    edu_faculty: string | null
+    edu_dep: string | null
+    edu_university: string | null
+    year_start: string | null
+    year_end: string | null
+    edu_performance: string | null
+    isCurrent: boolean | null
+    isInThai: boolean | null
+    place: string | null
+    remark: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    alumniId: string | null
+  }
+
+  export type Studey_expreriencesMaxAggregateOutputType = {
+    id: number | null
+    edu_level: string | null
+    continued_study: boolean | null
+    edu_faculty: string | null
+    edu_dep: string | null
+    edu_university: string | null
+    year_start: string | null
+    year_end: string | null
+    edu_performance: string | null
+    isCurrent: boolean | null
+    isInThai: boolean | null
+    place: string | null
+    remark: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    alumniId: string | null
+  }
+
+  export type Studey_expreriencesCountAggregateOutputType = {
+    id: number
+    edu_level: number
+    continued_study: number
+    edu_faculty: number
+    edu_dep: number
+    edu_university: number
+    year_start: number
+    year_end: number
+    edu_performance: number
+    isCurrent: number
+    isInThai: number
+    place: number
+    remark: number
+    createdAt: number
+    updatedAt: number
+    alumniId: number
+    _all: number
+  }
+
+
+  export type Studey_expreriencesAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Studey_expreriencesSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Studey_expreriencesMinAggregateInputType = {
+    id?: true
+    edu_level?: true
+    continued_study?: true
+    edu_faculty?: true
+    edu_dep?: true
+    edu_university?: true
+    year_start?: true
+    year_end?: true
+    edu_performance?: true
+    isCurrent?: true
+    isInThai?: true
+    place?: true
+    remark?: true
+    createdAt?: true
+    updatedAt?: true
+    alumniId?: true
+  }
+
+  export type Studey_expreriencesMaxAggregateInputType = {
+    id?: true
+    edu_level?: true
+    continued_study?: true
+    edu_faculty?: true
+    edu_dep?: true
+    edu_university?: true
+    year_start?: true
+    year_end?: true
+    edu_performance?: true
+    isCurrent?: true
+    isInThai?: true
+    place?: true
+    remark?: true
+    createdAt?: true
+    updatedAt?: true
+    alumniId?: true
+  }
+
+  export type Studey_expreriencesCountAggregateInputType = {
+    id?: true
+    edu_level?: true
+    continued_study?: true
+    edu_faculty?: true
+    edu_dep?: true
+    edu_university?: true
+    year_start?: true
+    year_end?: true
+    edu_performance?: true
+    isCurrent?: true
+    isInThai?: true
+    place?: true
+    remark?: true
+    createdAt?: true
+    updatedAt?: true
+    alumniId?: true
+    _all?: true
+  }
+
+  export type Studey_expreriencesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which studey_expreriences to aggregate.
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of studey_expreriences to fetch.
+     */
+    orderBy?: studey_expreriencesOrderByWithRelationInput | studey_expreriencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: studey_expreriencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` studey_expreriences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` studey_expreriences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned studey_expreriences
+    **/
+    _count?: true | Studey_expreriencesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Studey_expreriencesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Studey_expreriencesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Studey_expreriencesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Studey_expreriencesMaxAggregateInputType
+  }
+
+  export type GetStudey_expreriencesAggregateType<T extends Studey_expreriencesAggregateArgs> = {
+        [P in keyof T & keyof AggregateStudey_expreriences]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStudey_expreriences[P]>
+      : GetScalarType<T[P], AggregateStudey_expreriences[P]>
+  }
+
+
+
+
+  export type studey_expreriencesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: studey_expreriencesWhereInput
+    orderBy?: studey_expreriencesOrderByWithAggregationInput | studey_expreriencesOrderByWithAggregationInput[]
+    by: Studey_expreriencesScalarFieldEnum[] | Studey_expreriencesScalarFieldEnum
+    having?: studey_expreriencesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Studey_expreriencesCountAggregateInputType | true
+    _avg?: Studey_expreriencesAvgAggregateInputType
+    _sum?: Studey_expreriencesSumAggregateInputType
+    _min?: Studey_expreriencesMinAggregateInputType
+    _max?: Studey_expreriencesMaxAggregateInputType
+  }
+
+  export type Studey_expreriencesGroupByOutputType = {
+    id: number
+    edu_level: string | null
+    continued_study: boolean
+    edu_faculty: string | null
+    edu_dep: string | null
+    edu_university: string | null
+    year_start: string | null
+    year_end: string | null
+    edu_performance: string | null
+    isCurrent: boolean
+    isInThai: boolean
+    place: string | null
+    remark: string | null
+    createdAt: Date
+    updatedAt: Date
+    alumniId: string | null
+    _count: Studey_expreriencesCountAggregateOutputType | null
+    _avg: Studey_expreriencesAvgAggregateOutputType | null
+    _sum: Studey_expreriencesSumAggregateOutputType | null
+    _min: Studey_expreriencesMinAggregateOutputType | null
+    _max: Studey_expreriencesMaxAggregateOutputType | null
+  }
+
+  type GetStudey_expreriencesGroupByPayload<T extends studey_expreriencesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Studey_expreriencesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Studey_expreriencesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Studey_expreriencesGroupByOutputType[P]>
+            : GetScalarType<T[P], Studey_expreriencesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type studey_expreriencesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    edu_level?: boolean
+    continued_study?: boolean
+    edu_faculty?: boolean
+    edu_dep?: boolean
+    edu_university?: boolean
+    year_start?: boolean
+    year_end?: boolean
+    edu_performance?: boolean
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: boolean
+    remark?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumniId?: boolean
+    alumni?: boolean | studey_expreriences$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["studey_expreriences"]>
+
+  export type studey_expreriencesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    edu_level?: boolean
+    continued_study?: boolean
+    edu_faculty?: boolean
+    edu_dep?: boolean
+    edu_university?: boolean
+    year_start?: boolean
+    year_end?: boolean
+    edu_performance?: boolean
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: boolean
+    remark?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumniId?: boolean
+    alumni?: boolean | studey_expreriences$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["studey_expreriences"]>
+
+  export type studey_expreriencesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    edu_level?: boolean
+    continued_study?: boolean
+    edu_faculty?: boolean
+    edu_dep?: boolean
+    edu_university?: boolean
+    year_start?: boolean
+    year_end?: boolean
+    edu_performance?: boolean
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: boolean
+    remark?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumniId?: boolean
+    alumni?: boolean | studey_expreriences$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["studey_expreriences"]>
+
+  export type studey_expreriencesSelectScalar = {
+    id?: boolean
+    edu_level?: boolean
+    continued_study?: boolean
+    edu_faculty?: boolean
+    edu_dep?: boolean
+    edu_university?: boolean
+    year_start?: boolean
+    year_end?: boolean
+    edu_performance?: boolean
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: boolean
+    remark?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    alumniId?: boolean
+  }
+
+  export type studey_expreriencesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "edu_level" | "continued_study" | "edu_faculty" | "edu_dep" | "edu_university" | "year_start" | "year_end" | "edu_performance" | "isCurrent" | "isInThai" | "place" | "remark" | "createdAt" | "updatedAt" | "alumniId", ExtArgs["result"]["studey_expreriences"]>
+  export type studey_expreriencesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | studey_expreriences$alumniArgs<ExtArgs>
+  }
+  export type studey_expreriencesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | studey_expreriences$alumniArgs<ExtArgs>
+  }
+  export type studey_expreriencesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | studey_expreriences$alumniArgs<ExtArgs>
+  }
+
+  export type $studey_expreriencesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "studey_expreriences"
+    objects: {
+      alumni: Prisma.$alumniPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      edu_level: string | null
+      continued_study: boolean
+      edu_faculty: string | null
+      edu_dep: string | null
+      edu_university: string | null
+      year_start: string | null
+      year_end: string | null
+      edu_performance: string | null
+      isCurrent: boolean
+      isInThai: boolean
+      place: string | null
+      remark: string | null
+      createdAt: Date
+      updatedAt: Date
+      alumniId: string | null
+    }, ExtArgs["result"]["studey_expreriences"]>
+    composites: {}
+  }
+
+  type studey_expreriencesGetPayload<S extends boolean | null | undefined | studey_expreriencesDefaultArgs> = $Result.GetResult<Prisma.$studey_expreriencesPayload, S>
+
+  type studey_expreriencesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<studey_expreriencesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Studey_expreriencesCountAggregateInputType | true
+    }
+
+  export interface studey_expreriencesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['studey_expreriences'], meta: { name: 'studey_expreriences' } }
+    /**
+     * Find zero or one Studey_expreriences that matches the filter.
+     * @param {studey_expreriencesFindUniqueArgs} args - Arguments to find a Studey_expreriences
+     * @example
+     * // Get one Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends studey_expreriencesFindUniqueArgs>(args: SelectSubset<T, studey_expreriencesFindUniqueArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Studey_expreriences that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {studey_expreriencesFindUniqueOrThrowArgs} args - Arguments to find a Studey_expreriences
+     * @example
+     * // Get one Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends studey_expreriencesFindUniqueOrThrowArgs>(args: SelectSubset<T, studey_expreriencesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Studey_expreriences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {studey_expreriencesFindFirstArgs} args - Arguments to find a Studey_expreriences
+     * @example
+     * // Get one Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends studey_expreriencesFindFirstArgs>(args?: SelectSubset<T, studey_expreriencesFindFirstArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Studey_expreriences that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {studey_expreriencesFindFirstOrThrowArgs} args - Arguments to find a Studey_expreriences
+     * @example
+     * // Get one Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends studey_expreriencesFindFirstOrThrowArgs>(args?: SelectSubset<T, studey_expreriencesFindFirstOrThrowArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Studey_expreriences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {studey_expreriencesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.findMany()
+     * 
+     * // Get first 10 Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const studey_expreriencesWithIdOnly = await prisma.studey_expreriences.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends studey_expreriencesFindManyArgs>(args?: SelectSubset<T, studey_expreriencesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Studey_expreriences.
+     * @param {studey_expreriencesCreateArgs} args - Arguments to create a Studey_expreriences.
+     * @example
+     * // Create one Studey_expreriences
+     * const Studey_expreriences = await prisma.studey_expreriences.create({
+     *   data: {
+     *     // ... data to create a Studey_expreriences
+     *   }
+     * })
+     * 
+     */
+    create<T extends studey_expreriencesCreateArgs>(args: SelectSubset<T, studey_expreriencesCreateArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Studey_expreriences.
+     * @param {studey_expreriencesCreateManyArgs} args - Arguments to create many Studey_expreriences.
+     * @example
+     * // Create many Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends studey_expreriencesCreateManyArgs>(args?: SelectSubset<T, studey_expreriencesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Studey_expreriences and returns the data saved in the database.
+     * @param {studey_expreriencesCreateManyAndReturnArgs} args - Arguments to create many Studey_expreriences.
+     * @example
+     * // Create many Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Studey_expreriences and only return the `id`
+     * const studey_expreriencesWithIdOnly = await prisma.studey_expreriences.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends studey_expreriencesCreateManyAndReturnArgs>(args?: SelectSubset<T, studey_expreriencesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Studey_expreriences.
+     * @param {studey_expreriencesDeleteArgs} args - Arguments to delete one Studey_expreriences.
+     * @example
+     * // Delete one Studey_expreriences
+     * const Studey_expreriences = await prisma.studey_expreriences.delete({
+     *   where: {
+     *     // ... filter to delete one Studey_expreriences
+     *   }
+     * })
+     * 
+     */
+    delete<T extends studey_expreriencesDeleteArgs>(args: SelectSubset<T, studey_expreriencesDeleteArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Studey_expreriences.
+     * @param {studey_expreriencesUpdateArgs} args - Arguments to update one Studey_expreriences.
+     * @example
+     * // Update one Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends studey_expreriencesUpdateArgs>(args: SelectSubset<T, studey_expreriencesUpdateArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Studey_expreriences.
+     * @param {studey_expreriencesDeleteManyArgs} args - Arguments to filter Studey_expreriences to delete.
+     * @example
+     * // Delete a few Studey_expreriences
+     * const { count } = await prisma.studey_expreriences.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends studey_expreriencesDeleteManyArgs>(args?: SelectSubset<T, studey_expreriencesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Studey_expreriences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {studey_expreriencesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends studey_expreriencesUpdateManyArgs>(args: SelectSubset<T, studey_expreriencesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Studey_expreriences and returns the data updated in the database.
+     * @param {studey_expreriencesUpdateManyAndReturnArgs} args - Arguments to update many Studey_expreriences.
+     * @example
+     * // Update many Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Studey_expreriences and only return the `id`
+     * const studey_expreriencesWithIdOnly = await prisma.studey_expreriences.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends studey_expreriencesUpdateManyAndReturnArgs>(args: SelectSubset<T, studey_expreriencesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Studey_expreriences.
+     * @param {studey_expreriencesUpsertArgs} args - Arguments to update or create a Studey_expreriences.
+     * @example
+     * // Update or create a Studey_expreriences
+     * const studey_expreriences = await prisma.studey_expreriences.upsert({
+     *   create: {
+     *     // ... data to create a Studey_expreriences
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Studey_expreriences we want to update
+     *   }
+     * })
+     */
+    upsert<T extends studey_expreriencesUpsertArgs>(args: SelectSubset<T, studey_expreriencesUpsertArgs<ExtArgs>>): Prisma__studey_expreriencesClient<$Result.GetResult<Prisma.$studey_expreriencesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Studey_expreriences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {studey_expreriencesCountArgs} args - Arguments to filter Studey_expreriences to count.
+     * @example
+     * // Count the number of Studey_expreriences
+     * const count = await prisma.studey_expreriences.count({
+     *   where: {
+     *     // ... the filter for the Studey_expreriences we want to count
+     *   }
+     * })
+    **/
+    count<T extends studey_expreriencesCountArgs>(
+      args?: Subset<T, studey_expreriencesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Studey_expreriencesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Studey_expreriences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Studey_expreriencesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Studey_expreriencesAggregateArgs>(args: Subset<T, Studey_expreriencesAggregateArgs>): Prisma.PrismaPromise<GetStudey_expreriencesAggregateType<T>>
+
+    /**
+     * Group by Studey_expreriences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {studey_expreriencesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends studey_expreriencesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: studey_expreriencesGroupByArgs['orderBy'] }
+        : { orderBy?: studey_expreriencesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, studey_expreriencesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStudey_expreriencesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the studey_expreriences model
+   */
+  readonly fields: studey_expreriencesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for studey_expreriences.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__studey_expreriencesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alumni<T extends studey_expreriences$alumniArgs<ExtArgs> = {}>(args?: Subset<T, studey_expreriences$alumniArgs<ExtArgs>>): Prisma__alumniClient<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the studey_expreriences model
+   */
+  interface studey_expreriencesFieldRefs {
+    readonly id: FieldRef<"studey_expreriences", 'Int'>
+    readonly edu_level: FieldRef<"studey_expreriences", 'String'>
+    readonly continued_study: FieldRef<"studey_expreriences", 'Boolean'>
+    readonly edu_faculty: FieldRef<"studey_expreriences", 'String'>
+    readonly edu_dep: FieldRef<"studey_expreriences", 'String'>
+    readonly edu_university: FieldRef<"studey_expreriences", 'String'>
+    readonly year_start: FieldRef<"studey_expreriences", 'String'>
+    readonly year_end: FieldRef<"studey_expreriences", 'String'>
+    readonly edu_performance: FieldRef<"studey_expreriences", 'String'>
+    readonly isCurrent: FieldRef<"studey_expreriences", 'Boolean'>
+    readonly isInThai: FieldRef<"studey_expreriences", 'Boolean'>
+    readonly place: FieldRef<"studey_expreriences", 'String'>
+    readonly remark: FieldRef<"studey_expreriences", 'String'>
+    readonly createdAt: FieldRef<"studey_expreriences", 'DateTime'>
+    readonly updatedAt: FieldRef<"studey_expreriences", 'DateTime'>
+    readonly alumniId: FieldRef<"studey_expreriences", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * studey_expreriences findUnique
+   */
+  export type studey_expreriencesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * Filter, which studey_expreriences to fetch.
+     */
+    where: studey_expreriencesWhereUniqueInput
+  }
+
+  /**
+   * studey_expreriences findUniqueOrThrow
+   */
+  export type studey_expreriencesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * Filter, which studey_expreriences to fetch.
+     */
+    where: studey_expreriencesWhereUniqueInput
+  }
+
+  /**
+   * studey_expreriences findFirst
+   */
+  export type studey_expreriencesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * Filter, which studey_expreriences to fetch.
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of studey_expreriences to fetch.
+     */
+    orderBy?: studey_expreriencesOrderByWithRelationInput | studey_expreriencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for studey_expreriences.
+     */
+    cursor?: studey_expreriencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` studey_expreriences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` studey_expreriences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of studey_expreriences.
+     */
+    distinct?: Studey_expreriencesScalarFieldEnum | Studey_expreriencesScalarFieldEnum[]
+  }
+
+  /**
+   * studey_expreriences findFirstOrThrow
+   */
+  export type studey_expreriencesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * Filter, which studey_expreriences to fetch.
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of studey_expreriences to fetch.
+     */
+    orderBy?: studey_expreriencesOrderByWithRelationInput | studey_expreriencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for studey_expreriences.
+     */
+    cursor?: studey_expreriencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` studey_expreriences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` studey_expreriences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of studey_expreriences.
+     */
+    distinct?: Studey_expreriencesScalarFieldEnum | Studey_expreriencesScalarFieldEnum[]
+  }
+
+  /**
+   * studey_expreriences findMany
+   */
+  export type studey_expreriencesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * Filter, which studey_expreriences to fetch.
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of studey_expreriences to fetch.
+     */
+    orderBy?: studey_expreriencesOrderByWithRelationInput | studey_expreriencesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing studey_expreriences.
+     */
+    cursor?: studey_expreriencesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` studey_expreriences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` studey_expreriences.
+     */
+    skip?: number
+    distinct?: Studey_expreriencesScalarFieldEnum | Studey_expreriencesScalarFieldEnum[]
+  }
+
+  /**
+   * studey_expreriences create
+   */
+  export type studey_expreriencesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a studey_expreriences.
+     */
+    data?: XOR<studey_expreriencesCreateInput, studey_expreriencesUncheckedCreateInput>
+  }
+
+  /**
+   * studey_expreriences createMany
+   */
+  export type studey_expreriencesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many studey_expreriences.
+     */
+    data: studey_expreriencesCreateManyInput | studey_expreriencesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * studey_expreriences createManyAndReturn
+   */
+  export type studey_expreriencesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * The data used to create many studey_expreriences.
+     */
+    data: studey_expreriencesCreateManyInput | studey_expreriencesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * studey_expreriences update
+   */
+  export type studey_expreriencesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a studey_expreriences.
+     */
+    data: XOR<studey_expreriencesUpdateInput, studey_expreriencesUncheckedUpdateInput>
+    /**
+     * Choose, which studey_expreriences to update.
+     */
+    where: studey_expreriencesWhereUniqueInput
+  }
+
+  /**
+   * studey_expreriences updateMany
+   */
+  export type studey_expreriencesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update studey_expreriences.
+     */
+    data: XOR<studey_expreriencesUpdateManyMutationInput, studey_expreriencesUncheckedUpdateManyInput>
+    /**
+     * Filter which studey_expreriences to update
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * Limit how many studey_expreriences to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * studey_expreriences updateManyAndReturn
+   */
+  export type studey_expreriencesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * The data used to update studey_expreriences.
+     */
+    data: XOR<studey_expreriencesUpdateManyMutationInput, studey_expreriencesUncheckedUpdateManyInput>
+    /**
+     * Filter which studey_expreriences to update
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * Limit how many studey_expreriences to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * studey_expreriences upsert
+   */
+  export type studey_expreriencesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the studey_expreriences to update in case it exists.
+     */
+    where: studey_expreriencesWhereUniqueInput
+    /**
+     * In case the studey_expreriences found by the `where` argument doesn't exist, create a new studey_expreriences with this data.
+     */
+    create: XOR<studey_expreriencesCreateInput, studey_expreriencesUncheckedCreateInput>
+    /**
+     * In case the studey_expreriences was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<studey_expreriencesUpdateInput, studey_expreriencesUncheckedUpdateInput>
+  }
+
+  /**
+   * studey_expreriences delete
+   */
+  export type studey_expreriencesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
+    /**
+     * Filter which studey_expreriences to delete.
+     */
+    where: studey_expreriencesWhereUniqueInput
+  }
+
+  /**
+   * studey_expreriences deleteMany
+   */
+  export type studey_expreriencesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which studey_expreriences to delete
+     */
+    where?: studey_expreriencesWhereInput
+    /**
+     * Limit how many studey_expreriences to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * studey_expreriences.alumni
+   */
+  export type studey_expreriences$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+  }
+
+  /**
+   * studey_expreriences without action
+   */
+  export type studey_expreriencesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the studey_expreriences
+     */
+    select?: studey_expreriencesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the studey_expreriences
+     */
+    omit?: studey_expreriencesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: studey_expreriencesInclude<ExtArgs> | null
   }
 
 
@@ -6578,20 +10818,8 @@ export namespace Prisma {
 
   export type AggregateProfessor = {
     _count: ProfessorCountAggregateOutputType | null
-    _avg: ProfessorAvgAggregateOutputType | null
-    _sum: ProfessorSumAggregateOutputType | null
     _min: ProfessorMinAggregateOutputType | null
     _max: ProfessorMaxAggregateOutputType | null
-  }
-
-  export type ProfessorAvgAggregateOutputType = {
-    facultyId: number | null
-    departmentId: number | null
-  }
-
-  export type ProfessorSumAggregateOutputType = {
-    facultyId: number | null
-    departmentId: number | null
   }
 
   export type ProfessorMinAggregateOutputType = {
@@ -6606,8 +10834,9 @@ export namespace Prisma {
     univercity_position: string | null
     allowedAccount: boolean | null
     email: string | null
-    facultyId: number | null
-    departmentId: number | null
+    facultyId: string | null
+    departmentId: string | null
+    import_historyId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6624,8 +10853,9 @@ export namespace Prisma {
     univercity_position: string | null
     allowedAccount: boolean | null
     email: string | null
-    facultyId: number | null
-    departmentId: number | null
+    facultyId: string | null
+    departmentId: string | null
+    import_historyId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6644,21 +10874,12 @@ export namespace Prisma {
     email: number
     facultyId: number
     departmentId: number
+    import_historyId: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
-
-  export type ProfessorAvgAggregateInputType = {
-    facultyId?: true
-    departmentId?: true
-  }
-
-  export type ProfessorSumAggregateInputType = {
-    facultyId?: true
-    departmentId?: true
-  }
 
   export type ProfessorMinAggregateInputType = {
     professor_id?: true
@@ -6674,6 +10895,7 @@ export namespace Prisma {
     email?: true
     facultyId?: true
     departmentId?: true
+    import_historyId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6692,6 +10914,7 @@ export namespace Prisma {
     email?: true
     facultyId?: true
     departmentId?: true
+    import_historyId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6710,6 +10933,7 @@ export namespace Prisma {
     email?: true
     facultyId?: true
     departmentId?: true
+    import_historyId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -6753,18 +10977,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: ProfessorAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ProfessorSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: ProfessorMinAggregateInputType
@@ -6795,8 +11007,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ProfessorCountAggregateInputType | true
-    _avg?: ProfessorAvgAggregateInputType
-    _sum?: ProfessorSumAggregateInputType
     _min?: ProfessorMinAggregateInputType
     _max?: ProfessorMaxAggregateInputType
   }
@@ -6813,13 +11023,12 @@ export namespace Prisma {
     univercity_position: string | null
     allowedAccount: boolean
     email: string | null
-    facultyId: number | null
-    departmentId: number | null
+    facultyId: string | null
+    departmentId: string | null
+    import_historyId: string | null
     createdAt: Date
     updatedAt: Date
     _count: ProfessorCountAggregateOutputType | null
-    _avg: ProfessorAvgAggregateOutputType | null
-    _sum: ProfessorSumAggregateOutputType | null
     _min: ProfessorMinAggregateOutputType | null
     _max: ProfessorMaxAggregateOutputType | null
   }
@@ -6852,10 +11061,14 @@ export namespace Prisma {
     email?: boolean
     facultyId?: boolean
     departmentId?: boolean
+    import_historyId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    otp?: boolean | professor$otpArgs<ExtArgs>
+    sendTextHistory?: boolean | professor$sendTextHistoryArgs<ExtArgs>
     user_privacy?: boolean | professor$user_privacyArgs<ExtArgs>
     alumni_contract?: boolean | professor$alumni_contractArgs<ExtArgs>
+    importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
     _count?: boolean | ProfessorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["professor"]>
 
@@ -6873,8 +11086,10 @@ export namespace Prisma {
     email?: boolean
     facultyId?: boolean
     departmentId?: boolean
+    import_historyId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
   }, ExtArgs["result"]["professor"]>
 
   export type professorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6891,8 +11106,10 @@ export namespace Prisma {
     email?: boolean
     facultyId?: boolean
     departmentId?: boolean
+    import_historyId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
   }, ExtArgs["result"]["professor"]>
 
   export type professorSelectScalar = {
@@ -6909,24 +11126,35 @@ export namespace Prisma {
     email?: boolean
     facultyId?: boolean
     departmentId?: boolean
+    import_historyId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type professorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"professor_id" | "prefix" | "fname" | "lname" | "profile" | "passwordHash" | "academic_rank" | "canUse" | "univercity_position" | "allowedAccount" | "email" | "facultyId" | "departmentId" | "createdAt" | "updatedAt", ExtArgs["result"]["professor"]>
+  export type professorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"professor_id" | "prefix" | "fname" | "lname" | "profile" | "passwordHash" | "academic_rank" | "canUse" | "univercity_position" | "allowedAccount" | "email" | "facultyId" | "departmentId" | "import_historyId" | "createdAt" | "updatedAt", ExtArgs["result"]["professor"]>
   export type professorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    otp?: boolean | professor$otpArgs<ExtArgs>
+    sendTextHistory?: boolean | professor$sendTextHistoryArgs<ExtArgs>
     user_privacy?: boolean | professor$user_privacyArgs<ExtArgs>
     alumni_contract?: boolean | professor$alumni_contractArgs<ExtArgs>
+    importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
     _count?: boolean | ProfessorCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type professorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type professorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type professorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+  }
+  export type professorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+  }
 
   export type $professorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "professor"
     objects: {
+      otp: Prisma.$otpPayload<ExtArgs> | null
+      sendTextHistory: Prisma.$sendTextHistoryPayload<ExtArgs>[]
       user_privacy: Prisma.$user_privacyPayload<ExtArgs> | null
       alumni_contract: Prisma.$alumni_contractPayload<ExtArgs>[]
+      importHistory: Prisma.$import_historyPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       professor_id: string
@@ -6940,8 +11168,9 @@ export namespace Prisma {
       univercity_position: string | null
       allowedAccount: boolean
       email: string | null
-      facultyId: number | null
-      departmentId: number | null
+      facultyId: string | null
+      departmentId: string | null
+      import_historyId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["professor"]>
@@ -7338,8 +11567,11 @@ export namespace Prisma {
    */
   export interface Prisma__professorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    otp<T extends professor$otpArgs<ExtArgs> = {}>(args?: Subset<T, professor$otpArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    sendTextHistory<T extends professor$sendTextHistoryArgs<ExtArgs> = {}>(args?: Subset<T, professor$sendTextHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user_privacy<T extends professor$user_privacyArgs<ExtArgs> = {}>(args?: Subset<T, professor$user_privacyArgs<ExtArgs>>): Prisma__user_privacyClient<$Result.GetResult<Prisma.$user_privacyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     alumni_contract<T extends professor$alumni_contractArgs<ExtArgs> = {}>(args?: Subset<T, professor$alumni_contractArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$alumni_contractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    importHistory<T extends professor$importHistoryArgs<ExtArgs> = {}>(args?: Subset<T, professor$importHistoryArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7380,8 +11612,9 @@ export namespace Prisma {
     readonly univercity_position: FieldRef<"professor", 'String'>
     readonly allowedAccount: FieldRef<"professor", 'Boolean'>
     readonly email: FieldRef<"professor", 'String'>
-    readonly facultyId: FieldRef<"professor", 'Int'>
-    readonly departmentId: FieldRef<"professor", 'Int'>
+    readonly facultyId: FieldRef<"professor", 'String'>
+    readonly departmentId: FieldRef<"professor", 'String'>
+    readonly import_historyId: FieldRef<"professor", 'String'>
     readonly createdAt: FieldRef<"professor", 'DateTime'>
     readonly updatedAt: FieldRef<"professor", 'DateTime'>
   }
@@ -7633,6 +11866,10 @@ export namespace Prisma {
      */
     data: professorCreateManyInput | professorCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -7703,6 +11940,10 @@ export namespace Prisma {
      * Limit how many professors to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -7772,6 +12013,49 @@ export namespace Prisma {
   }
 
   /**
+   * professor.otp
+   */
+  export type professor$otpArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    where?: otpWhereInput
+  }
+
+  /**
+   * professor.sendTextHistory
+   */
+  export type professor$sendTextHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    where?: sendTextHistoryWhereInput
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    cursor?: sendTextHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
+  }
+
+  /**
    * professor.user_privacy
    */
   export type professor$user_privacyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7815,6 +12099,25 @@ export namespace Prisma {
   }
 
   /**
+   * professor.importHistory
+   */
+  export type professor$importHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    where?: import_historyWhereInput
+  }
+
+  /**
    * professor without action
    */
   export type professorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7830,6 +12133,3639 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: professorInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model admin
+   */
+
+  export type AggregateAdmin = {
+    _count: AdminCountAggregateOutputType | null
+    _min: AdminMinAggregateOutputType | null
+    _max: AdminMaxAggregateOutputType | null
+  }
+
+  export type AdminMinAggregateOutputType = {
+    admin_id: string | null
+    prefix: string | null
+    fname: string | null
+    lname: string | null
+    username: string | null
+    profile: string | null
+    passwordHash: string | null
+    canUse: boolean | null
+    email: string | null
+    tel: string | null
+    lastestLogin: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdminMaxAggregateOutputType = {
+    admin_id: string | null
+    prefix: string | null
+    fname: string | null
+    lname: string | null
+    username: string | null
+    profile: string | null
+    passwordHash: string | null
+    canUse: boolean | null
+    email: string | null
+    tel: string | null
+    lastestLogin: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdminCountAggregateOutputType = {
+    admin_id: number
+    prefix: number
+    fname: number
+    lname: number
+    username: number
+    profile: number
+    passwordHash: number
+    canUse: number
+    email: number
+    tel: number
+    lastestLogin: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AdminMinAggregateInputType = {
+    admin_id?: true
+    prefix?: true
+    fname?: true
+    lname?: true
+    username?: true
+    profile?: true
+    passwordHash?: true
+    canUse?: true
+    email?: true
+    tel?: true
+    lastestLogin?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdminMaxAggregateInputType = {
+    admin_id?: true
+    prefix?: true
+    fname?: true
+    lname?: true
+    username?: true
+    profile?: true
+    passwordHash?: true
+    canUse?: true
+    email?: true
+    tel?: true
+    lastestLogin?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdminCountAggregateInputType = {
+    admin_id?: true
+    prefix?: true
+    fname?: true
+    lname?: true
+    username?: true
+    profile?: true
+    passwordHash?: true
+    canUse?: true
+    email?: true
+    tel?: true
+    lastestLogin?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AdminAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which admin to aggregate.
+     */
+    where?: adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of admins to fetch.
+     */
+    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` admins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned admins
+    **/
+    _count?: true | AdminCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdminMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdminMaxAggregateInputType
+  }
+
+  export type GetAdminAggregateType<T extends AdminAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdmin]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdmin[P]>
+      : GetScalarType<T[P], AggregateAdmin[P]>
+  }
+
+
+
+
+  export type adminGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: adminWhereInput
+    orderBy?: adminOrderByWithAggregationInput | adminOrderByWithAggregationInput[]
+    by: AdminScalarFieldEnum[] | AdminScalarFieldEnum
+    having?: adminScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdminCountAggregateInputType | true
+    _min?: AdminMinAggregateInputType
+    _max?: AdminMaxAggregateInputType
+  }
+
+  export type AdminGroupByOutputType = {
+    admin_id: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile: string | null
+    passwordHash: string
+    canUse: boolean
+    email: string | null
+    tel: string | null
+    lastestLogin: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: AdminCountAggregateOutputType | null
+    _min: AdminMinAggregateOutputType | null
+    _max: AdminMaxAggregateOutputType | null
+  }
+
+  type GetAdminGroupByPayload<T extends adminGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdminGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdminGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdminGroupByOutputType[P]>
+            : GetScalarType<T[P], AdminGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type adminSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    admin_id?: boolean
+    prefix?: boolean
+    fname?: boolean
+    lname?: boolean
+    username?: boolean
+    profile?: boolean
+    passwordHash?: boolean
+    canUse?: boolean
+    email?: boolean
+    tel?: boolean
+    lastestLogin?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    sendTextHistory?: boolean | admin$sendTextHistoryArgs<ExtArgs>
+    otp?: boolean | admin$otpArgs<ExtArgs>
+    importHistory?: boolean | admin$importHistoryArgs<ExtArgs>
+    _count?: boolean | AdminCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["admin"]>
+
+  export type adminSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    admin_id?: boolean
+    prefix?: boolean
+    fname?: boolean
+    lname?: boolean
+    username?: boolean
+    profile?: boolean
+    passwordHash?: boolean
+    canUse?: boolean
+    email?: boolean
+    tel?: boolean
+    lastestLogin?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["admin"]>
+
+  export type adminSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    admin_id?: boolean
+    prefix?: boolean
+    fname?: boolean
+    lname?: boolean
+    username?: boolean
+    profile?: boolean
+    passwordHash?: boolean
+    canUse?: boolean
+    email?: boolean
+    tel?: boolean
+    lastestLogin?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["admin"]>
+
+  export type adminSelectScalar = {
+    admin_id?: boolean
+    prefix?: boolean
+    fname?: boolean
+    lname?: boolean
+    username?: boolean
+    profile?: boolean
+    passwordHash?: boolean
+    canUse?: boolean
+    email?: boolean
+    tel?: boolean
+    lastestLogin?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type adminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"admin_id" | "prefix" | "fname" | "lname" | "username" | "profile" | "passwordHash" | "canUse" | "email" | "tel" | "lastestLogin" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
+  export type adminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sendTextHistory?: boolean | admin$sendTextHistoryArgs<ExtArgs>
+    otp?: boolean | admin$otpArgs<ExtArgs>
+    importHistory?: boolean | admin$importHistoryArgs<ExtArgs>
+    _count?: boolean | AdminCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type adminIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type adminIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $adminPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "admin"
+    objects: {
+      sendTextHistory: Prisma.$sendTextHistoryPayload<ExtArgs>[]
+      otp: Prisma.$otpPayload<ExtArgs> | null
+      importHistory: Prisma.$import_historyPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      admin_id: string
+      prefix: string
+      fname: string
+      lname: string
+      username: string
+      profile: string | null
+      passwordHash: string
+      canUse: boolean
+      email: string | null
+      tel: string | null
+      lastestLogin: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["admin"]>
+    composites: {}
+  }
+
+  type adminGetPayload<S extends boolean | null | undefined | adminDefaultArgs> = $Result.GetResult<Prisma.$adminPayload, S>
+
+  type adminCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdminCountAggregateInputType | true
+    }
+
+  export interface adminDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['admin'], meta: { name: 'admin' } }
+    /**
+     * Find zero or one Admin that matches the filter.
+     * @param {adminFindUniqueArgs} args - Arguments to find a Admin
+     * @example
+     * // Get one Admin
+     * const admin = await prisma.admin.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends adminFindUniqueArgs>(args: SelectSubset<T, adminFindUniqueArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Admin that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {adminFindUniqueOrThrowArgs} args - Arguments to find a Admin
+     * @example
+     * // Get one Admin
+     * const admin = await prisma.admin.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends adminFindUniqueOrThrowArgs>(args: SelectSubset<T, adminFindUniqueOrThrowArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Admin that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {adminFindFirstArgs} args - Arguments to find a Admin
+     * @example
+     * // Get one Admin
+     * const admin = await prisma.admin.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends adminFindFirstArgs>(args?: SelectSubset<T, adminFindFirstArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Admin that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {adminFindFirstOrThrowArgs} args - Arguments to find a Admin
+     * @example
+     * // Get one Admin
+     * const admin = await prisma.admin.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends adminFindFirstOrThrowArgs>(args?: SelectSubset<T, adminFindFirstOrThrowArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Admins that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {adminFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Admins
+     * const admins = await prisma.admin.findMany()
+     * 
+     * // Get first 10 Admins
+     * const admins = await prisma.admin.findMany({ take: 10 })
+     * 
+     * // Only select the `admin_id`
+     * const adminWithAdmin_idOnly = await prisma.admin.findMany({ select: { admin_id: true } })
+     * 
+     */
+    findMany<T extends adminFindManyArgs>(args?: SelectSubset<T, adminFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Admin.
+     * @param {adminCreateArgs} args - Arguments to create a Admin.
+     * @example
+     * // Create one Admin
+     * const Admin = await prisma.admin.create({
+     *   data: {
+     *     // ... data to create a Admin
+     *   }
+     * })
+     * 
+     */
+    create<T extends adminCreateArgs>(args: SelectSubset<T, adminCreateArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Admins.
+     * @param {adminCreateManyArgs} args - Arguments to create many Admins.
+     * @example
+     * // Create many Admins
+     * const admin = await prisma.admin.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends adminCreateManyArgs>(args?: SelectSubset<T, adminCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Admins and returns the data saved in the database.
+     * @param {adminCreateManyAndReturnArgs} args - Arguments to create many Admins.
+     * @example
+     * // Create many Admins
+     * const admin = await prisma.admin.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Admins and only return the `admin_id`
+     * const adminWithAdmin_idOnly = await prisma.admin.createManyAndReturn({
+     *   select: { admin_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends adminCreateManyAndReturnArgs>(args?: SelectSubset<T, adminCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Admin.
+     * @param {adminDeleteArgs} args - Arguments to delete one Admin.
+     * @example
+     * // Delete one Admin
+     * const Admin = await prisma.admin.delete({
+     *   where: {
+     *     // ... filter to delete one Admin
+     *   }
+     * })
+     * 
+     */
+    delete<T extends adminDeleteArgs>(args: SelectSubset<T, adminDeleteArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Admin.
+     * @param {adminUpdateArgs} args - Arguments to update one Admin.
+     * @example
+     * // Update one Admin
+     * const admin = await prisma.admin.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends adminUpdateArgs>(args: SelectSubset<T, adminUpdateArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Admins.
+     * @param {adminDeleteManyArgs} args - Arguments to filter Admins to delete.
+     * @example
+     * // Delete a few Admins
+     * const { count } = await prisma.admin.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends adminDeleteManyArgs>(args?: SelectSubset<T, adminDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Admins.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {adminUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Admins
+     * const admin = await prisma.admin.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends adminUpdateManyArgs>(args: SelectSubset<T, adminUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Admins and returns the data updated in the database.
+     * @param {adminUpdateManyAndReturnArgs} args - Arguments to update many Admins.
+     * @example
+     * // Update many Admins
+     * const admin = await prisma.admin.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Admins and only return the `admin_id`
+     * const adminWithAdmin_idOnly = await prisma.admin.updateManyAndReturn({
+     *   select: { admin_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends adminUpdateManyAndReturnArgs>(args: SelectSubset<T, adminUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Admin.
+     * @param {adminUpsertArgs} args - Arguments to update or create a Admin.
+     * @example
+     * // Update or create a Admin
+     * const admin = await prisma.admin.upsert({
+     *   create: {
+     *     // ... data to create a Admin
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Admin we want to update
+     *   }
+     * })
+     */
+    upsert<T extends adminUpsertArgs>(args: SelectSubset<T, adminUpsertArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Admins.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {adminCountArgs} args - Arguments to filter Admins to count.
+     * @example
+     * // Count the number of Admins
+     * const count = await prisma.admin.count({
+     *   where: {
+     *     // ... the filter for the Admins we want to count
+     *   }
+     * })
+    **/
+    count<T extends adminCountArgs>(
+      args?: Subset<T, adminCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdminCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Admin.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdminAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdminAggregateArgs>(args: Subset<T, AdminAggregateArgs>): Prisma.PrismaPromise<GetAdminAggregateType<T>>
+
+    /**
+     * Group by Admin.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {adminGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends adminGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: adminGroupByArgs['orderBy'] }
+        : { orderBy?: adminGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, adminGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdminGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the admin model
+   */
+  readonly fields: adminFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for admin.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__adminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sendTextHistory<T extends admin$sendTextHistoryArgs<ExtArgs> = {}>(args?: Subset<T, admin$sendTextHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    otp<T extends admin$otpArgs<ExtArgs> = {}>(args?: Subset<T, admin$otpArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    importHistory<T extends admin$importHistoryArgs<ExtArgs> = {}>(args?: Subset<T, admin$importHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the admin model
+   */
+  interface adminFieldRefs {
+    readonly admin_id: FieldRef<"admin", 'String'>
+    readonly prefix: FieldRef<"admin", 'String'>
+    readonly fname: FieldRef<"admin", 'String'>
+    readonly lname: FieldRef<"admin", 'String'>
+    readonly username: FieldRef<"admin", 'String'>
+    readonly profile: FieldRef<"admin", 'String'>
+    readonly passwordHash: FieldRef<"admin", 'String'>
+    readonly canUse: FieldRef<"admin", 'Boolean'>
+    readonly email: FieldRef<"admin", 'String'>
+    readonly tel: FieldRef<"admin", 'String'>
+    readonly lastestLogin: FieldRef<"admin", 'DateTime'>
+    readonly createdAt: FieldRef<"admin", 'DateTime'>
+    readonly updatedAt: FieldRef<"admin", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * admin findUnique
+   */
+  export type adminFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * Filter, which admin to fetch.
+     */
+    where: adminWhereUniqueInput
+  }
+
+  /**
+   * admin findUniqueOrThrow
+   */
+  export type adminFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * Filter, which admin to fetch.
+     */
+    where: adminWhereUniqueInput
+  }
+
+  /**
+   * admin findFirst
+   */
+  export type adminFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * Filter, which admin to fetch.
+     */
+    where?: adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of admins to fetch.
+     */
+    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for admins.
+     */
+    cursor?: adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` admins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of admins.
+     */
+    distinct?: AdminScalarFieldEnum | AdminScalarFieldEnum[]
+  }
+
+  /**
+   * admin findFirstOrThrow
+   */
+  export type adminFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * Filter, which admin to fetch.
+     */
+    where?: adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of admins to fetch.
+     */
+    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for admins.
+     */
+    cursor?: adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` admins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of admins.
+     */
+    distinct?: AdminScalarFieldEnum | AdminScalarFieldEnum[]
+  }
+
+  /**
+   * admin findMany
+   */
+  export type adminFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * Filter, which admins to fetch.
+     */
+    where?: adminWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of admins to fetch.
+     */
+    orderBy?: adminOrderByWithRelationInput | adminOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing admins.
+     */
+    cursor?: adminWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` admins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` admins.
+     */
+    skip?: number
+    distinct?: AdminScalarFieldEnum | AdminScalarFieldEnum[]
+  }
+
+  /**
+   * admin create
+   */
+  export type adminCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * The data needed to create a admin.
+     */
+    data: XOR<adminCreateInput, adminUncheckedCreateInput>
+  }
+
+  /**
+   * admin createMany
+   */
+  export type adminCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many admins.
+     */
+    data: adminCreateManyInput | adminCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * admin createManyAndReturn
+   */
+  export type adminCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * The data used to create many admins.
+     */
+    data: adminCreateManyInput | adminCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * admin update
+   */
+  export type adminUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * The data needed to update a admin.
+     */
+    data: XOR<adminUpdateInput, adminUncheckedUpdateInput>
+    /**
+     * Choose, which admin to update.
+     */
+    where: adminWhereUniqueInput
+  }
+
+  /**
+   * admin updateMany
+   */
+  export type adminUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update admins.
+     */
+    data: XOR<adminUpdateManyMutationInput, adminUncheckedUpdateManyInput>
+    /**
+     * Filter which admins to update
+     */
+    where?: adminWhereInput
+    /**
+     * Limit how many admins to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * admin updateManyAndReturn
+   */
+  export type adminUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * The data used to update admins.
+     */
+    data: XOR<adminUpdateManyMutationInput, adminUncheckedUpdateManyInput>
+    /**
+     * Filter which admins to update
+     */
+    where?: adminWhereInput
+    /**
+     * Limit how many admins to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * admin upsert
+   */
+  export type adminUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * The filter to search for the admin to update in case it exists.
+     */
+    where: adminWhereUniqueInput
+    /**
+     * In case the admin found by the `where` argument doesn't exist, create a new admin with this data.
+     */
+    create: XOR<adminCreateInput, adminUncheckedCreateInput>
+    /**
+     * In case the admin was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<adminUpdateInput, adminUncheckedUpdateInput>
+  }
+
+  /**
+   * admin delete
+   */
+  export type adminDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    /**
+     * Filter which admin to delete.
+     */
+    where: adminWhereUniqueInput
+  }
+
+  /**
+   * admin deleteMany
+   */
+  export type adminDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which admins to delete
+     */
+    where?: adminWhereInput
+    /**
+     * Limit how many admins to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * admin.sendTextHistory
+   */
+  export type admin$sendTextHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    where?: sendTextHistoryWhereInput
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    cursor?: sendTextHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * admin.otp
+   */
+  export type admin$otpArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    where?: otpWhereInput
+  }
+
+  /**
+   * admin.importHistory
+   */
+  export type admin$importHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    where?: import_historyWhereInput
+    orderBy?: import_historyOrderByWithRelationInput | import_historyOrderByWithRelationInput[]
+    cursor?: import_historyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Import_historyScalarFieldEnum | Import_historyScalarFieldEnum[]
+  }
+
+  /**
+   * admin without action
+   */
+  export type adminDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model sendTextHistory
+   */
+
+  export type AggregateSendTextHistory = {
+    _count: SendTextHistoryCountAggregateOutputType | null
+    _avg: SendTextHistoryAvgAggregateOutputType | null
+    _sum: SendTextHistorySumAggregateOutputType | null
+    _min: SendTextHistoryMinAggregateOutputType | null
+    _max: SendTextHistoryMaxAggregateOutputType | null
+  }
+
+  export type SendTextHistoryAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type SendTextHistorySumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type SendTextHistoryMinAggregateOutputType = {
+    id: number | null
+    alumni_sender: string | null
+    alumniId: string | null
+    professorId: string | null
+    sender_type: string | null
+    adminId: string | null
+    title: string | null
+    detail: string | null
+    category: string | null
+    createdAt: Date | null
+  }
+
+  export type SendTextHistoryMaxAggregateOutputType = {
+    id: number | null
+    alumni_sender: string | null
+    alumniId: string | null
+    professorId: string | null
+    sender_type: string | null
+    adminId: string | null
+    title: string | null
+    detail: string | null
+    category: string | null
+    createdAt: Date | null
+  }
+
+  export type SendTextHistoryCountAggregateOutputType = {
+    id: number
+    alumni_sender: number
+    alumniId: number
+    professorId: number
+    sender_type: number
+    adminId: number
+    title: number
+    detail: number
+    category: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type SendTextHistoryAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type SendTextHistorySumAggregateInputType = {
+    id?: true
+  }
+
+  export type SendTextHistoryMinAggregateInputType = {
+    id?: true
+    alumni_sender?: true
+    alumniId?: true
+    professorId?: true
+    sender_type?: true
+    adminId?: true
+    title?: true
+    detail?: true
+    category?: true
+    createdAt?: true
+  }
+
+  export type SendTextHistoryMaxAggregateInputType = {
+    id?: true
+    alumni_sender?: true
+    alumniId?: true
+    professorId?: true
+    sender_type?: true
+    adminId?: true
+    title?: true
+    detail?: true
+    category?: true
+    createdAt?: true
+  }
+
+  export type SendTextHistoryCountAggregateInputType = {
+    id?: true
+    alumni_sender?: true
+    alumniId?: true
+    professorId?: true
+    sender_type?: true
+    adminId?: true
+    title?: true
+    detail?: true
+    category?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type SendTextHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sendTextHistory to aggregate.
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sendTextHistories to fetch.
+     */
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: sendTextHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sendTextHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sendTextHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned sendTextHistories
+    **/
+    _count?: true | SendTextHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SendTextHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SendTextHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SendTextHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SendTextHistoryMaxAggregateInputType
+  }
+
+  export type GetSendTextHistoryAggregateType<T extends SendTextHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateSendTextHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSendTextHistory[P]>
+      : GetScalarType<T[P], AggregateSendTextHistory[P]>
+  }
+
+
+
+
+  export type sendTextHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sendTextHistoryWhereInput
+    orderBy?: sendTextHistoryOrderByWithAggregationInput | sendTextHistoryOrderByWithAggregationInput[]
+    by: SendTextHistoryScalarFieldEnum[] | SendTextHistoryScalarFieldEnum
+    having?: sendTextHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SendTextHistoryCountAggregateInputType | true
+    _avg?: SendTextHistoryAvgAggregateInputType
+    _sum?: SendTextHistorySumAggregateInputType
+    _min?: SendTextHistoryMinAggregateInputType
+    _max?: SendTextHistoryMaxAggregateInputType
+  }
+
+  export type SendTextHistoryGroupByOutputType = {
+    id: number
+    alumni_sender: string | null
+    alumniId: string | null
+    professorId: string | null
+    sender_type: string | null
+    adminId: string | null
+    title: string
+    detail: string
+    category: string | null
+    createdAt: Date
+    _count: SendTextHistoryCountAggregateOutputType | null
+    _avg: SendTextHistoryAvgAggregateOutputType | null
+    _sum: SendTextHistorySumAggregateOutputType | null
+    _min: SendTextHistoryMinAggregateOutputType | null
+    _max: SendTextHistoryMaxAggregateOutputType | null
+  }
+
+  type GetSendTextHistoryGroupByPayload<T extends sendTextHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SendTextHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SendTextHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SendTextHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], SendTextHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type sendTextHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alumni_sender?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    sender_type?: boolean
+    adminId?: boolean
+    title?: boolean
+    detail?: boolean
+    category?: boolean
+    createdAt?: boolean
+    professor?: boolean | sendTextHistory$professorArgs<ExtArgs>
+    admin?: boolean | sendTextHistory$adminArgs<ExtArgs>
+    alumni?: boolean | sendTextHistory$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["sendTextHistory"]>
+
+  export type sendTextHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alumni_sender?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    sender_type?: boolean
+    adminId?: boolean
+    title?: boolean
+    detail?: boolean
+    category?: boolean
+    createdAt?: boolean
+    professor?: boolean | sendTextHistory$professorArgs<ExtArgs>
+    admin?: boolean | sendTextHistory$adminArgs<ExtArgs>
+    alumni?: boolean | sendTextHistory$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["sendTextHistory"]>
+
+  export type sendTextHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alumni_sender?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    sender_type?: boolean
+    adminId?: boolean
+    title?: boolean
+    detail?: boolean
+    category?: boolean
+    createdAt?: boolean
+    professor?: boolean | sendTextHistory$professorArgs<ExtArgs>
+    admin?: boolean | sendTextHistory$adminArgs<ExtArgs>
+    alumni?: boolean | sendTextHistory$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["sendTextHistory"]>
+
+  export type sendTextHistorySelectScalar = {
+    id?: boolean
+    alumni_sender?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    sender_type?: boolean
+    adminId?: boolean
+    title?: boolean
+    detail?: boolean
+    category?: boolean
+    createdAt?: boolean
+  }
+
+  export type sendTextHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alumni_sender" | "alumniId" | "professorId" | "sender_type" | "adminId" | "title" | "detail" | "category" | "createdAt", ExtArgs["result"]["sendTextHistory"]>
+  export type sendTextHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professor?: boolean | sendTextHistory$professorArgs<ExtArgs>
+    admin?: boolean | sendTextHistory$adminArgs<ExtArgs>
+    alumni?: boolean | sendTextHistory$alumniArgs<ExtArgs>
+  }
+  export type sendTextHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professor?: boolean | sendTextHistory$professorArgs<ExtArgs>
+    admin?: boolean | sendTextHistory$adminArgs<ExtArgs>
+    alumni?: boolean | sendTextHistory$alumniArgs<ExtArgs>
+  }
+  export type sendTextHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professor?: boolean | sendTextHistory$professorArgs<ExtArgs>
+    admin?: boolean | sendTextHistory$adminArgs<ExtArgs>
+    alumni?: boolean | sendTextHistory$alumniArgs<ExtArgs>
+  }
+
+  export type $sendTextHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "sendTextHistory"
+    objects: {
+      professor: Prisma.$professorPayload<ExtArgs> | null
+      admin: Prisma.$adminPayload<ExtArgs> | null
+      alumni: Prisma.$alumniPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      alumni_sender: string | null
+      alumniId: string | null
+      professorId: string | null
+      sender_type: string | null
+      adminId: string | null
+      title: string
+      detail: string
+      category: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["sendTextHistory"]>
+    composites: {}
+  }
+
+  type sendTextHistoryGetPayload<S extends boolean | null | undefined | sendTextHistoryDefaultArgs> = $Result.GetResult<Prisma.$sendTextHistoryPayload, S>
+
+  type sendTextHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<sendTextHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SendTextHistoryCountAggregateInputType | true
+    }
+
+  export interface sendTextHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sendTextHistory'], meta: { name: 'sendTextHistory' } }
+    /**
+     * Find zero or one SendTextHistory that matches the filter.
+     * @param {sendTextHistoryFindUniqueArgs} args - Arguments to find a SendTextHistory
+     * @example
+     * // Get one SendTextHistory
+     * const sendTextHistory = await prisma.sendTextHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends sendTextHistoryFindUniqueArgs>(args: SelectSubset<T, sendTextHistoryFindUniqueArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SendTextHistory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {sendTextHistoryFindUniqueOrThrowArgs} args - Arguments to find a SendTextHistory
+     * @example
+     * // Get one SendTextHistory
+     * const sendTextHistory = await prisma.sendTextHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends sendTextHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, sendTextHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SendTextHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sendTextHistoryFindFirstArgs} args - Arguments to find a SendTextHistory
+     * @example
+     * // Get one SendTextHistory
+     * const sendTextHistory = await prisma.sendTextHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends sendTextHistoryFindFirstArgs>(args?: SelectSubset<T, sendTextHistoryFindFirstArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SendTextHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sendTextHistoryFindFirstOrThrowArgs} args - Arguments to find a SendTextHistory
+     * @example
+     * // Get one SendTextHistory
+     * const sendTextHistory = await prisma.sendTextHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends sendTextHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, sendTextHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SendTextHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sendTextHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SendTextHistories
+     * const sendTextHistories = await prisma.sendTextHistory.findMany()
+     * 
+     * // Get first 10 SendTextHistories
+     * const sendTextHistories = await prisma.sendTextHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sendTextHistoryWithIdOnly = await prisma.sendTextHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends sendTextHistoryFindManyArgs>(args?: SelectSubset<T, sendTextHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SendTextHistory.
+     * @param {sendTextHistoryCreateArgs} args - Arguments to create a SendTextHistory.
+     * @example
+     * // Create one SendTextHistory
+     * const SendTextHistory = await prisma.sendTextHistory.create({
+     *   data: {
+     *     // ... data to create a SendTextHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends sendTextHistoryCreateArgs>(args: SelectSubset<T, sendTextHistoryCreateArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SendTextHistories.
+     * @param {sendTextHistoryCreateManyArgs} args - Arguments to create many SendTextHistories.
+     * @example
+     * // Create many SendTextHistories
+     * const sendTextHistory = await prisma.sendTextHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends sendTextHistoryCreateManyArgs>(args?: SelectSubset<T, sendTextHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SendTextHistories and returns the data saved in the database.
+     * @param {sendTextHistoryCreateManyAndReturnArgs} args - Arguments to create many SendTextHistories.
+     * @example
+     * // Create many SendTextHistories
+     * const sendTextHistory = await prisma.sendTextHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SendTextHistories and only return the `id`
+     * const sendTextHistoryWithIdOnly = await prisma.sendTextHistory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends sendTextHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, sendTextHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SendTextHistory.
+     * @param {sendTextHistoryDeleteArgs} args - Arguments to delete one SendTextHistory.
+     * @example
+     * // Delete one SendTextHistory
+     * const SendTextHistory = await prisma.sendTextHistory.delete({
+     *   where: {
+     *     // ... filter to delete one SendTextHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends sendTextHistoryDeleteArgs>(args: SelectSubset<T, sendTextHistoryDeleteArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SendTextHistory.
+     * @param {sendTextHistoryUpdateArgs} args - Arguments to update one SendTextHistory.
+     * @example
+     * // Update one SendTextHistory
+     * const sendTextHistory = await prisma.sendTextHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends sendTextHistoryUpdateArgs>(args: SelectSubset<T, sendTextHistoryUpdateArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SendTextHistories.
+     * @param {sendTextHistoryDeleteManyArgs} args - Arguments to filter SendTextHistories to delete.
+     * @example
+     * // Delete a few SendTextHistories
+     * const { count } = await prisma.sendTextHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends sendTextHistoryDeleteManyArgs>(args?: SelectSubset<T, sendTextHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SendTextHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sendTextHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SendTextHistories
+     * const sendTextHistory = await prisma.sendTextHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends sendTextHistoryUpdateManyArgs>(args: SelectSubset<T, sendTextHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SendTextHistories and returns the data updated in the database.
+     * @param {sendTextHistoryUpdateManyAndReturnArgs} args - Arguments to update many SendTextHistories.
+     * @example
+     * // Update many SendTextHistories
+     * const sendTextHistory = await prisma.sendTextHistory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SendTextHistories and only return the `id`
+     * const sendTextHistoryWithIdOnly = await prisma.sendTextHistory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends sendTextHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, sendTextHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SendTextHistory.
+     * @param {sendTextHistoryUpsertArgs} args - Arguments to update or create a SendTextHistory.
+     * @example
+     * // Update or create a SendTextHistory
+     * const sendTextHistory = await prisma.sendTextHistory.upsert({
+     *   create: {
+     *     // ... data to create a SendTextHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SendTextHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends sendTextHistoryUpsertArgs>(args: SelectSubset<T, sendTextHistoryUpsertArgs<ExtArgs>>): Prisma__sendTextHistoryClient<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SendTextHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sendTextHistoryCountArgs} args - Arguments to filter SendTextHistories to count.
+     * @example
+     * // Count the number of SendTextHistories
+     * const count = await prisma.sendTextHistory.count({
+     *   where: {
+     *     // ... the filter for the SendTextHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends sendTextHistoryCountArgs>(
+      args?: Subset<T, sendTextHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SendTextHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SendTextHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SendTextHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SendTextHistoryAggregateArgs>(args: Subset<T, SendTextHistoryAggregateArgs>): Prisma.PrismaPromise<GetSendTextHistoryAggregateType<T>>
+
+    /**
+     * Group by SendTextHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sendTextHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends sendTextHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: sendTextHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: sendTextHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, sendTextHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSendTextHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the sendTextHistory model
+   */
+  readonly fields: sendTextHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for sendTextHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__sendTextHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    professor<T extends sendTextHistory$professorArgs<ExtArgs> = {}>(args?: Subset<T, sendTextHistory$professorArgs<ExtArgs>>): Prisma__professorClient<$Result.GetResult<Prisma.$professorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    admin<T extends sendTextHistory$adminArgs<ExtArgs> = {}>(args?: Subset<T, sendTextHistory$adminArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    alumni<T extends sendTextHistory$alumniArgs<ExtArgs> = {}>(args?: Subset<T, sendTextHistory$alumniArgs<ExtArgs>>): Prisma__alumniClient<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the sendTextHistory model
+   */
+  interface sendTextHistoryFieldRefs {
+    readonly id: FieldRef<"sendTextHistory", 'Int'>
+    readonly alumni_sender: FieldRef<"sendTextHistory", 'String'>
+    readonly alumniId: FieldRef<"sendTextHistory", 'String'>
+    readonly professorId: FieldRef<"sendTextHistory", 'String'>
+    readonly sender_type: FieldRef<"sendTextHistory", 'String'>
+    readonly adminId: FieldRef<"sendTextHistory", 'String'>
+    readonly title: FieldRef<"sendTextHistory", 'String'>
+    readonly detail: FieldRef<"sendTextHistory", 'String'>
+    readonly category: FieldRef<"sendTextHistory", 'String'>
+    readonly createdAt: FieldRef<"sendTextHistory", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * sendTextHistory findUnique
+   */
+  export type sendTextHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which sendTextHistory to fetch.
+     */
+    where: sendTextHistoryWhereUniqueInput
+  }
+
+  /**
+   * sendTextHistory findUniqueOrThrow
+   */
+  export type sendTextHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which sendTextHistory to fetch.
+     */
+    where: sendTextHistoryWhereUniqueInput
+  }
+
+  /**
+   * sendTextHistory findFirst
+   */
+  export type sendTextHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which sendTextHistory to fetch.
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sendTextHistories to fetch.
+     */
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sendTextHistories.
+     */
+    cursor?: sendTextHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sendTextHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sendTextHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sendTextHistories.
+     */
+    distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * sendTextHistory findFirstOrThrow
+   */
+  export type sendTextHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which sendTextHistory to fetch.
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sendTextHistories to fetch.
+     */
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sendTextHistories.
+     */
+    cursor?: sendTextHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sendTextHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sendTextHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sendTextHistories.
+     */
+    distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * sendTextHistory findMany
+   */
+  export type sendTextHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which sendTextHistories to fetch.
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sendTextHistories to fetch.
+     */
+    orderBy?: sendTextHistoryOrderByWithRelationInput | sendTextHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing sendTextHistories.
+     */
+    cursor?: sendTextHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sendTextHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sendTextHistories.
+     */
+    skip?: number
+    distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * sendTextHistory create
+   */
+  export type sendTextHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a sendTextHistory.
+     */
+    data: XOR<sendTextHistoryCreateInput, sendTextHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * sendTextHistory createMany
+   */
+  export type sendTextHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many sendTextHistories.
+     */
+    data: sendTextHistoryCreateManyInput | sendTextHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * sendTextHistory createManyAndReturn
+   */
+  export type sendTextHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many sendTextHistories.
+     */
+    data: sendTextHistoryCreateManyInput | sendTextHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * sendTextHistory update
+   */
+  export type sendTextHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a sendTextHistory.
+     */
+    data: XOR<sendTextHistoryUpdateInput, sendTextHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which sendTextHistory to update.
+     */
+    where: sendTextHistoryWhereUniqueInput
+  }
+
+  /**
+   * sendTextHistory updateMany
+   */
+  export type sendTextHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update sendTextHistories.
+     */
+    data: XOR<sendTextHistoryUpdateManyMutationInput, sendTextHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which sendTextHistories to update
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * Limit how many sendTextHistories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * sendTextHistory updateManyAndReturn
+   */
+  export type sendTextHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update sendTextHistories.
+     */
+    data: XOR<sendTextHistoryUpdateManyMutationInput, sendTextHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which sendTextHistories to update
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * Limit how many sendTextHistories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * sendTextHistory upsert
+   */
+  export type sendTextHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the sendTextHistory to update in case it exists.
+     */
+    where: sendTextHistoryWhereUniqueInput
+    /**
+     * In case the sendTextHistory found by the `where` argument doesn't exist, create a new sendTextHistory with this data.
+     */
+    create: XOR<sendTextHistoryCreateInput, sendTextHistoryUncheckedCreateInput>
+    /**
+     * In case the sendTextHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<sendTextHistoryUpdateInput, sendTextHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * sendTextHistory delete
+   */
+  export type sendTextHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which sendTextHistory to delete.
+     */
+    where: sendTextHistoryWhereUniqueInput
+  }
+
+  /**
+   * sendTextHistory deleteMany
+   */
+  export type sendTextHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sendTextHistories to delete
+     */
+    where?: sendTextHistoryWhereInput
+    /**
+     * Limit how many sendTextHistories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * sendTextHistory.professor
+   */
+  export type sendTextHistory$professorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the professor
+     */
+    select?: professorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the professor
+     */
+    omit?: professorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorInclude<ExtArgs> | null
+    where?: professorWhereInput
+  }
+
+  /**
+   * sendTextHistory.admin
+   */
+  export type sendTextHistory$adminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    where?: adminWhereInput
+  }
+
+  /**
+   * sendTextHistory.alumni
+   */
+  export type sendTextHistory$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+  }
+
+  /**
+   * sendTextHistory without action
+   */
+  export type sendTextHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sendTextHistory
+     */
+    select?: sendTextHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sendTextHistory
+     */
+    omit?: sendTextHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sendTextHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model otp
+   */
+
+  export type AggregateOtp = {
+    _count: OtpCountAggregateOutputType | null
+    _avg: OtpAvgAggregateOutputType | null
+    _sum: OtpSumAggregateOutputType | null
+    _min: OtpMinAggregateOutputType | null
+    _max: OtpMaxAggregateOutputType | null
+  }
+
+  export type OtpAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type OtpSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type OtpMinAggregateOutputType = {
+    id: number | null
+    code: string | null
+    alumniId: string | null
+    professorId: string | null
+    adminId: string | null
+    createdAt: Date | null
+  }
+
+  export type OtpMaxAggregateOutputType = {
+    id: number | null
+    code: string | null
+    alumniId: string | null
+    professorId: string | null
+    adminId: string | null
+    createdAt: Date | null
+  }
+
+  export type OtpCountAggregateOutputType = {
+    id: number
+    code: number
+    alumniId: number
+    professorId: number
+    adminId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type OtpAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type OtpSumAggregateInputType = {
+    id?: true
+  }
+
+  export type OtpMinAggregateInputType = {
+    id?: true
+    code?: true
+    alumniId?: true
+    professorId?: true
+    adminId?: true
+    createdAt?: true
+  }
+
+  export type OtpMaxAggregateInputType = {
+    id?: true
+    code?: true
+    alumniId?: true
+    professorId?: true
+    adminId?: true
+    createdAt?: true
+  }
+
+  export type OtpCountAggregateInputType = {
+    id?: true
+    code?: true
+    alumniId?: true
+    professorId?: true
+    adminId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type OtpAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which otp to aggregate.
+     */
+    where?: otpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of otps to fetch.
+     */
+    orderBy?: otpOrderByWithRelationInput | otpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: otpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` otps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` otps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned otps
+    **/
+    _count?: true | OtpCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OtpAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OtpSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OtpMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OtpMaxAggregateInputType
+  }
+
+  export type GetOtpAggregateType<T extends OtpAggregateArgs> = {
+        [P in keyof T & keyof AggregateOtp]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOtp[P]>
+      : GetScalarType<T[P], AggregateOtp[P]>
+  }
+
+
+
+
+  export type otpGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: otpWhereInput
+    orderBy?: otpOrderByWithAggregationInput | otpOrderByWithAggregationInput[]
+    by: OtpScalarFieldEnum[] | OtpScalarFieldEnum
+    having?: otpScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OtpCountAggregateInputType | true
+    _avg?: OtpAvgAggregateInputType
+    _sum?: OtpSumAggregateInputType
+    _min?: OtpMinAggregateInputType
+    _max?: OtpMaxAggregateInputType
+  }
+
+  export type OtpGroupByOutputType = {
+    id: number
+    code: string
+    alumniId: string | null
+    professorId: string | null
+    adminId: string | null
+    createdAt: Date
+    _count: OtpCountAggregateOutputType | null
+    _avg: OtpAvgAggregateOutputType | null
+    _sum: OtpSumAggregateOutputType | null
+    _min: OtpMinAggregateOutputType | null
+    _max: OtpMaxAggregateOutputType | null
+  }
+
+  type GetOtpGroupByPayload<T extends otpGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OtpGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OtpGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OtpGroupByOutputType[P]>
+            : GetScalarType<T[P], OtpGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type otpSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    adminId?: boolean
+    createdAt?: boolean
+    professor?: boolean | otp$professorArgs<ExtArgs>
+    admin?: boolean | otp$adminArgs<ExtArgs>
+    alumni?: boolean | otp$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["otp"]>
+
+  export type otpSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    adminId?: boolean
+    createdAt?: boolean
+    professor?: boolean | otp$professorArgs<ExtArgs>
+    admin?: boolean | otp$adminArgs<ExtArgs>
+    alumni?: boolean | otp$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["otp"]>
+
+  export type otpSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    adminId?: boolean
+    createdAt?: boolean
+    professor?: boolean | otp$professorArgs<ExtArgs>
+    admin?: boolean | otp$adminArgs<ExtArgs>
+    alumni?: boolean | otp$alumniArgs<ExtArgs>
+  }, ExtArgs["result"]["otp"]>
+
+  export type otpSelectScalar = {
+    id?: boolean
+    code?: boolean
+    alumniId?: boolean
+    professorId?: boolean
+    adminId?: boolean
+    createdAt?: boolean
+  }
+
+  export type otpOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "alumniId" | "professorId" | "adminId" | "createdAt", ExtArgs["result"]["otp"]>
+  export type otpInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professor?: boolean | otp$professorArgs<ExtArgs>
+    admin?: boolean | otp$adminArgs<ExtArgs>
+    alumni?: boolean | otp$alumniArgs<ExtArgs>
+  }
+  export type otpIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professor?: boolean | otp$professorArgs<ExtArgs>
+    admin?: boolean | otp$adminArgs<ExtArgs>
+    alumni?: boolean | otp$alumniArgs<ExtArgs>
+  }
+  export type otpIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professor?: boolean | otp$professorArgs<ExtArgs>
+    admin?: boolean | otp$adminArgs<ExtArgs>
+    alumni?: boolean | otp$alumniArgs<ExtArgs>
+  }
+
+  export type $otpPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "otp"
+    objects: {
+      professor: Prisma.$professorPayload<ExtArgs> | null
+      admin: Prisma.$adminPayload<ExtArgs> | null
+      alumni: Prisma.$alumniPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      code: string
+      alumniId: string | null
+      professorId: string | null
+      adminId: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["otp"]>
+    composites: {}
+  }
+
+  type otpGetPayload<S extends boolean | null | undefined | otpDefaultArgs> = $Result.GetResult<Prisma.$otpPayload, S>
+
+  type otpCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<otpFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OtpCountAggregateInputType | true
+    }
+
+  export interface otpDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['otp'], meta: { name: 'otp' } }
+    /**
+     * Find zero or one Otp that matches the filter.
+     * @param {otpFindUniqueArgs} args - Arguments to find a Otp
+     * @example
+     * // Get one Otp
+     * const otp = await prisma.otp.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends otpFindUniqueArgs>(args: SelectSubset<T, otpFindUniqueArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Otp that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {otpFindUniqueOrThrowArgs} args - Arguments to find a Otp
+     * @example
+     * // Get one Otp
+     * const otp = await prisma.otp.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends otpFindUniqueOrThrowArgs>(args: SelectSubset<T, otpFindUniqueOrThrowArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Otp that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {otpFindFirstArgs} args - Arguments to find a Otp
+     * @example
+     * // Get one Otp
+     * const otp = await prisma.otp.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends otpFindFirstArgs>(args?: SelectSubset<T, otpFindFirstArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Otp that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {otpFindFirstOrThrowArgs} args - Arguments to find a Otp
+     * @example
+     * // Get one Otp
+     * const otp = await prisma.otp.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends otpFindFirstOrThrowArgs>(args?: SelectSubset<T, otpFindFirstOrThrowArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Otps that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {otpFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Otps
+     * const otps = await prisma.otp.findMany()
+     * 
+     * // Get first 10 Otps
+     * const otps = await prisma.otp.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const otpWithIdOnly = await prisma.otp.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends otpFindManyArgs>(args?: SelectSubset<T, otpFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Otp.
+     * @param {otpCreateArgs} args - Arguments to create a Otp.
+     * @example
+     * // Create one Otp
+     * const Otp = await prisma.otp.create({
+     *   data: {
+     *     // ... data to create a Otp
+     *   }
+     * })
+     * 
+     */
+    create<T extends otpCreateArgs>(args: SelectSubset<T, otpCreateArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Otps.
+     * @param {otpCreateManyArgs} args - Arguments to create many Otps.
+     * @example
+     * // Create many Otps
+     * const otp = await prisma.otp.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends otpCreateManyArgs>(args?: SelectSubset<T, otpCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Otps and returns the data saved in the database.
+     * @param {otpCreateManyAndReturnArgs} args - Arguments to create many Otps.
+     * @example
+     * // Create many Otps
+     * const otp = await prisma.otp.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Otps and only return the `id`
+     * const otpWithIdOnly = await prisma.otp.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends otpCreateManyAndReturnArgs>(args?: SelectSubset<T, otpCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Otp.
+     * @param {otpDeleteArgs} args - Arguments to delete one Otp.
+     * @example
+     * // Delete one Otp
+     * const Otp = await prisma.otp.delete({
+     *   where: {
+     *     // ... filter to delete one Otp
+     *   }
+     * })
+     * 
+     */
+    delete<T extends otpDeleteArgs>(args: SelectSubset<T, otpDeleteArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Otp.
+     * @param {otpUpdateArgs} args - Arguments to update one Otp.
+     * @example
+     * // Update one Otp
+     * const otp = await prisma.otp.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends otpUpdateArgs>(args: SelectSubset<T, otpUpdateArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Otps.
+     * @param {otpDeleteManyArgs} args - Arguments to filter Otps to delete.
+     * @example
+     * // Delete a few Otps
+     * const { count } = await prisma.otp.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends otpDeleteManyArgs>(args?: SelectSubset<T, otpDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Otps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {otpUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Otps
+     * const otp = await prisma.otp.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends otpUpdateManyArgs>(args: SelectSubset<T, otpUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Otps and returns the data updated in the database.
+     * @param {otpUpdateManyAndReturnArgs} args - Arguments to update many Otps.
+     * @example
+     * // Update many Otps
+     * const otp = await prisma.otp.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Otps and only return the `id`
+     * const otpWithIdOnly = await prisma.otp.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends otpUpdateManyAndReturnArgs>(args: SelectSubset<T, otpUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Otp.
+     * @param {otpUpsertArgs} args - Arguments to update or create a Otp.
+     * @example
+     * // Update or create a Otp
+     * const otp = await prisma.otp.upsert({
+     *   create: {
+     *     // ... data to create a Otp
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Otp we want to update
+     *   }
+     * })
+     */
+    upsert<T extends otpUpsertArgs>(args: SelectSubset<T, otpUpsertArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Otps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {otpCountArgs} args - Arguments to filter Otps to count.
+     * @example
+     * // Count the number of Otps
+     * const count = await prisma.otp.count({
+     *   where: {
+     *     // ... the filter for the Otps we want to count
+     *   }
+     * })
+    **/
+    count<T extends otpCountArgs>(
+      args?: Subset<T, otpCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OtpCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Otp.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtpAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OtpAggregateArgs>(args: Subset<T, OtpAggregateArgs>): Prisma.PrismaPromise<GetOtpAggregateType<T>>
+
+    /**
+     * Group by Otp.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {otpGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends otpGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: otpGroupByArgs['orderBy'] }
+        : { orderBy?: otpGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, otpGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOtpGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the otp model
+   */
+  readonly fields: otpFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for otp.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__otpClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    professor<T extends otp$professorArgs<ExtArgs> = {}>(args?: Subset<T, otp$professorArgs<ExtArgs>>): Prisma__professorClient<$Result.GetResult<Prisma.$professorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    admin<T extends otp$adminArgs<ExtArgs> = {}>(args?: Subset<T, otp$adminArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    alumni<T extends otp$alumniArgs<ExtArgs> = {}>(args?: Subset<T, otp$alumniArgs<ExtArgs>>): Prisma__alumniClient<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the otp model
+   */
+  interface otpFieldRefs {
+    readonly id: FieldRef<"otp", 'Int'>
+    readonly code: FieldRef<"otp", 'String'>
+    readonly alumniId: FieldRef<"otp", 'String'>
+    readonly professorId: FieldRef<"otp", 'String'>
+    readonly adminId: FieldRef<"otp", 'String'>
+    readonly createdAt: FieldRef<"otp", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * otp findUnique
+   */
+  export type otpFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * Filter, which otp to fetch.
+     */
+    where: otpWhereUniqueInput
+  }
+
+  /**
+   * otp findUniqueOrThrow
+   */
+  export type otpFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * Filter, which otp to fetch.
+     */
+    where: otpWhereUniqueInput
+  }
+
+  /**
+   * otp findFirst
+   */
+  export type otpFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * Filter, which otp to fetch.
+     */
+    where?: otpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of otps to fetch.
+     */
+    orderBy?: otpOrderByWithRelationInput | otpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for otps.
+     */
+    cursor?: otpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` otps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` otps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of otps.
+     */
+    distinct?: OtpScalarFieldEnum | OtpScalarFieldEnum[]
+  }
+
+  /**
+   * otp findFirstOrThrow
+   */
+  export type otpFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * Filter, which otp to fetch.
+     */
+    where?: otpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of otps to fetch.
+     */
+    orderBy?: otpOrderByWithRelationInput | otpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for otps.
+     */
+    cursor?: otpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` otps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` otps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of otps.
+     */
+    distinct?: OtpScalarFieldEnum | OtpScalarFieldEnum[]
+  }
+
+  /**
+   * otp findMany
+   */
+  export type otpFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * Filter, which otps to fetch.
+     */
+    where?: otpWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of otps to fetch.
+     */
+    orderBy?: otpOrderByWithRelationInput | otpOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing otps.
+     */
+    cursor?: otpWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` otps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` otps.
+     */
+    skip?: number
+    distinct?: OtpScalarFieldEnum | OtpScalarFieldEnum[]
+  }
+
+  /**
+   * otp create
+   */
+  export type otpCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * The data needed to create a otp.
+     */
+    data: XOR<otpCreateInput, otpUncheckedCreateInput>
+  }
+
+  /**
+   * otp createMany
+   */
+  export type otpCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many otps.
+     */
+    data: otpCreateManyInput | otpCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * otp createManyAndReturn
+   */
+  export type otpCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * The data used to create many otps.
+     */
+    data: otpCreateManyInput | otpCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * otp update
+   */
+  export type otpUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * The data needed to update a otp.
+     */
+    data: XOR<otpUpdateInput, otpUncheckedUpdateInput>
+    /**
+     * Choose, which otp to update.
+     */
+    where: otpWhereUniqueInput
+  }
+
+  /**
+   * otp updateMany
+   */
+  export type otpUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update otps.
+     */
+    data: XOR<otpUpdateManyMutationInput, otpUncheckedUpdateManyInput>
+    /**
+     * Filter which otps to update
+     */
+    where?: otpWhereInput
+    /**
+     * Limit how many otps to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * otp updateManyAndReturn
+   */
+  export type otpUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * The data used to update otps.
+     */
+    data: XOR<otpUpdateManyMutationInput, otpUncheckedUpdateManyInput>
+    /**
+     * Filter which otps to update
+     */
+    where?: otpWhereInput
+    /**
+     * Limit how many otps to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * otp upsert
+   */
+  export type otpUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * The filter to search for the otp to update in case it exists.
+     */
+    where: otpWhereUniqueInput
+    /**
+     * In case the otp found by the `where` argument doesn't exist, create a new otp with this data.
+     */
+    create: XOR<otpCreateInput, otpUncheckedCreateInput>
+    /**
+     * In case the otp was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<otpUpdateInput, otpUncheckedUpdateInput>
+  }
+
+  /**
+   * otp delete
+   */
+  export type otpDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
+    /**
+     * Filter which otp to delete.
+     */
+    where: otpWhereUniqueInput
+  }
+
+  /**
+   * otp deleteMany
+   */
+  export type otpDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which otps to delete
+     */
+    where?: otpWhereInput
+    /**
+     * Limit how many otps to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * otp.professor
+   */
+  export type otp$professorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the professor
+     */
+    select?: professorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the professor
+     */
+    omit?: professorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorInclude<ExtArgs> | null
+    where?: professorWhereInput
+  }
+
+  /**
+   * otp.admin
+   */
+  export type otp$adminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the admin
+     */
+    select?: adminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the admin
+     */
+    omit?: adminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: adminInclude<ExtArgs> | null
+    where?: adminWhereInput
+  }
+
+  /**
+   * otp.alumni
+   */
+  export type otp$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+  }
+
+  /**
+   * otp without action
+   */
+  export type otpDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the otp
+     */
+    select?: otpSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the otp
+     */
+    omit?: otpOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: otpInclude<ExtArgs> | null
   }
 
 
@@ -9018,6 +16954,2414 @@ export namespace Prisma {
 
 
   /**
+   * Model import_history
+   */
+
+  export type AggregateImport_history = {
+    _count: Import_historyCountAggregateOutputType | null
+    _avg: Import_historyAvgAggregateOutputType | null
+    _sum: Import_historySumAggregateOutputType | null
+    _min: Import_historyMinAggregateOutputType | null
+    _max: Import_historyMaxAggregateOutputType | null
+  }
+
+  export type Import_historyAvgAggregateOutputType = {
+    file_size: number | null
+    total_rows: number | null
+  }
+
+  export type Import_historySumAggregateOutputType = {
+    file_size: number | null
+    total_rows: number | null
+  }
+
+  export type Import_historyMinAggregateOutputType = {
+    id: string | null
+    file_name: string | null
+    file_size: number | null
+    total_rows: number | null
+    import_type: string | null
+    imported_by: string | null
+    started_at: Date | null
+    finished_at: Date | null
+    created_at: Date | null
+  }
+
+  export type Import_historyMaxAggregateOutputType = {
+    id: string | null
+    file_name: string | null
+    file_size: number | null
+    total_rows: number | null
+    import_type: string | null
+    imported_by: string | null
+    started_at: Date | null
+    finished_at: Date | null
+    created_at: Date | null
+  }
+
+  export type Import_historyCountAggregateOutputType = {
+    id: number
+    file_name: number
+    file_size: number
+    total_rows: number
+    import_type: number
+    imported_by: number
+    started_at: number
+    finished_at: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type Import_historyAvgAggregateInputType = {
+    file_size?: true
+    total_rows?: true
+  }
+
+  export type Import_historySumAggregateInputType = {
+    file_size?: true
+    total_rows?: true
+  }
+
+  export type Import_historyMinAggregateInputType = {
+    id?: true
+    file_name?: true
+    file_size?: true
+    total_rows?: true
+    import_type?: true
+    imported_by?: true
+    started_at?: true
+    finished_at?: true
+    created_at?: true
+  }
+
+  export type Import_historyMaxAggregateInputType = {
+    id?: true
+    file_name?: true
+    file_size?: true
+    total_rows?: true
+    import_type?: true
+    imported_by?: true
+    started_at?: true
+    finished_at?: true
+    created_at?: true
+  }
+
+  export type Import_historyCountAggregateInputType = {
+    id?: true
+    file_name?: true
+    file_size?: true
+    total_rows?: true
+    import_type?: true
+    imported_by?: true
+    started_at?: true
+    finished_at?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type Import_historyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which import_history to aggregate.
+     */
+    where?: import_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of import_histories to fetch.
+     */
+    orderBy?: import_historyOrderByWithRelationInput | import_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: import_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` import_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` import_histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned import_histories
+    **/
+    _count?: true | Import_historyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Import_historyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Import_historySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Import_historyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Import_historyMaxAggregateInputType
+  }
+
+  export type GetImport_historyAggregateType<T extends Import_historyAggregateArgs> = {
+        [P in keyof T & keyof AggregateImport_history]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateImport_history[P]>
+      : GetScalarType<T[P], AggregateImport_history[P]>
+  }
+
+
+
+
+  export type import_historyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: import_historyWhereInput
+    orderBy?: import_historyOrderByWithAggregationInput | import_historyOrderByWithAggregationInput[]
+    by: Import_historyScalarFieldEnum[] | Import_historyScalarFieldEnum
+    having?: import_historyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Import_historyCountAggregateInputType | true
+    _avg?: Import_historyAvgAggregateInputType
+    _sum?: Import_historySumAggregateInputType
+    _min?: Import_historyMinAggregateInputType
+    _max?: Import_historyMaxAggregateInputType
+  }
+
+  export type Import_historyGroupByOutputType = {
+    id: string
+    file_name: string
+    file_size: number | null
+    total_rows: number
+    import_type: string
+    imported_by: string
+    started_at: Date
+    finished_at: Date | null
+    created_at: Date
+    _count: Import_historyCountAggregateOutputType | null
+    _avg: Import_historyAvgAggregateOutputType | null
+    _sum: Import_historySumAggregateOutputType | null
+    _min: Import_historyMinAggregateOutputType | null
+    _max: Import_historyMaxAggregateOutputType | null
+  }
+
+  type GetImport_historyGroupByPayload<T extends import_historyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Import_historyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Import_historyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Import_historyGroupByOutputType[P]>
+            : GetScalarType<T[P], Import_historyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type import_historySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    file_name?: boolean
+    file_size?: boolean
+    total_rows?: boolean
+    import_type?: boolean
+    imported_by?: boolean
+    started_at?: boolean
+    finished_at?: boolean
+    created_at?: boolean
+    admin?: boolean | adminDefaultArgs<ExtArgs>
+    alumni?: boolean | import_history$alumniArgs<ExtArgs>
+    professor?: boolean | import_history$professorArgs<ExtArgs>
+    _count?: boolean | Import_historyCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["import_history"]>
+
+  export type import_historySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    file_name?: boolean
+    file_size?: boolean
+    total_rows?: boolean
+    import_type?: boolean
+    imported_by?: boolean
+    started_at?: boolean
+    finished_at?: boolean
+    created_at?: boolean
+    admin?: boolean | adminDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["import_history"]>
+
+  export type import_historySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    file_name?: boolean
+    file_size?: boolean
+    total_rows?: boolean
+    import_type?: boolean
+    imported_by?: boolean
+    started_at?: boolean
+    finished_at?: boolean
+    created_at?: boolean
+    admin?: boolean | adminDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["import_history"]>
+
+  export type import_historySelectScalar = {
+    id?: boolean
+    file_name?: boolean
+    file_size?: boolean
+    total_rows?: boolean
+    import_type?: boolean
+    imported_by?: boolean
+    started_at?: boolean
+    finished_at?: boolean
+    created_at?: boolean
+  }
+
+  export type import_historyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "file_name" | "file_size" | "total_rows" | "import_type" | "imported_by" | "started_at" | "finished_at" | "created_at", ExtArgs["result"]["import_history"]>
+  export type import_historyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | adminDefaultArgs<ExtArgs>
+    alumni?: boolean | import_history$alumniArgs<ExtArgs>
+    professor?: boolean | import_history$professorArgs<ExtArgs>
+    _count?: boolean | Import_historyCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type import_historyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | adminDefaultArgs<ExtArgs>
+  }
+  export type import_historyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | adminDefaultArgs<ExtArgs>
+  }
+
+  export type $import_historyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "import_history"
+    objects: {
+      admin: Prisma.$adminPayload<ExtArgs>
+      alumni: Prisma.$alumniPayload<ExtArgs>[]
+      professor: Prisma.$professorPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      file_name: string
+      file_size: number | null
+      total_rows: number
+      import_type: string
+      imported_by: string
+      started_at: Date
+      finished_at: Date | null
+      created_at: Date
+    }, ExtArgs["result"]["import_history"]>
+    composites: {}
+  }
+
+  type import_historyGetPayload<S extends boolean | null | undefined | import_historyDefaultArgs> = $Result.GetResult<Prisma.$import_historyPayload, S>
+
+  type import_historyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<import_historyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Import_historyCountAggregateInputType | true
+    }
+
+  export interface import_historyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['import_history'], meta: { name: 'import_history' } }
+    /**
+     * Find zero or one Import_history that matches the filter.
+     * @param {import_historyFindUniqueArgs} args - Arguments to find a Import_history
+     * @example
+     * // Get one Import_history
+     * const import_history = await prisma.import_history.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends import_historyFindUniqueArgs>(args: SelectSubset<T, import_historyFindUniqueArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Import_history that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {import_historyFindUniqueOrThrowArgs} args - Arguments to find a Import_history
+     * @example
+     * // Get one Import_history
+     * const import_history = await prisma.import_history.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends import_historyFindUniqueOrThrowArgs>(args: SelectSubset<T, import_historyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Import_history that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {import_historyFindFirstArgs} args - Arguments to find a Import_history
+     * @example
+     * // Get one Import_history
+     * const import_history = await prisma.import_history.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends import_historyFindFirstArgs>(args?: SelectSubset<T, import_historyFindFirstArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Import_history that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {import_historyFindFirstOrThrowArgs} args - Arguments to find a Import_history
+     * @example
+     * // Get one Import_history
+     * const import_history = await prisma.import_history.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends import_historyFindFirstOrThrowArgs>(args?: SelectSubset<T, import_historyFindFirstOrThrowArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Import_histories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {import_historyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Import_histories
+     * const import_histories = await prisma.import_history.findMany()
+     * 
+     * // Get first 10 Import_histories
+     * const import_histories = await prisma.import_history.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const import_historyWithIdOnly = await prisma.import_history.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends import_historyFindManyArgs>(args?: SelectSubset<T, import_historyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Import_history.
+     * @param {import_historyCreateArgs} args - Arguments to create a Import_history.
+     * @example
+     * // Create one Import_history
+     * const Import_history = await prisma.import_history.create({
+     *   data: {
+     *     // ... data to create a Import_history
+     *   }
+     * })
+     * 
+     */
+    create<T extends import_historyCreateArgs>(args: SelectSubset<T, import_historyCreateArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Import_histories.
+     * @param {import_historyCreateManyArgs} args - Arguments to create many Import_histories.
+     * @example
+     * // Create many Import_histories
+     * const import_history = await prisma.import_history.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends import_historyCreateManyArgs>(args?: SelectSubset<T, import_historyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Import_histories and returns the data saved in the database.
+     * @param {import_historyCreateManyAndReturnArgs} args - Arguments to create many Import_histories.
+     * @example
+     * // Create many Import_histories
+     * const import_history = await prisma.import_history.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Import_histories and only return the `id`
+     * const import_historyWithIdOnly = await prisma.import_history.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends import_historyCreateManyAndReturnArgs>(args?: SelectSubset<T, import_historyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Import_history.
+     * @param {import_historyDeleteArgs} args - Arguments to delete one Import_history.
+     * @example
+     * // Delete one Import_history
+     * const Import_history = await prisma.import_history.delete({
+     *   where: {
+     *     // ... filter to delete one Import_history
+     *   }
+     * })
+     * 
+     */
+    delete<T extends import_historyDeleteArgs>(args: SelectSubset<T, import_historyDeleteArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Import_history.
+     * @param {import_historyUpdateArgs} args - Arguments to update one Import_history.
+     * @example
+     * // Update one Import_history
+     * const import_history = await prisma.import_history.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends import_historyUpdateArgs>(args: SelectSubset<T, import_historyUpdateArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Import_histories.
+     * @param {import_historyDeleteManyArgs} args - Arguments to filter Import_histories to delete.
+     * @example
+     * // Delete a few Import_histories
+     * const { count } = await prisma.import_history.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends import_historyDeleteManyArgs>(args?: SelectSubset<T, import_historyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Import_histories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {import_historyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Import_histories
+     * const import_history = await prisma.import_history.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends import_historyUpdateManyArgs>(args: SelectSubset<T, import_historyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Import_histories and returns the data updated in the database.
+     * @param {import_historyUpdateManyAndReturnArgs} args - Arguments to update many Import_histories.
+     * @example
+     * // Update many Import_histories
+     * const import_history = await prisma.import_history.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Import_histories and only return the `id`
+     * const import_historyWithIdOnly = await prisma.import_history.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends import_historyUpdateManyAndReturnArgs>(args: SelectSubset<T, import_historyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Import_history.
+     * @param {import_historyUpsertArgs} args - Arguments to update or create a Import_history.
+     * @example
+     * // Update or create a Import_history
+     * const import_history = await prisma.import_history.upsert({
+     *   create: {
+     *     // ... data to create a Import_history
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Import_history we want to update
+     *   }
+     * })
+     */
+    upsert<T extends import_historyUpsertArgs>(args: SelectSubset<T, import_historyUpsertArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Import_histories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {import_historyCountArgs} args - Arguments to filter Import_histories to count.
+     * @example
+     * // Count the number of Import_histories
+     * const count = await prisma.import_history.count({
+     *   where: {
+     *     // ... the filter for the Import_histories we want to count
+     *   }
+     * })
+    **/
+    count<T extends import_historyCountArgs>(
+      args?: Subset<T, import_historyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Import_historyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Import_history.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Import_historyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Import_historyAggregateArgs>(args: Subset<T, Import_historyAggregateArgs>): Prisma.PrismaPromise<GetImport_historyAggregateType<T>>
+
+    /**
+     * Group by Import_history.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {import_historyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends import_historyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: import_historyGroupByArgs['orderBy'] }
+        : { orderBy?: import_historyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, import_historyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetImport_historyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the import_history model
+   */
+  readonly fields: import_historyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for import_history.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__import_historyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    admin<T extends adminDefaultArgs<ExtArgs> = {}>(args?: Subset<T, adminDefaultArgs<ExtArgs>>): Prisma__adminClient<$Result.GetResult<Prisma.$adminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    alumni<T extends import_history$alumniArgs<ExtArgs> = {}>(args?: Subset<T, import_history$alumniArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    professor<T extends import_history$professorArgs<ExtArgs> = {}>(args?: Subset<T, import_history$professorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$professorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the import_history model
+   */
+  interface import_historyFieldRefs {
+    readonly id: FieldRef<"import_history", 'String'>
+    readonly file_name: FieldRef<"import_history", 'String'>
+    readonly file_size: FieldRef<"import_history", 'Int'>
+    readonly total_rows: FieldRef<"import_history", 'Int'>
+    readonly import_type: FieldRef<"import_history", 'String'>
+    readonly imported_by: FieldRef<"import_history", 'String'>
+    readonly started_at: FieldRef<"import_history", 'DateTime'>
+    readonly finished_at: FieldRef<"import_history", 'DateTime'>
+    readonly created_at: FieldRef<"import_history", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * import_history findUnique
+   */
+  export type import_historyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which import_history to fetch.
+     */
+    where: import_historyWhereUniqueInput
+  }
+
+  /**
+   * import_history findUniqueOrThrow
+   */
+  export type import_historyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which import_history to fetch.
+     */
+    where: import_historyWhereUniqueInput
+  }
+
+  /**
+   * import_history findFirst
+   */
+  export type import_historyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which import_history to fetch.
+     */
+    where?: import_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of import_histories to fetch.
+     */
+    orderBy?: import_historyOrderByWithRelationInput | import_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for import_histories.
+     */
+    cursor?: import_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` import_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` import_histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of import_histories.
+     */
+    distinct?: Import_historyScalarFieldEnum | Import_historyScalarFieldEnum[]
+  }
+
+  /**
+   * import_history findFirstOrThrow
+   */
+  export type import_historyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which import_history to fetch.
+     */
+    where?: import_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of import_histories to fetch.
+     */
+    orderBy?: import_historyOrderByWithRelationInput | import_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for import_histories.
+     */
+    cursor?: import_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` import_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` import_histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of import_histories.
+     */
+    distinct?: Import_historyScalarFieldEnum | Import_historyScalarFieldEnum[]
+  }
+
+  /**
+   * import_history findMany
+   */
+  export type import_historyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * Filter, which import_histories to fetch.
+     */
+    where?: import_historyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of import_histories to fetch.
+     */
+    orderBy?: import_historyOrderByWithRelationInput | import_historyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing import_histories.
+     */
+    cursor?: import_historyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` import_histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` import_histories.
+     */
+    skip?: number
+    distinct?: Import_historyScalarFieldEnum | Import_historyScalarFieldEnum[]
+  }
+
+  /**
+   * import_history create
+   */
+  export type import_historyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a import_history.
+     */
+    data: XOR<import_historyCreateInput, import_historyUncheckedCreateInput>
+  }
+
+  /**
+   * import_history createMany
+   */
+  export type import_historyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many import_histories.
+     */
+    data: import_historyCreateManyInput | import_historyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * import_history createManyAndReturn
+   */
+  export type import_historyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * The data used to create many import_histories.
+     */
+    data: import_historyCreateManyInput | import_historyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * import_history update
+   */
+  export type import_historyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a import_history.
+     */
+    data: XOR<import_historyUpdateInput, import_historyUncheckedUpdateInput>
+    /**
+     * Choose, which import_history to update.
+     */
+    where: import_historyWhereUniqueInput
+  }
+
+  /**
+   * import_history updateMany
+   */
+  export type import_historyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update import_histories.
+     */
+    data: XOR<import_historyUpdateManyMutationInput, import_historyUncheckedUpdateManyInput>
+    /**
+     * Filter which import_histories to update
+     */
+    where?: import_historyWhereInput
+    /**
+     * Limit how many import_histories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * import_history updateManyAndReturn
+   */
+  export type import_historyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * The data used to update import_histories.
+     */
+    data: XOR<import_historyUpdateManyMutationInput, import_historyUncheckedUpdateManyInput>
+    /**
+     * Filter which import_histories to update
+     */
+    where?: import_historyWhereInput
+    /**
+     * Limit how many import_histories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * import_history upsert
+   */
+  export type import_historyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the import_history to update in case it exists.
+     */
+    where: import_historyWhereUniqueInput
+    /**
+     * In case the import_history found by the `where` argument doesn't exist, create a new import_history with this data.
+     */
+    create: XOR<import_historyCreateInput, import_historyUncheckedCreateInput>
+    /**
+     * In case the import_history was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<import_historyUpdateInput, import_historyUncheckedUpdateInput>
+  }
+
+  /**
+   * import_history delete
+   */
+  export type import_historyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+    /**
+     * Filter which import_history to delete.
+     */
+    where: import_historyWhereUniqueInput
+  }
+
+  /**
+   * import_history deleteMany
+   */
+  export type import_historyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which import_histories to delete
+     */
+    where?: import_historyWhereInput
+    /**
+     * Limit how many import_histories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * import_history.alumni
+   */
+  export type import_history$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+    orderBy?: alumniOrderByWithRelationInput | alumniOrderByWithRelationInput[]
+    cursor?: alumniWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AlumniScalarFieldEnum | AlumniScalarFieldEnum[]
+  }
+
+  /**
+   * import_history.professor
+   */
+  export type import_history$professorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the professor
+     */
+    select?: professorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the professor
+     */
+    omit?: professorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorInclude<ExtArgs> | null
+    where?: professorWhereInput
+    orderBy?: professorOrderByWithRelationInput | professorOrderByWithRelationInput[]
+    cursor?: professorWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessorScalarFieldEnum | ProfessorScalarFieldEnum[]
+  }
+
+  /**
+   * import_history without action
+   */
+  export type import_historyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the import_history
+     */
+    select?: import_historySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the import_history
+     */
+    omit?: import_historyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: import_historyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model setting
+   */
+
+  export type AggregateSetting = {
+    _count: SettingCountAggregateOutputType | null
+    _avg: SettingAvgAggregateOutputType | null
+    _sum: SettingSumAggregateOutputType | null
+    _min: SettingMinAggregateOutputType | null
+    _max: SettingMaxAggregateOutputType | null
+  }
+
+  export type SettingAvgAggregateOutputType = {
+    id: number | null
+    regis_payment: number | null
+  }
+
+  export type SettingSumAggregateOutputType = {
+    id: number | null
+    regis_payment: number | null
+  }
+
+  export type SettingMinAggregateOutputType = {
+    id: number | null
+    regis_payment_qrcode: string | null
+    regis_payment: number | null
+    fac_sheet_link: string | null
+    dep_sheet_link: string | null
+    regis_payment_account_name: string | null
+    regis_payment_account_number: string | null
+    regis_payment_account_back: string | null
+    skipAlumniDuplicate: boolean | null
+    skipPersonelDuplicate: boolean | null
+    allowedAlumniAccount: boolean | null
+    allowedPersonelAccount: boolean | null
+    allowedAdminAccount: boolean | null
+    allowedNotifyAlumniRegis: boolean | null
+    allowedNotifyAlumniEditRegis: boolean | null
+    notify_email: string | null
+    backup_folderid: string | null
+    filebackup_folderid: string | null
+  }
+
+  export type SettingMaxAggregateOutputType = {
+    id: number | null
+    regis_payment_qrcode: string | null
+    regis_payment: number | null
+    fac_sheet_link: string | null
+    dep_sheet_link: string | null
+    regis_payment_account_name: string | null
+    regis_payment_account_number: string | null
+    regis_payment_account_back: string | null
+    skipAlumniDuplicate: boolean | null
+    skipPersonelDuplicate: boolean | null
+    allowedAlumniAccount: boolean | null
+    allowedPersonelAccount: boolean | null
+    allowedAdminAccount: boolean | null
+    allowedNotifyAlumniRegis: boolean | null
+    allowedNotifyAlumniEditRegis: boolean | null
+    notify_email: string | null
+    backup_folderid: string | null
+    filebackup_folderid: string | null
+  }
+
+  export type SettingCountAggregateOutputType = {
+    id: number
+    regis_payment_qrcode: number
+    regis_payment: number
+    fac_sheet_link: number
+    dep_sheet_link: number
+    regis_payment_account_name: number
+    regis_payment_account_number: number
+    regis_payment_account_back: number
+    skipAlumniDuplicate: number
+    skipPersonelDuplicate: number
+    allowedAlumniAccount: number
+    allowedPersonelAccount: number
+    allowedAdminAccount: number
+    allowedNotifyAlumniRegis: number
+    allowedNotifyAlumniEditRegis: number
+    notify_email: number
+    backup_folderid: number
+    filebackup_folderid: number
+    _all: number
+  }
+
+
+  export type SettingAvgAggregateInputType = {
+    id?: true
+    regis_payment?: true
+  }
+
+  export type SettingSumAggregateInputType = {
+    id?: true
+    regis_payment?: true
+  }
+
+  export type SettingMinAggregateInputType = {
+    id?: true
+    regis_payment_qrcode?: true
+    regis_payment?: true
+    fac_sheet_link?: true
+    dep_sheet_link?: true
+    regis_payment_account_name?: true
+    regis_payment_account_number?: true
+    regis_payment_account_back?: true
+    skipAlumniDuplicate?: true
+    skipPersonelDuplicate?: true
+    allowedAlumniAccount?: true
+    allowedPersonelAccount?: true
+    allowedAdminAccount?: true
+    allowedNotifyAlumniRegis?: true
+    allowedNotifyAlumniEditRegis?: true
+    notify_email?: true
+    backup_folderid?: true
+    filebackup_folderid?: true
+  }
+
+  export type SettingMaxAggregateInputType = {
+    id?: true
+    regis_payment_qrcode?: true
+    regis_payment?: true
+    fac_sheet_link?: true
+    dep_sheet_link?: true
+    regis_payment_account_name?: true
+    regis_payment_account_number?: true
+    regis_payment_account_back?: true
+    skipAlumniDuplicate?: true
+    skipPersonelDuplicate?: true
+    allowedAlumniAccount?: true
+    allowedPersonelAccount?: true
+    allowedAdminAccount?: true
+    allowedNotifyAlumniRegis?: true
+    allowedNotifyAlumniEditRegis?: true
+    notify_email?: true
+    backup_folderid?: true
+    filebackup_folderid?: true
+  }
+
+  export type SettingCountAggregateInputType = {
+    id?: true
+    regis_payment_qrcode?: true
+    regis_payment?: true
+    fac_sheet_link?: true
+    dep_sheet_link?: true
+    regis_payment_account_name?: true
+    regis_payment_account_number?: true
+    regis_payment_account_back?: true
+    skipAlumniDuplicate?: true
+    skipPersonelDuplicate?: true
+    allowedAlumniAccount?: true
+    allowedPersonelAccount?: true
+    allowedAdminAccount?: true
+    allowedNotifyAlumniRegis?: true
+    allowedNotifyAlumniEditRegis?: true
+    notify_email?: true
+    backup_folderid?: true
+    filebackup_folderid?: true
+    _all?: true
+  }
+
+  export type SettingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which setting to aggregate.
+     */
+    where?: settingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of settings to fetch.
+     */
+    orderBy?: settingOrderByWithRelationInput | settingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: settingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` settings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` settings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned settings
+    **/
+    _count?: true | SettingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SettingAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SettingSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SettingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SettingMaxAggregateInputType
+  }
+
+  export type GetSettingAggregateType<T extends SettingAggregateArgs> = {
+        [P in keyof T & keyof AggregateSetting]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSetting[P]>
+      : GetScalarType<T[P], AggregateSetting[P]>
+  }
+
+
+
+
+  export type settingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: settingWhereInput
+    orderBy?: settingOrderByWithAggregationInput | settingOrderByWithAggregationInput[]
+    by: SettingScalarFieldEnum[] | SettingScalarFieldEnum
+    having?: settingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SettingCountAggregateInputType | true
+    _avg?: SettingAvgAggregateInputType
+    _sum?: SettingSumAggregateInputType
+    _min?: SettingMinAggregateInputType
+    _max?: SettingMaxAggregateInputType
+  }
+
+  export type SettingGroupByOutputType = {
+    id: number
+    regis_payment_qrcode: string | null
+    regis_payment: number | null
+    fac_sheet_link: string | null
+    dep_sheet_link: string | null
+    regis_payment_account_name: string | null
+    regis_payment_account_number: string | null
+    regis_payment_account_back: string | null
+    skipAlumniDuplicate: boolean
+    skipPersonelDuplicate: boolean
+    allowedAlumniAccount: boolean
+    allowedPersonelAccount: boolean
+    allowedAdminAccount: boolean
+    allowedNotifyAlumniRegis: boolean
+    allowedNotifyAlumniEditRegis: boolean
+    notify_email: string | null
+    backup_folderid: string | null
+    filebackup_folderid: string | null
+    _count: SettingCountAggregateOutputType | null
+    _avg: SettingAvgAggregateOutputType | null
+    _sum: SettingSumAggregateOutputType | null
+    _min: SettingMinAggregateOutputType | null
+    _max: SettingMaxAggregateOutputType | null
+  }
+
+  type GetSettingGroupByPayload<T extends settingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SettingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SettingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SettingGroupByOutputType[P]>
+            : GetScalarType<T[P], SettingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type settingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    regis_payment_qrcode?: boolean
+    regis_payment?: boolean
+    fac_sheet_link?: boolean
+    dep_sheet_link?: boolean
+    regis_payment_account_name?: boolean
+    regis_payment_account_number?: boolean
+    regis_payment_account_back?: boolean
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: boolean
+    backup_folderid?: boolean
+    filebackup_folderid?: boolean
+  }, ExtArgs["result"]["setting"]>
+
+  export type settingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    regis_payment_qrcode?: boolean
+    regis_payment?: boolean
+    fac_sheet_link?: boolean
+    dep_sheet_link?: boolean
+    regis_payment_account_name?: boolean
+    regis_payment_account_number?: boolean
+    regis_payment_account_back?: boolean
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: boolean
+    backup_folderid?: boolean
+    filebackup_folderid?: boolean
+  }, ExtArgs["result"]["setting"]>
+
+  export type settingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    regis_payment_qrcode?: boolean
+    regis_payment?: boolean
+    fac_sheet_link?: boolean
+    dep_sheet_link?: boolean
+    regis_payment_account_name?: boolean
+    regis_payment_account_number?: boolean
+    regis_payment_account_back?: boolean
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: boolean
+    backup_folderid?: boolean
+    filebackup_folderid?: boolean
+  }, ExtArgs["result"]["setting"]>
+
+  export type settingSelectScalar = {
+    id?: boolean
+    regis_payment_qrcode?: boolean
+    regis_payment?: boolean
+    fac_sheet_link?: boolean
+    dep_sheet_link?: boolean
+    regis_payment_account_name?: boolean
+    regis_payment_account_number?: boolean
+    regis_payment_account_back?: boolean
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: boolean
+    backup_folderid?: boolean
+    filebackup_folderid?: boolean
+  }
+
+  export type settingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "regis_payment_qrcode" | "regis_payment" | "fac_sheet_link" | "dep_sheet_link" | "regis_payment_account_name" | "regis_payment_account_number" | "regis_payment_account_back" | "skipAlumniDuplicate" | "skipPersonelDuplicate" | "allowedAlumniAccount" | "allowedPersonelAccount" | "allowedAdminAccount" | "allowedNotifyAlumniRegis" | "allowedNotifyAlumniEditRegis" | "notify_email" | "backup_folderid" | "filebackup_folderid", ExtArgs["result"]["setting"]>
+
+  export type $settingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "setting"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      regis_payment_qrcode: string | null
+      regis_payment: number | null
+      fac_sheet_link: string | null
+      dep_sheet_link: string | null
+      regis_payment_account_name: string | null
+      regis_payment_account_number: string | null
+      regis_payment_account_back: string | null
+      skipAlumniDuplicate: boolean
+      skipPersonelDuplicate: boolean
+      allowedAlumniAccount: boolean
+      allowedPersonelAccount: boolean
+      allowedAdminAccount: boolean
+      allowedNotifyAlumniRegis: boolean
+      allowedNotifyAlumniEditRegis: boolean
+      notify_email: string | null
+      backup_folderid: string | null
+      filebackup_folderid: string | null
+    }, ExtArgs["result"]["setting"]>
+    composites: {}
+  }
+
+  type settingGetPayload<S extends boolean | null | undefined | settingDefaultArgs> = $Result.GetResult<Prisma.$settingPayload, S>
+
+  type settingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<settingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SettingCountAggregateInputType | true
+    }
+
+  export interface settingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['setting'], meta: { name: 'setting' } }
+    /**
+     * Find zero or one Setting that matches the filter.
+     * @param {settingFindUniqueArgs} args - Arguments to find a Setting
+     * @example
+     * // Get one Setting
+     * const setting = await prisma.setting.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends settingFindUniqueArgs>(args: SelectSubset<T, settingFindUniqueArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Setting that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {settingFindUniqueOrThrowArgs} args - Arguments to find a Setting
+     * @example
+     * // Get one Setting
+     * const setting = await prisma.setting.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends settingFindUniqueOrThrowArgs>(args: SelectSubset<T, settingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Setting that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {settingFindFirstArgs} args - Arguments to find a Setting
+     * @example
+     * // Get one Setting
+     * const setting = await prisma.setting.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends settingFindFirstArgs>(args?: SelectSubset<T, settingFindFirstArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Setting that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {settingFindFirstOrThrowArgs} args - Arguments to find a Setting
+     * @example
+     * // Get one Setting
+     * const setting = await prisma.setting.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends settingFindFirstOrThrowArgs>(args?: SelectSubset<T, settingFindFirstOrThrowArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Settings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {settingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Settings
+     * const settings = await prisma.setting.findMany()
+     * 
+     * // Get first 10 Settings
+     * const settings = await prisma.setting.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const settingWithIdOnly = await prisma.setting.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends settingFindManyArgs>(args?: SelectSubset<T, settingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Setting.
+     * @param {settingCreateArgs} args - Arguments to create a Setting.
+     * @example
+     * // Create one Setting
+     * const Setting = await prisma.setting.create({
+     *   data: {
+     *     // ... data to create a Setting
+     *   }
+     * })
+     * 
+     */
+    create<T extends settingCreateArgs>(args: SelectSubset<T, settingCreateArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Settings.
+     * @param {settingCreateManyArgs} args - Arguments to create many Settings.
+     * @example
+     * // Create many Settings
+     * const setting = await prisma.setting.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends settingCreateManyArgs>(args?: SelectSubset<T, settingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Settings and returns the data saved in the database.
+     * @param {settingCreateManyAndReturnArgs} args - Arguments to create many Settings.
+     * @example
+     * // Create many Settings
+     * const setting = await prisma.setting.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Settings and only return the `id`
+     * const settingWithIdOnly = await prisma.setting.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends settingCreateManyAndReturnArgs>(args?: SelectSubset<T, settingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Setting.
+     * @param {settingDeleteArgs} args - Arguments to delete one Setting.
+     * @example
+     * // Delete one Setting
+     * const Setting = await prisma.setting.delete({
+     *   where: {
+     *     // ... filter to delete one Setting
+     *   }
+     * })
+     * 
+     */
+    delete<T extends settingDeleteArgs>(args: SelectSubset<T, settingDeleteArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Setting.
+     * @param {settingUpdateArgs} args - Arguments to update one Setting.
+     * @example
+     * // Update one Setting
+     * const setting = await prisma.setting.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends settingUpdateArgs>(args: SelectSubset<T, settingUpdateArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Settings.
+     * @param {settingDeleteManyArgs} args - Arguments to filter Settings to delete.
+     * @example
+     * // Delete a few Settings
+     * const { count } = await prisma.setting.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends settingDeleteManyArgs>(args?: SelectSubset<T, settingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Settings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {settingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Settings
+     * const setting = await prisma.setting.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends settingUpdateManyArgs>(args: SelectSubset<T, settingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Settings and returns the data updated in the database.
+     * @param {settingUpdateManyAndReturnArgs} args - Arguments to update many Settings.
+     * @example
+     * // Update many Settings
+     * const setting = await prisma.setting.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Settings and only return the `id`
+     * const settingWithIdOnly = await prisma.setting.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends settingUpdateManyAndReturnArgs>(args: SelectSubset<T, settingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Setting.
+     * @param {settingUpsertArgs} args - Arguments to update or create a Setting.
+     * @example
+     * // Update or create a Setting
+     * const setting = await prisma.setting.upsert({
+     *   create: {
+     *     // ... data to create a Setting
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Setting we want to update
+     *   }
+     * })
+     */
+    upsert<T extends settingUpsertArgs>(args: SelectSubset<T, settingUpsertArgs<ExtArgs>>): Prisma__settingClient<$Result.GetResult<Prisma.$settingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Settings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {settingCountArgs} args - Arguments to filter Settings to count.
+     * @example
+     * // Count the number of Settings
+     * const count = await prisma.setting.count({
+     *   where: {
+     *     // ... the filter for the Settings we want to count
+     *   }
+     * })
+    **/
+    count<T extends settingCountArgs>(
+      args?: Subset<T, settingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SettingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Setting.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SettingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SettingAggregateArgs>(args: Subset<T, SettingAggregateArgs>): Prisma.PrismaPromise<GetSettingAggregateType<T>>
+
+    /**
+     * Group by Setting.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {settingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends settingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: settingGroupByArgs['orderBy'] }
+        : { orderBy?: settingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, settingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSettingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the setting model
+   */
+  readonly fields: settingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for setting.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__settingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the setting model
+   */
+  interface settingFieldRefs {
+    readonly id: FieldRef<"setting", 'Int'>
+    readonly regis_payment_qrcode: FieldRef<"setting", 'String'>
+    readonly regis_payment: FieldRef<"setting", 'Int'>
+    readonly fac_sheet_link: FieldRef<"setting", 'String'>
+    readonly dep_sheet_link: FieldRef<"setting", 'String'>
+    readonly regis_payment_account_name: FieldRef<"setting", 'String'>
+    readonly regis_payment_account_number: FieldRef<"setting", 'String'>
+    readonly regis_payment_account_back: FieldRef<"setting", 'String'>
+    readonly skipAlumniDuplicate: FieldRef<"setting", 'Boolean'>
+    readonly skipPersonelDuplicate: FieldRef<"setting", 'Boolean'>
+    readonly allowedAlumniAccount: FieldRef<"setting", 'Boolean'>
+    readonly allowedPersonelAccount: FieldRef<"setting", 'Boolean'>
+    readonly allowedAdminAccount: FieldRef<"setting", 'Boolean'>
+    readonly allowedNotifyAlumniRegis: FieldRef<"setting", 'Boolean'>
+    readonly allowedNotifyAlumniEditRegis: FieldRef<"setting", 'Boolean'>
+    readonly notify_email: FieldRef<"setting", 'String'>
+    readonly backup_folderid: FieldRef<"setting", 'String'>
+    readonly filebackup_folderid: FieldRef<"setting", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * setting findUnique
+   */
+  export type settingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * Filter, which setting to fetch.
+     */
+    where: settingWhereUniqueInput
+  }
+
+  /**
+   * setting findUniqueOrThrow
+   */
+  export type settingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * Filter, which setting to fetch.
+     */
+    where: settingWhereUniqueInput
+  }
+
+  /**
+   * setting findFirst
+   */
+  export type settingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * Filter, which setting to fetch.
+     */
+    where?: settingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of settings to fetch.
+     */
+    orderBy?: settingOrderByWithRelationInput | settingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for settings.
+     */
+    cursor?: settingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` settings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` settings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of settings.
+     */
+    distinct?: SettingScalarFieldEnum | SettingScalarFieldEnum[]
+  }
+
+  /**
+   * setting findFirstOrThrow
+   */
+  export type settingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * Filter, which setting to fetch.
+     */
+    where?: settingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of settings to fetch.
+     */
+    orderBy?: settingOrderByWithRelationInput | settingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for settings.
+     */
+    cursor?: settingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` settings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` settings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of settings.
+     */
+    distinct?: SettingScalarFieldEnum | SettingScalarFieldEnum[]
+  }
+
+  /**
+   * setting findMany
+   */
+  export type settingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * Filter, which settings to fetch.
+     */
+    where?: settingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of settings to fetch.
+     */
+    orderBy?: settingOrderByWithRelationInput | settingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing settings.
+     */
+    cursor?: settingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` settings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` settings.
+     */
+    skip?: number
+    distinct?: SettingScalarFieldEnum | SettingScalarFieldEnum[]
+  }
+
+  /**
+   * setting create
+   */
+  export type settingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * The data needed to create a setting.
+     */
+    data?: XOR<settingCreateInput, settingUncheckedCreateInput>
+  }
+
+  /**
+   * setting createMany
+   */
+  export type settingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many settings.
+     */
+    data: settingCreateManyInput | settingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * setting createManyAndReturn
+   */
+  export type settingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * The data used to create many settings.
+     */
+    data: settingCreateManyInput | settingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * setting update
+   */
+  export type settingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * The data needed to update a setting.
+     */
+    data: XOR<settingUpdateInput, settingUncheckedUpdateInput>
+    /**
+     * Choose, which setting to update.
+     */
+    where: settingWhereUniqueInput
+  }
+
+  /**
+   * setting updateMany
+   */
+  export type settingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update settings.
+     */
+    data: XOR<settingUpdateManyMutationInput, settingUncheckedUpdateManyInput>
+    /**
+     * Filter which settings to update
+     */
+    where?: settingWhereInput
+    /**
+     * Limit how many settings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * setting updateManyAndReturn
+   */
+  export type settingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * The data used to update settings.
+     */
+    data: XOR<settingUpdateManyMutationInput, settingUncheckedUpdateManyInput>
+    /**
+     * Filter which settings to update
+     */
+    where?: settingWhereInput
+    /**
+     * Limit how many settings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * setting upsert
+   */
+  export type settingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * The filter to search for the setting to update in case it exists.
+     */
+    where: settingWhereUniqueInput
+    /**
+     * In case the setting found by the `where` argument doesn't exist, create a new setting with this data.
+     */
+    create: XOR<settingCreateInput, settingUncheckedCreateInput>
+    /**
+     * In case the setting was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<settingUpdateInput, settingUncheckedUpdateInput>
+  }
+
+  /**
+   * setting delete
+   */
+  export type settingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+    /**
+     * Filter which setting to delete.
+     */
+    where: settingWhereUniqueInput
+  }
+
+  /**
+   * setting deleteMany
+   */
+  export type settingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which settings to delete
+     */
+    where?: settingWhereInput
+    /**
+     * Limit how many settings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * setting without action
+   */
+  export type settingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the setting
+     */
+    select?: settingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the setting
+     */
+    omit?: settingOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9029,6 +19373,29 @@ export namespace Prisma {
   };
 
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+  export const RolesScalarFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type RolesScalarFieldEnum = (typeof RolesScalarFieldEnum)[keyof typeof RolesScalarFieldEnum]
+
+
+  export const Regis_alumniScalarFieldEnum: {
+    id: 'id',
+    alumni_id: 'alumni_id',
+    email: 'email',
+    tel: 'tel',
+    slip_payment_url: 'slip_payment_url',
+    isApproved: 'isApproved',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type Regis_alumniScalarFieldEnum = (typeof Regis_alumniScalarFieldEnum)[keyof typeof Regis_alumniScalarFieldEnum]
 
 
   export const AlumniScalarFieldEnum: {
@@ -9046,7 +19413,8 @@ export namespace Prisma {
     departmentId: 'departmentId',
     edu_levelId: 'edu_levelId',
     createtAt: 'createtAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    import_historyId: 'import_historyId'
   };
 
   export type AlumniScalarFieldEnum = (typeof AlumniScalarFieldEnum)[keyof typeof AlumniScalarFieldEnum]
@@ -9088,6 +19456,16 @@ export namespace Prisma {
     isCurrent: 'isCurrent',
     isInThai: 'isInThai',
     remark: 'remark',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    alumniId: 'alumniId'
+  };
+
+  export type Work_expreriencesScalarFieldEnum = (typeof Work_expreriencesScalarFieldEnum)[keyof typeof Work_expreriencesScalarFieldEnum]
+
+
+  export const Studey_expreriencesScalarFieldEnum: {
+    id: 'id',
     edu_level: 'edu_level',
     continued_study: 'continued_study',
     edu_faculty: 'edu_faculty',
@@ -9096,12 +19474,16 @@ export namespace Prisma {
     year_start: 'year_start',
     year_end: 'year_end',
     edu_performance: 'edu_performance',
+    isCurrent: 'isCurrent',
+    isInThai: 'isInThai',
+    place: 'place',
+    remark: 'remark',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     alumniId: 'alumniId'
   };
 
-  export type Work_expreriencesScalarFieldEnum = (typeof Work_expreriencesScalarFieldEnum)[keyof typeof Work_expreriencesScalarFieldEnum]
+  export type Studey_expreriencesScalarFieldEnum = (typeof Studey_expreriencesScalarFieldEnum)[keyof typeof Studey_expreriencesScalarFieldEnum]
 
 
   export const User_privacyScalarFieldEnum: {
@@ -9138,11 +19520,59 @@ export namespace Prisma {
     email: 'email',
     facultyId: 'facultyId',
     departmentId: 'departmentId',
+    import_historyId: 'import_historyId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type ProfessorScalarFieldEnum = (typeof ProfessorScalarFieldEnum)[keyof typeof ProfessorScalarFieldEnum]
+
+
+  export const AdminScalarFieldEnum: {
+    admin_id: 'admin_id',
+    prefix: 'prefix',
+    fname: 'fname',
+    lname: 'lname',
+    username: 'username',
+    profile: 'profile',
+    passwordHash: 'passwordHash',
+    canUse: 'canUse',
+    email: 'email',
+    tel: 'tel',
+    lastestLogin: 'lastestLogin',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
+
+
+  export const SendTextHistoryScalarFieldEnum: {
+    id: 'id',
+    alumni_sender: 'alumni_sender',
+    alumniId: 'alumniId',
+    professorId: 'professorId',
+    sender_type: 'sender_type',
+    adminId: 'adminId',
+    title: 'title',
+    detail: 'detail',
+    category: 'category',
+    createdAt: 'createdAt'
+  };
+
+  export type SendTextHistoryScalarFieldEnum = (typeof SendTextHistoryScalarFieldEnum)[keyof typeof SendTextHistoryScalarFieldEnum]
+
+
+  export const OtpScalarFieldEnum: {
+    id: 'id',
+    code: 'code',
+    alumniId: 'alumniId',
+    professorId: 'professorId',
+    adminId: 'adminId',
+    createdAt: 'createdAt'
+  };
+
+  export type OtpScalarFieldEnum = (typeof OtpScalarFieldEnum)[keyof typeof OtpScalarFieldEnum]
 
 
   export const News_donatiosScalarFieldEnum: {
@@ -9165,6 +19595,45 @@ export namespace Prisma {
   };
 
   export type News_donatiosScalarFieldEnum = (typeof News_donatiosScalarFieldEnum)[keyof typeof News_donatiosScalarFieldEnum]
+
+
+  export const Import_historyScalarFieldEnum: {
+    id: 'id',
+    file_name: 'file_name',
+    file_size: 'file_size',
+    total_rows: 'total_rows',
+    import_type: 'import_type',
+    imported_by: 'imported_by',
+    started_at: 'started_at',
+    finished_at: 'finished_at',
+    created_at: 'created_at'
+  };
+
+  export type Import_historyScalarFieldEnum = (typeof Import_historyScalarFieldEnum)[keyof typeof Import_historyScalarFieldEnum]
+
+
+  export const SettingScalarFieldEnum: {
+    id: 'id',
+    regis_payment_qrcode: 'regis_payment_qrcode',
+    regis_payment: 'regis_payment',
+    fac_sheet_link: 'fac_sheet_link',
+    dep_sheet_link: 'dep_sheet_link',
+    regis_payment_account_name: 'regis_payment_account_name',
+    regis_payment_account_number: 'regis_payment_account_number',
+    regis_payment_account_back: 'regis_payment_account_back',
+    skipAlumniDuplicate: 'skipAlumniDuplicate',
+    skipPersonelDuplicate: 'skipPersonelDuplicate',
+    allowedAlumniAccount: 'allowedAlumniAccount',
+    allowedPersonelAccount: 'allowedPersonelAccount',
+    allowedAdminAccount: 'allowedAdminAccount',
+    allowedNotifyAlumniRegis: 'allowedNotifyAlumniRegis',
+    allowedNotifyAlumniEditRegis: 'allowedNotifyAlumniEditRegis',
+    notify_email: 'notify_email',
+    backup_folderid: 'backup_folderid',
+    filebackup_folderid: 'filebackup_folderid'
+  };
+
+  export type SettingScalarFieldEnum = (typeof SettingScalarFieldEnum)[keyof typeof SettingScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9197,27 +19666,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'String'
-   */
-  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
-    
-
-
-  /**
-   * Reference to a field of type 'String[]'
-   */
-  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -9232,6 +19680,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -9242,6 +19704,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -9262,6 +19731,122 @@ export namespace Prisma {
    */
 
 
+  export type rolesWhereInput = {
+    AND?: rolesWhereInput | rolesWhereInput[]
+    OR?: rolesWhereInput[]
+    NOT?: rolesWhereInput | rolesWhereInput[]
+    id?: IntFilter<"roles"> | number
+    name?: StringFilter<"roles"> | string
+  }
+
+  export type rolesOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type rolesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    name?: string
+    AND?: rolesWhereInput | rolesWhereInput[]
+    OR?: rolesWhereInput[]
+    NOT?: rolesWhereInput | rolesWhereInput[]
+  }, "id" | "name">
+
+  export type rolesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    _count?: rolesCountOrderByAggregateInput
+    _avg?: rolesAvgOrderByAggregateInput
+    _max?: rolesMaxOrderByAggregateInput
+    _min?: rolesMinOrderByAggregateInput
+    _sum?: rolesSumOrderByAggregateInput
+  }
+
+  export type rolesScalarWhereWithAggregatesInput = {
+    AND?: rolesScalarWhereWithAggregatesInput | rolesScalarWhereWithAggregatesInput[]
+    OR?: rolesScalarWhereWithAggregatesInput[]
+    NOT?: rolesScalarWhereWithAggregatesInput | rolesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"roles"> | number
+    name?: StringWithAggregatesFilter<"roles"> | string
+  }
+
+  export type regis_alumniWhereInput = {
+    AND?: regis_alumniWhereInput | regis_alumniWhereInput[]
+    OR?: regis_alumniWhereInput[]
+    NOT?: regis_alumniWhereInput | regis_alumniWhereInput[]
+    id?: IntFilter<"regis_alumni"> | number
+    alumni_id?: StringNullableFilter<"regis_alumni"> | string | null
+    email?: StringFilter<"regis_alumni"> | string
+    tel?: StringFilter<"regis_alumni"> | string
+    slip_payment_url?: StringFilter<"regis_alumni"> | string
+    isApproved?: StringFilter<"regis_alumni"> | string
+    status?: StringFilter<"regis_alumni"> | string
+    createdAt?: DateTimeFilter<"regis_alumni"> | Date | string
+    updatedAt?: DateTimeFilter<"regis_alumni"> | Date | string
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }
+
+  export type regis_alumniOrderByWithRelationInput = {
+    id?: SortOrder
+    alumni_id?: SortOrderInput | SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    slip_payment_url?: SortOrder
+    isApproved?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    alumni?: alumniOrderByWithRelationInput
+  }
+
+  export type regis_alumniWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    alumni_id?: string
+    AND?: regis_alumniWhereInput | regis_alumniWhereInput[]
+    OR?: regis_alumniWhereInput[]
+    NOT?: regis_alumniWhereInput | regis_alumniWhereInput[]
+    email?: StringFilter<"regis_alumni"> | string
+    tel?: StringFilter<"regis_alumni"> | string
+    slip_payment_url?: StringFilter<"regis_alumni"> | string
+    isApproved?: StringFilter<"regis_alumni"> | string
+    status?: StringFilter<"regis_alumni"> | string
+    createdAt?: DateTimeFilter<"regis_alumni"> | Date | string
+    updatedAt?: DateTimeFilter<"regis_alumni"> | Date | string
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }, "id" | "alumni_id">
+
+  export type regis_alumniOrderByWithAggregationInput = {
+    id?: SortOrder
+    alumni_id?: SortOrderInput | SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    slip_payment_url?: SortOrder
+    isApproved?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: regis_alumniCountOrderByAggregateInput
+    _avg?: regis_alumniAvgOrderByAggregateInput
+    _max?: regis_alumniMaxOrderByAggregateInput
+    _min?: regis_alumniMinOrderByAggregateInput
+    _sum?: regis_alumniSumOrderByAggregateInput
+  }
+
+  export type regis_alumniScalarWhereWithAggregatesInput = {
+    AND?: regis_alumniScalarWhereWithAggregatesInput | regis_alumniScalarWhereWithAggregatesInput[]
+    OR?: regis_alumniScalarWhereWithAggregatesInput[]
+    NOT?: regis_alumniScalarWhereWithAggregatesInput | regis_alumniScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"regis_alumni"> | number
+    alumni_id?: StringNullableWithAggregatesFilter<"regis_alumni"> | string | null
+    email?: StringWithAggregatesFilter<"regis_alumni"> | string
+    tel?: StringWithAggregatesFilter<"regis_alumni"> | string
+    slip_payment_url?: StringWithAggregatesFilter<"regis_alumni"> | string
+    isApproved?: StringWithAggregatesFilter<"regis_alumni"> | string
+    status?: StringWithAggregatesFilter<"regis_alumni"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"regis_alumni"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"regis_alumni"> | Date | string
+  }
+
   export type alumniWhereInput = {
     AND?: alumniWhereInput | alumniWhereInput[]
     OR?: alumniWhereInput[]
@@ -9274,16 +19859,22 @@ export namespace Prisma {
     passwordHash?: StringNullableFilter<"alumni"> | string | null
     allowedAccount?: BoolFilter<"alumni"> | boolean
     canUse?: BoolFilter<"alumni"> | boolean
-    year_start?: IntNullableFilter<"alumni"> | number | null
-    year_end?: IntNullableFilter<"alumni"> | number | null
-    facultyId?: IntNullableFilter<"alumni"> | number | null
-    departmentId?: IntNullableFilter<"alumni"> | number | null
-    edu_levelId?: IntNullableFilter<"alumni"> | number | null
+    year_start?: StringNullableFilter<"alumni"> | string | null
+    year_end?: StringNullableFilter<"alumni"> | string | null
+    facultyId?: StringNullableFilter<"alumni"> | string | null
+    departmentId?: StringNullableFilter<"alumni"> | string | null
+    edu_levelId?: StringNullableFilter<"alumni"> | string | null
     createtAt?: DateTimeFilter<"alumni"> | Date | string
     updatedAt?: DateTimeFilter<"alumni"> | Date | string
+    import_historyId?: StringNullableFilter<"alumni"> | string | null
+    otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
     work_expreriences?: Work_expreriencesListRelationFilter
+    study_expreriences?: Studey_expreriencesListRelationFilter
     user_privacy?: XOR<User_privacyNullableScalarRelationFilter, user_privacyWhereInput> | null
     alumni_contract?: XOR<Alumni_contractNullableScalarRelationFilter, alumni_contractWhereInput> | null
+    regis_alumni?: XOR<Regis_alumniNullableScalarRelationFilter, regis_alumniWhereInput> | null
+    importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
+    sendTextHistory?: SendTextHistoryListRelationFilter
   }
 
   export type alumniOrderByWithRelationInput = {
@@ -9302,9 +19893,15 @@ export namespace Prisma {
     edu_levelId?: SortOrderInput | SortOrder
     createtAt?: SortOrder
     updatedAt?: SortOrder
+    import_historyId?: SortOrderInput | SortOrder
+    otp?: otpOrderByWithRelationInput
     work_expreriences?: work_expreriencesOrderByRelationAggregateInput
+    study_expreriences?: studey_expreriencesOrderByRelationAggregateInput
     user_privacy?: user_privacyOrderByWithRelationInput
     alumni_contract?: alumni_contractOrderByWithRelationInput
+    regis_alumni?: regis_alumniOrderByWithRelationInput
+    importHistory?: import_historyOrderByWithRelationInput
+    sendTextHistory?: sendTextHistoryOrderByRelationAggregateInput
   }
 
   export type alumniWhereUniqueInput = Prisma.AtLeast<{
@@ -9319,16 +19916,22 @@ export namespace Prisma {
     passwordHash?: StringNullableFilter<"alumni"> | string | null
     allowedAccount?: BoolFilter<"alumni"> | boolean
     canUse?: BoolFilter<"alumni"> | boolean
-    year_start?: IntNullableFilter<"alumni"> | number | null
-    year_end?: IntNullableFilter<"alumni"> | number | null
-    facultyId?: IntNullableFilter<"alumni"> | number | null
-    departmentId?: IntNullableFilter<"alumni"> | number | null
-    edu_levelId?: IntNullableFilter<"alumni"> | number | null
+    year_start?: StringNullableFilter<"alumni"> | string | null
+    year_end?: StringNullableFilter<"alumni"> | string | null
+    facultyId?: StringNullableFilter<"alumni"> | string | null
+    departmentId?: StringNullableFilter<"alumni"> | string | null
+    edu_levelId?: StringNullableFilter<"alumni"> | string | null
     createtAt?: DateTimeFilter<"alumni"> | Date | string
     updatedAt?: DateTimeFilter<"alumni"> | Date | string
+    import_historyId?: StringNullableFilter<"alumni"> | string | null
+    otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
     work_expreriences?: Work_expreriencesListRelationFilter
+    study_expreriences?: Studey_expreriencesListRelationFilter
     user_privacy?: XOR<User_privacyNullableScalarRelationFilter, user_privacyWhereInput> | null
     alumni_contract?: XOR<Alumni_contractNullableScalarRelationFilter, alumni_contractWhereInput> | null
+    regis_alumni?: XOR<Regis_alumniNullableScalarRelationFilter, regis_alumniWhereInput> | null
+    importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
+    sendTextHistory?: SendTextHistoryListRelationFilter
   }, "alumni_id" | "alumni_id">
 
   export type alumniOrderByWithAggregationInput = {
@@ -9347,11 +19950,10 @@ export namespace Prisma {
     edu_levelId?: SortOrderInput | SortOrder
     createtAt?: SortOrder
     updatedAt?: SortOrder
+    import_historyId?: SortOrderInput | SortOrder
     _count?: alumniCountOrderByAggregateInput
-    _avg?: alumniAvgOrderByAggregateInput
     _max?: alumniMaxOrderByAggregateInput
     _min?: alumniMinOrderByAggregateInput
-    _sum?: alumniSumOrderByAggregateInput
   }
 
   export type alumniScalarWhereWithAggregatesInput = {
@@ -9366,13 +19968,14 @@ export namespace Prisma {
     passwordHash?: StringNullableWithAggregatesFilter<"alumni"> | string | null
     allowedAccount?: BoolWithAggregatesFilter<"alumni"> | boolean
     canUse?: BoolWithAggregatesFilter<"alumni"> | boolean
-    year_start?: IntNullableWithAggregatesFilter<"alumni"> | number | null
-    year_end?: IntNullableWithAggregatesFilter<"alumni"> | number | null
-    facultyId?: IntNullableWithAggregatesFilter<"alumni"> | number | null
-    departmentId?: IntNullableWithAggregatesFilter<"alumni"> | number | null
-    edu_levelId?: IntNullableWithAggregatesFilter<"alumni"> | number | null
+    year_start?: StringNullableWithAggregatesFilter<"alumni"> | string | null
+    year_end?: StringNullableWithAggregatesFilter<"alumni"> | string | null
+    facultyId?: StringNullableWithAggregatesFilter<"alumni"> | string | null
+    departmentId?: StringNullableWithAggregatesFilter<"alumni"> | string | null
+    edu_levelId?: StringNullableWithAggregatesFilter<"alumni"> | string | null
     createtAt?: DateTimeWithAggregatesFilter<"alumni"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"alumni"> | Date | string
+    import_historyId?: StringNullableWithAggregatesFilter<"alumni"> | string | null
   }
 
   export type alumni_contractWhereInput = {
@@ -9503,14 +20106,6 @@ export namespace Prisma {
     isCurrent?: BoolFilter<"work_expreriences"> | boolean
     isInThai?: BoolFilter<"work_expreriences"> | boolean
     remark?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_level?: StringNullableFilter<"work_expreriences"> | string | null
-    continued_study?: BoolFilter<"work_expreriences"> | boolean
-    edu_faculty?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_dep?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_university?: StringNullableFilter<"work_expreriences"> | string | null
-    year_start?: StringNullableFilter<"work_expreriences"> | string | null
-    year_end?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_performance?: StringNullableFilter<"work_expreriences"> | string | null
     createdAt?: DateTimeFilter<"work_expreriences"> | Date | string
     updatedAt?: DateTimeFilter<"work_expreriences"> | Date | string
     alumniId?: StringNullableFilter<"work_expreriences"> | string | null
@@ -9532,14 +20127,6 @@ export namespace Prisma {
     isCurrent?: SortOrder
     isInThai?: SortOrder
     remark?: SortOrderInput | SortOrder
-    edu_level?: SortOrderInput | SortOrder
-    continued_study?: SortOrder
-    edu_faculty?: SortOrderInput | SortOrder
-    edu_dep?: SortOrderInput | SortOrder
-    edu_university?: SortOrderInput | SortOrder
-    year_start?: SortOrderInput | SortOrder
-    year_end?: SortOrderInput | SortOrder
-    edu_performance?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alumniId?: SortOrderInput | SortOrder
@@ -9564,14 +20151,6 @@ export namespace Prisma {
     isCurrent?: BoolFilter<"work_expreriences"> | boolean
     isInThai?: BoolFilter<"work_expreriences"> | boolean
     remark?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_level?: StringNullableFilter<"work_expreriences"> | string | null
-    continued_study?: BoolFilter<"work_expreriences"> | boolean
-    edu_faculty?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_dep?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_university?: StringNullableFilter<"work_expreriences"> | string | null
-    year_start?: StringNullableFilter<"work_expreriences"> | string | null
-    year_end?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_performance?: StringNullableFilter<"work_expreriences"> | string | null
     createdAt?: DateTimeFilter<"work_expreriences"> | Date | string
     updatedAt?: DateTimeFilter<"work_expreriences"> | Date | string
     alumniId?: StringNullableFilter<"work_expreriences"> | string | null
@@ -9593,14 +20172,6 @@ export namespace Prisma {
     isCurrent?: SortOrder
     isInThai?: SortOrder
     remark?: SortOrderInput | SortOrder
-    edu_level?: SortOrderInput | SortOrder
-    continued_study?: SortOrder
-    edu_faculty?: SortOrderInput | SortOrder
-    edu_dep?: SortOrderInput | SortOrder
-    edu_university?: SortOrderInput | SortOrder
-    year_start?: SortOrderInput | SortOrder
-    year_end?: SortOrderInput | SortOrder
-    edu_performance?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alumniId?: SortOrderInput | SortOrder
@@ -9629,17 +20200,121 @@ export namespace Prisma {
     isCurrent?: BoolWithAggregatesFilter<"work_expreriences"> | boolean
     isInThai?: BoolWithAggregatesFilter<"work_expreriences"> | boolean
     remark?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    edu_level?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    continued_study?: BoolWithAggregatesFilter<"work_expreriences"> | boolean
-    edu_faculty?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    edu_dep?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    edu_university?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    year_start?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    year_end?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
-    edu_performance?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"work_expreriences"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"work_expreriences"> | Date | string
     alumniId?: StringNullableWithAggregatesFilter<"work_expreriences"> | string | null
+  }
+
+  export type studey_expreriencesWhereInput = {
+    AND?: studey_expreriencesWhereInput | studey_expreriencesWhereInput[]
+    OR?: studey_expreriencesWhereInput[]
+    NOT?: studey_expreriencesWhereInput | studey_expreriencesWhereInput[]
+    id?: IntFilter<"studey_expreriences"> | number
+    edu_level?: StringNullableFilter<"studey_expreriences"> | string | null
+    continued_study?: BoolFilter<"studey_expreriences"> | boolean
+    edu_faculty?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_dep?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_university?: StringNullableFilter<"studey_expreriences"> | string | null
+    year_start?: StringNullableFilter<"studey_expreriences"> | string | null
+    year_end?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_performance?: StringNullableFilter<"studey_expreriences"> | string | null
+    isCurrent?: BoolFilter<"studey_expreriences"> | boolean
+    isInThai?: BoolFilter<"studey_expreriences"> | boolean
+    place?: StringNullableFilter<"studey_expreriences"> | string | null
+    remark?: StringNullableFilter<"studey_expreriences"> | string | null
+    createdAt?: DateTimeFilter<"studey_expreriences"> | Date | string
+    updatedAt?: DateTimeFilter<"studey_expreriences"> | Date | string
+    alumniId?: StringNullableFilter<"studey_expreriences"> | string | null
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }
+
+  export type studey_expreriencesOrderByWithRelationInput = {
+    id?: SortOrder
+    edu_level?: SortOrderInput | SortOrder
+    continued_study?: SortOrder
+    edu_faculty?: SortOrderInput | SortOrder
+    edu_dep?: SortOrderInput | SortOrder
+    edu_university?: SortOrderInput | SortOrder
+    year_start?: SortOrderInput | SortOrder
+    year_end?: SortOrderInput | SortOrder
+    edu_performance?: SortOrderInput | SortOrder
+    isCurrent?: SortOrder
+    isInThai?: SortOrder
+    place?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    alumniId?: SortOrderInput | SortOrder
+    alumni?: alumniOrderByWithRelationInput
+  }
+
+  export type studey_expreriencesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: studey_expreriencesWhereInput | studey_expreriencesWhereInput[]
+    OR?: studey_expreriencesWhereInput[]
+    NOT?: studey_expreriencesWhereInput | studey_expreriencesWhereInput[]
+    edu_level?: StringNullableFilter<"studey_expreriences"> | string | null
+    continued_study?: BoolFilter<"studey_expreriences"> | boolean
+    edu_faculty?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_dep?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_university?: StringNullableFilter<"studey_expreriences"> | string | null
+    year_start?: StringNullableFilter<"studey_expreriences"> | string | null
+    year_end?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_performance?: StringNullableFilter<"studey_expreriences"> | string | null
+    isCurrent?: BoolFilter<"studey_expreriences"> | boolean
+    isInThai?: BoolFilter<"studey_expreriences"> | boolean
+    place?: StringNullableFilter<"studey_expreriences"> | string | null
+    remark?: StringNullableFilter<"studey_expreriences"> | string | null
+    createdAt?: DateTimeFilter<"studey_expreriences"> | Date | string
+    updatedAt?: DateTimeFilter<"studey_expreriences"> | Date | string
+    alumniId?: StringNullableFilter<"studey_expreriences"> | string | null
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }, "id">
+
+  export type studey_expreriencesOrderByWithAggregationInput = {
+    id?: SortOrder
+    edu_level?: SortOrderInput | SortOrder
+    continued_study?: SortOrder
+    edu_faculty?: SortOrderInput | SortOrder
+    edu_dep?: SortOrderInput | SortOrder
+    edu_university?: SortOrderInput | SortOrder
+    year_start?: SortOrderInput | SortOrder
+    year_end?: SortOrderInput | SortOrder
+    edu_performance?: SortOrderInput | SortOrder
+    isCurrent?: SortOrder
+    isInThai?: SortOrder
+    place?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    alumniId?: SortOrderInput | SortOrder
+    _count?: studey_expreriencesCountOrderByAggregateInput
+    _avg?: studey_expreriencesAvgOrderByAggregateInput
+    _max?: studey_expreriencesMaxOrderByAggregateInput
+    _min?: studey_expreriencesMinOrderByAggregateInput
+    _sum?: studey_expreriencesSumOrderByAggregateInput
+  }
+
+  export type studey_expreriencesScalarWhereWithAggregatesInput = {
+    AND?: studey_expreriencesScalarWhereWithAggregatesInput | studey_expreriencesScalarWhereWithAggregatesInput[]
+    OR?: studey_expreriencesScalarWhereWithAggregatesInput[]
+    NOT?: studey_expreriencesScalarWhereWithAggregatesInput | studey_expreriencesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"studey_expreriences"> | number
+    edu_level?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    continued_study?: BoolWithAggregatesFilter<"studey_expreriences"> | boolean
+    edu_faculty?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    edu_dep?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    edu_university?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    year_start?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    year_end?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    edu_performance?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    isCurrent?: BoolWithAggregatesFilter<"studey_expreriences"> | boolean
+    isInThai?: BoolWithAggregatesFilter<"studey_expreriences"> | boolean
+    place?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    remark?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"studey_expreriences"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"studey_expreriences"> | Date | string
+    alumniId?: StringNullableWithAggregatesFilter<"studey_expreriences"> | string | null
   }
 
   export type user_privacyWhereInput = {
@@ -9762,12 +20437,16 @@ export namespace Prisma {
     univercity_position?: StringNullableFilter<"professor"> | string | null
     allowedAccount?: BoolFilter<"professor"> | boolean
     email?: StringNullableFilter<"professor"> | string | null
-    facultyId?: IntNullableFilter<"professor"> | number | null
-    departmentId?: IntNullableFilter<"professor"> | number | null
+    facultyId?: StringNullableFilter<"professor"> | string | null
+    departmentId?: StringNullableFilter<"professor"> | string | null
+    import_historyId?: StringNullableFilter<"professor"> | string | null
     createdAt?: DateTimeFilter<"professor"> | Date | string
     updatedAt?: DateTimeFilter<"professor"> | Date | string
+    otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
+    sendTextHistory?: SendTextHistoryListRelationFilter
     user_privacy?: XOR<User_privacyNullableScalarRelationFilter, user_privacyWhereInput> | null
     alumni_contract?: Alumni_contractListRelationFilter
+    importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
   }
 
   export type professorOrderByWithRelationInput = {
@@ -9784,10 +20463,14 @@ export namespace Prisma {
     email?: SortOrderInput | SortOrder
     facultyId?: SortOrderInput | SortOrder
     departmentId?: SortOrderInput | SortOrder
+    import_historyId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    otp?: otpOrderByWithRelationInput
+    sendTextHistory?: sendTextHistoryOrderByRelationAggregateInput
     user_privacy?: user_privacyOrderByWithRelationInput
     alumni_contract?: alumni_contractOrderByRelationAggregateInput
+    importHistory?: import_historyOrderByWithRelationInput
   }
 
   export type professorWhereUniqueInput = Prisma.AtLeast<{
@@ -9805,12 +20488,16 @@ export namespace Prisma {
     univercity_position?: StringNullableFilter<"professor"> | string | null
     allowedAccount?: BoolFilter<"professor"> | boolean
     email?: StringNullableFilter<"professor"> | string | null
-    facultyId?: IntNullableFilter<"professor"> | number | null
-    departmentId?: IntNullableFilter<"professor"> | number | null
+    facultyId?: StringNullableFilter<"professor"> | string | null
+    departmentId?: StringNullableFilter<"professor"> | string | null
+    import_historyId?: StringNullableFilter<"professor"> | string | null
     createdAt?: DateTimeFilter<"professor"> | Date | string
     updatedAt?: DateTimeFilter<"professor"> | Date | string
+    otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
+    sendTextHistory?: SendTextHistoryListRelationFilter
     user_privacy?: XOR<User_privacyNullableScalarRelationFilter, user_privacyWhereInput> | null
     alumni_contract?: Alumni_contractListRelationFilter
+    importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
   }, "professor_id" | "professor_id">
 
   export type professorOrderByWithAggregationInput = {
@@ -9827,13 +20514,12 @@ export namespace Prisma {
     email?: SortOrderInput | SortOrder
     facultyId?: SortOrderInput | SortOrder
     departmentId?: SortOrderInput | SortOrder
+    import_historyId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: professorCountOrderByAggregateInput
-    _avg?: professorAvgOrderByAggregateInput
     _max?: professorMaxOrderByAggregateInput
     _min?: professorMinOrderByAggregateInput
-    _sum?: professorSumOrderByAggregateInput
   }
 
   export type professorScalarWhereWithAggregatesInput = {
@@ -9851,10 +20537,268 @@ export namespace Prisma {
     univercity_position?: StringNullableWithAggregatesFilter<"professor"> | string | null
     allowedAccount?: BoolWithAggregatesFilter<"professor"> | boolean
     email?: StringNullableWithAggregatesFilter<"professor"> | string | null
-    facultyId?: IntNullableWithAggregatesFilter<"professor"> | number | null
-    departmentId?: IntNullableWithAggregatesFilter<"professor"> | number | null
+    facultyId?: StringNullableWithAggregatesFilter<"professor"> | string | null
+    departmentId?: StringNullableWithAggregatesFilter<"professor"> | string | null
+    import_historyId?: StringNullableWithAggregatesFilter<"professor"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"professor"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"professor"> | Date | string
+  }
+
+  export type adminWhereInput = {
+    AND?: adminWhereInput | adminWhereInput[]
+    OR?: adminWhereInput[]
+    NOT?: adminWhereInput | adminWhereInput[]
+    admin_id?: StringFilter<"admin"> | string
+    prefix?: StringFilter<"admin"> | string
+    fname?: StringFilter<"admin"> | string
+    lname?: StringFilter<"admin"> | string
+    username?: StringFilter<"admin"> | string
+    profile?: StringNullableFilter<"admin"> | string | null
+    passwordHash?: StringFilter<"admin"> | string
+    canUse?: BoolFilter<"admin"> | boolean
+    email?: StringNullableFilter<"admin"> | string | null
+    tel?: StringNullableFilter<"admin"> | string | null
+    lastestLogin?: DateTimeNullableFilter<"admin"> | Date | string | null
+    createdAt?: DateTimeFilter<"admin"> | Date | string
+    updatedAt?: DateTimeFilter<"admin"> | Date | string
+    sendTextHistory?: SendTextHistoryListRelationFilter
+    otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
+    importHistory?: Import_historyListRelationFilter
+  }
+
+  export type adminOrderByWithRelationInput = {
+    admin_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    username?: SortOrder
+    profile?: SortOrderInput | SortOrder
+    passwordHash?: SortOrder
+    canUse?: SortOrder
+    email?: SortOrderInput | SortOrder
+    tel?: SortOrderInput | SortOrder
+    lastestLogin?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    sendTextHistory?: sendTextHistoryOrderByRelationAggregateInput
+    otp?: otpOrderByWithRelationInput
+    importHistory?: import_historyOrderByRelationAggregateInput
+  }
+
+  export type adminWhereUniqueInput = Prisma.AtLeast<{
+    admin_id?: string
+    username?: string
+    AND?: adminWhereInput | adminWhereInput[]
+    OR?: adminWhereInput[]
+    NOT?: adminWhereInput | adminWhereInput[]
+    prefix?: StringFilter<"admin"> | string
+    fname?: StringFilter<"admin"> | string
+    lname?: StringFilter<"admin"> | string
+    profile?: StringNullableFilter<"admin"> | string | null
+    passwordHash?: StringFilter<"admin"> | string
+    canUse?: BoolFilter<"admin"> | boolean
+    email?: StringNullableFilter<"admin"> | string | null
+    tel?: StringNullableFilter<"admin"> | string | null
+    lastestLogin?: DateTimeNullableFilter<"admin"> | Date | string | null
+    createdAt?: DateTimeFilter<"admin"> | Date | string
+    updatedAt?: DateTimeFilter<"admin"> | Date | string
+    sendTextHistory?: SendTextHistoryListRelationFilter
+    otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
+    importHistory?: Import_historyListRelationFilter
+  }, "admin_id" | "admin_id" | "username">
+
+  export type adminOrderByWithAggregationInput = {
+    admin_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    username?: SortOrder
+    profile?: SortOrderInput | SortOrder
+    passwordHash?: SortOrder
+    canUse?: SortOrder
+    email?: SortOrderInput | SortOrder
+    tel?: SortOrderInput | SortOrder
+    lastestLogin?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: adminCountOrderByAggregateInput
+    _max?: adminMaxOrderByAggregateInput
+    _min?: adminMinOrderByAggregateInput
+  }
+
+  export type adminScalarWhereWithAggregatesInput = {
+    AND?: adminScalarWhereWithAggregatesInput | adminScalarWhereWithAggregatesInput[]
+    OR?: adminScalarWhereWithAggregatesInput[]
+    NOT?: adminScalarWhereWithAggregatesInput | adminScalarWhereWithAggregatesInput[]
+    admin_id?: StringWithAggregatesFilter<"admin"> | string
+    prefix?: StringWithAggregatesFilter<"admin"> | string
+    fname?: StringWithAggregatesFilter<"admin"> | string
+    lname?: StringWithAggregatesFilter<"admin"> | string
+    username?: StringWithAggregatesFilter<"admin"> | string
+    profile?: StringNullableWithAggregatesFilter<"admin"> | string | null
+    passwordHash?: StringWithAggregatesFilter<"admin"> | string
+    canUse?: BoolWithAggregatesFilter<"admin"> | boolean
+    email?: StringNullableWithAggregatesFilter<"admin"> | string | null
+    tel?: StringNullableWithAggregatesFilter<"admin"> | string | null
+    lastestLogin?: DateTimeNullableWithAggregatesFilter<"admin"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"admin"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"admin"> | Date | string
+  }
+
+  export type sendTextHistoryWhereInput = {
+    AND?: sendTextHistoryWhereInput | sendTextHistoryWhereInput[]
+    OR?: sendTextHistoryWhereInput[]
+    NOT?: sendTextHistoryWhereInput | sendTextHistoryWhereInput[]
+    id?: IntFilter<"sendTextHistory"> | number
+    alumni_sender?: StringNullableFilter<"sendTextHistory"> | string | null
+    alumniId?: StringNullableFilter<"sendTextHistory"> | string | null
+    professorId?: StringNullableFilter<"sendTextHistory"> | string | null
+    sender_type?: StringNullableFilter<"sendTextHistory"> | string | null
+    adminId?: StringNullableFilter<"sendTextHistory"> | string | null
+    title?: StringFilter<"sendTextHistory"> | string
+    detail?: StringFilter<"sendTextHistory"> | string
+    category?: StringNullableFilter<"sendTextHistory"> | string | null
+    createdAt?: DateTimeFilter<"sendTextHistory"> | Date | string
+    professor?: XOR<ProfessorNullableScalarRelationFilter, professorWhereInput> | null
+    admin?: XOR<AdminNullableScalarRelationFilter, adminWhereInput> | null
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }
+
+  export type sendTextHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    alumni_sender?: SortOrderInput | SortOrder
+    alumniId?: SortOrderInput | SortOrder
+    professorId?: SortOrderInput | SortOrder
+    sender_type?: SortOrderInput | SortOrder
+    adminId?: SortOrderInput | SortOrder
+    title?: SortOrder
+    detail?: SortOrder
+    category?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    professor?: professorOrderByWithRelationInput
+    admin?: adminOrderByWithRelationInput
+    alumni?: alumniOrderByWithRelationInput
+  }
+
+  export type sendTextHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: sendTextHistoryWhereInput | sendTextHistoryWhereInput[]
+    OR?: sendTextHistoryWhereInput[]
+    NOT?: sendTextHistoryWhereInput | sendTextHistoryWhereInput[]
+    alumni_sender?: StringNullableFilter<"sendTextHistory"> | string | null
+    alumniId?: StringNullableFilter<"sendTextHistory"> | string | null
+    professorId?: StringNullableFilter<"sendTextHistory"> | string | null
+    sender_type?: StringNullableFilter<"sendTextHistory"> | string | null
+    adminId?: StringNullableFilter<"sendTextHistory"> | string | null
+    title?: StringFilter<"sendTextHistory"> | string
+    detail?: StringFilter<"sendTextHistory"> | string
+    category?: StringNullableFilter<"sendTextHistory"> | string | null
+    createdAt?: DateTimeFilter<"sendTextHistory"> | Date | string
+    professor?: XOR<ProfessorNullableScalarRelationFilter, professorWhereInput> | null
+    admin?: XOR<AdminNullableScalarRelationFilter, adminWhereInput> | null
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }, "id">
+
+  export type sendTextHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    alumni_sender?: SortOrderInput | SortOrder
+    alumniId?: SortOrderInput | SortOrder
+    professorId?: SortOrderInput | SortOrder
+    sender_type?: SortOrderInput | SortOrder
+    adminId?: SortOrderInput | SortOrder
+    title?: SortOrder
+    detail?: SortOrder
+    category?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: sendTextHistoryCountOrderByAggregateInput
+    _avg?: sendTextHistoryAvgOrderByAggregateInput
+    _max?: sendTextHistoryMaxOrderByAggregateInput
+    _min?: sendTextHistoryMinOrderByAggregateInput
+    _sum?: sendTextHistorySumOrderByAggregateInput
+  }
+
+  export type sendTextHistoryScalarWhereWithAggregatesInput = {
+    AND?: sendTextHistoryScalarWhereWithAggregatesInput | sendTextHistoryScalarWhereWithAggregatesInput[]
+    OR?: sendTextHistoryScalarWhereWithAggregatesInput[]
+    NOT?: sendTextHistoryScalarWhereWithAggregatesInput | sendTextHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"sendTextHistory"> | number
+    alumni_sender?: StringNullableWithAggregatesFilter<"sendTextHistory"> | string | null
+    alumniId?: StringNullableWithAggregatesFilter<"sendTextHistory"> | string | null
+    professorId?: StringNullableWithAggregatesFilter<"sendTextHistory"> | string | null
+    sender_type?: StringNullableWithAggregatesFilter<"sendTextHistory"> | string | null
+    adminId?: StringNullableWithAggregatesFilter<"sendTextHistory"> | string | null
+    title?: StringWithAggregatesFilter<"sendTextHistory"> | string
+    detail?: StringWithAggregatesFilter<"sendTextHistory"> | string
+    category?: StringNullableWithAggregatesFilter<"sendTextHistory"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"sendTextHistory"> | Date | string
+  }
+
+  export type otpWhereInput = {
+    AND?: otpWhereInput | otpWhereInput[]
+    OR?: otpWhereInput[]
+    NOT?: otpWhereInput | otpWhereInput[]
+    id?: IntFilter<"otp"> | number
+    code?: StringFilter<"otp"> | string
+    alumniId?: StringNullableFilter<"otp"> | string | null
+    professorId?: StringNullableFilter<"otp"> | string | null
+    adminId?: StringNullableFilter<"otp"> | string | null
+    createdAt?: DateTimeFilter<"otp"> | Date | string
+    professor?: XOR<ProfessorNullableScalarRelationFilter, professorWhereInput> | null
+    admin?: XOR<AdminNullableScalarRelationFilter, adminWhereInput> | null
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }
+
+  export type otpOrderByWithRelationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    alumniId?: SortOrderInput | SortOrder
+    professorId?: SortOrderInput | SortOrder
+    adminId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    professor?: professorOrderByWithRelationInput
+    admin?: adminOrderByWithRelationInput
+    alumni?: alumniOrderByWithRelationInput
+  }
+
+  export type otpWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    alumniId?: string
+    professorId?: string
+    adminId?: string
+    AND?: otpWhereInput | otpWhereInput[]
+    OR?: otpWhereInput[]
+    NOT?: otpWhereInput | otpWhereInput[]
+    code?: StringFilter<"otp"> | string
+    createdAt?: DateTimeFilter<"otp"> | Date | string
+    professor?: XOR<ProfessorNullableScalarRelationFilter, professorWhereInput> | null
+    admin?: XOR<AdminNullableScalarRelationFilter, adminWhereInput> | null
+    alumni?: XOR<AlumniNullableScalarRelationFilter, alumniWhereInput> | null
+  }, "id" | "alumniId" | "professorId" | "adminId">
+
+  export type otpOrderByWithAggregationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    alumniId?: SortOrderInput | SortOrder
+    professorId?: SortOrderInput | SortOrder
+    adminId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: otpCountOrderByAggregateInput
+    _avg?: otpAvgOrderByAggregateInput
+    _max?: otpMaxOrderByAggregateInput
+    _min?: otpMinOrderByAggregateInput
+    _sum?: otpSumOrderByAggregateInput
+  }
+
+  export type otpScalarWhereWithAggregatesInput = {
+    AND?: otpScalarWhereWithAggregatesInput | otpScalarWhereWithAggregatesInput[]
+    OR?: otpScalarWhereWithAggregatesInput[]
+    NOT?: otpScalarWhereWithAggregatesInput | otpScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"otp"> | number
+    code?: StringWithAggregatesFilter<"otp"> | string
+    alumniId?: StringNullableWithAggregatesFilter<"otp"> | string | null
+    professorId?: StringNullableWithAggregatesFilter<"otp"> | string | null
+    adminId?: StringNullableWithAggregatesFilter<"otp"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"otp"> | Date | string
   }
 
   export type news_donatiosWhereInput = {
@@ -9966,6 +20910,320 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"news_donatios"> | Date | string
   }
 
+  export type import_historyWhereInput = {
+    AND?: import_historyWhereInput | import_historyWhereInput[]
+    OR?: import_historyWhereInput[]
+    NOT?: import_historyWhereInput | import_historyWhereInput[]
+    id?: StringFilter<"import_history"> | string
+    file_name?: StringFilter<"import_history"> | string
+    file_size?: IntNullableFilter<"import_history"> | number | null
+    total_rows?: IntFilter<"import_history"> | number
+    import_type?: StringFilter<"import_history"> | string
+    imported_by?: StringFilter<"import_history"> | string
+    started_at?: DateTimeFilter<"import_history"> | Date | string
+    finished_at?: DateTimeNullableFilter<"import_history"> | Date | string | null
+    created_at?: DateTimeFilter<"import_history"> | Date | string
+    admin?: XOR<AdminScalarRelationFilter, adminWhereInput>
+    alumni?: AlumniListRelationFilter
+    professor?: ProfessorListRelationFilter
+  }
+
+  export type import_historyOrderByWithRelationInput = {
+    id?: SortOrder
+    file_name?: SortOrder
+    file_size?: SortOrderInput | SortOrder
+    total_rows?: SortOrder
+    import_type?: SortOrder
+    imported_by?: SortOrder
+    started_at?: SortOrder
+    finished_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    admin?: adminOrderByWithRelationInput
+    alumni?: alumniOrderByRelationAggregateInput
+    professor?: professorOrderByRelationAggregateInput
+  }
+
+  export type import_historyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: import_historyWhereInput | import_historyWhereInput[]
+    OR?: import_historyWhereInput[]
+    NOT?: import_historyWhereInput | import_historyWhereInput[]
+    file_name?: StringFilter<"import_history"> | string
+    file_size?: IntNullableFilter<"import_history"> | number | null
+    total_rows?: IntFilter<"import_history"> | number
+    import_type?: StringFilter<"import_history"> | string
+    imported_by?: StringFilter<"import_history"> | string
+    started_at?: DateTimeFilter<"import_history"> | Date | string
+    finished_at?: DateTimeNullableFilter<"import_history"> | Date | string | null
+    created_at?: DateTimeFilter<"import_history"> | Date | string
+    admin?: XOR<AdminScalarRelationFilter, adminWhereInput>
+    alumni?: AlumniListRelationFilter
+    professor?: ProfessorListRelationFilter
+  }, "id">
+
+  export type import_historyOrderByWithAggregationInput = {
+    id?: SortOrder
+    file_name?: SortOrder
+    file_size?: SortOrderInput | SortOrder
+    total_rows?: SortOrder
+    import_type?: SortOrder
+    imported_by?: SortOrder
+    started_at?: SortOrder
+    finished_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    _count?: import_historyCountOrderByAggregateInput
+    _avg?: import_historyAvgOrderByAggregateInput
+    _max?: import_historyMaxOrderByAggregateInput
+    _min?: import_historyMinOrderByAggregateInput
+    _sum?: import_historySumOrderByAggregateInput
+  }
+
+  export type import_historyScalarWhereWithAggregatesInput = {
+    AND?: import_historyScalarWhereWithAggregatesInput | import_historyScalarWhereWithAggregatesInput[]
+    OR?: import_historyScalarWhereWithAggregatesInput[]
+    NOT?: import_historyScalarWhereWithAggregatesInput | import_historyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"import_history"> | string
+    file_name?: StringWithAggregatesFilter<"import_history"> | string
+    file_size?: IntNullableWithAggregatesFilter<"import_history"> | number | null
+    total_rows?: IntWithAggregatesFilter<"import_history"> | number
+    import_type?: StringWithAggregatesFilter<"import_history"> | string
+    imported_by?: StringWithAggregatesFilter<"import_history"> | string
+    started_at?: DateTimeWithAggregatesFilter<"import_history"> | Date | string
+    finished_at?: DateTimeNullableWithAggregatesFilter<"import_history"> | Date | string | null
+    created_at?: DateTimeWithAggregatesFilter<"import_history"> | Date | string
+  }
+
+  export type settingWhereInput = {
+    AND?: settingWhereInput | settingWhereInput[]
+    OR?: settingWhereInput[]
+    NOT?: settingWhereInput | settingWhereInput[]
+    id?: IntFilter<"setting"> | number
+    regis_payment_qrcode?: StringNullableFilter<"setting"> | string | null
+    regis_payment?: IntNullableFilter<"setting"> | number | null
+    fac_sheet_link?: StringNullableFilter<"setting"> | string | null
+    dep_sheet_link?: StringNullableFilter<"setting"> | string | null
+    regis_payment_account_name?: StringNullableFilter<"setting"> | string | null
+    regis_payment_account_number?: StringNullableFilter<"setting"> | string | null
+    regis_payment_account_back?: StringNullableFilter<"setting"> | string | null
+    skipAlumniDuplicate?: BoolFilter<"setting"> | boolean
+    skipPersonelDuplicate?: BoolFilter<"setting"> | boolean
+    allowedAlumniAccount?: BoolFilter<"setting"> | boolean
+    allowedPersonelAccount?: BoolFilter<"setting"> | boolean
+    allowedAdminAccount?: BoolFilter<"setting"> | boolean
+    allowedNotifyAlumniRegis?: BoolFilter<"setting"> | boolean
+    allowedNotifyAlumniEditRegis?: BoolFilter<"setting"> | boolean
+    notify_email?: StringNullableFilter<"setting"> | string | null
+    backup_folderid?: StringNullableFilter<"setting"> | string | null
+    filebackup_folderid?: StringNullableFilter<"setting"> | string | null
+  }
+
+  export type settingOrderByWithRelationInput = {
+    id?: SortOrder
+    regis_payment_qrcode?: SortOrderInput | SortOrder
+    regis_payment?: SortOrderInput | SortOrder
+    fac_sheet_link?: SortOrderInput | SortOrder
+    dep_sheet_link?: SortOrderInput | SortOrder
+    regis_payment_account_name?: SortOrderInput | SortOrder
+    regis_payment_account_number?: SortOrderInput | SortOrder
+    regis_payment_account_back?: SortOrderInput | SortOrder
+    skipAlumniDuplicate?: SortOrder
+    skipPersonelDuplicate?: SortOrder
+    allowedAlumniAccount?: SortOrder
+    allowedPersonelAccount?: SortOrder
+    allowedAdminAccount?: SortOrder
+    allowedNotifyAlumniRegis?: SortOrder
+    allowedNotifyAlumniEditRegis?: SortOrder
+    notify_email?: SortOrderInput | SortOrder
+    backup_folderid?: SortOrderInput | SortOrder
+    filebackup_folderid?: SortOrderInput | SortOrder
+  }
+
+  export type settingWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: settingWhereInput | settingWhereInput[]
+    OR?: settingWhereInput[]
+    NOT?: settingWhereInput | settingWhereInput[]
+    regis_payment_qrcode?: StringNullableFilter<"setting"> | string | null
+    regis_payment?: IntNullableFilter<"setting"> | number | null
+    fac_sheet_link?: StringNullableFilter<"setting"> | string | null
+    dep_sheet_link?: StringNullableFilter<"setting"> | string | null
+    regis_payment_account_name?: StringNullableFilter<"setting"> | string | null
+    regis_payment_account_number?: StringNullableFilter<"setting"> | string | null
+    regis_payment_account_back?: StringNullableFilter<"setting"> | string | null
+    skipAlumniDuplicate?: BoolFilter<"setting"> | boolean
+    skipPersonelDuplicate?: BoolFilter<"setting"> | boolean
+    allowedAlumniAccount?: BoolFilter<"setting"> | boolean
+    allowedPersonelAccount?: BoolFilter<"setting"> | boolean
+    allowedAdminAccount?: BoolFilter<"setting"> | boolean
+    allowedNotifyAlumniRegis?: BoolFilter<"setting"> | boolean
+    allowedNotifyAlumniEditRegis?: BoolFilter<"setting"> | boolean
+    notify_email?: StringNullableFilter<"setting"> | string | null
+    backup_folderid?: StringNullableFilter<"setting"> | string | null
+    filebackup_folderid?: StringNullableFilter<"setting"> | string | null
+  }, "id">
+
+  export type settingOrderByWithAggregationInput = {
+    id?: SortOrder
+    regis_payment_qrcode?: SortOrderInput | SortOrder
+    regis_payment?: SortOrderInput | SortOrder
+    fac_sheet_link?: SortOrderInput | SortOrder
+    dep_sheet_link?: SortOrderInput | SortOrder
+    regis_payment_account_name?: SortOrderInput | SortOrder
+    regis_payment_account_number?: SortOrderInput | SortOrder
+    regis_payment_account_back?: SortOrderInput | SortOrder
+    skipAlumniDuplicate?: SortOrder
+    skipPersonelDuplicate?: SortOrder
+    allowedAlumniAccount?: SortOrder
+    allowedPersonelAccount?: SortOrder
+    allowedAdminAccount?: SortOrder
+    allowedNotifyAlumniRegis?: SortOrder
+    allowedNotifyAlumniEditRegis?: SortOrder
+    notify_email?: SortOrderInput | SortOrder
+    backup_folderid?: SortOrderInput | SortOrder
+    filebackup_folderid?: SortOrderInput | SortOrder
+    _count?: settingCountOrderByAggregateInput
+    _avg?: settingAvgOrderByAggregateInput
+    _max?: settingMaxOrderByAggregateInput
+    _min?: settingMinOrderByAggregateInput
+    _sum?: settingSumOrderByAggregateInput
+  }
+
+  export type settingScalarWhereWithAggregatesInput = {
+    AND?: settingScalarWhereWithAggregatesInput | settingScalarWhereWithAggregatesInput[]
+    OR?: settingScalarWhereWithAggregatesInput[]
+    NOT?: settingScalarWhereWithAggregatesInput | settingScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"setting"> | number
+    regis_payment_qrcode?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    regis_payment?: IntNullableWithAggregatesFilter<"setting"> | number | null
+    fac_sheet_link?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    dep_sheet_link?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    regis_payment_account_name?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    regis_payment_account_number?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    regis_payment_account_back?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    skipAlumniDuplicate?: BoolWithAggregatesFilter<"setting"> | boolean
+    skipPersonelDuplicate?: BoolWithAggregatesFilter<"setting"> | boolean
+    allowedAlumniAccount?: BoolWithAggregatesFilter<"setting"> | boolean
+    allowedPersonelAccount?: BoolWithAggregatesFilter<"setting"> | boolean
+    allowedAdminAccount?: BoolWithAggregatesFilter<"setting"> | boolean
+    allowedNotifyAlumniRegis?: BoolWithAggregatesFilter<"setting"> | boolean
+    allowedNotifyAlumniEditRegis?: BoolWithAggregatesFilter<"setting"> | boolean
+    notify_email?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    backup_folderid?: StringNullableWithAggregatesFilter<"setting"> | string | null
+    filebackup_folderid?: StringNullableWithAggregatesFilter<"setting"> | string | null
+  }
+
+  export type rolesCreateInput = {
+    name: string
+  }
+
+  export type rolesUncheckedCreateInput = {
+    id?: number
+    name: string
+  }
+
+  export type rolesUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type rolesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type rolesCreateManyInput = {
+    id?: number
+    name: string
+  }
+
+  export type rolesUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type rolesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type regis_alumniCreateInput = {
+    email: string
+    tel: string
+    slip_payment_url: string
+    isApproved?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    alumni?: alumniCreateNestedOneWithoutRegis_alumniInput
+  }
+
+  export type regis_alumniUncheckedCreateInput = {
+    id?: number
+    alumni_id?: string | null
+    email: string
+    tel: string
+    slip_payment_url: string
+    isApproved?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type regis_alumniUpdateInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    slip_payment_url?: StringFieldUpdateOperationsInput | string
+    isApproved?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUpdateOneWithoutRegis_alumniNestedInput
+  }
+
+  export type regis_alumniUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_id?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    slip_payment_url?: StringFieldUpdateOperationsInput | string
+    isApproved?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type regis_alumniCreateManyInput = {
+    id?: number
+    alumni_id?: string | null
+    email: string
+    tel: string
+    slip_payment_url: string
+    isApproved?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type regis_alumniUpdateManyMutationInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    slip_payment_url?: StringFieldUpdateOperationsInput | string
+    isApproved?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type regis_alumniUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_id?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    slip_payment_url?: StringFieldUpdateOperationsInput | string
+    isApproved?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type alumniCreateInput = {
     alumni_id: string
     prefix: string
@@ -9975,16 +21233,21 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
     work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
     user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
     alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateInput = {
@@ -9996,16 +21259,21 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
     work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
     user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
     alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniUpdateInput = {
@@ -10017,16 +21285,21 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
     work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
     user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
     alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateInput = {
@@ -10038,16 +21311,21 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
     work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
     user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
     alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
   }
 
   export type alumniCreateManyInput = {
@@ -10059,13 +21337,14 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    import_historyId?: string | null
   }
 
   export type alumniUpdateManyMutationInput = {
@@ -10077,11 +21356,11 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10095,13 +21374,14 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type alumni_contractCreateInput = {
@@ -10239,14 +21519,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: string | null
-    edu_level?: string | null
-    continued_study?: boolean
-    edu_faculty?: string | null
-    edu_dep?: string | null
-    edu_university?: string | null
-    year_start?: string | null
-    year_end?: string | null
-    edu_performance?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     alumni?: alumniCreateNestedOneWithoutWork_expreriencesInput
@@ -10267,14 +21539,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: string | null
-    edu_level?: string | null
-    continued_study?: boolean
-    edu_faculty?: string | null
-    edu_dep?: string | null
-    edu_university?: string | null
-    year_start?: string | null
-    year_end?: string | null
-    edu_performance?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     alumniId?: string | null
@@ -10294,14 +21558,6 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
-    continued_study?: BoolFieldUpdateOperationsInput | boolean
-    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
-    year_start?: NullableStringFieldUpdateOperationsInput | string | null
-    year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     alumni?: alumniUpdateOneWithoutWork_expreriencesNestedInput
@@ -10322,14 +21578,6 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
-    continued_study?: BoolFieldUpdateOperationsInput | boolean
-    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
-    year_start?: NullableStringFieldUpdateOperationsInput | string | null
-    year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     alumniId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10350,14 +21598,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: string | null
-    edu_level?: string | null
-    continued_study?: boolean
-    edu_faculty?: string | null
-    edu_dep?: string | null
-    edu_university?: string | null
-    year_start?: string | null
-    year_end?: string | null
-    edu_performance?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     alumniId?: string | null
@@ -10377,14 +21617,6 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
-    continued_study?: BoolFieldUpdateOperationsInput | boolean
-    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
-    year_start?: NullableStringFieldUpdateOperationsInput | string | null
-    year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10404,6 +21636,49 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type studey_expreriencesCreateInput = {
+    edu_level?: string | null
+    continued_study?: boolean
+    edu_faculty?: string | null
+    edu_dep?: string | null
+    edu_university?: string | null
+    year_start?: string | null
+    year_end?: string | null
+    edu_performance?: string | null
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: string | null
+    remark?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    alumni?: alumniCreateNestedOneWithoutStudy_expreriencesInput
+  }
+
+  export type studey_expreriencesUncheckedCreateInput = {
+    id?: number
+    edu_level?: string | null
+    continued_study?: boolean
+    edu_faculty?: string | null
+    edu_dep?: string | null
+    edu_university?: string | null
+    year_start?: string | null
+    year_end?: string | null
+    edu_performance?: string | null
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: string | null
+    remark?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    alumniId?: string | null
+  }
+
+  export type studey_expreriencesUpdateInput = {
     edu_level?: NullableStringFieldUpdateOperationsInput | string | null
     continued_study?: BoolFieldUpdateOperationsInput | boolean
     edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10412,6 +21687,84 @@ export namespace Prisma {
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
     edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUpdateOneWithoutStudy_expreriencesNestedInput
+  }
+
+  export type studey_expreriencesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
+    continued_study?: BoolFieldUpdateOperationsInput | boolean
+    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type studey_expreriencesCreateManyInput = {
+    id?: number
+    edu_level?: string | null
+    continued_study?: boolean
+    edu_faculty?: string | null
+    edu_dep?: string | null
+    edu_university?: string | null
+    year_start?: string | null
+    year_end?: string | null
+    edu_performance?: string | null
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: string | null
+    remark?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    alumniId?: string | null
+  }
+
+  export type studey_expreriencesUpdateManyMutationInput = {
+    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
+    continued_study?: BoolFieldUpdateOperationsInput | boolean
+    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type studey_expreriencesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
+    continued_study?: BoolFieldUpdateOperationsInput | boolean
+    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     alumniId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10543,12 +21896,15 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
   }
 
   export type professorUncheckedCreateInput = {
@@ -10563,10 +21919,13 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
     user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
     alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
   }
@@ -10583,12 +21942,15 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
   }
 
   export type professorUncheckedUpdateInput = {
@@ -10603,10 +21965,13 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
     user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
   }
@@ -10623,8 +21988,9 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10641,8 +22007,8 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10659,10 +22025,277 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type adminCreateInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAdminInput
+    otp?: otpCreateNestedOneWithoutAdminInput
+    importHistory?: import_historyCreateNestedManyWithoutAdminInput
+  }
+
+  export type adminUncheckedCreateInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAdminInput
+    otp?: otpUncheckedCreateNestedOneWithoutAdminInput
+    importHistory?: import_historyUncheckedCreateNestedManyWithoutAdminInput
+  }
+
+  export type adminUpdateInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAdminNestedInput
+    otp?: otpUpdateOneWithoutAdminNestedInput
+    importHistory?: import_historyUpdateManyWithoutAdminNestedInput
+  }
+
+  export type adminUncheckedUpdateInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAdminNestedInput
+    otp?: otpUncheckedUpdateOneWithoutAdminNestedInput
+    importHistory?: import_historyUncheckedUpdateManyWithoutAdminNestedInput
+  }
+
+  export type adminCreateManyInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type adminUpdateManyMutationInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type adminUncheckedUpdateManyInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryCreateInput = {
+    alumniId?: string | null
+    sender_type?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+    professor?: professorCreateNestedOneWithoutSendTextHistoryInput
+    admin?: adminCreateNestedOneWithoutSendTextHistoryInput
+    alumni?: alumniCreateNestedOneWithoutSendTextHistoryInput
+  }
+
+  export type sendTextHistoryUncheckedCreateInput = {
+    id?: number
+    alumni_sender?: string | null
+    alumniId?: string | null
+    professorId?: string | null
+    sender_type?: string | null
+    adminId?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+  }
+
+  export type sendTextHistoryUpdateInput = {
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUpdateOneWithoutSendTextHistoryNestedInput
+    admin?: adminUpdateOneWithoutSendTextHistoryNestedInput
+    alumni?: alumniUpdateOneWithoutSendTextHistoryNestedInput
+  }
+
+  export type sendTextHistoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_sender?: NullableStringFieldUpdateOperationsInput | string | null
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryCreateManyInput = {
+    id?: number
+    alumni_sender?: string | null
+    alumniId?: string | null
+    professorId?: string | null
+    sender_type?: string | null
+    adminId?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+  }
+
+  export type sendTextHistoryUpdateManyMutationInput = {
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_sender?: NullableStringFieldUpdateOperationsInput | string | null
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type otpCreateInput = {
+    code: string
+    createdAt?: Date | string
+    professor?: professorCreateNestedOneWithoutOtpInput
+    admin?: adminCreateNestedOneWithoutOtpInput
+    alumni?: alumniCreateNestedOneWithoutOtpInput
+  }
+
+  export type otpUncheckedCreateInput = {
+    id?: number
+    code: string
+    alumniId?: string | null
+    professorId?: string | null
+    adminId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type otpUpdateInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUpdateOneWithoutOtpNestedInput
+    admin?: adminUpdateOneWithoutOtpNestedInput
+    alumni?: alumniUpdateOneWithoutOtpNestedInput
+  }
+
+  export type otpUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type otpCreateManyInput = {
+    id?: number
+    code: string
+    alumniId?: string | null
+    professorId?: string | null
+    adminId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type otpUpdateManyMutationInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type otpUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type news_donatiosCreateInput = {
@@ -10795,6 +22428,252 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type import_historyCreateInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    admin: adminCreateNestedOneWithoutImportHistoryInput
+    alumni?: alumniCreateNestedManyWithoutImportHistoryInput
+    professor?: professorCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyUncheckedCreateInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    imported_by: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutImportHistoryInput
+    professor?: professorUncheckedCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    admin?: adminUpdateOneRequiredWithoutImportHistoryNestedInput
+    alumni?: alumniUpdateManyWithoutImportHistoryNestedInput
+    professor?: professorUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type import_historyUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    imported_by?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutImportHistoryNestedInput
+    professor?: professorUncheckedUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type import_historyCreateManyInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    imported_by: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type import_historyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type import_historyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    imported_by?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type settingCreateInput = {
+    regis_payment_qrcode?: string | null
+    regis_payment?: number | null
+    fac_sheet_link?: string | null
+    dep_sheet_link?: string | null
+    regis_payment_account_name?: string | null
+    regis_payment_account_number?: string | null
+    regis_payment_account_back?: string | null
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: string | null
+    backup_folderid?: string | null
+    filebackup_folderid?: string | null
+  }
+
+  export type settingUncheckedCreateInput = {
+    id?: number
+    regis_payment_qrcode?: string | null
+    regis_payment?: number | null
+    fac_sheet_link?: string | null
+    dep_sheet_link?: string | null
+    regis_payment_account_name?: string | null
+    regis_payment_account_number?: string | null
+    regis_payment_account_back?: string | null
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: string | null
+    backup_folderid?: string | null
+    filebackup_folderid?: string | null
+  }
+
+  export type settingUpdateInput = {
+    regis_payment_qrcode?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment?: NullableIntFieldUpdateOperationsInput | number | null
+    fac_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    dep_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_name?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_number?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_back?: NullableStringFieldUpdateOperationsInput | string | null
+    skipAlumniDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    skipPersonelDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    allowedAlumniAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedPersonelAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedAdminAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniRegis?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniEditRegis?: BoolFieldUpdateOperationsInput | boolean
+    notify_email?: NullableStringFieldUpdateOperationsInput | string | null
+    backup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+    filebackup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type settingUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    regis_payment_qrcode?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment?: NullableIntFieldUpdateOperationsInput | number | null
+    fac_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    dep_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_name?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_number?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_back?: NullableStringFieldUpdateOperationsInput | string | null
+    skipAlumniDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    skipPersonelDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    allowedAlumniAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedPersonelAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedAdminAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniRegis?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniEditRegis?: BoolFieldUpdateOperationsInput | boolean
+    notify_email?: NullableStringFieldUpdateOperationsInput | string | null
+    backup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+    filebackup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type settingCreateManyInput = {
+    id?: number
+    regis_payment_qrcode?: string | null
+    regis_payment?: number | null
+    fac_sheet_link?: string | null
+    dep_sheet_link?: string | null
+    regis_payment_account_name?: string | null
+    regis_payment_account_number?: string | null
+    regis_payment_account_back?: string | null
+    skipAlumniDuplicate?: boolean
+    skipPersonelDuplicate?: boolean
+    allowedAlumniAccount?: boolean
+    allowedPersonelAccount?: boolean
+    allowedAdminAccount?: boolean
+    allowedNotifyAlumniRegis?: boolean
+    allowedNotifyAlumniEditRegis?: boolean
+    notify_email?: string | null
+    backup_folderid?: string | null
+    filebackup_folderid?: string | null
+  }
+
+  export type settingUpdateManyMutationInput = {
+    regis_payment_qrcode?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment?: NullableIntFieldUpdateOperationsInput | number | null
+    fac_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    dep_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_name?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_number?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_back?: NullableStringFieldUpdateOperationsInput | string | null
+    skipAlumniDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    skipPersonelDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    allowedAlumniAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedPersonelAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedAdminAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniRegis?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniEditRegis?: BoolFieldUpdateOperationsInput | boolean
+    notify_email?: NullableStringFieldUpdateOperationsInput | string | null
+    backup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+    filebackup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type settingUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    regis_payment_qrcode?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment?: NullableIntFieldUpdateOperationsInput | number | null
+    fac_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    dep_sheet_link?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_name?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_number?: NullableStringFieldUpdateOperationsInput | string | null
+    regis_payment_account_back?: NullableStringFieldUpdateOperationsInput | string | null
+    skipAlumniDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    skipPersonelDuplicate?: BoolFieldUpdateOperationsInput | boolean
+    allowedAlumniAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedPersonelAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedAdminAccount?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniRegis?: BoolFieldUpdateOperationsInput | boolean
+    allowedNotifyAlumniEditRegis?: BoolFieldUpdateOperationsInput | boolean
+    notify_email?: NullableStringFieldUpdateOperationsInput | string | null
+    backup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+    filebackup_folderid?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -10810,141 +22689,43 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type rolesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type rolesAvgOrderByAggregateInput = {
+    id?: SortOrder
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+  export type rolesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type rolesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type rolesSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type Work_expreriencesListRelationFilter = {
-    every?: work_expreriencesWhereInput
-    some?: work_expreriencesWhereInput
-    none?: work_expreriencesWhereInput
-  }
-
-  export type User_privacyNullableScalarRelationFilter = {
-    is?: user_privacyWhereInput | null
-    isNot?: user_privacyWhereInput | null
-  }
-
-  export type Alumni_contractNullableScalarRelationFilter = {
-    is?: alumni_contractWhereInput | null
-    isNot?: alumni_contractWhereInput | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type work_expreriencesOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type alumniCountOrderByAggregateInput = {
-    alumni_id?: SortOrder
-    prefix?: SortOrder
-    fname?: SortOrder
-    lname?: SortOrder
-    profile?: SortOrder
-    passwordHash?: SortOrder
-    allowedAccount?: SortOrder
-    canUse?: SortOrder
-    year_start?: SortOrder
-    year_end?: SortOrder
-    facultyId?: SortOrder
-    departmentId?: SortOrder
-    edu_levelId?: SortOrder
-    createtAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type alumniAvgOrderByAggregateInput = {
-    year_start?: SortOrder
-    year_end?: SortOrder
-    facultyId?: SortOrder
-    departmentId?: SortOrder
-    edu_levelId?: SortOrder
-  }
-
-  export type alumniMaxOrderByAggregateInput = {
-    alumni_id?: SortOrder
-    prefix?: SortOrder
-    fname?: SortOrder
-    lname?: SortOrder
-    profile?: SortOrder
-    passwordHash?: SortOrder
-    allowedAccount?: SortOrder
-    canUse?: SortOrder
-    year_start?: SortOrder
-    year_end?: SortOrder
-    facultyId?: SortOrder
-    departmentId?: SortOrder
-    edu_levelId?: SortOrder
-    createtAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type alumniMinOrderByAggregateInput = {
-    alumni_id?: SortOrder
-    prefix?: SortOrder
-    fname?: SortOrder
-    lname?: SortOrder
-    profile?: SortOrder
-    passwordHash?: SortOrder
-    allowedAccount?: SortOrder
-    canUse?: SortOrder
-    year_start?: SortOrder
-    year_end?: SortOrder
-    facultyId?: SortOrder
-    departmentId?: SortOrder
-    edu_levelId?: SortOrder
-    createtAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type alumniSumOrderByAggregateInput = {
-    year_start?: SortOrder
-    year_end?: SortOrder
-    facultyId?: SortOrder
-    departmentId?: SortOrder
-    edu_levelId?: SortOrder
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -10965,6 +22746,86 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type AlumniNullableScalarRelationFilter = {
+    is?: alumniWhereInput | null
+    isNot?: alumniWhereInput | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type regis_alumniCountOrderByAggregateInput = {
+    id?: SortOrder
+    alumni_id?: SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    slip_payment_url?: SortOrder
+    isApproved?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type regis_alumniAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type regis_alumniMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alumni_id?: SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    slip_payment_url?: SortOrder
+    isApproved?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type regis_alumniMinOrderByAggregateInput = {
+    id?: SortOrder
+    alumni_id?: SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    slip_payment_url?: SortOrder
+    isApproved?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type regis_alumniSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -10983,30 +22844,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -11021,20 +22858,129 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type AlumniNullableScalarRelationFilter = {
-    is?: alumniWhereInput | null
-    isNot?: alumniWhereInput | null
+  export type OtpNullableScalarRelationFilter = {
+    is?: otpWhereInput | null
+    isNot?: otpWhereInput | null
+  }
+
+  export type Work_expreriencesListRelationFilter = {
+    every?: work_expreriencesWhereInput
+    some?: work_expreriencesWhereInput
+    none?: work_expreriencesWhereInput
+  }
+
+  export type Studey_expreriencesListRelationFilter = {
+    every?: studey_expreriencesWhereInput
+    some?: studey_expreriencesWhereInput
+    none?: studey_expreriencesWhereInput
+  }
+
+  export type User_privacyNullableScalarRelationFilter = {
+    is?: user_privacyWhereInput | null
+    isNot?: user_privacyWhereInput | null
+  }
+
+  export type Alumni_contractNullableScalarRelationFilter = {
+    is?: alumni_contractWhereInput | null
+    isNot?: alumni_contractWhereInput | null
+  }
+
+  export type Regis_alumniNullableScalarRelationFilter = {
+    is?: regis_alumniWhereInput | null
+    isNot?: regis_alumniWhereInput | null
+  }
+
+  export type Import_historyNullableScalarRelationFilter = {
+    is?: import_historyWhereInput | null
+    isNot?: import_historyWhereInput | null
+  }
+
+  export type SendTextHistoryListRelationFilter = {
+    every?: sendTextHistoryWhereInput
+    some?: sendTextHistoryWhereInput
+    none?: sendTextHistoryWhereInput
+  }
+
+  export type work_expreriencesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type studey_expreriencesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type sendTextHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type alumniCountOrderByAggregateInput = {
+    alumni_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    profile?: SortOrder
+    passwordHash?: SortOrder
+    allowedAccount?: SortOrder
+    canUse?: SortOrder
+    year_start?: SortOrder
+    year_end?: SortOrder
+    facultyId?: SortOrder
+    departmentId?: SortOrder
+    edu_levelId?: SortOrder
+    createtAt?: SortOrder
+    updatedAt?: SortOrder
+    import_historyId?: SortOrder
+  }
+
+  export type alumniMaxOrderByAggregateInput = {
+    alumni_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    profile?: SortOrder
+    passwordHash?: SortOrder
+    allowedAccount?: SortOrder
+    canUse?: SortOrder
+    year_start?: SortOrder
+    year_end?: SortOrder
+    facultyId?: SortOrder
+    departmentId?: SortOrder
+    edu_levelId?: SortOrder
+    createtAt?: SortOrder
+    updatedAt?: SortOrder
+    import_historyId?: SortOrder
+  }
+
+  export type alumniMinOrderByAggregateInput = {
+    alumni_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    profile?: SortOrder
+    passwordHash?: SortOrder
+    allowedAccount?: SortOrder
+    canUse?: SortOrder
+    year_start?: SortOrder
+    year_end?: SortOrder
+    facultyId?: SortOrder
+    departmentId?: SortOrder
+    edu_levelId?: SortOrder
+    createtAt?: SortOrder
+    updatedAt?: SortOrder
+    import_historyId?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type ProfessorNullableScalarRelationFilter = {
@@ -11104,22 +23050,6 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type BoolNullableFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
@@ -11151,14 +23081,6 @@ export namespace Prisma {
     isCurrent?: SortOrder
     isInThai?: SortOrder
     remark?: SortOrder
-    edu_level?: SortOrder
-    continued_study?: SortOrder
-    edu_faculty?: SortOrder
-    edu_dep?: SortOrder
-    edu_university?: SortOrder
-    year_start?: SortOrder
-    year_end?: SortOrder
-    edu_performance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alumniId?: SortOrder
@@ -11184,14 +23106,6 @@ export namespace Prisma {
     isCurrent?: SortOrder
     isInThai?: SortOrder
     remark?: SortOrder
-    edu_level?: SortOrder
-    continued_study?: SortOrder
-    edu_faculty?: SortOrder
-    edu_dep?: SortOrder
-    edu_university?: SortOrder
-    year_start?: SortOrder
-    year_end?: SortOrder
-    edu_performance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alumniId?: SortOrder
@@ -11212,14 +23126,6 @@ export namespace Prisma {
     isCurrent?: SortOrder
     isInThai?: SortOrder
     remark?: SortOrder
-    edu_level?: SortOrder
-    continued_study?: SortOrder
-    edu_faculty?: SortOrder
-    edu_dep?: SortOrder
-    edu_university?: SortOrder
-    year_start?: SortOrder
-    year_end?: SortOrder
-    edu_performance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alumniId?: SortOrder
@@ -11252,6 +23158,71 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type studey_expreriencesCountOrderByAggregateInput = {
+    id?: SortOrder
+    edu_level?: SortOrder
+    continued_study?: SortOrder
+    edu_faculty?: SortOrder
+    edu_dep?: SortOrder
+    edu_university?: SortOrder
+    year_start?: SortOrder
+    year_end?: SortOrder
+    edu_performance?: SortOrder
+    isCurrent?: SortOrder
+    isInThai?: SortOrder
+    place?: SortOrder
+    remark?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    alumniId?: SortOrder
+  }
+
+  export type studey_expreriencesAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type studey_expreriencesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    edu_level?: SortOrder
+    continued_study?: SortOrder
+    edu_faculty?: SortOrder
+    edu_dep?: SortOrder
+    edu_university?: SortOrder
+    year_start?: SortOrder
+    year_end?: SortOrder
+    edu_performance?: SortOrder
+    isCurrent?: SortOrder
+    isInThai?: SortOrder
+    place?: SortOrder
+    remark?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    alumniId?: SortOrder
+  }
+
+  export type studey_expreriencesMinOrderByAggregateInput = {
+    id?: SortOrder
+    edu_level?: SortOrder
+    continued_study?: SortOrder
+    edu_faculty?: SortOrder
+    edu_dep?: SortOrder
+    edu_university?: SortOrder
+    year_start?: SortOrder
+    year_end?: SortOrder
+    edu_performance?: SortOrder
+    isCurrent?: SortOrder
+    isInThai?: SortOrder
+    place?: SortOrder
+    remark?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    alumniId?: SortOrder
+  }
+
+  export type studey_expreriencesSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type user_privacyCountOrderByAggregateInput = {
@@ -11337,13 +23308,9 @@ export namespace Prisma {
     email?: SortOrder
     facultyId?: SortOrder
     departmentId?: SortOrder
+    import_historyId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type professorAvgOrderByAggregateInput = {
-    facultyId?: SortOrder
-    departmentId?: SortOrder
   }
 
   export type professorMaxOrderByAggregateInput = {
@@ -11360,6 +23327,7 @@ export namespace Prisma {
     email?: SortOrder
     facultyId?: SortOrder
     departmentId?: SortOrder
+    import_historyId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -11378,13 +23346,190 @@ export namespace Prisma {
     email?: SortOrder
     facultyId?: SortOrder
     departmentId?: SortOrder
+    import_historyId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type professorSumOrderByAggregateInput = {
-    facultyId?: SortOrder
-    departmentId?: SortOrder
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type Import_historyListRelationFilter = {
+    every?: import_historyWhereInput
+    some?: import_historyWhereInput
+    none?: import_historyWhereInput
+  }
+
+  export type import_historyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type adminCountOrderByAggregateInput = {
+    admin_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    username?: SortOrder
+    profile?: SortOrder
+    passwordHash?: SortOrder
+    canUse?: SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    lastestLogin?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type adminMaxOrderByAggregateInput = {
+    admin_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    username?: SortOrder
+    profile?: SortOrder
+    passwordHash?: SortOrder
+    canUse?: SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    lastestLogin?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type adminMinOrderByAggregateInput = {
+    admin_id?: SortOrder
+    prefix?: SortOrder
+    fname?: SortOrder
+    lname?: SortOrder
+    username?: SortOrder
+    profile?: SortOrder
+    passwordHash?: SortOrder
+    canUse?: SortOrder
+    email?: SortOrder
+    tel?: SortOrder
+    lastestLogin?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type AdminNullableScalarRelationFilter = {
+    is?: adminWhereInput | null
+    isNot?: adminWhereInput | null
+  }
+
+  export type sendTextHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    alumni_sender?: SortOrder
+    alumniId?: SortOrder
+    professorId?: SortOrder
+    sender_type?: SortOrder
+    adminId?: SortOrder
+    title?: SortOrder
+    detail?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type sendTextHistoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type sendTextHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alumni_sender?: SortOrder
+    alumniId?: SortOrder
+    professorId?: SortOrder
+    sender_type?: SortOrder
+    adminId?: SortOrder
+    title?: SortOrder
+    detail?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type sendTextHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    alumni_sender?: SortOrder
+    alumniId?: SortOrder
+    professorId?: SortOrder
+    sender_type?: SortOrder
+    adminId?: SortOrder
+    title?: SortOrder
+    detail?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type sendTextHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type otpCountOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    alumniId?: SortOrder
+    professorId?: SortOrder
+    adminId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type otpAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type otpMaxOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    alumniId?: SortOrder
+    professorId?: SortOrder
+    adminId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type otpMinOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    alumniId?: SortOrder
+    professorId?: SortOrder
+    adminId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type otpSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type news_donatiosCountOrderByAggregateInput = {
@@ -11458,11 +23603,220 @@ export namespace Prisma {
     view?: SortOrder
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type AdminScalarRelationFilter = {
+    is?: adminWhereInput
+    isNot?: adminWhereInput
+  }
+
+  export type AlumniListRelationFilter = {
+    every?: alumniWhereInput
+    some?: alumniWhereInput
+    none?: alumniWhereInput
+  }
+
+  export type ProfessorListRelationFilter = {
+    every?: professorWhereInput
+    some?: professorWhereInput
+    none?: professorWhereInput
+  }
+
+  export type alumniOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type professorOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type import_historyCountOrderByAggregateInput = {
+    id?: SortOrder
+    file_name?: SortOrder
+    file_size?: SortOrder
+    total_rows?: SortOrder
+    import_type?: SortOrder
+    imported_by?: SortOrder
+    started_at?: SortOrder
+    finished_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type import_historyAvgOrderByAggregateInput = {
+    file_size?: SortOrder
+    total_rows?: SortOrder
+  }
+
+  export type import_historyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    file_name?: SortOrder
+    file_size?: SortOrder
+    total_rows?: SortOrder
+    import_type?: SortOrder
+    imported_by?: SortOrder
+    started_at?: SortOrder
+    finished_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type import_historyMinOrderByAggregateInput = {
+    id?: SortOrder
+    file_name?: SortOrder
+    file_size?: SortOrder
+    total_rows?: SortOrder
+    import_type?: SortOrder
+    imported_by?: SortOrder
+    started_at?: SortOrder
+    finished_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type import_historySumOrderByAggregateInput = {
+    file_size?: SortOrder
+    total_rows?: SortOrder
+  }
+
+  export type settingCountOrderByAggregateInput = {
+    id?: SortOrder
+    regis_payment_qrcode?: SortOrder
+    regis_payment?: SortOrder
+    fac_sheet_link?: SortOrder
+    dep_sheet_link?: SortOrder
+    regis_payment_account_name?: SortOrder
+    regis_payment_account_number?: SortOrder
+    regis_payment_account_back?: SortOrder
+    skipAlumniDuplicate?: SortOrder
+    skipPersonelDuplicate?: SortOrder
+    allowedAlumniAccount?: SortOrder
+    allowedPersonelAccount?: SortOrder
+    allowedAdminAccount?: SortOrder
+    allowedNotifyAlumniRegis?: SortOrder
+    allowedNotifyAlumniEditRegis?: SortOrder
+    notify_email?: SortOrder
+    backup_folderid?: SortOrder
+    filebackup_folderid?: SortOrder
+  }
+
+  export type settingAvgOrderByAggregateInput = {
+    id?: SortOrder
+    regis_payment?: SortOrder
+  }
+
+  export type settingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    regis_payment_qrcode?: SortOrder
+    regis_payment?: SortOrder
+    fac_sheet_link?: SortOrder
+    dep_sheet_link?: SortOrder
+    regis_payment_account_name?: SortOrder
+    regis_payment_account_number?: SortOrder
+    regis_payment_account_back?: SortOrder
+    skipAlumniDuplicate?: SortOrder
+    skipPersonelDuplicate?: SortOrder
+    allowedAlumniAccount?: SortOrder
+    allowedPersonelAccount?: SortOrder
+    allowedAdminAccount?: SortOrder
+    allowedNotifyAlumniRegis?: SortOrder
+    allowedNotifyAlumniEditRegis?: SortOrder
+    notify_email?: SortOrder
+    backup_folderid?: SortOrder
+    filebackup_folderid?: SortOrder
+  }
+
+  export type settingMinOrderByAggregateInput = {
+    id?: SortOrder
+    regis_payment_qrcode?: SortOrder
+    regis_payment?: SortOrder
+    fac_sheet_link?: SortOrder
+    dep_sheet_link?: SortOrder
+    regis_payment_account_name?: SortOrder
+    regis_payment_account_number?: SortOrder
+    regis_payment_account_back?: SortOrder
+    skipAlumniDuplicate?: SortOrder
+    skipPersonelDuplicate?: SortOrder
+    allowedAlumniAccount?: SortOrder
+    allowedPersonelAccount?: SortOrder
+    allowedAdminAccount?: SortOrder
+    allowedNotifyAlumniRegis?: SortOrder
+    allowedNotifyAlumniEditRegis?: SortOrder
+    notify_email?: SortOrder
+    backup_folderid?: SortOrder
+    filebackup_folderid?: SortOrder
+  }
+
+  export type settingSumOrderByAggregateInput = {
+    id?: SortOrder
+    regis_payment?: SortOrder
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type alumniCreateNestedOneWithoutRegis_alumniInput = {
+    create?: XOR<alumniCreateWithoutRegis_alumniInput, alumniUncheckedCreateWithoutRegis_alumniInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutRegis_alumniInput
+    connect?: alumniWhereUniqueInput
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type alumniUpdateOneWithoutRegis_alumniNestedInput = {
+    create?: XOR<alumniCreateWithoutRegis_alumniInput, alumniUncheckedCreateWithoutRegis_alumniInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutRegis_alumniInput
+    upsert?: alumniUpsertWithoutRegis_alumniInput
+    disconnect?: alumniWhereInput | boolean
+    delete?: alumniWhereInput | boolean
+    connect?: alumniWhereUniqueInput
+    update?: XOR<XOR<alumniUpdateToOneWithWhereWithoutRegis_alumniInput, alumniUpdateWithoutRegis_alumniInput>, alumniUncheckedUpdateWithoutRegis_alumniInput>
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type otpCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAlumniInput
+    connect?: otpWhereUniqueInput
+  }
+
   export type work_expreriencesCreateNestedManyWithoutAlumniInput = {
     create?: XOR<work_expreriencesCreateWithoutAlumniInput, work_expreriencesUncheckedCreateWithoutAlumniInput> | work_expreriencesCreateWithoutAlumniInput[] | work_expreriencesUncheckedCreateWithoutAlumniInput[]
     connectOrCreate?: work_expreriencesCreateOrConnectWithoutAlumniInput | work_expreriencesCreateOrConnectWithoutAlumniInput[]
     createMany?: work_expreriencesCreateManyAlumniInputEnvelope
     connect?: work_expreriencesWhereUniqueInput | work_expreriencesWhereUniqueInput[]
+  }
+
+  export type studey_expreriencesCreateNestedManyWithoutAlumniInput = {
+    create?: XOR<studey_expreriencesCreateWithoutAlumniInput, studey_expreriencesUncheckedCreateWithoutAlumniInput> | studey_expreriencesCreateWithoutAlumniInput[] | studey_expreriencesUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: studey_expreriencesCreateOrConnectWithoutAlumniInput | studey_expreriencesCreateOrConnectWithoutAlumniInput[]
+    createMany?: studey_expreriencesCreateManyAlumniInputEnvelope
+    connect?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
   }
 
   export type user_privacyCreateNestedOneWithoutAlumniInput = {
@@ -11477,11 +23831,43 @@ export namespace Prisma {
     connect?: alumni_contractWhereUniqueInput
   }
 
+  export type regis_alumniCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<regis_alumniCreateWithoutAlumniInput, regis_alumniUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: regis_alumniCreateOrConnectWithoutAlumniInput
+    connect?: regis_alumniWhereUniqueInput
+  }
+
+  export type import_historyCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<import_historyCreateWithoutAlumniInput, import_historyUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: import_historyCreateOrConnectWithoutAlumniInput
+    connect?: import_historyWhereUniqueInput
+  }
+
+  export type sendTextHistoryCreateNestedManyWithoutAlumniInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAlumniInput, sendTextHistoryUncheckedCreateWithoutAlumniInput> | sendTextHistoryCreateWithoutAlumniInput[] | sendTextHistoryUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAlumniInput | sendTextHistoryCreateOrConnectWithoutAlumniInput[]
+    createMany?: sendTextHistoryCreateManyAlumniInputEnvelope
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+  }
+
+  export type otpUncheckedCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAlumniInput
+    connect?: otpWhereUniqueInput
+  }
+
   export type work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput = {
     create?: XOR<work_expreriencesCreateWithoutAlumniInput, work_expreriencesUncheckedCreateWithoutAlumniInput> | work_expreriencesCreateWithoutAlumniInput[] | work_expreriencesUncheckedCreateWithoutAlumniInput[]
     connectOrCreate?: work_expreriencesCreateOrConnectWithoutAlumniInput | work_expreriencesCreateOrConnectWithoutAlumniInput[]
     createMany?: work_expreriencesCreateManyAlumniInputEnvelope
     connect?: work_expreriencesWhereUniqueInput | work_expreriencesWhereUniqueInput[]
+  }
+
+  export type studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput = {
+    create?: XOR<studey_expreriencesCreateWithoutAlumniInput, studey_expreriencesUncheckedCreateWithoutAlumniInput> | studey_expreriencesCreateWithoutAlumniInput[] | studey_expreriencesUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: studey_expreriencesCreateOrConnectWithoutAlumniInput | studey_expreriencesCreateOrConnectWithoutAlumniInput[]
+    createMany?: studey_expreriencesCreateManyAlumniInputEnvelope
+    connect?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
   }
 
   export type user_privacyUncheckedCreateNestedOneWithoutAlumniInput = {
@@ -11496,28 +23882,31 @@ export namespace Prisma {
     connect?: alumni_contractWhereUniqueInput
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type regis_alumniUncheckedCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<regis_alumniCreateWithoutAlumniInput, regis_alumniUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: regis_alumniCreateOrConnectWithoutAlumniInput
+    connect?: regis_alumniWhereUniqueInput
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAlumniInput, sendTextHistoryUncheckedCreateWithoutAlumniInput> | sendTextHistoryCreateWithoutAlumniInput[] | sendTextHistoryUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAlumniInput | sendTextHistoryCreateOrConnectWithoutAlumniInput[]
+    createMany?: sendTextHistoryCreateManyAlumniInputEnvelope
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type otpUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAlumniInput
+    upsert?: otpUpsertWithoutAlumniInput
+    disconnect?: otpWhereInput | boolean
+    delete?: otpWhereInput | boolean
+    connect?: otpWhereUniqueInput
+    update?: XOR<XOR<otpUpdateToOneWithWhereWithoutAlumniInput, otpUpdateWithoutAlumniInput>, otpUncheckedUpdateWithoutAlumniInput>
   }
 
   export type work_expreriencesUpdateManyWithoutAlumniNestedInput = {
@@ -11532,6 +23921,20 @@ export namespace Prisma {
     update?: work_expreriencesUpdateWithWhereUniqueWithoutAlumniInput | work_expreriencesUpdateWithWhereUniqueWithoutAlumniInput[]
     updateMany?: work_expreriencesUpdateManyWithWhereWithoutAlumniInput | work_expreriencesUpdateManyWithWhereWithoutAlumniInput[]
     deleteMany?: work_expreriencesScalarWhereInput | work_expreriencesScalarWhereInput[]
+  }
+
+  export type studey_expreriencesUpdateManyWithoutAlumniNestedInput = {
+    create?: XOR<studey_expreriencesCreateWithoutAlumniInput, studey_expreriencesUncheckedCreateWithoutAlumniInput> | studey_expreriencesCreateWithoutAlumniInput[] | studey_expreriencesUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: studey_expreriencesCreateOrConnectWithoutAlumniInput | studey_expreriencesCreateOrConnectWithoutAlumniInput[]
+    upsert?: studey_expreriencesUpsertWithWhereUniqueWithoutAlumniInput | studey_expreriencesUpsertWithWhereUniqueWithoutAlumniInput[]
+    createMany?: studey_expreriencesCreateManyAlumniInputEnvelope
+    set?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    disconnect?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    delete?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    connect?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    update?: studey_expreriencesUpdateWithWhereUniqueWithoutAlumniInput | studey_expreriencesUpdateWithWhereUniqueWithoutAlumniInput[]
+    updateMany?: studey_expreriencesUpdateManyWithWhereWithoutAlumniInput | studey_expreriencesUpdateManyWithWhereWithoutAlumniInput[]
+    deleteMany?: studey_expreriencesScalarWhereInput | studey_expreriencesScalarWhereInput[]
   }
 
   export type user_privacyUpdateOneWithoutAlumniNestedInput = {
@@ -11554,6 +23957,50 @@ export namespace Prisma {
     update?: XOR<XOR<alumni_contractUpdateToOneWithWhereWithoutAlumniInput, alumni_contractUpdateWithoutAlumniInput>, alumni_contractUncheckedUpdateWithoutAlumniInput>
   }
 
+  export type regis_alumniUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<regis_alumniCreateWithoutAlumniInput, regis_alumniUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: regis_alumniCreateOrConnectWithoutAlumniInput
+    upsert?: regis_alumniUpsertWithoutAlumniInput
+    disconnect?: regis_alumniWhereInput | boolean
+    delete?: regis_alumniWhereInput | boolean
+    connect?: regis_alumniWhereUniqueInput
+    update?: XOR<XOR<regis_alumniUpdateToOneWithWhereWithoutAlumniInput, regis_alumniUpdateWithoutAlumniInput>, regis_alumniUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type import_historyUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<import_historyCreateWithoutAlumniInput, import_historyUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: import_historyCreateOrConnectWithoutAlumniInput
+    upsert?: import_historyUpsertWithoutAlumniInput
+    disconnect?: import_historyWhereInput | boolean
+    delete?: import_historyWhereInput | boolean
+    connect?: import_historyWhereUniqueInput
+    update?: XOR<XOR<import_historyUpdateToOneWithWhereWithoutAlumniInput, import_historyUpdateWithoutAlumniInput>, import_historyUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryUpdateManyWithoutAlumniNestedInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAlumniInput, sendTextHistoryUncheckedCreateWithoutAlumniInput> | sendTextHistoryCreateWithoutAlumniInput[] | sendTextHistoryUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAlumniInput | sendTextHistoryCreateOrConnectWithoutAlumniInput[]
+    upsert?: sendTextHistoryUpsertWithWhereUniqueWithoutAlumniInput | sendTextHistoryUpsertWithWhereUniqueWithoutAlumniInput[]
+    createMany?: sendTextHistoryCreateManyAlumniInputEnvelope
+    set?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    disconnect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    delete?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    update?: sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput | sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput[]
+    updateMany?: sendTextHistoryUpdateManyWithWhereWithoutAlumniInput | sendTextHistoryUpdateManyWithWhereWithoutAlumniInput[]
+    deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+  }
+
+  export type otpUncheckedUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAlumniInput
+    upsert?: otpUpsertWithoutAlumniInput
+    disconnect?: otpWhereInput | boolean
+    delete?: otpWhereInput | boolean
+    connect?: otpWhereUniqueInput
+    update?: XOR<XOR<otpUpdateToOneWithWhereWithoutAlumniInput, otpUpdateWithoutAlumniInput>, otpUncheckedUpdateWithoutAlumniInput>
+  }
+
   export type work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput = {
     create?: XOR<work_expreriencesCreateWithoutAlumniInput, work_expreriencesUncheckedCreateWithoutAlumniInput> | work_expreriencesCreateWithoutAlumniInput[] | work_expreriencesUncheckedCreateWithoutAlumniInput[]
     connectOrCreate?: work_expreriencesCreateOrConnectWithoutAlumniInput | work_expreriencesCreateOrConnectWithoutAlumniInput[]
@@ -11566,6 +24013,20 @@ export namespace Prisma {
     update?: work_expreriencesUpdateWithWhereUniqueWithoutAlumniInput | work_expreriencesUpdateWithWhereUniqueWithoutAlumniInput[]
     updateMany?: work_expreriencesUpdateManyWithWhereWithoutAlumniInput | work_expreriencesUpdateManyWithWhereWithoutAlumniInput[]
     deleteMany?: work_expreriencesScalarWhereInput | work_expreriencesScalarWhereInput[]
+  }
+
+  export type studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput = {
+    create?: XOR<studey_expreriencesCreateWithoutAlumniInput, studey_expreriencesUncheckedCreateWithoutAlumniInput> | studey_expreriencesCreateWithoutAlumniInput[] | studey_expreriencesUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: studey_expreriencesCreateOrConnectWithoutAlumniInput | studey_expreriencesCreateOrConnectWithoutAlumniInput[]
+    upsert?: studey_expreriencesUpsertWithWhereUniqueWithoutAlumniInput | studey_expreriencesUpsertWithWhereUniqueWithoutAlumniInput[]
+    createMany?: studey_expreriencesCreateManyAlumniInputEnvelope
+    set?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    disconnect?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    delete?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    connect?: studey_expreriencesWhereUniqueInput | studey_expreriencesWhereUniqueInput[]
+    update?: studey_expreriencesUpdateWithWhereUniqueWithoutAlumniInput | studey_expreriencesUpdateWithWhereUniqueWithoutAlumniInput[]
+    updateMany?: studey_expreriencesUpdateManyWithWhereWithoutAlumniInput | studey_expreriencesUpdateManyWithWhereWithoutAlumniInput[]
+    deleteMany?: studey_expreriencesScalarWhereInput | studey_expreriencesScalarWhereInput[]
   }
 
   export type user_privacyUncheckedUpdateOneWithoutAlumniNestedInput = {
@@ -11586,6 +24047,30 @@ export namespace Prisma {
     delete?: alumni_contractWhereInput | boolean
     connect?: alumni_contractWhereUniqueInput
     update?: XOR<XOR<alumni_contractUpdateToOneWithWhereWithoutAlumniInput, alumni_contractUpdateWithoutAlumniInput>, alumni_contractUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<regis_alumniCreateWithoutAlumniInput, regis_alumniUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: regis_alumniCreateOrConnectWithoutAlumniInput
+    upsert?: regis_alumniUpsertWithoutAlumniInput
+    disconnect?: regis_alumniWhereInput | boolean
+    delete?: regis_alumniWhereInput | boolean
+    connect?: regis_alumniWhereUniqueInput
+    update?: XOR<XOR<regis_alumniUpdateToOneWithWhereWithoutAlumniInput, regis_alumniUpdateWithoutAlumniInput>, regis_alumniUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAlumniInput, sendTextHistoryUncheckedCreateWithoutAlumniInput> | sendTextHistoryCreateWithoutAlumniInput[] | sendTextHistoryUncheckedCreateWithoutAlumniInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAlumniInput | sendTextHistoryCreateOrConnectWithoutAlumniInput[]
+    upsert?: sendTextHistoryUpsertWithWhereUniqueWithoutAlumniInput | sendTextHistoryUpsertWithWhereUniqueWithoutAlumniInput[]
+    createMany?: sendTextHistoryCreateManyAlumniInputEnvelope
+    set?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    disconnect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    delete?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    update?: sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput | sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput[]
+    updateMany?: sendTextHistoryUpdateManyWithWhereWithoutAlumniInput | sendTextHistoryUpdateManyWithWhereWithoutAlumniInput[]
+    deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
   }
 
   export type alumniCreateNestedOneWithoutAlumni_contractInput = {
@@ -11620,14 +24105,6 @@ export namespace Prisma {
     update?: XOR<XOR<professorUpdateToOneWithWhereWithoutAlumni_contractInput, professorUpdateWithoutAlumni_contractInput>, professorUncheckedUpdateWithoutAlumni_contractInput>
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type alumniCreateNestedOneWithoutWork_expreriencesInput = {
     create?: XOR<alumniCreateWithoutWork_expreriencesInput, alumniUncheckedCreateWithoutWork_expreriencesInput>
     connectOrCreate?: alumniCreateOrConnectWithoutWork_expreriencesInput
@@ -11654,6 +24131,22 @@ export namespace Prisma {
     delete?: alumniWhereInput | boolean
     connect?: alumniWhereUniqueInput
     update?: XOR<XOR<alumniUpdateToOneWithWhereWithoutWork_expreriencesInput, alumniUpdateWithoutWork_expreriencesInput>, alumniUncheckedUpdateWithoutWork_expreriencesInput>
+  }
+
+  export type alumniCreateNestedOneWithoutStudy_expreriencesInput = {
+    create?: XOR<alumniCreateWithoutStudy_expreriencesInput, alumniUncheckedCreateWithoutStudy_expreriencesInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutStudy_expreriencesInput
+    connect?: alumniWhereUniqueInput
+  }
+
+  export type alumniUpdateOneWithoutStudy_expreriencesNestedInput = {
+    create?: XOR<alumniCreateWithoutStudy_expreriencesInput, alumniUncheckedCreateWithoutStudy_expreriencesInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutStudy_expreriencesInput
+    upsert?: alumniUpsertWithoutStudy_expreriencesInput
+    disconnect?: alumniWhereInput | boolean
+    delete?: alumniWhereInput | boolean
+    connect?: alumniWhereUniqueInput
+    update?: XOR<XOR<alumniUpdateToOneWithWhereWithoutStudy_expreriencesInput, alumniUpdateWithoutStudy_expreriencesInput>, alumniUncheckedUpdateWithoutStudy_expreriencesInput>
   }
 
   export type alumniCreateNestedOneWithoutUser_privacyInput = {
@@ -11688,6 +24181,19 @@ export namespace Prisma {
     update?: XOR<XOR<professorUpdateToOneWithWhereWithoutUser_privacyInput, professorUpdateWithoutUser_privacyInput>, professorUncheckedUpdateWithoutUser_privacyInput>
   }
 
+  export type otpCreateNestedOneWithoutProfessorInput = {
+    create?: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
+    connectOrCreate?: otpCreateOrConnectWithoutProfessorInput
+    connect?: otpWhereUniqueInput
+  }
+
+  export type sendTextHistoryCreateNestedManyWithoutProfessorInput = {
+    create?: XOR<sendTextHistoryCreateWithoutProfessorInput, sendTextHistoryUncheckedCreateWithoutProfessorInput> | sendTextHistoryCreateWithoutProfessorInput[] | sendTextHistoryUncheckedCreateWithoutProfessorInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutProfessorInput | sendTextHistoryCreateOrConnectWithoutProfessorInput[]
+    createMany?: sendTextHistoryCreateManyProfessorInputEnvelope
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+  }
+
   export type user_privacyCreateNestedOneWithoutProfessorInput = {
     create?: XOR<user_privacyCreateWithoutProfessorInput, user_privacyUncheckedCreateWithoutProfessorInput>
     connectOrCreate?: user_privacyCreateOrConnectWithoutProfessorInput
@@ -11701,6 +24207,25 @@ export namespace Prisma {
     connect?: alumni_contractWhereUniqueInput | alumni_contractWhereUniqueInput[]
   }
 
+  export type import_historyCreateNestedOneWithoutProfessorInput = {
+    create?: XOR<import_historyCreateWithoutProfessorInput, import_historyUncheckedCreateWithoutProfessorInput>
+    connectOrCreate?: import_historyCreateOrConnectWithoutProfessorInput
+    connect?: import_historyWhereUniqueInput
+  }
+
+  export type otpUncheckedCreateNestedOneWithoutProfessorInput = {
+    create?: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
+    connectOrCreate?: otpCreateOrConnectWithoutProfessorInput
+    connect?: otpWhereUniqueInput
+  }
+
+  export type sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput = {
+    create?: XOR<sendTextHistoryCreateWithoutProfessorInput, sendTextHistoryUncheckedCreateWithoutProfessorInput> | sendTextHistoryCreateWithoutProfessorInput[] | sendTextHistoryUncheckedCreateWithoutProfessorInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutProfessorInput | sendTextHistoryCreateOrConnectWithoutProfessorInput[]
+    createMany?: sendTextHistoryCreateManyProfessorInputEnvelope
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+  }
+
   export type user_privacyUncheckedCreateNestedOneWithoutProfessorInput = {
     create?: XOR<user_privacyCreateWithoutProfessorInput, user_privacyUncheckedCreateWithoutProfessorInput>
     connectOrCreate?: user_privacyCreateOrConnectWithoutProfessorInput
@@ -11712,6 +24237,30 @@ export namespace Prisma {
     connectOrCreate?: alumni_contractCreateOrConnectWithoutProfessorInput | alumni_contractCreateOrConnectWithoutProfessorInput[]
     createMany?: alumni_contractCreateManyProfessorInputEnvelope
     connect?: alumni_contractWhereUniqueInput | alumni_contractWhereUniqueInput[]
+  }
+
+  export type otpUpdateOneWithoutProfessorNestedInput = {
+    create?: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
+    connectOrCreate?: otpCreateOrConnectWithoutProfessorInput
+    upsert?: otpUpsertWithoutProfessorInput
+    disconnect?: otpWhereInput | boolean
+    delete?: otpWhereInput | boolean
+    connect?: otpWhereUniqueInput
+    update?: XOR<XOR<otpUpdateToOneWithWhereWithoutProfessorInput, otpUpdateWithoutProfessorInput>, otpUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type sendTextHistoryUpdateManyWithoutProfessorNestedInput = {
+    create?: XOR<sendTextHistoryCreateWithoutProfessorInput, sendTextHistoryUncheckedCreateWithoutProfessorInput> | sendTextHistoryCreateWithoutProfessorInput[] | sendTextHistoryUncheckedCreateWithoutProfessorInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutProfessorInput | sendTextHistoryCreateOrConnectWithoutProfessorInput[]
+    upsert?: sendTextHistoryUpsertWithWhereUniqueWithoutProfessorInput | sendTextHistoryUpsertWithWhereUniqueWithoutProfessorInput[]
+    createMany?: sendTextHistoryCreateManyProfessorInputEnvelope
+    set?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    disconnect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    delete?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    update?: sendTextHistoryUpdateWithWhereUniqueWithoutProfessorInput | sendTextHistoryUpdateWithWhereUniqueWithoutProfessorInput[]
+    updateMany?: sendTextHistoryUpdateManyWithWhereWithoutProfessorInput | sendTextHistoryUpdateManyWithWhereWithoutProfessorInput[]
+    deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
   }
 
   export type user_privacyUpdateOneWithoutProfessorNestedInput = {
@@ -11738,6 +24287,40 @@ export namespace Prisma {
     deleteMany?: alumni_contractScalarWhereInput | alumni_contractScalarWhereInput[]
   }
 
+  export type import_historyUpdateOneWithoutProfessorNestedInput = {
+    create?: XOR<import_historyCreateWithoutProfessorInput, import_historyUncheckedCreateWithoutProfessorInput>
+    connectOrCreate?: import_historyCreateOrConnectWithoutProfessorInput
+    upsert?: import_historyUpsertWithoutProfessorInput
+    disconnect?: import_historyWhereInput | boolean
+    delete?: import_historyWhereInput | boolean
+    connect?: import_historyWhereUniqueInput
+    update?: XOR<XOR<import_historyUpdateToOneWithWhereWithoutProfessorInput, import_historyUpdateWithoutProfessorInput>, import_historyUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type otpUncheckedUpdateOneWithoutProfessorNestedInput = {
+    create?: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
+    connectOrCreate?: otpCreateOrConnectWithoutProfessorInput
+    upsert?: otpUpsertWithoutProfessorInput
+    disconnect?: otpWhereInput | boolean
+    delete?: otpWhereInput | boolean
+    connect?: otpWhereUniqueInput
+    update?: XOR<XOR<otpUpdateToOneWithWhereWithoutProfessorInput, otpUpdateWithoutProfessorInput>, otpUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput = {
+    create?: XOR<sendTextHistoryCreateWithoutProfessorInput, sendTextHistoryUncheckedCreateWithoutProfessorInput> | sendTextHistoryCreateWithoutProfessorInput[] | sendTextHistoryUncheckedCreateWithoutProfessorInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutProfessorInput | sendTextHistoryCreateOrConnectWithoutProfessorInput[]
+    upsert?: sendTextHistoryUpsertWithWhereUniqueWithoutProfessorInput | sendTextHistoryUpsertWithWhereUniqueWithoutProfessorInput[]
+    createMany?: sendTextHistoryCreateManyProfessorInputEnvelope
+    set?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    disconnect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    delete?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    update?: sendTextHistoryUpdateWithWhereUniqueWithoutProfessorInput | sendTextHistoryUpdateWithWhereUniqueWithoutProfessorInput[]
+    updateMany?: sendTextHistoryUpdateManyWithWhereWithoutProfessorInput | sendTextHistoryUpdateManyWithWhereWithoutProfessorInput[]
+    deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+  }
+
   export type user_privacyUncheckedUpdateOneWithoutProfessorNestedInput = {
     create?: XOR<user_privacyCreateWithoutProfessorInput, user_privacyUncheckedCreateWithoutProfessorInput>
     connectOrCreate?: user_privacyCreateOrConnectWithoutProfessorInput
@@ -11762,76 +24345,326 @@ export namespace Prisma {
     deleteMany?: alumni_contractScalarWhereInput | alumni_contractScalarWhereInput[]
   }
 
-  export type NestedStringFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringFilter<$PrismaModel> | string
+  export type sendTextHistoryCreateNestedManyWithoutAdminInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAdminInput, sendTextHistoryUncheckedCreateWithoutAdminInput> | sendTextHistoryCreateWithoutAdminInput[] | sendTextHistoryUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAdminInput | sendTextHistoryCreateOrConnectWithoutAdminInput[]
+    createMany?: sendTextHistoryCreateManyAdminInputEnvelope
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type otpCreateNestedOneWithoutAdminInput = {
+    create?: XOR<otpCreateWithoutAdminInput, otpUncheckedCreateWithoutAdminInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAdminInput
+    connect?: otpWhereUniqueInput
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type import_historyCreateNestedManyWithoutAdminInput = {
+    create?: XOR<import_historyCreateWithoutAdminInput, import_historyUncheckedCreateWithoutAdminInput> | import_historyCreateWithoutAdminInput[] | import_historyUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: import_historyCreateOrConnectWithoutAdminInput | import_historyCreateOrConnectWithoutAdminInput[]
+    createMany?: import_historyCreateManyAdminInputEnvelope
+    connect?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type sendTextHistoryUncheckedCreateNestedManyWithoutAdminInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAdminInput, sendTextHistoryUncheckedCreateWithoutAdminInput> | sendTextHistoryCreateWithoutAdminInput[] | sendTextHistoryUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAdminInput | sendTextHistoryCreateOrConnectWithoutAdminInput[]
+    createMany?: sendTextHistoryCreateManyAdminInputEnvelope
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  export type otpUncheckedCreateNestedOneWithoutAdminInput = {
+    create?: XOR<otpCreateWithoutAdminInput, otpUncheckedCreateWithoutAdminInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAdminInput
+    connect?: otpWhereUniqueInput
   }
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
+  export type import_historyUncheckedCreateNestedManyWithoutAdminInput = {
+    create?: XOR<import_historyCreateWithoutAdminInput, import_historyUncheckedCreateWithoutAdminInput> | import_historyCreateWithoutAdminInput[] | import_historyUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: import_historyCreateOrConnectWithoutAdminInput | import_historyCreateOrConnectWithoutAdminInput[]
+    createMany?: import_historyCreateManyAdminInputEnvelope
+    connect?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type sendTextHistoryUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAdminInput, sendTextHistoryUncheckedCreateWithoutAdminInput> | sendTextHistoryCreateWithoutAdminInput[] | sendTextHistoryUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAdminInput | sendTextHistoryCreateOrConnectWithoutAdminInput[]
+    upsert?: sendTextHistoryUpsertWithWhereUniqueWithoutAdminInput | sendTextHistoryUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: sendTextHistoryCreateManyAdminInputEnvelope
+    set?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    disconnect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    delete?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    update?: sendTextHistoryUpdateWithWhereUniqueWithoutAdminInput | sendTextHistoryUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: sendTextHistoryUpdateManyWithWhereWithoutAdminInput | sendTextHistoryUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+  }
+
+  export type otpUpdateOneWithoutAdminNestedInput = {
+    create?: XOR<otpCreateWithoutAdminInput, otpUncheckedCreateWithoutAdminInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAdminInput
+    upsert?: otpUpsertWithoutAdminInput
+    disconnect?: otpWhereInput | boolean
+    delete?: otpWhereInput | boolean
+    connect?: otpWhereUniqueInput
+    update?: XOR<XOR<otpUpdateToOneWithWhereWithoutAdminInput, otpUpdateWithoutAdminInput>, otpUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type import_historyUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<import_historyCreateWithoutAdminInput, import_historyUncheckedCreateWithoutAdminInput> | import_historyCreateWithoutAdminInput[] | import_historyUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: import_historyCreateOrConnectWithoutAdminInput | import_historyCreateOrConnectWithoutAdminInput[]
+    upsert?: import_historyUpsertWithWhereUniqueWithoutAdminInput | import_historyUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: import_historyCreateManyAdminInputEnvelope
+    set?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    disconnect?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    delete?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    connect?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    update?: import_historyUpdateWithWhereUniqueWithoutAdminInput | import_historyUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: import_historyUpdateManyWithWhereWithoutAdminInput | import_historyUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: import_historyScalarWhereInput | import_historyScalarWhereInput[]
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<sendTextHistoryCreateWithoutAdminInput, sendTextHistoryUncheckedCreateWithoutAdminInput> | sendTextHistoryCreateWithoutAdminInput[] | sendTextHistoryUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: sendTextHistoryCreateOrConnectWithoutAdminInput | sendTextHistoryCreateOrConnectWithoutAdminInput[]
+    upsert?: sendTextHistoryUpsertWithWhereUniqueWithoutAdminInput | sendTextHistoryUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: sendTextHistoryCreateManyAdminInputEnvelope
+    set?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    disconnect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    delete?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
+    update?: sendTextHistoryUpdateWithWhereUniqueWithoutAdminInput | sendTextHistoryUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: sendTextHistoryUpdateManyWithWhereWithoutAdminInput | sendTextHistoryUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+  }
+
+  export type otpUncheckedUpdateOneWithoutAdminNestedInput = {
+    create?: XOR<otpCreateWithoutAdminInput, otpUncheckedCreateWithoutAdminInput>
+    connectOrCreate?: otpCreateOrConnectWithoutAdminInput
+    upsert?: otpUpsertWithoutAdminInput
+    disconnect?: otpWhereInput | boolean
+    delete?: otpWhereInput | boolean
+    connect?: otpWhereUniqueInput
+    update?: XOR<XOR<otpUpdateToOneWithWhereWithoutAdminInput, otpUpdateWithoutAdminInput>, otpUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type import_historyUncheckedUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<import_historyCreateWithoutAdminInput, import_historyUncheckedCreateWithoutAdminInput> | import_historyCreateWithoutAdminInput[] | import_historyUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: import_historyCreateOrConnectWithoutAdminInput | import_historyCreateOrConnectWithoutAdminInput[]
+    upsert?: import_historyUpsertWithWhereUniqueWithoutAdminInput | import_historyUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: import_historyCreateManyAdminInputEnvelope
+    set?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    disconnect?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    delete?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    connect?: import_historyWhereUniqueInput | import_historyWhereUniqueInput[]
+    update?: import_historyUpdateWithWhereUniqueWithoutAdminInput | import_historyUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: import_historyUpdateManyWithWhereWithoutAdminInput | import_historyUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: import_historyScalarWhereInput | import_historyScalarWhereInput[]
+  }
+
+  export type professorCreateNestedOneWithoutSendTextHistoryInput = {
+    create?: XOR<professorCreateWithoutSendTextHistoryInput, professorUncheckedCreateWithoutSendTextHistoryInput>
+    connectOrCreate?: professorCreateOrConnectWithoutSendTextHistoryInput
+    connect?: professorWhereUniqueInput
+  }
+
+  export type adminCreateNestedOneWithoutSendTextHistoryInput = {
+    create?: XOR<adminCreateWithoutSendTextHistoryInput, adminUncheckedCreateWithoutSendTextHistoryInput>
+    connectOrCreate?: adminCreateOrConnectWithoutSendTextHistoryInput
+    connect?: adminWhereUniqueInput
+  }
+
+  export type alumniCreateNestedOneWithoutSendTextHistoryInput = {
+    create?: XOR<alumniCreateWithoutSendTextHistoryInput, alumniUncheckedCreateWithoutSendTextHistoryInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutSendTextHistoryInput
+    connect?: alumniWhereUniqueInput
+  }
+
+  export type professorUpdateOneWithoutSendTextHistoryNestedInput = {
+    create?: XOR<professorCreateWithoutSendTextHistoryInput, professorUncheckedCreateWithoutSendTextHistoryInput>
+    connectOrCreate?: professorCreateOrConnectWithoutSendTextHistoryInput
+    upsert?: professorUpsertWithoutSendTextHistoryInput
+    disconnect?: professorWhereInput | boolean
+    delete?: professorWhereInput | boolean
+    connect?: professorWhereUniqueInput
+    update?: XOR<XOR<professorUpdateToOneWithWhereWithoutSendTextHistoryInput, professorUpdateWithoutSendTextHistoryInput>, professorUncheckedUpdateWithoutSendTextHistoryInput>
+  }
+
+  export type adminUpdateOneWithoutSendTextHistoryNestedInput = {
+    create?: XOR<adminCreateWithoutSendTextHistoryInput, adminUncheckedCreateWithoutSendTextHistoryInput>
+    connectOrCreate?: adminCreateOrConnectWithoutSendTextHistoryInput
+    upsert?: adminUpsertWithoutSendTextHistoryInput
+    disconnect?: adminWhereInput | boolean
+    delete?: adminWhereInput | boolean
+    connect?: adminWhereUniqueInput
+    update?: XOR<XOR<adminUpdateToOneWithWhereWithoutSendTextHistoryInput, adminUpdateWithoutSendTextHistoryInput>, adminUncheckedUpdateWithoutSendTextHistoryInput>
+  }
+
+  export type alumniUpdateOneWithoutSendTextHistoryNestedInput = {
+    create?: XOR<alumniCreateWithoutSendTextHistoryInput, alumniUncheckedCreateWithoutSendTextHistoryInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutSendTextHistoryInput
+    upsert?: alumniUpsertWithoutSendTextHistoryInput
+    disconnect?: alumniWhereInput | boolean
+    delete?: alumniWhereInput | boolean
+    connect?: alumniWhereUniqueInput
+    update?: XOR<XOR<alumniUpdateToOneWithWhereWithoutSendTextHistoryInput, alumniUpdateWithoutSendTextHistoryInput>, alumniUncheckedUpdateWithoutSendTextHistoryInput>
+  }
+
+  export type professorCreateNestedOneWithoutOtpInput = {
+    create?: XOR<professorCreateWithoutOtpInput, professorUncheckedCreateWithoutOtpInput>
+    connectOrCreate?: professorCreateOrConnectWithoutOtpInput
+    connect?: professorWhereUniqueInput
+  }
+
+  export type adminCreateNestedOneWithoutOtpInput = {
+    create?: XOR<adminCreateWithoutOtpInput, adminUncheckedCreateWithoutOtpInput>
+    connectOrCreate?: adminCreateOrConnectWithoutOtpInput
+    connect?: adminWhereUniqueInput
+  }
+
+  export type alumniCreateNestedOneWithoutOtpInput = {
+    create?: XOR<alumniCreateWithoutOtpInput, alumniUncheckedCreateWithoutOtpInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutOtpInput
+    connect?: alumniWhereUniqueInput
+  }
+
+  export type professorUpdateOneWithoutOtpNestedInput = {
+    create?: XOR<professorCreateWithoutOtpInput, professorUncheckedCreateWithoutOtpInput>
+    connectOrCreate?: professorCreateOrConnectWithoutOtpInput
+    upsert?: professorUpsertWithoutOtpInput
+    disconnect?: professorWhereInput | boolean
+    delete?: professorWhereInput | boolean
+    connect?: professorWhereUniqueInput
+    update?: XOR<XOR<professorUpdateToOneWithWhereWithoutOtpInput, professorUpdateWithoutOtpInput>, professorUncheckedUpdateWithoutOtpInput>
+  }
+
+  export type adminUpdateOneWithoutOtpNestedInput = {
+    create?: XOR<adminCreateWithoutOtpInput, adminUncheckedCreateWithoutOtpInput>
+    connectOrCreate?: adminCreateOrConnectWithoutOtpInput
+    upsert?: adminUpsertWithoutOtpInput
+    disconnect?: adminWhereInput | boolean
+    delete?: adminWhereInput | boolean
+    connect?: adminWhereUniqueInput
+    update?: XOR<XOR<adminUpdateToOneWithWhereWithoutOtpInput, adminUpdateWithoutOtpInput>, adminUncheckedUpdateWithoutOtpInput>
+  }
+
+  export type alumniUpdateOneWithoutOtpNestedInput = {
+    create?: XOR<alumniCreateWithoutOtpInput, alumniUncheckedCreateWithoutOtpInput>
+    connectOrCreate?: alumniCreateOrConnectWithoutOtpInput
+    upsert?: alumniUpsertWithoutOtpInput
+    disconnect?: alumniWhereInput | boolean
+    delete?: alumniWhereInput | boolean
+    connect?: alumniWhereUniqueInput
+    update?: XOR<XOR<alumniUpdateToOneWithWhereWithoutOtpInput, alumniUpdateWithoutOtpInput>, alumniUncheckedUpdateWithoutOtpInput>
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type adminCreateNestedOneWithoutImportHistoryInput = {
+    create?: XOR<adminCreateWithoutImportHistoryInput, adminUncheckedCreateWithoutImportHistoryInput>
+    connectOrCreate?: adminCreateOrConnectWithoutImportHistoryInput
+    connect?: adminWhereUniqueInput
+  }
+
+  export type alumniCreateNestedManyWithoutImportHistoryInput = {
+    create?: XOR<alumniCreateWithoutImportHistoryInput, alumniUncheckedCreateWithoutImportHistoryInput> | alumniCreateWithoutImportHistoryInput[] | alumniUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutImportHistoryInput | alumniCreateOrConnectWithoutImportHistoryInput[]
+    createMany?: alumniCreateManyImportHistoryInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type professorCreateNestedManyWithoutImportHistoryInput = {
+    create?: XOR<professorCreateWithoutImportHistoryInput, professorUncheckedCreateWithoutImportHistoryInput> | professorCreateWithoutImportHistoryInput[] | professorUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutImportHistoryInput | professorCreateOrConnectWithoutImportHistoryInput[]
+    createMany?: professorCreateManyImportHistoryInputEnvelope
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+  }
+
+  export type alumniUncheckedCreateNestedManyWithoutImportHistoryInput = {
+    create?: XOR<alumniCreateWithoutImportHistoryInput, alumniUncheckedCreateWithoutImportHistoryInput> | alumniCreateWithoutImportHistoryInput[] | alumniUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutImportHistoryInput | alumniCreateOrConnectWithoutImportHistoryInput[]
+    createMany?: alumniCreateManyImportHistoryInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type professorUncheckedCreateNestedManyWithoutImportHistoryInput = {
+    create?: XOR<professorCreateWithoutImportHistoryInput, professorUncheckedCreateWithoutImportHistoryInput> | professorCreateWithoutImportHistoryInput[] | professorUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutImportHistoryInput | professorCreateOrConnectWithoutImportHistoryInput[]
+    createMany?: professorCreateManyImportHistoryInputEnvelope
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+  }
+
+  export type adminUpdateOneRequiredWithoutImportHistoryNestedInput = {
+    create?: XOR<adminCreateWithoutImportHistoryInput, adminUncheckedCreateWithoutImportHistoryInput>
+    connectOrCreate?: adminCreateOrConnectWithoutImportHistoryInput
+    upsert?: adminUpsertWithoutImportHistoryInput
+    connect?: adminWhereUniqueInput
+    update?: XOR<XOR<adminUpdateToOneWithWhereWithoutImportHistoryInput, adminUpdateWithoutImportHistoryInput>, adminUncheckedUpdateWithoutImportHistoryInput>
+  }
+
+  export type alumniUpdateManyWithoutImportHistoryNestedInput = {
+    create?: XOR<alumniCreateWithoutImportHistoryInput, alumniUncheckedCreateWithoutImportHistoryInput> | alumniCreateWithoutImportHistoryInput[] | alumniUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutImportHistoryInput | alumniCreateOrConnectWithoutImportHistoryInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutImportHistoryInput | alumniUpsertWithWhereUniqueWithoutImportHistoryInput[]
+    createMany?: alumniCreateManyImportHistoryInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutImportHistoryInput | alumniUpdateWithWhereUniqueWithoutImportHistoryInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutImportHistoryInput | alumniUpdateManyWithWhereWithoutImportHistoryInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type professorUpdateManyWithoutImportHistoryNestedInput = {
+    create?: XOR<professorCreateWithoutImportHistoryInput, professorUncheckedCreateWithoutImportHistoryInput> | professorCreateWithoutImportHistoryInput[] | professorUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutImportHistoryInput | professorCreateOrConnectWithoutImportHistoryInput[]
+    upsert?: professorUpsertWithWhereUniqueWithoutImportHistoryInput | professorUpsertWithWhereUniqueWithoutImportHistoryInput[]
+    createMany?: professorCreateManyImportHistoryInputEnvelope
+    set?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    disconnect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    delete?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    update?: professorUpdateWithWhereUniqueWithoutImportHistoryInput | professorUpdateWithWhereUniqueWithoutImportHistoryInput[]
+    updateMany?: professorUpdateManyWithWhereWithoutImportHistoryInput | professorUpdateManyWithWhereWithoutImportHistoryInput[]
+    deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
+  }
+
+  export type alumniUncheckedUpdateManyWithoutImportHistoryNestedInput = {
+    create?: XOR<alumniCreateWithoutImportHistoryInput, alumniUncheckedCreateWithoutImportHistoryInput> | alumniCreateWithoutImportHistoryInput[] | alumniUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutImportHistoryInput | alumniCreateOrConnectWithoutImportHistoryInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutImportHistoryInput | alumniUpsertWithWhereUniqueWithoutImportHistoryInput[]
+    createMany?: alumniCreateManyImportHistoryInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutImportHistoryInput | alumniUpdateWithWhereUniqueWithoutImportHistoryInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutImportHistoryInput | alumniUpdateManyWithWhereWithoutImportHistoryInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type professorUncheckedUpdateManyWithoutImportHistoryNestedInput = {
+    create?: XOR<professorCreateWithoutImportHistoryInput, professorUncheckedCreateWithoutImportHistoryInput> | professorCreateWithoutImportHistoryInput[] | professorUncheckedCreateWithoutImportHistoryInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutImportHistoryInput | professorCreateOrConnectWithoutImportHistoryInput[]
+    upsert?: professorUpsertWithWhereUniqueWithoutImportHistoryInput | professorUpsertWithWhereUniqueWithoutImportHistoryInput[]
+    createMany?: professorCreateManyImportHistoryInputEnvelope
+    set?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    disconnect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    delete?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    update?: professorUpdateWithWhereUniqueWithoutImportHistoryInput | professorUpdateWithWhereUniqueWithoutImportHistoryInput[]
+    updateMany?: professorUpdateManyWithWhereWithoutImportHistoryInput | professorUpdateManyWithWhereWithoutImportHistoryInput[]
+    deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -11845,10 +24678,10 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -11856,59 +24689,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -11938,9 +24719,117 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedBoolNullableFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -11967,6 +24856,183 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type alumniCreateWithoutRegis_alumniInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutRegis_alumniInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutRegis_alumniInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutRegis_alumniInput, alumniUncheckedCreateWithoutRegis_alumniInput>
+  }
+
+  export type alumniUpsertWithoutRegis_alumniInput = {
+    update: XOR<alumniUpdateWithoutRegis_alumniInput, alumniUncheckedUpdateWithoutRegis_alumniInput>
+    create: XOR<alumniCreateWithoutRegis_alumniInput, alumniUncheckedCreateWithoutRegis_alumniInput>
+    where?: alumniWhereInput
+  }
+
+  export type alumniUpdateToOneWithWhereWithoutRegis_alumniInput = {
+    where?: alumniWhereInput
+    data: XOR<alumniUpdateWithoutRegis_alumniInput, alumniUncheckedUpdateWithoutRegis_alumniInput>
+  }
+
+  export type alumniUpdateWithoutRegis_alumniInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutRegis_alumniInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type otpCreateWithoutAlumniInput = {
+    code: string
+    createdAt?: Date | string
+    professor?: professorCreateNestedOneWithoutOtpInput
+    admin?: adminCreateNestedOneWithoutOtpInput
+  }
+
+  export type otpUncheckedCreateWithoutAlumniInput = {
+    id?: number
+    code: string
+    professorId?: string | null
+    adminId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type otpCreateOrConnectWithoutAlumniInput = {
+    where: otpWhereUniqueInput
+    create: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
+  }
+
   export type work_expreriencesCreateWithoutAlumniInput = {
     isOnTheLine?: boolean | null
     job_position?: string | null
@@ -11981,14 +25047,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: string | null
-    edu_level?: string | null
-    continued_study?: boolean
-    edu_faculty?: string | null
-    edu_dep?: string | null
-    edu_university?: string | null
-    year_start?: string | null
-    year_end?: string | null
-    edu_performance?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12008,14 +25066,6 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: string | null
-    edu_level?: string | null
-    continued_study?: boolean
-    edu_faculty?: string | null
-    edu_dep?: string | null
-    edu_university?: string | null
-    year_start?: string | null
-    year_end?: string | null
-    edu_performance?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12027,6 +25077,51 @@ export namespace Prisma {
 
   export type work_expreriencesCreateManyAlumniInputEnvelope = {
     data: work_expreriencesCreateManyAlumniInput | work_expreriencesCreateManyAlumniInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type studey_expreriencesCreateWithoutAlumniInput = {
+    edu_level?: string | null
+    continued_study?: boolean
+    edu_faculty?: string | null
+    edu_dep?: string | null
+    edu_university?: string | null
+    year_start?: string | null
+    year_end?: string | null
+    edu_performance?: string | null
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: string | null
+    remark?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type studey_expreriencesUncheckedCreateWithoutAlumniInput = {
+    id?: number
+    edu_level?: string | null
+    continued_study?: boolean
+    edu_faculty?: string | null
+    edu_dep?: string | null
+    edu_university?: string | null
+    year_start?: string | null
+    year_end?: string | null
+    edu_performance?: string | null
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: string | null
+    remark?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type studey_expreriencesCreateOrConnectWithoutAlumniInput = {
+    where: studey_expreriencesWhereUniqueInput
+    create: XOR<studey_expreriencesCreateWithoutAlumniInput, studey_expreriencesUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type studey_expreriencesCreateManyAlumniInputEnvelope = {
+    data: studey_expreriencesCreateManyAlumniInput | studey_expreriencesCreateManyAlumniInput[]
     skipDuplicates?: boolean
   }
 
@@ -12104,6 +25199,122 @@ export namespace Prisma {
     create: XOR<alumni_contractCreateWithoutAlumniInput, alumni_contractUncheckedCreateWithoutAlumniInput>
   }
 
+  export type regis_alumniCreateWithoutAlumniInput = {
+    email: string
+    tel: string
+    slip_payment_url: string
+    isApproved?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type regis_alumniUncheckedCreateWithoutAlumniInput = {
+    id?: number
+    email: string
+    tel: string
+    slip_payment_url: string
+    isApproved?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type regis_alumniCreateOrConnectWithoutAlumniInput = {
+    where: regis_alumniWhereUniqueInput
+    create: XOR<regis_alumniCreateWithoutAlumniInput, regis_alumniUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type import_historyCreateWithoutAlumniInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    admin: adminCreateNestedOneWithoutImportHistoryInput
+    professor?: professorCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyUncheckedCreateWithoutAlumniInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    imported_by: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    professor?: professorUncheckedCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyCreateOrConnectWithoutAlumniInput = {
+    where: import_historyWhereUniqueInput
+    create: XOR<import_historyCreateWithoutAlumniInput, import_historyUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryCreateWithoutAlumniInput = {
+    alumniId?: string | null
+    sender_type?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+    professor?: professorCreateNestedOneWithoutSendTextHistoryInput
+    admin?: adminCreateNestedOneWithoutSendTextHistoryInput
+  }
+
+  export type sendTextHistoryUncheckedCreateWithoutAlumniInput = {
+    id?: number
+    alumniId?: string | null
+    professorId?: string | null
+    sender_type?: string | null
+    adminId?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+  }
+
+  export type sendTextHistoryCreateOrConnectWithoutAlumniInput = {
+    where: sendTextHistoryWhereUniqueInput
+    create: XOR<sendTextHistoryCreateWithoutAlumniInput, sendTextHistoryUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryCreateManyAlumniInputEnvelope = {
+    data: sendTextHistoryCreateManyAlumniInput | sendTextHistoryCreateManyAlumniInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type otpUpsertWithoutAlumniInput = {
+    update: XOR<otpUpdateWithoutAlumniInput, otpUncheckedUpdateWithoutAlumniInput>
+    create: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
+    where?: otpWhereInput
+  }
+
+  export type otpUpdateToOneWithWhereWithoutAlumniInput = {
+    where?: otpWhereInput
+    data: XOR<otpUpdateWithoutAlumniInput, otpUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type otpUpdateWithoutAlumniInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUpdateOneWithoutOtpNestedInput
+    admin?: adminUpdateOneWithoutOtpNestedInput
+  }
+
+  export type otpUncheckedUpdateWithoutAlumniInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type work_expreriencesUpsertWithWhereUniqueWithoutAlumniInput = {
     where: work_expreriencesWhereUniqueInput
     update: XOR<work_expreriencesUpdateWithoutAlumniInput, work_expreriencesUncheckedUpdateWithoutAlumniInput>
@@ -12138,17 +25349,47 @@ export namespace Prisma {
     isCurrent?: BoolFilter<"work_expreriences"> | boolean
     isInThai?: BoolFilter<"work_expreriences"> | boolean
     remark?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_level?: StringNullableFilter<"work_expreriences"> | string | null
-    continued_study?: BoolFilter<"work_expreriences"> | boolean
-    edu_faculty?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_dep?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_university?: StringNullableFilter<"work_expreriences"> | string | null
-    year_start?: StringNullableFilter<"work_expreriences"> | string | null
-    year_end?: StringNullableFilter<"work_expreriences"> | string | null
-    edu_performance?: StringNullableFilter<"work_expreriences"> | string | null
     createdAt?: DateTimeFilter<"work_expreriences"> | Date | string
     updatedAt?: DateTimeFilter<"work_expreriences"> | Date | string
     alumniId?: StringNullableFilter<"work_expreriences"> | string | null
+  }
+
+  export type studey_expreriencesUpsertWithWhereUniqueWithoutAlumniInput = {
+    where: studey_expreriencesWhereUniqueInput
+    update: XOR<studey_expreriencesUpdateWithoutAlumniInput, studey_expreriencesUncheckedUpdateWithoutAlumniInput>
+    create: XOR<studey_expreriencesCreateWithoutAlumniInput, studey_expreriencesUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type studey_expreriencesUpdateWithWhereUniqueWithoutAlumniInput = {
+    where: studey_expreriencesWhereUniqueInput
+    data: XOR<studey_expreriencesUpdateWithoutAlumniInput, studey_expreriencesUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type studey_expreriencesUpdateManyWithWhereWithoutAlumniInput = {
+    where: studey_expreriencesScalarWhereInput
+    data: XOR<studey_expreriencesUpdateManyMutationInput, studey_expreriencesUncheckedUpdateManyWithoutAlumniInput>
+  }
+
+  export type studey_expreriencesScalarWhereInput = {
+    AND?: studey_expreriencesScalarWhereInput | studey_expreriencesScalarWhereInput[]
+    OR?: studey_expreriencesScalarWhereInput[]
+    NOT?: studey_expreriencesScalarWhereInput | studey_expreriencesScalarWhereInput[]
+    id?: IntFilter<"studey_expreriences"> | number
+    edu_level?: StringNullableFilter<"studey_expreriences"> | string | null
+    continued_study?: BoolFilter<"studey_expreriences"> | boolean
+    edu_faculty?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_dep?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_university?: StringNullableFilter<"studey_expreriences"> | string | null
+    year_start?: StringNullableFilter<"studey_expreriences"> | string | null
+    year_end?: StringNullableFilter<"studey_expreriences"> | string | null
+    edu_performance?: StringNullableFilter<"studey_expreriences"> | string | null
+    isCurrent?: BoolFilter<"studey_expreriences"> | boolean
+    isInThai?: BoolFilter<"studey_expreriences"> | boolean
+    place?: StringNullableFilter<"studey_expreriences"> | string | null
+    remark?: StringNullableFilter<"studey_expreriences"> | string | null
+    createdAt?: DateTimeFilter<"studey_expreriences"> | Date | string
+    updatedAt?: DateTimeFilter<"studey_expreriences"> | Date | string
+    alumniId?: StringNullableFilter<"studey_expreriences"> | string | null
   }
 
   export type user_privacyUpsertWithoutAlumniInput = {
@@ -12237,6 +25478,107 @@ export namespace Prisma {
     professorProfessor_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type regis_alumniUpsertWithoutAlumniInput = {
+    update: XOR<regis_alumniUpdateWithoutAlumniInput, regis_alumniUncheckedUpdateWithoutAlumniInput>
+    create: XOR<regis_alumniCreateWithoutAlumniInput, regis_alumniUncheckedCreateWithoutAlumniInput>
+    where?: regis_alumniWhereInput
+  }
+
+  export type regis_alumniUpdateToOneWithWhereWithoutAlumniInput = {
+    where?: regis_alumniWhereInput
+    data: XOR<regis_alumniUpdateWithoutAlumniInput, regis_alumniUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type regis_alumniUpdateWithoutAlumniInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    slip_payment_url?: StringFieldUpdateOperationsInput | string
+    isApproved?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type regis_alumniUncheckedUpdateWithoutAlumniInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    slip_payment_url?: StringFieldUpdateOperationsInput | string
+    isApproved?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type import_historyUpsertWithoutAlumniInput = {
+    update: XOR<import_historyUpdateWithoutAlumniInput, import_historyUncheckedUpdateWithoutAlumniInput>
+    create: XOR<import_historyCreateWithoutAlumniInput, import_historyUncheckedCreateWithoutAlumniInput>
+    where?: import_historyWhereInput
+  }
+
+  export type import_historyUpdateToOneWithWhereWithoutAlumniInput = {
+    where?: import_historyWhereInput
+    data: XOR<import_historyUpdateWithoutAlumniInput, import_historyUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type import_historyUpdateWithoutAlumniInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    admin?: adminUpdateOneRequiredWithoutImportHistoryNestedInput
+    professor?: professorUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type import_historyUncheckedUpdateWithoutAlumniInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    imported_by?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUncheckedUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type sendTextHistoryUpsertWithWhereUniqueWithoutAlumniInput = {
+    where: sendTextHistoryWhereUniqueInput
+    update: XOR<sendTextHistoryUpdateWithoutAlumniInput, sendTextHistoryUncheckedUpdateWithoutAlumniInput>
+    create: XOR<sendTextHistoryCreateWithoutAlumniInput, sendTextHistoryUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput = {
+    where: sendTextHistoryWhereUniqueInput
+    data: XOR<sendTextHistoryUpdateWithoutAlumniInput, sendTextHistoryUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryUpdateManyWithWhereWithoutAlumniInput = {
+    where: sendTextHistoryScalarWhereInput
+    data: XOR<sendTextHistoryUpdateManyMutationInput, sendTextHistoryUncheckedUpdateManyWithoutAlumniInput>
+  }
+
+  export type sendTextHistoryScalarWhereInput = {
+    AND?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+    OR?: sendTextHistoryScalarWhereInput[]
+    NOT?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+    id?: IntFilter<"sendTextHistory"> | number
+    alumni_sender?: StringNullableFilter<"sendTextHistory"> | string | null
+    alumniId?: StringNullableFilter<"sendTextHistory"> | string | null
+    professorId?: StringNullableFilter<"sendTextHistory"> | string | null
+    sender_type?: StringNullableFilter<"sendTextHistory"> | string | null
+    adminId?: StringNullableFilter<"sendTextHistory"> | string | null
+    title?: StringFilter<"sendTextHistory"> | string
+    detail?: StringFilter<"sendTextHistory"> | string
+    category?: StringNullableFilter<"sendTextHistory"> | string | null
+    createdAt?: DateTimeFilter<"sendTextHistory"> | Date | string
+  }
+
   export type alumniCreateWithoutAlumni_contractInput = {
     alumni_id: string
     prefix: string
@@ -12246,15 +25588,20 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
     work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
     user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutAlumni_contractInput = {
@@ -12266,15 +25613,20 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
     work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
     user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniCreateOrConnectWithoutAlumni_contractInput = {
@@ -12294,11 +25646,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
   }
 
   export type professorUncheckedCreateWithoutAlumni_contractInput = {
@@ -12313,10 +25668,13 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
     user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
   }
 
@@ -12345,15 +25703,20 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
     work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
     user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutAlumni_contractInput = {
@@ -12365,15 +25728,20 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
     work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
     user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
   }
 
   export type professorUpsertWithoutAlumni_contractInput = {
@@ -12399,11 +25767,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
   }
 
   export type professorUncheckedUpdateWithoutAlumni_contractInput = {
@@ -12418,10 +25789,13 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
     user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
   }
 
@@ -12434,15 +25808,20 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
     user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
     alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutWork_expreriencesInput = {
@@ -12454,15 +25833,20 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
     user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
     alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniCreateOrConnectWithoutWork_expreriencesInput = {
@@ -12490,15 +25874,20 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
     user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
     alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutWork_expreriencesInput = {
@@ -12510,15 +25899,136 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
     user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
     alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniCreateWithoutStudy_expreriencesInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutStudy_expreriencesInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutStudy_expreriencesInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutStudy_expreriencesInput, alumniUncheckedCreateWithoutStudy_expreriencesInput>
+  }
+
+  export type alumniUpsertWithoutStudy_expreriencesInput = {
+    update: XOR<alumniUpdateWithoutStudy_expreriencesInput, alumniUncheckedUpdateWithoutStudy_expreriencesInput>
+    create: XOR<alumniCreateWithoutStudy_expreriencesInput, alumniUncheckedCreateWithoutStudy_expreriencesInput>
+    where?: alumniWhereInput
+  }
+
+  export type alumniUpdateToOneWithWhereWithoutStudy_expreriencesInput = {
+    where?: alumniWhereInput
+    data: XOR<alumniUpdateWithoutStudy_expreriencesInput, alumniUncheckedUpdateWithoutStudy_expreriencesInput>
+  }
+
+  export type alumniUpdateWithoutStudy_expreriencesInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutStudy_expreriencesInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
   }
 
   export type alumniCreateWithoutUser_privacyInput = {
@@ -12530,15 +26040,20 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
     work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
     alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutUser_privacyInput = {
@@ -12550,15 +26065,20 @@ export namespace Prisma {
     passwordHash?: string | null
     allowedAccount?: boolean
     canUse?: boolean
-    year_start?: number | null
-    year_end?: number | null
-    facultyId?: number | null
-    departmentId?: number | null
-    edu_levelId?: number | null
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
     work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
     alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
   }
 
   export type alumniCreateOrConnectWithoutUser_privacyInput = {
@@ -12578,11 +26098,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
   }
 
   export type professorUncheckedCreateWithoutUser_privacyInput = {
@@ -12597,10 +26120,13 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: number | null
-    departmentId?: number | null
+    facultyId?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
     alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
   }
 
@@ -12629,15 +26155,20 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
     work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
     alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutUser_privacyInput = {
@@ -12649,15 +26180,20 @@ export namespace Prisma {
     passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     canUse?: BoolFieldUpdateOperationsInput | boolean
-    year_start?: NullableIntFieldUpdateOperationsInput | number | null
-    year_end?: NullableIntFieldUpdateOperationsInput | number | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
-    edu_levelId?: NullableIntFieldUpdateOperationsInput | number | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
     work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
     alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
   }
 
   export type professorUpsertWithoutUser_privacyInput = {
@@ -12683,11 +26219,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
   }
 
   export type professorUncheckedUpdateWithoutUser_privacyInput = {
@@ -12702,11 +26241,67 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableIntFieldUpdateOperationsInput | number | null
-    departmentId?: NullableIntFieldUpdateOperationsInput | number | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type otpCreateWithoutProfessorInput = {
+    code: string
+    createdAt?: Date | string
+    admin?: adminCreateNestedOneWithoutOtpInput
+    alumni?: alumniCreateNestedOneWithoutOtpInput
+  }
+
+  export type otpUncheckedCreateWithoutProfessorInput = {
+    id?: number
+    code: string
+    alumniId?: string | null
+    adminId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type otpCreateOrConnectWithoutProfessorInput = {
+    where: otpWhereUniqueInput
+    create: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
+  }
+
+  export type sendTextHistoryCreateWithoutProfessorInput = {
+    alumniId?: string | null
+    sender_type?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+    admin?: adminCreateNestedOneWithoutSendTextHistoryInput
+    alumni?: alumniCreateNestedOneWithoutSendTextHistoryInput
+  }
+
+  export type sendTextHistoryUncheckedCreateWithoutProfessorInput = {
+    id?: number
+    alumni_sender?: string | null
+    alumniId?: string | null
+    sender_type?: string | null
+    adminId?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+  }
+
+  export type sendTextHistoryCreateOrConnectWithoutProfessorInput = {
+    where: sendTextHistoryWhereUniqueInput
+    create: XOR<sendTextHistoryCreateWithoutProfessorInput, sendTextHistoryUncheckedCreateWithoutProfessorInput>
+  }
+
+  export type sendTextHistoryCreateManyProfessorInputEnvelope = {
+    data: sendTextHistoryCreateManyProfessorInput | sendTextHistoryCreateManyProfessorInput[]
+    skipDuplicates?: boolean
   }
 
   export type user_privacyCreateWithoutProfessorInput = {
@@ -12788,6 +26383,79 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type import_historyCreateWithoutProfessorInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    admin: adminCreateNestedOneWithoutImportHistoryInput
+    alumni?: alumniCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyUncheckedCreateWithoutProfessorInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    imported_by: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyCreateOrConnectWithoutProfessorInput = {
+    where: import_historyWhereUniqueInput
+    create: XOR<import_historyCreateWithoutProfessorInput, import_historyUncheckedCreateWithoutProfessorInput>
+  }
+
+  export type otpUpsertWithoutProfessorInput = {
+    update: XOR<otpUpdateWithoutProfessorInput, otpUncheckedUpdateWithoutProfessorInput>
+    create: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
+    where?: otpWhereInput
+  }
+
+  export type otpUpdateToOneWithWhereWithoutProfessorInput = {
+    where?: otpWhereInput
+    data: XOR<otpUpdateWithoutProfessorInput, otpUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type otpUpdateWithoutProfessorInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    admin?: adminUpdateOneWithoutOtpNestedInput
+    alumni?: alumniUpdateOneWithoutOtpNestedInput
+  }
+
+  export type otpUncheckedUpdateWithoutProfessorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryUpsertWithWhereUniqueWithoutProfessorInput = {
+    where: sendTextHistoryWhereUniqueInput
+    update: XOR<sendTextHistoryUpdateWithoutProfessorInput, sendTextHistoryUncheckedUpdateWithoutProfessorInput>
+    create: XOR<sendTextHistoryCreateWithoutProfessorInput, sendTextHistoryUncheckedCreateWithoutProfessorInput>
+  }
+
+  export type sendTextHistoryUpdateWithWhereUniqueWithoutProfessorInput = {
+    where: sendTextHistoryWhereUniqueInput
+    data: XOR<sendTextHistoryUpdateWithoutProfessorInput, sendTextHistoryUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type sendTextHistoryUpdateManyWithWhereWithoutProfessorInput = {
+    where: sendTextHistoryScalarWhereInput
+    data: XOR<sendTextHistoryUpdateManyMutationInput, sendTextHistoryUncheckedUpdateManyWithoutProfessorInput>
+  }
+
   export type user_privacyUpsertWithoutProfessorInput = {
     update: XOR<user_privacyUpdateWithoutProfessorInput, user_privacyUncheckedUpdateWithoutProfessorInput>
     create: XOR<user_privacyCreateWithoutProfessorInput, user_privacyUncheckedCreateWithoutProfessorInput>
@@ -12867,6 +26535,1099 @@ export namespace Prisma {
     professorProfessor_id?: StringNullableFilter<"alumni_contract"> | string | null
   }
 
+  export type import_historyUpsertWithoutProfessorInput = {
+    update: XOR<import_historyUpdateWithoutProfessorInput, import_historyUncheckedUpdateWithoutProfessorInput>
+    create: XOR<import_historyCreateWithoutProfessorInput, import_historyUncheckedCreateWithoutProfessorInput>
+    where?: import_historyWhereInput
+  }
+
+  export type import_historyUpdateToOneWithWhereWithoutProfessorInput = {
+    where?: import_historyWhereInput
+    data: XOR<import_historyUpdateWithoutProfessorInput, import_historyUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type import_historyUpdateWithoutProfessorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    admin?: adminUpdateOneRequiredWithoutImportHistoryNestedInput
+    alumni?: alumniUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type import_historyUncheckedUpdateWithoutProfessorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    imported_by?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type sendTextHistoryCreateWithoutAdminInput = {
+    alumniId?: string | null
+    sender_type?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+    professor?: professorCreateNestedOneWithoutSendTextHistoryInput
+    alumni?: alumniCreateNestedOneWithoutSendTextHistoryInput
+  }
+
+  export type sendTextHistoryUncheckedCreateWithoutAdminInput = {
+    id?: number
+    alumni_sender?: string | null
+    alumniId?: string | null
+    professorId?: string | null
+    sender_type?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+  }
+
+  export type sendTextHistoryCreateOrConnectWithoutAdminInput = {
+    where: sendTextHistoryWhereUniqueInput
+    create: XOR<sendTextHistoryCreateWithoutAdminInput, sendTextHistoryUncheckedCreateWithoutAdminInput>
+  }
+
+  export type sendTextHistoryCreateManyAdminInputEnvelope = {
+    data: sendTextHistoryCreateManyAdminInput | sendTextHistoryCreateManyAdminInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type otpCreateWithoutAdminInput = {
+    code: string
+    createdAt?: Date | string
+    professor?: professorCreateNestedOneWithoutOtpInput
+    alumni?: alumniCreateNestedOneWithoutOtpInput
+  }
+
+  export type otpUncheckedCreateWithoutAdminInput = {
+    id?: number
+    code: string
+    alumniId?: string | null
+    professorId?: string | null
+    createdAt?: Date | string
+  }
+
+  export type otpCreateOrConnectWithoutAdminInput = {
+    where: otpWhereUniqueInput
+    create: XOR<otpCreateWithoutAdminInput, otpUncheckedCreateWithoutAdminInput>
+  }
+
+  export type import_historyCreateWithoutAdminInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    alumni?: alumniCreateNestedManyWithoutImportHistoryInput
+    professor?: professorCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyUncheckedCreateWithoutAdminInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutImportHistoryInput
+    professor?: professorUncheckedCreateNestedManyWithoutImportHistoryInput
+  }
+
+  export type import_historyCreateOrConnectWithoutAdminInput = {
+    where: import_historyWhereUniqueInput
+    create: XOR<import_historyCreateWithoutAdminInput, import_historyUncheckedCreateWithoutAdminInput>
+  }
+
+  export type import_historyCreateManyAdminInputEnvelope = {
+    data: import_historyCreateManyAdminInput | import_historyCreateManyAdminInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type sendTextHistoryUpsertWithWhereUniqueWithoutAdminInput = {
+    where: sendTextHistoryWhereUniqueInput
+    update: XOR<sendTextHistoryUpdateWithoutAdminInput, sendTextHistoryUncheckedUpdateWithoutAdminInput>
+    create: XOR<sendTextHistoryCreateWithoutAdminInput, sendTextHistoryUncheckedCreateWithoutAdminInput>
+  }
+
+  export type sendTextHistoryUpdateWithWhereUniqueWithoutAdminInput = {
+    where: sendTextHistoryWhereUniqueInput
+    data: XOR<sendTextHistoryUpdateWithoutAdminInput, sendTextHistoryUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type sendTextHistoryUpdateManyWithWhereWithoutAdminInput = {
+    where: sendTextHistoryScalarWhereInput
+    data: XOR<sendTextHistoryUpdateManyMutationInput, sendTextHistoryUncheckedUpdateManyWithoutAdminInput>
+  }
+
+  export type otpUpsertWithoutAdminInput = {
+    update: XOR<otpUpdateWithoutAdminInput, otpUncheckedUpdateWithoutAdminInput>
+    create: XOR<otpCreateWithoutAdminInput, otpUncheckedCreateWithoutAdminInput>
+    where?: otpWhereInput
+  }
+
+  export type otpUpdateToOneWithWhereWithoutAdminInput = {
+    where?: otpWhereInput
+    data: XOR<otpUpdateWithoutAdminInput, otpUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type otpUpdateWithoutAdminInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUpdateOneWithoutOtpNestedInput
+    alumni?: alumniUpdateOneWithoutOtpNestedInput
+  }
+
+  export type otpUncheckedUpdateWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type import_historyUpsertWithWhereUniqueWithoutAdminInput = {
+    where: import_historyWhereUniqueInput
+    update: XOR<import_historyUpdateWithoutAdminInput, import_historyUncheckedUpdateWithoutAdminInput>
+    create: XOR<import_historyCreateWithoutAdminInput, import_historyUncheckedCreateWithoutAdminInput>
+  }
+
+  export type import_historyUpdateWithWhereUniqueWithoutAdminInput = {
+    where: import_historyWhereUniqueInput
+    data: XOR<import_historyUpdateWithoutAdminInput, import_historyUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type import_historyUpdateManyWithWhereWithoutAdminInput = {
+    where: import_historyScalarWhereInput
+    data: XOR<import_historyUpdateManyMutationInput, import_historyUncheckedUpdateManyWithoutAdminInput>
+  }
+
+  export type import_historyScalarWhereInput = {
+    AND?: import_historyScalarWhereInput | import_historyScalarWhereInput[]
+    OR?: import_historyScalarWhereInput[]
+    NOT?: import_historyScalarWhereInput | import_historyScalarWhereInput[]
+    id?: StringFilter<"import_history"> | string
+    file_name?: StringFilter<"import_history"> | string
+    file_size?: IntNullableFilter<"import_history"> | number | null
+    total_rows?: IntFilter<"import_history"> | number
+    import_type?: StringFilter<"import_history"> | string
+    imported_by?: StringFilter<"import_history"> | string
+    started_at?: DateTimeFilter<"import_history"> | Date | string
+    finished_at?: DateTimeNullableFilter<"import_history"> | Date | string | null
+    created_at?: DateTimeFilter<"import_history"> | Date | string
+  }
+
+  export type professorCreateWithoutSendTextHistoryInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+  }
+
+  export type professorUncheckedCreateWithoutSendTextHistoryInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
+  }
+
+  export type professorCreateOrConnectWithoutSendTextHistoryInput = {
+    where: professorWhereUniqueInput
+    create: XOR<professorCreateWithoutSendTextHistoryInput, professorUncheckedCreateWithoutSendTextHistoryInput>
+  }
+
+  export type adminCreateWithoutSendTextHistoryInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAdminInput
+    importHistory?: import_historyCreateNestedManyWithoutAdminInput
+  }
+
+  export type adminUncheckedCreateWithoutSendTextHistoryInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutAdminInput
+    importHistory?: import_historyUncheckedCreateNestedManyWithoutAdminInput
+  }
+
+  export type adminCreateOrConnectWithoutSendTextHistoryInput = {
+    where: adminWhereUniqueInput
+    create: XOR<adminCreateWithoutSendTextHistoryInput, adminUncheckedCreateWithoutSendTextHistoryInput>
+  }
+
+  export type alumniCreateWithoutSendTextHistoryInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutSendTextHistoryInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutSendTextHistoryInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutSendTextHistoryInput, alumniUncheckedCreateWithoutSendTextHistoryInput>
+  }
+
+  export type professorUpsertWithoutSendTextHistoryInput = {
+    update: XOR<professorUpdateWithoutSendTextHistoryInput, professorUncheckedUpdateWithoutSendTextHistoryInput>
+    create: XOR<professorCreateWithoutSendTextHistoryInput, professorUncheckedCreateWithoutSendTextHistoryInput>
+    where?: professorWhereInput
+  }
+
+  export type professorUpdateToOneWithWhereWithoutSendTextHistoryInput = {
+    where?: professorWhereInput
+    data: XOR<professorUpdateWithoutSendTextHistoryInput, professorUncheckedUpdateWithoutSendTextHistoryInput>
+  }
+
+  export type professorUpdateWithoutSendTextHistoryInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateWithoutSendTextHistoryInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type adminUpsertWithoutSendTextHistoryInput = {
+    update: XOR<adminUpdateWithoutSendTextHistoryInput, adminUncheckedUpdateWithoutSendTextHistoryInput>
+    create: XOR<adminCreateWithoutSendTextHistoryInput, adminUncheckedCreateWithoutSendTextHistoryInput>
+    where?: adminWhereInput
+  }
+
+  export type adminUpdateToOneWithWhereWithoutSendTextHistoryInput = {
+    where?: adminWhereInput
+    data: XOR<adminUpdateWithoutSendTextHistoryInput, adminUncheckedUpdateWithoutSendTextHistoryInput>
+  }
+
+  export type adminUpdateWithoutSendTextHistoryInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAdminNestedInput
+    importHistory?: import_historyUpdateManyWithoutAdminNestedInput
+  }
+
+  export type adminUncheckedUpdateWithoutSendTextHistoryInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutAdminNestedInput
+    importHistory?: import_historyUncheckedUpdateManyWithoutAdminNestedInput
+  }
+
+  export type alumniUpsertWithoutSendTextHistoryInput = {
+    update: XOR<alumniUpdateWithoutSendTextHistoryInput, alumniUncheckedUpdateWithoutSendTextHistoryInput>
+    create: XOR<alumniCreateWithoutSendTextHistoryInput, alumniUncheckedCreateWithoutSendTextHistoryInput>
+    where?: alumniWhereInput
+  }
+
+  export type alumniUpdateToOneWithWhereWithoutSendTextHistoryInput = {
+    where?: alumniWhereInput
+    data: XOR<alumniUpdateWithoutSendTextHistoryInput, alumniUncheckedUpdateWithoutSendTextHistoryInput>
+  }
+
+  export type alumniUpdateWithoutSendTextHistoryInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutSendTextHistoryInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+  }
+
+  export type professorCreateWithoutOtpInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+  }
+
+  export type professorUncheckedCreateWithoutOtpInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
+  }
+
+  export type professorCreateOrConnectWithoutOtpInput = {
+    where: professorWhereUniqueInput
+    create: XOR<professorCreateWithoutOtpInput, professorUncheckedCreateWithoutOtpInput>
+  }
+
+  export type adminCreateWithoutOtpInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAdminInput
+    importHistory?: import_historyCreateNestedManyWithoutAdminInput
+  }
+
+  export type adminUncheckedCreateWithoutOtpInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAdminInput
+    importHistory?: import_historyUncheckedCreateNestedManyWithoutAdminInput
+  }
+
+  export type adminCreateOrConnectWithoutOtpInput = {
+    where: adminWhereUniqueInput
+    create: XOR<adminCreateWithoutOtpInput, adminUncheckedCreateWithoutOtpInput>
+  }
+
+  export type alumniCreateWithoutOtpInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutOtpInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutOtpInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutOtpInput, alumniUncheckedCreateWithoutOtpInput>
+  }
+
+  export type professorUpsertWithoutOtpInput = {
+    update: XOR<professorUpdateWithoutOtpInput, professorUncheckedUpdateWithoutOtpInput>
+    create: XOR<professorCreateWithoutOtpInput, professorUncheckedCreateWithoutOtpInput>
+    where?: professorWhereInput
+  }
+
+  export type professorUpdateToOneWithWhereWithoutOtpInput = {
+    where?: professorWhereInput
+    data: XOR<professorUpdateWithoutOtpInput, professorUncheckedUpdateWithoutOtpInput>
+  }
+
+  export type professorUpdateWithoutOtpInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateWithoutOtpInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type adminUpsertWithoutOtpInput = {
+    update: XOR<adminUpdateWithoutOtpInput, adminUncheckedUpdateWithoutOtpInput>
+    create: XOR<adminCreateWithoutOtpInput, adminUncheckedCreateWithoutOtpInput>
+    where?: adminWhereInput
+  }
+
+  export type adminUpdateToOneWithWhereWithoutOtpInput = {
+    where?: adminWhereInput
+    data: XOR<adminUpdateWithoutOtpInput, adminUncheckedUpdateWithoutOtpInput>
+  }
+
+  export type adminUpdateWithoutOtpInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAdminNestedInput
+    importHistory?: import_historyUpdateManyWithoutAdminNestedInput
+  }
+
+  export type adminUncheckedUpdateWithoutOtpInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAdminNestedInput
+    importHistory?: import_historyUncheckedUpdateManyWithoutAdminNestedInput
+  }
+
+  export type alumniUpsertWithoutOtpInput = {
+    update: XOR<alumniUpdateWithoutOtpInput, alumniUncheckedUpdateWithoutOtpInput>
+    create: XOR<alumniCreateWithoutOtpInput, alumniUncheckedCreateWithoutOtpInput>
+    where?: alumniWhereInput
+  }
+
+  export type alumniUpdateToOneWithWhereWithoutOtpInput = {
+    where?: alumniWhereInput
+    data: XOR<alumniUpdateWithoutOtpInput, alumniUncheckedUpdateWithoutOtpInput>
+  }
+
+  export type alumniUpdateWithoutOtpInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutOtpInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type adminCreateWithoutImportHistoryInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAdminInput
+    otp?: otpCreateNestedOneWithoutAdminInput
+  }
+
+  export type adminUncheckedCreateWithoutImportHistoryInput = {
+    admin_id?: string
+    prefix: string
+    fname: string
+    lname: string
+    username: string
+    profile?: string | null
+    passwordHash: string
+    canUse?: boolean
+    email?: string | null
+    tel?: string | null
+    lastestLogin?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAdminInput
+    otp?: otpUncheckedCreateNestedOneWithoutAdminInput
+  }
+
+  export type adminCreateOrConnectWithoutImportHistoryInput = {
+    where: adminWhereUniqueInput
+    create: XOR<adminCreateWithoutImportHistoryInput, adminUncheckedCreateWithoutImportHistoryInput>
+  }
+
+  export type alumniCreateWithoutImportHistoryInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutImportHistoryInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutImportHistoryInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutImportHistoryInput, alumniUncheckedCreateWithoutImportHistoryInput>
+  }
+
+  export type alumniCreateManyImportHistoryInputEnvelope = {
+    data: alumniCreateManyImportHistoryInput | alumniCreateManyImportHistoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type professorCreateWithoutImportHistoryInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+  }
+
+  export type professorUncheckedCreateWithoutImportHistoryInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
+  }
+
+  export type professorCreateOrConnectWithoutImportHistoryInput = {
+    where: professorWhereUniqueInput
+    create: XOR<professorCreateWithoutImportHistoryInput, professorUncheckedCreateWithoutImportHistoryInput>
+  }
+
+  export type professorCreateManyImportHistoryInputEnvelope = {
+    data: professorCreateManyImportHistoryInput | professorCreateManyImportHistoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type adminUpsertWithoutImportHistoryInput = {
+    update: XOR<adminUpdateWithoutImportHistoryInput, adminUncheckedUpdateWithoutImportHistoryInput>
+    create: XOR<adminCreateWithoutImportHistoryInput, adminUncheckedCreateWithoutImportHistoryInput>
+    where?: adminWhereInput
+  }
+
+  export type adminUpdateToOneWithWhereWithoutImportHistoryInput = {
+    where?: adminWhereInput
+    data: XOR<adminUpdateWithoutImportHistoryInput, adminUncheckedUpdateWithoutImportHistoryInput>
+  }
+
+  export type adminUpdateWithoutImportHistoryInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAdminNestedInput
+    otp?: otpUpdateOneWithoutAdminNestedInput
+  }
+
+  export type adminUncheckedUpdateWithoutImportHistoryInput = {
+    admin_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    lastestLogin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAdminNestedInput
+    otp?: otpUncheckedUpdateOneWithoutAdminNestedInput
+  }
+
+  export type alumniUpsertWithWhereUniqueWithoutImportHistoryInput = {
+    where: alumniWhereUniqueInput
+    update: XOR<alumniUpdateWithoutImportHistoryInput, alumniUncheckedUpdateWithoutImportHistoryInput>
+    create: XOR<alumniCreateWithoutImportHistoryInput, alumniUncheckedCreateWithoutImportHistoryInput>
+  }
+
+  export type alumniUpdateWithWhereUniqueWithoutImportHistoryInput = {
+    where: alumniWhereUniqueInput
+    data: XOR<alumniUpdateWithoutImportHistoryInput, alumniUncheckedUpdateWithoutImportHistoryInput>
+  }
+
+  export type alumniUpdateManyWithWhereWithoutImportHistoryInput = {
+    where: alumniScalarWhereInput
+    data: XOR<alumniUpdateManyMutationInput, alumniUncheckedUpdateManyWithoutImportHistoryInput>
+  }
+
+  export type alumniScalarWhereInput = {
+    AND?: alumniScalarWhereInput | alumniScalarWhereInput[]
+    OR?: alumniScalarWhereInput[]
+    NOT?: alumniScalarWhereInput | alumniScalarWhereInput[]
+    alumni_id?: StringFilter<"alumni"> | string
+    prefix?: StringFilter<"alumni"> | string
+    fname?: StringFilter<"alumni"> | string
+    lname?: StringFilter<"alumni"> | string
+    profile?: StringNullableFilter<"alumni"> | string | null
+    passwordHash?: StringNullableFilter<"alumni"> | string | null
+    allowedAccount?: BoolFilter<"alumni"> | boolean
+    canUse?: BoolFilter<"alumni"> | boolean
+    year_start?: StringNullableFilter<"alumni"> | string | null
+    year_end?: StringNullableFilter<"alumni"> | string | null
+    facultyId?: StringNullableFilter<"alumni"> | string | null
+    departmentId?: StringNullableFilter<"alumni"> | string | null
+    edu_levelId?: StringNullableFilter<"alumni"> | string | null
+    createtAt?: DateTimeFilter<"alumni"> | Date | string
+    updatedAt?: DateTimeFilter<"alumni"> | Date | string
+    import_historyId?: StringNullableFilter<"alumni"> | string | null
+  }
+
+  export type professorUpsertWithWhereUniqueWithoutImportHistoryInput = {
+    where: professorWhereUniqueInput
+    update: XOR<professorUpdateWithoutImportHistoryInput, professorUncheckedUpdateWithoutImportHistoryInput>
+    create: XOR<professorCreateWithoutImportHistoryInput, professorUncheckedCreateWithoutImportHistoryInput>
+  }
+
+  export type professorUpdateWithWhereUniqueWithoutImportHistoryInput = {
+    where: professorWhereUniqueInput
+    data: XOR<professorUpdateWithoutImportHistoryInput, professorUncheckedUpdateWithoutImportHistoryInput>
+  }
+
+  export type professorUpdateManyWithWhereWithoutImportHistoryInput = {
+    where: professorScalarWhereInput
+    data: XOR<professorUpdateManyMutationInput, professorUncheckedUpdateManyWithoutImportHistoryInput>
+  }
+
+  export type professorScalarWhereInput = {
+    AND?: professorScalarWhereInput | professorScalarWhereInput[]
+    OR?: professorScalarWhereInput[]
+    NOT?: professorScalarWhereInput | professorScalarWhereInput[]
+    professor_id?: StringFilter<"professor"> | string
+    prefix?: StringFilter<"professor"> | string
+    fname?: StringFilter<"professor"> | string
+    lname?: StringFilter<"professor"> | string
+    profile?: StringNullableFilter<"professor"> | string | null
+    passwordHash?: StringNullableFilter<"professor"> | string | null
+    academic_rank?: StringNullableFilter<"professor"> | string | null
+    canUse?: BoolFilter<"professor"> | boolean
+    univercity_position?: StringNullableFilter<"professor"> | string | null
+    allowedAccount?: BoolFilter<"professor"> | boolean
+    email?: StringNullableFilter<"professor"> | string | null
+    facultyId?: StringNullableFilter<"professor"> | string | null
+    departmentId?: StringNullableFilter<"professor"> | string | null
+    import_historyId?: StringNullableFilter<"professor"> | string | null
+    createdAt?: DateTimeFilter<"professor"> | Date | string
+    updatedAt?: DateTimeFilter<"professor"> | Date | string
+  }
+
   export type work_expreriencesCreateManyAlumniInput = {
     id?: number
     isOnTheLine?: boolean | null
@@ -12882,6 +27643,12 @@ export namespace Prisma {
     isCurrent?: boolean
     isInThai?: boolean
     remark?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type studey_expreriencesCreateManyAlumniInput = {
+    id?: number
     edu_level?: string | null
     continued_study?: boolean
     edu_faculty?: string | null
@@ -12890,8 +27657,24 @@ export namespace Prisma {
     year_start?: string | null
     year_end?: string | null
     edu_performance?: string | null
+    isCurrent?: boolean
+    isInThai?: boolean
+    place?: string | null
+    remark?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type sendTextHistoryCreateManyAlumniInput = {
+    id?: number
+    alumniId?: string | null
+    professorId?: string | null
+    sender_type?: string | null
+    adminId?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
   }
 
   export type work_expreriencesUpdateWithoutAlumniInput = {
@@ -12908,14 +27691,6 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
-    continued_study?: BoolFieldUpdateOperationsInput | boolean
-    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
-    year_start?: NullableStringFieldUpdateOperationsInput | string | null
-    year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12935,14 +27710,6 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
-    continued_study?: BoolFieldUpdateOperationsInput | boolean
-    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
-    year_start?: NullableStringFieldUpdateOperationsInput | string | null
-    year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12962,6 +27729,11 @@ export namespace Prisma {
     isCurrent?: BoolFieldUpdateOperationsInput | boolean
     isInThai?: BoolFieldUpdateOperationsInput | boolean
     remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type studey_expreriencesUpdateWithoutAlumniInput = {
     edu_level?: NullableStringFieldUpdateOperationsInput | string | null
     continued_study?: BoolFieldUpdateOperationsInput | boolean
     edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
@@ -12970,8 +27742,95 @@ export namespace Prisma {
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
     edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type studey_expreriencesUncheckedUpdateWithoutAlumniInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
+    continued_study?: BoolFieldUpdateOperationsInput | boolean
+    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type studey_expreriencesUncheckedUpdateManyWithoutAlumniInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    edu_level?: NullableStringFieldUpdateOperationsInput | string | null
+    continued_study?: BoolFieldUpdateOperationsInput | boolean
+    edu_faculty?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_dep?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_university?: NullableStringFieldUpdateOperationsInput | string | null
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_performance?: NullableStringFieldUpdateOperationsInput | string | null
+    isCurrent?: BoolFieldUpdateOperationsInput | boolean
+    isInThai?: BoolFieldUpdateOperationsInput | boolean
+    place?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryUpdateWithoutAlumniInput = {
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUpdateOneWithoutSendTextHistoryNestedInput
+    admin?: adminUpdateOneWithoutSendTextHistoryNestedInput
+  }
+
+  export type sendTextHistoryUncheckedUpdateWithoutAlumniInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyWithoutAlumniInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryCreateManyProfessorInput = {
+    id?: number
+    alumni_sender?: string | null
+    alumniId?: string | null
+    sender_type?: string | null
+    adminId?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
   }
 
   export type alumni_contractCreateManyProfessorInput = {
@@ -12989,6 +27848,41 @@ export namespace Prisma {
     zipcode?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type sendTextHistoryUpdateWithoutProfessorInput = {
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    admin?: adminUpdateOneWithoutSendTextHistoryNestedInput
+    alumni?: alumniUpdateOneWithoutSendTextHistoryNestedInput
+  }
+
+  export type sendTextHistoryUncheckedUpdateWithoutProfessorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_sender?: NullableStringFieldUpdateOperationsInput | string | null
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyWithoutProfessorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_sender?: NullableStringFieldUpdateOperationsInput | string | null
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    adminId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type alumni_contractUpdateWithoutProfessorInput = {
@@ -13038,6 +27932,267 @@ export namespace Prisma {
     province?: NullableStringFieldUpdateOperationsInput | string | null
     zipcode?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryCreateManyAdminInput = {
+    id?: number
+    alumni_sender?: string | null
+    alumniId?: string | null
+    professorId?: string | null
+    sender_type?: string | null
+    title: string
+    detail: string
+    category?: string | null
+    createdAt?: Date | string
+  }
+
+  export type import_historyCreateManyAdminInput = {
+    id?: string
+    file_name: string
+    file_size?: number | null
+    total_rows: number
+    import_type: string
+    started_at: Date | string
+    finished_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type sendTextHistoryUpdateWithoutAdminInput = {
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professor?: professorUpdateOneWithoutSendTextHistoryNestedInput
+    alumni?: alumniUpdateOneWithoutSendTextHistoryNestedInput
+  }
+
+  export type sendTextHistoryUncheckedUpdateWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_sender?: NullableStringFieldUpdateOperationsInput | string | null
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sendTextHistoryUncheckedUpdateManyWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    alumni_sender?: NullableStringFieldUpdateOperationsInput | string | null
+    alumniId?: NullableStringFieldUpdateOperationsInput | string | null
+    professorId?: NullableStringFieldUpdateOperationsInput | string | null
+    sender_type?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type import_historyUpdateWithoutAdminInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUpdateManyWithoutImportHistoryNestedInput
+    professor?: professorUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type import_historyUncheckedUpdateWithoutAdminInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutImportHistoryNestedInput
+    professor?: professorUncheckedUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type import_historyUncheckedUpdateManyWithoutAdminInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    file_name?: StringFieldUpdateOperationsInput | string
+    file_size?: NullableIntFieldUpdateOperationsInput | number | null
+    total_rows?: IntFieldUpdateOperationsInput | number
+    import_type?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type alumniCreateManyImportHistoryInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type professorCreateManyImportHistoryInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type alumniUpdateWithoutImportHistoryInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutImportHistoryInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateManyWithoutImportHistoryInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type professorUpdateWithoutImportHistoryInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateWithoutImportHistoryInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateManyWithoutImportHistoryInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
