@@ -1014,6 +1014,7 @@ export const alumniController = {
         take,
         selectYearStart,
         selectYearEnd,
+        selectEduLevel,
       } = query;
 
       const type = 1;
@@ -1025,6 +1026,7 @@ export const alumniController = {
         selectYearStart && type < 2 ? { year_start: selectYearStart } : {};
       const yearEndQ =
         selectYearEnd && type < 2 ? { year_end: selectYearEnd } : {};
+      const searchEdulevel = type < 2 ? { edu_levelId: selectEduLevel } : {};
 
       // search conditions
       const searchConditions = search
@@ -1104,6 +1106,7 @@ export const alumniController = {
             ...searchQuery,
             ...yearEndQ,
             ...yearStartQ,
+            ...searchEdulevel,
           },
           select,
           orderBy: {
@@ -1117,6 +1120,7 @@ export const alumniController = {
             ...searchQuery,
             ...yearEndQ,
             ...yearStartQ,
+            ...searchEdulevel,
           },
         }),
       ]);
@@ -1510,6 +1514,7 @@ export const alumniController = {
         sort,
         page,
         regis_status,
+        selectEduLevel,
       } = query;
       const skip = Number(take) * (Number(page) - 1);
       let filter = {};
@@ -1579,6 +1584,12 @@ export const alumniController = {
         filter = {
           ...filter,
           year_end: selectYearEnd,
+        };
+      }
+      if (selectEduLevel) {
+        filter = {
+          ...filter,
+          edu_levelId: selectEduLevel,
         };
       }
 

@@ -79,6 +79,21 @@ export type news_donatios = $Result.DefaultSelection<Prisma.$news_donatiosPayloa
  */
 export type import_history = $Result.DefaultSelection<Prisma.$import_historyPayload>
 /**
+ * Model faculty
+ * 
+ */
+export type faculty = $Result.DefaultSelection<Prisma.$facultyPayload>
+/**
+ * Model std_departments
+ * 
+ */
+export type std_departments = $Result.DefaultSelection<Prisma.$std_departmentsPayload>
+/**
+ * Model edu_level
+ * 
+ */
+export type edu_level = $Result.DefaultSelection<Prisma.$edu_levelPayload>
+/**
  * Model setting
  * 
  */
@@ -330,6 +345,36 @@ export class PrismaClient<
     * ```
     */
   get import_history(): Prisma.import_historyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.faculty`: Exposes CRUD operations for the **faculty** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Faculties
+    * const faculties = await prisma.faculty.findMany()
+    * ```
+    */
+  get faculty(): Prisma.facultyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.std_departments`: Exposes CRUD operations for the **std_departments** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Std_departments
+    * const std_departments = await prisma.std_departments.findMany()
+    * ```
+    */
+  get std_departments(): Prisma.std_departmentsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.edu_level`: Exposes CRUD operations for the **edu_level** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Edu_levels
+    * const edu_levels = await prisma.edu_level.findMany()
+    * ```
+    */
+  get edu_level(): Prisma.edu_levelDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.setting`: Exposes CRUD operations for the **setting** model.
@@ -787,6 +832,9 @@ export namespace Prisma {
     otp: 'otp',
     news_donatios: 'news_donatios',
     import_history: 'import_history',
+    faculty: 'faculty',
+    std_departments: 'std_departments',
+    edu_level: 'edu_level',
     setting: 'setting'
   };
 
@@ -803,7 +851,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "roles" | "regis_alumni" | "alumni" | "alumni_contract" | "work_expreriences" | "studey_expreriences" | "user_privacy" | "professor" | "admin" | "sendTextHistory" | "otp" | "news_donatios" | "import_history" | "setting"
+      modelProps: "roles" | "regis_alumni" | "alumni" | "alumni_contract" | "work_expreriences" | "studey_expreriences" | "user_privacy" | "professor" | "admin" | "sendTextHistory" | "otp" | "news_donatios" | "import_history" | "faculty" | "std_departments" | "edu_level" | "setting"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1769,6 +1817,228 @@ export namespace Prisma {
           }
         }
       }
+      faculty: {
+        payload: Prisma.$facultyPayload<ExtArgs>
+        fields: Prisma.facultyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.facultyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.facultyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>
+          }
+          findFirst: {
+            args: Prisma.facultyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.facultyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>
+          }
+          findMany: {
+            args: Prisma.facultyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>[]
+          }
+          create: {
+            args: Prisma.facultyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>
+          }
+          createMany: {
+            args: Prisma.facultyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.facultyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>[]
+          }
+          delete: {
+            args: Prisma.facultyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>
+          }
+          update: {
+            args: Prisma.facultyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>
+          }
+          deleteMany: {
+            args: Prisma.facultyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.facultyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.facultyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>[]
+          }
+          upsert: {
+            args: Prisma.facultyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$facultyPayload>
+          }
+          aggregate: {
+            args: Prisma.FacultyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFaculty>
+          }
+          groupBy: {
+            args: Prisma.facultyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FacultyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.facultyCountArgs<ExtArgs>
+            result: $Utils.Optional<FacultyCountAggregateOutputType> | number
+          }
+        }
+      }
+      std_departments: {
+        payload: Prisma.$std_departmentsPayload<ExtArgs>
+        fields: Prisma.std_departmentsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.std_departmentsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.std_departmentsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>
+          }
+          findFirst: {
+            args: Prisma.std_departmentsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.std_departmentsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>
+          }
+          findMany: {
+            args: Prisma.std_departmentsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>[]
+          }
+          create: {
+            args: Prisma.std_departmentsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>
+          }
+          createMany: {
+            args: Prisma.std_departmentsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.std_departmentsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>[]
+          }
+          delete: {
+            args: Prisma.std_departmentsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>
+          }
+          update: {
+            args: Prisma.std_departmentsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>
+          }
+          deleteMany: {
+            args: Prisma.std_departmentsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.std_departmentsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.std_departmentsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>[]
+          }
+          upsert: {
+            args: Prisma.std_departmentsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$std_departmentsPayload>
+          }
+          aggregate: {
+            args: Prisma.Std_departmentsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStd_departments>
+          }
+          groupBy: {
+            args: Prisma.std_departmentsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Std_departmentsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.std_departmentsCountArgs<ExtArgs>
+            result: $Utils.Optional<Std_departmentsCountAggregateOutputType> | number
+          }
+        }
+      }
+      edu_level: {
+        payload: Prisma.$edu_levelPayload<ExtArgs>
+        fields: Prisma.edu_levelFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.edu_levelFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.edu_levelFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>
+          }
+          findFirst: {
+            args: Prisma.edu_levelFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.edu_levelFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>
+          }
+          findMany: {
+            args: Prisma.edu_levelFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>[]
+          }
+          create: {
+            args: Prisma.edu_levelCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>
+          }
+          createMany: {
+            args: Prisma.edu_levelCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.edu_levelCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>[]
+          }
+          delete: {
+            args: Prisma.edu_levelDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>
+          }
+          update: {
+            args: Prisma.edu_levelUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>
+          }
+          deleteMany: {
+            args: Prisma.edu_levelDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.edu_levelUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.edu_levelUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>[]
+          }
+          upsert: {
+            args: Prisma.edu_levelUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$edu_levelPayload>
+          }
+          aggregate: {
+            args: Prisma.Edu_levelAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEdu_level>
+          }
+          groupBy: {
+            args: Prisma.edu_levelGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Edu_levelGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.edu_levelCountArgs<ExtArgs>
+            result: $Utils.Optional<Edu_levelCountAggregateOutputType> | number
+          }
+        }
+      }
       setting: {
         payload: Prisma.$settingPayload<ExtArgs>
         fields: Prisma.settingFieldRefs
@@ -1964,6 +2234,9 @@ export namespace Prisma {
     otp?: otpOmit
     news_donatios?: news_donatiosOmit
     import_history?: import_historyOmit
+    faculty?: facultyOmit
+    std_departments?: std_departmentsOmit
+    edu_level?: edu_levelOmit
     setting?: settingOmit
   }
 
@@ -2206,6 +2479,126 @@ export namespace Prisma {
    */
   export type Import_historyCountOutputTypeCountProfessorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: professorWhereInput
+  }
+
+
+  /**
+   * Count Type FacultyCountOutputType
+   */
+
+  export type FacultyCountOutputType = {
+    department: number
+    alumni: number
+    professors: number
+  }
+
+  export type FacultyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    department?: boolean | FacultyCountOutputTypeCountDepartmentArgs
+    alumni?: boolean | FacultyCountOutputTypeCountAlumniArgs
+    professors?: boolean | FacultyCountOutputTypeCountProfessorsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FacultyCountOutputType without action
+   */
+  export type FacultyCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FacultyCountOutputType
+     */
+    select?: FacultyCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FacultyCountOutputType without action
+   */
+  export type FacultyCountOutputTypeCountDepartmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: std_departmentsWhereInput
+  }
+
+  /**
+   * FacultyCountOutputType without action
+   */
+  export type FacultyCountOutputTypeCountAlumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: alumniWhereInput
+  }
+
+  /**
+   * FacultyCountOutputType without action
+   */
+  export type FacultyCountOutputTypeCountProfessorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: professorWhereInput
+  }
+
+
+  /**
+   * Count Type Std_departmentsCountOutputType
+   */
+
+  export type Std_departmentsCountOutputType = {
+    alumni: number
+    professors: number
+  }
+
+  export type Std_departmentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | Std_departmentsCountOutputTypeCountAlumniArgs
+    professors?: boolean | Std_departmentsCountOutputTypeCountProfessorsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Std_departmentsCountOutputType without action
+   */
+  export type Std_departmentsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Std_departmentsCountOutputType
+     */
+    select?: Std_departmentsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Std_departmentsCountOutputType without action
+   */
+  export type Std_departmentsCountOutputTypeCountAlumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: alumniWhereInput
+  }
+
+  /**
+   * Std_departmentsCountOutputType without action
+   */
+  export type Std_departmentsCountOutputTypeCountProfessorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: professorWhereInput
+  }
+
+
+  /**
+   * Count Type Edu_levelCountOutputType
+   */
+
+  export type Edu_levelCountOutputType = {
+    alumni: number
+  }
+
+  export type Edu_levelCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | Edu_levelCountOutputTypeCountAlumniArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Edu_levelCountOutputType without action
+   */
+  export type Edu_levelCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Edu_levelCountOutputType
+     */
+    select?: Edu_levelCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Edu_levelCountOutputType without action
+   */
+  export type Edu_levelCountOutputTypeCountAlumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: alumniWhereInput
   }
 
 
@@ -4626,6 +5019,9 @@ export namespace Prisma {
     regis_alumni?: boolean | alumni$regis_alumniArgs<ExtArgs>
     importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
     sendTextHistory?: boolean | alumni$sendTextHistoryArgs<ExtArgs>
+    faculty?: boolean | alumni$facultyArgs<ExtArgs>
+    stdDepartments?: boolean | alumni$stdDepartmentsArgs<ExtArgs>
+    eduLevel?: boolean | alumni$eduLevelArgs<ExtArgs>
     _count?: boolean | AlumniCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["alumni"]>
 
@@ -4647,6 +5043,9 @@ export namespace Prisma {
     updatedAt?: boolean
     import_historyId?: boolean
     importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+    faculty?: boolean | alumni$facultyArgs<ExtArgs>
+    stdDepartments?: boolean | alumni$stdDepartmentsArgs<ExtArgs>
+    eduLevel?: boolean | alumni$eduLevelArgs<ExtArgs>
   }, ExtArgs["result"]["alumni"]>
 
   export type alumniSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4667,6 +5066,9 @@ export namespace Prisma {
     updatedAt?: boolean
     import_historyId?: boolean
     importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+    faculty?: boolean | alumni$facultyArgs<ExtArgs>
+    stdDepartments?: boolean | alumni$stdDepartmentsArgs<ExtArgs>
+    eduLevel?: boolean | alumni$eduLevelArgs<ExtArgs>
   }, ExtArgs["result"]["alumni"]>
 
   export type alumniSelectScalar = {
@@ -4698,13 +5100,22 @@ export namespace Prisma {
     regis_alumni?: boolean | alumni$regis_alumniArgs<ExtArgs>
     importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
     sendTextHistory?: boolean | alumni$sendTextHistoryArgs<ExtArgs>
+    faculty?: boolean | alumni$facultyArgs<ExtArgs>
+    stdDepartments?: boolean | alumni$stdDepartmentsArgs<ExtArgs>
+    eduLevel?: boolean | alumni$eduLevelArgs<ExtArgs>
     _count?: boolean | AlumniCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type alumniIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+    faculty?: boolean | alumni$facultyArgs<ExtArgs>
+    stdDepartments?: boolean | alumni$stdDepartmentsArgs<ExtArgs>
+    eduLevel?: boolean | alumni$eduLevelArgs<ExtArgs>
   }
   export type alumniIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     importHistory?: boolean | alumni$importHistoryArgs<ExtArgs>
+    faculty?: boolean | alumni$facultyArgs<ExtArgs>
+    stdDepartments?: boolean | alumni$stdDepartmentsArgs<ExtArgs>
+    eduLevel?: boolean | alumni$eduLevelArgs<ExtArgs>
   }
 
   export type $alumniPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4718,6 +5129,9 @@ export namespace Prisma {
       regis_alumni: Prisma.$regis_alumniPayload<ExtArgs> | null
       importHistory: Prisma.$import_historyPayload<ExtArgs> | null
       sendTextHistory: Prisma.$sendTextHistoryPayload<ExtArgs>[]
+      faculty: Prisma.$facultyPayload<ExtArgs> | null
+      stdDepartments: Prisma.$std_departmentsPayload<ExtArgs> | null
+      eduLevel: Prisma.$edu_levelPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       alumni_id: string
@@ -5138,6 +5552,9 @@ export namespace Prisma {
     regis_alumni<T extends alumni$regis_alumniArgs<ExtArgs> = {}>(args?: Subset<T, alumni$regis_alumniArgs<ExtArgs>>): Prisma__regis_alumniClient<$Result.GetResult<Prisma.$regis_alumniPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     importHistory<T extends alumni$importHistoryArgs<ExtArgs> = {}>(args?: Subset<T, alumni$importHistoryArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     sendTextHistory<T extends alumni$sendTextHistoryArgs<ExtArgs> = {}>(args?: Subset<T, alumni$sendTextHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faculty<T extends alumni$facultyArgs<ExtArgs> = {}>(args?: Subset<T, alumni$facultyArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    stdDepartments<T extends alumni$stdDepartmentsArgs<ExtArgs> = {}>(args?: Subset<T, alumni$stdDepartmentsArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    eduLevel<T extends alumni$eduLevelArgs<ExtArgs> = {}>(args?: Subset<T, alumni$eduLevelArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5743,6 +6160,63 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SendTextHistoryScalarFieldEnum | SendTextHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * alumni.faculty
+   */
+  export type alumni$facultyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    where?: facultyWhereInput
+  }
+
+  /**
+   * alumni.stdDepartments
+   */
+  export type alumni$stdDepartmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    where?: std_departmentsWhereInput
+  }
+
+  /**
+   * alumni.eduLevel
+   */
+  export type alumni$eduLevelArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    where?: edu_levelWhereInput
   }
 
   /**
@@ -11066,9 +11540,11 @@ export namespace Prisma {
     updatedAt?: boolean
     otp?: boolean | professor$otpArgs<ExtArgs>
     sendTextHistory?: boolean | professor$sendTextHistoryArgs<ExtArgs>
+    faculty?: boolean | professor$facultyArgs<ExtArgs>
     user_privacy?: boolean | professor$user_privacyArgs<ExtArgs>
     alumni_contract?: boolean | professor$alumni_contractArgs<ExtArgs>
     importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+    stdDepartments?: boolean | professor$stdDepartmentsArgs<ExtArgs>
     _count?: boolean | ProfessorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["professor"]>
 
@@ -11089,7 +11565,9 @@ export namespace Prisma {
     import_historyId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    faculty?: boolean | professor$facultyArgs<ExtArgs>
     importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+    stdDepartments?: boolean | professor$stdDepartmentsArgs<ExtArgs>
   }, ExtArgs["result"]["professor"]>
 
   export type professorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11109,7 +11587,9 @@ export namespace Prisma {
     import_historyId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    faculty?: boolean | professor$facultyArgs<ExtArgs>
     importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+    stdDepartments?: boolean | professor$stdDepartmentsArgs<ExtArgs>
   }, ExtArgs["result"]["professor"]>
 
   export type professorSelectScalar = {
@@ -11135,16 +11615,22 @@ export namespace Prisma {
   export type professorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     otp?: boolean | professor$otpArgs<ExtArgs>
     sendTextHistory?: boolean | professor$sendTextHistoryArgs<ExtArgs>
+    faculty?: boolean | professor$facultyArgs<ExtArgs>
     user_privacy?: boolean | professor$user_privacyArgs<ExtArgs>
     alumni_contract?: boolean | professor$alumni_contractArgs<ExtArgs>
     importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+    stdDepartments?: boolean | professor$stdDepartmentsArgs<ExtArgs>
     _count?: boolean | ProfessorCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type professorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    faculty?: boolean | professor$facultyArgs<ExtArgs>
     importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+    stdDepartments?: boolean | professor$stdDepartmentsArgs<ExtArgs>
   }
   export type professorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    faculty?: boolean | professor$facultyArgs<ExtArgs>
     importHistory?: boolean | professor$importHistoryArgs<ExtArgs>
+    stdDepartments?: boolean | professor$stdDepartmentsArgs<ExtArgs>
   }
 
   export type $professorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11152,9 +11638,11 @@ export namespace Prisma {
     objects: {
       otp: Prisma.$otpPayload<ExtArgs> | null
       sendTextHistory: Prisma.$sendTextHistoryPayload<ExtArgs>[]
+      faculty: Prisma.$facultyPayload<ExtArgs> | null
       user_privacy: Prisma.$user_privacyPayload<ExtArgs> | null
       alumni_contract: Prisma.$alumni_contractPayload<ExtArgs>[]
       importHistory: Prisma.$import_historyPayload<ExtArgs> | null
+      stdDepartments: Prisma.$std_departmentsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       professor_id: string
@@ -11569,9 +12057,11 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     otp<T extends professor$otpArgs<ExtArgs> = {}>(args?: Subset<T, professor$otpArgs<ExtArgs>>): Prisma__otpClient<$Result.GetResult<Prisma.$otpPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     sendTextHistory<T extends professor$sendTextHistoryArgs<ExtArgs> = {}>(args?: Subset<T, professor$sendTextHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sendTextHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faculty<T extends professor$facultyArgs<ExtArgs> = {}>(args?: Subset<T, professor$facultyArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     user_privacy<T extends professor$user_privacyArgs<ExtArgs> = {}>(args?: Subset<T, professor$user_privacyArgs<ExtArgs>>): Prisma__user_privacyClient<$Result.GetResult<Prisma.$user_privacyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     alumni_contract<T extends professor$alumni_contractArgs<ExtArgs> = {}>(args?: Subset<T, professor$alumni_contractArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$alumni_contractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     importHistory<T extends professor$importHistoryArgs<ExtArgs> = {}>(args?: Subset<T, professor$importHistoryArgs<ExtArgs>>): Prisma__import_historyClient<$Result.GetResult<Prisma.$import_historyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    stdDepartments<T extends professor$stdDepartmentsArgs<ExtArgs> = {}>(args?: Subset<T, professor$stdDepartmentsArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12056,6 +12546,25 @@ export namespace Prisma {
   }
 
   /**
+   * professor.faculty
+   */
+  export type professor$facultyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    where?: facultyWhereInput
+  }
+
+  /**
    * professor.user_privacy
    */
   export type professor$user_privacyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12115,6 +12624,25 @@ export namespace Prisma {
      */
     include?: import_historyInclude<ExtArgs> | null
     where?: import_historyWhereInput
+  }
+
+  /**
+   * professor.stdDepartments
+   */
+  export type professor$stdDepartmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    where?: std_departmentsWhereInput
   }
 
   /**
@@ -18160,6 +18688,3253 @@ export namespace Prisma {
 
 
   /**
+   * Model faculty
+   */
+
+  export type AggregateFaculty = {
+    _count: FacultyCountAggregateOutputType | null
+    _min: FacultyMinAggregateOutputType | null
+    _max: FacultyMaxAggregateOutputType | null
+  }
+
+  export type FacultyMinAggregateOutputType = {
+    faculty_id: string | null
+    faculty_name: string | null
+    createdAt: Date | null
+  }
+
+  export type FacultyMaxAggregateOutputType = {
+    faculty_id: string | null
+    faculty_name: string | null
+    createdAt: Date | null
+  }
+
+  export type FacultyCountAggregateOutputType = {
+    faculty_id: number
+    faculty_name: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type FacultyMinAggregateInputType = {
+    faculty_id?: true
+    faculty_name?: true
+    createdAt?: true
+  }
+
+  export type FacultyMaxAggregateInputType = {
+    faculty_id?: true
+    faculty_name?: true
+    createdAt?: true
+  }
+
+  export type FacultyCountAggregateInputType = {
+    faculty_id?: true
+    faculty_name?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type FacultyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which faculty to aggregate.
+     */
+    where?: facultyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of faculties to fetch.
+     */
+    orderBy?: facultyOrderByWithRelationInput | facultyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: facultyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` faculties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` faculties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned faculties
+    **/
+    _count?: true | FacultyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FacultyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FacultyMaxAggregateInputType
+  }
+
+  export type GetFacultyAggregateType<T extends FacultyAggregateArgs> = {
+        [P in keyof T & keyof AggregateFaculty]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFaculty[P]>
+      : GetScalarType<T[P], AggregateFaculty[P]>
+  }
+
+
+
+
+  export type facultyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: facultyWhereInput
+    orderBy?: facultyOrderByWithAggregationInput | facultyOrderByWithAggregationInput[]
+    by: FacultyScalarFieldEnum[] | FacultyScalarFieldEnum
+    having?: facultyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FacultyCountAggregateInputType | true
+    _min?: FacultyMinAggregateInputType
+    _max?: FacultyMaxAggregateInputType
+  }
+
+  export type FacultyGroupByOutputType = {
+    faculty_id: string
+    faculty_name: string
+    createdAt: Date
+    _count: FacultyCountAggregateOutputType | null
+    _min: FacultyMinAggregateOutputType | null
+    _max: FacultyMaxAggregateOutputType | null
+  }
+
+  type GetFacultyGroupByPayload<T extends facultyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FacultyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FacultyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FacultyGroupByOutputType[P]>
+            : GetScalarType<T[P], FacultyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type facultySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    faculty_id?: boolean
+    faculty_name?: boolean
+    createdAt?: boolean
+    department?: boolean | faculty$departmentArgs<ExtArgs>
+    alumni?: boolean | faculty$alumniArgs<ExtArgs>
+    professors?: boolean | faculty$professorsArgs<ExtArgs>
+    _count?: boolean | FacultyCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["faculty"]>
+
+  export type facultySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    faculty_id?: boolean
+    faculty_name?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["faculty"]>
+
+  export type facultySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    faculty_id?: boolean
+    faculty_name?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["faculty"]>
+
+  export type facultySelectScalar = {
+    faculty_id?: boolean
+    faculty_name?: boolean
+    createdAt?: boolean
+  }
+
+  export type facultyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"faculty_id" | "faculty_name" | "createdAt", ExtArgs["result"]["faculty"]>
+  export type facultyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    department?: boolean | faculty$departmentArgs<ExtArgs>
+    alumni?: boolean | faculty$alumniArgs<ExtArgs>
+    professors?: boolean | faculty$professorsArgs<ExtArgs>
+    _count?: boolean | FacultyCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type facultyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type facultyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $facultyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "faculty"
+    objects: {
+      department: Prisma.$std_departmentsPayload<ExtArgs>[]
+      alumni: Prisma.$alumniPayload<ExtArgs>[]
+      professors: Prisma.$professorPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      faculty_id: string
+      faculty_name: string
+      createdAt: Date
+    }, ExtArgs["result"]["faculty"]>
+    composites: {}
+  }
+
+  type facultyGetPayload<S extends boolean | null | undefined | facultyDefaultArgs> = $Result.GetResult<Prisma.$facultyPayload, S>
+
+  type facultyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<facultyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FacultyCountAggregateInputType | true
+    }
+
+  export interface facultyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['faculty'], meta: { name: 'faculty' } }
+    /**
+     * Find zero or one Faculty that matches the filter.
+     * @param {facultyFindUniqueArgs} args - Arguments to find a Faculty
+     * @example
+     * // Get one Faculty
+     * const faculty = await prisma.faculty.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends facultyFindUniqueArgs>(args: SelectSubset<T, facultyFindUniqueArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Faculty that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {facultyFindUniqueOrThrowArgs} args - Arguments to find a Faculty
+     * @example
+     * // Get one Faculty
+     * const faculty = await prisma.faculty.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends facultyFindUniqueOrThrowArgs>(args: SelectSubset<T, facultyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Faculty that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {facultyFindFirstArgs} args - Arguments to find a Faculty
+     * @example
+     * // Get one Faculty
+     * const faculty = await prisma.faculty.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends facultyFindFirstArgs>(args?: SelectSubset<T, facultyFindFirstArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Faculty that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {facultyFindFirstOrThrowArgs} args - Arguments to find a Faculty
+     * @example
+     * // Get one Faculty
+     * const faculty = await prisma.faculty.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends facultyFindFirstOrThrowArgs>(args?: SelectSubset<T, facultyFindFirstOrThrowArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Faculties that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {facultyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Faculties
+     * const faculties = await prisma.faculty.findMany()
+     * 
+     * // Get first 10 Faculties
+     * const faculties = await prisma.faculty.findMany({ take: 10 })
+     * 
+     * // Only select the `faculty_id`
+     * const facultyWithFaculty_idOnly = await prisma.faculty.findMany({ select: { faculty_id: true } })
+     * 
+     */
+    findMany<T extends facultyFindManyArgs>(args?: SelectSubset<T, facultyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Faculty.
+     * @param {facultyCreateArgs} args - Arguments to create a Faculty.
+     * @example
+     * // Create one Faculty
+     * const Faculty = await prisma.faculty.create({
+     *   data: {
+     *     // ... data to create a Faculty
+     *   }
+     * })
+     * 
+     */
+    create<T extends facultyCreateArgs>(args: SelectSubset<T, facultyCreateArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Faculties.
+     * @param {facultyCreateManyArgs} args - Arguments to create many Faculties.
+     * @example
+     * // Create many Faculties
+     * const faculty = await prisma.faculty.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends facultyCreateManyArgs>(args?: SelectSubset<T, facultyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Faculties and returns the data saved in the database.
+     * @param {facultyCreateManyAndReturnArgs} args - Arguments to create many Faculties.
+     * @example
+     * // Create many Faculties
+     * const faculty = await prisma.faculty.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Faculties and only return the `faculty_id`
+     * const facultyWithFaculty_idOnly = await prisma.faculty.createManyAndReturn({
+     *   select: { faculty_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends facultyCreateManyAndReturnArgs>(args?: SelectSubset<T, facultyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Faculty.
+     * @param {facultyDeleteArgs} args - Arguments to delete one Faculty.
+     * @example
+     * // Delete one Faculty
+     * const Faculty = await prisma.faculty.delete({
+     *   where: {
+     *     // ... filter to delete one Faculty
+     *   }
+     * })
+     * 
+     */
+    delete<T extends facultyDeleteArgs>(args: SelectSubset<T, facultyDeleteArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Faculty.
+     * @param {facultyUpdateArgs} args - Arguments to update one Faculty.
+     * @example
+     * // Update one Faculty
+     * const faculty = await prisma.faculty.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends facultyUpdateArgs>(args: SelectSubset<T, facultyUpdateArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Faculties.
+     * @param {facultyDeleteManyArgs} args - Arguments to filter Faculties to delete.
+     * @example
+     * // Delete a few Faculties
+     * const { count } = await prisma.faculty.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends facultyDeleteManyArgs>(args?: SelectSubset<T, facultyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Faculties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {facultyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Faculties
+     * const faculty = await prisma.faculty.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends facultyUpdateManyArgs>(args: SelectSubset<T, facultyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Faculties and returns the data updated in the database.
+     * @param {facultyUpdateManyAndReturnArgs} args - Arguments to update many Faculties.
+     * @example
+     * // Update many Faculties
+     * const faculty = await prisma.faculty.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Faculties and only return the `faculty_id`
+     * const facultyWithFaculty_idOnly = await prisma.faculty.updateManyAndReturn({
+     *   select: { faculty_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends facultyUpdateManyAndReturnArgs>(args: SelectSubset<T, facultyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Faculty.
+     * @param {facultyUpsertArgs} args - Arguments to update or create a Faculty.
+     * @example
+     * // Update or create a Faculty
+     * const faculty = await prisma.faculty.upsert({
+     *   create: {
+     *     // ... data to create a Faculty
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Faculty we want to update
+     *   }
+     * })
+     */
+    upsert<T extends facultyUpsertArgs>(args: SelectSubset<T, facultyUpsertArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Faculties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {facultyCountArgs} args - Arguments to filter Faculties to count.
+     * @example
+     * // Count the number of Faculties
+     * const count = await prisma.faculty.count({
+     *   where: {
+     *     // ... the filter for the Faculties we want to count
+     *   }
+     * })
+    **/
+    count<T extends facultyCountArgs>(
+      args?: Subset<T, facultyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FacultyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Faculty.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FacultyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FacultyAggregateArgs>(args: Subset<T, FacultyAggregateArgs>): Prisma.PrismaPromise<GetFacultyAggregateType<T>>
+
+    /**
+     * Group by Faculty.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {facultyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends facultyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: facultyGroupByArgs['orderBy'] }
+        : { orderBy?: facultyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, facultyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFacultyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the faculty model
+   */
+  readonly fields: facultyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for faculty.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__facultyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    department<T extends faculty$departmentArgs<ExtArgs> = {}>(args?: Subset<T, faculty$departmentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    alumni<T extends faculty$alumniArgs<ExtArgs> = {}>(args?: Subset<T, faculty$alumniArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    professors<T extends faculty$professorsArgs<ExtArgs> = {}>(args?: Subset<T, faculty$professorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$professorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the faculty model
+   */
+  interface facultyFieldRefs {
+    readonly faculty_id: FieldRef<"faculty", 'String'>
+    readonly faculty_name: FieldRef<"faculty", 'String'>
+    readonly createdAt: FieldRef<"faculty", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * faculty findUnique
+   */
+  export type facultyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * Filter, which faculty to fetch.
+     */
+    where: facultyWhereUniqueInput
+  }
+
+  /**
+   * faculty findUniqueOrThrow
+   */
+  export type facultyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * Filter, which faculty to fetch.
+     */
+    where: facultyWhereUniqueInput
+  }
+
+  /**
+   * faculty findFirst
+   */
+  export type facultyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * Filter, which faculty to fetch.
+     */
+    where?: facultyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of faculties to fetch.
+     */
+    orderBy?: facultyOrderByWithRelationInput | facultyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for faculties.
+     */
+    cursor?: facultyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` faculties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` faculties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of faculties.
+     */
+    distinct?: FacultyScalarFieldEnum | FacultyScalarFieldEnum[]
+  }
+
+  /**
+   * faculty findFirstOrThrow
+   */
+  export type facultyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * Filter, which faculty to fetch.
+     */
+    where?: facultyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of faculties to fetch.
+     */
+    orderBy?: facultyOrderByWithRelationInput | facultyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for faculties.
+     */
+    cursor?: facultyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` faculties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` faculties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of faculties.
+     */
+    distinct?: FacultyScalarFieldEnum | FacultyScalarFieldEnum[]
+  }
+
+  /**
+   * faculty findMany
+   */
+  export type facultyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * Filter, which faculties to fetch.
+     */
+    where?: facultyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of faculties to fetch.
+     */
+    orderBy?: facultyOrderByWithRelationInput | facultyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing faculties.
+     */
+    cursor?: facultyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` faculties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` faculties.
+     */
+    skip?: number
+    distinct?: FacultyScalarFieldEnum | FacultyScalarFieldEnum[]
+  }
+
+  /**
+   * faculty create
+   */
+  export type facultyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a faculty.
+     */
+    data: XOR<facultyCreateInput, facultyUncheckedCreateInput>
+  }
+
+  /**
+   * faculty createMany
+   */
+  export type facultyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many faculties.
+     */
+    data: facultyCreateManyInput | facultyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * faculty createManyAndReturn
+   */
+  export type facultyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * The data used to create many faculties.
+     */
+    data: facultyCreateManyInput | facultyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * faculty update
+   */
+  export type facultyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a faculty.
+     */
+    data: XOR<facultyUpdateInput, facultyUncheckedUpdateInput>
+    /**
+     * Choose, which faculty to update.
+     */
+    where: facultyWhereUniqueInput
+  }
+
+  /**
+   * faculty updateMany
+   */
+  export type facultyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update faculties.
+     */
+    data: XOR<facultyUpdateManyMutationInput, facultyUncheckedUpdateManyInput>
+    /**
+     * Filter which faculties to update
+     */
+    where?: facultyWhereInput
+    /**
+     * Limit how many faculties to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * faculty updateManyAndReturn
+   */
+  export type facultyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * The data used to update faculties.
+     */
+    data: XOR<facultyUpdateManyMutationInput, facultyUncheckedUpdateManyInput>
+    /**
+     * Filter which faculties to update
+     */
+    where?: facultyWhereInput
+    /**
+     * Limit how many faculties to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * faculty upsert
+   */
+  export type facultyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the faculty to update in case it exists.
+     */
+    where: facultyWhereUniqueInput
+    /**
+     * In case the faculty found by the `where` argument doesn't exist, create a new faculty with this data.
+     */
+    create: XOR<facultyCreateInput, facultyUncheckedCreateInput>
+    /**
+     * In case the faculty was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<facultyUpdateInput, facultyUncheckedUpdateInput>
+  }
+
+  /**
+   * faculty delete
+   */
+  export type facultyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+    /**
+     * Filter which faculty to delete.
+     */
+    where: facultyWhereUniqueInput
+  }
+
+  /**
+   * faculty deleteMany
+   */
+  export type facultyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which faculties to delete
+     */
+    where?: facultyWhereInput
+    /**
+     * Limit how many faculties to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * faculty.department
+   */
+  export type faculty$departmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    where?: std_departmentsWhereInput
+    orderBy?: std_departmentsOrderByWithRelationInput | std_departmentsOrderByWithRelationInput[]
+    cursor?: std_departmentsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Std_departmentsScalarFieldEnum | Std_departmentsScalarFieldEnum[]
+  }
+
+  /**
+   * faculty.alumni
+   */
+  export type faculty$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+    orderBy?: alumniOrderByWithRelationInput | alumniOrderByWithRelationInput[]
+    cursor?: alumniWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AlumniScalarFieldEnum | AlumniScalarFieldEnum[]
+  }
+
+  /**
+   * faculty.professors
+   */
+  export type faculty$professorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the professor
+     */
+    select?: professorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the professor
+     */
+    omit?: professorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorInclude<ExtArgs> | null
+    where?: professorWhereInput
+    orderBy?: professorOrderByWithRelationInput | professorOrderByWithRelationInput[]
+    cursor?: professorWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessorScalarFieldEnum | ProfessorScalarFieldEnum[]
+  }
+
+  /**
+   * faculty without action
+   */
+  export type facultyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the faculty
+     */
+    select?: facultySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the faculty
+     */
+    omit?: facultyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: facultyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model std_departments
+   */
+
+  export type AggregateStd_departments = {
+    _count: Std_departmentsCountAggregateOutputType | null
+    _min: Std_departmentsMinAggregateOutputType | null
+    _max: Std_departmentsMaxAggregateOutputType | null
+  }
+
+  export type Std_departmentsMinAggregateOutputType = {
+    department_id: string | null
+    department_name: string | null
+    faculty_id: string | null
+    createdAt: Date | null
+  }
+
+  export type Std_departmentsMaxAggregateOutputType = {
+    department_id: string | null
+    department_name: string | null
+    faculty_id: string | null
+    createdAt: Date | null
+  }
+
+  export type Std_departmentsCountAggregateOutputType = {
+    department_id: number
+    department_name: number
+    faculty_id: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type Std_departmentsMinAggregateInputType = {
+    department_id?: true
+    department_name?: true
+    faculty_id?: true
+    createdAt?: true
+  }
+
+  export type Std_departmentsMaxAggregateInputType = {
+    department_id?: true
+    department_name?: true
+    faculty_id?: true
+    createdAt?: true
+  }
+
+  export type Std_departmentsCountAggregateInputType = {
+    department_id?: true
+    department_name?: true
+    faculty_id?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type Std_departmentsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which std_departments to aggregate.
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of std_departments to fetch.
+     */
+    orderBy?: std_departmentsOrderByWithRelationInput | std_departmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: std_departmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` std_departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` std_departments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned std_departments
+    **/
+    _count?: true | Std_departmentsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Std_departmentsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Std_departmentsMaxAggregateInputType
+  }
+
+  export type GetStd_departmentsAggregateType<T extends Std_departmentsAggregateArgs> = {
+        [P in keyof T & keyof AggregateStd_departments]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStd_departments[P]>
+      : GetScalarType<T[P], AggregateStd_departments[P]>
+  }
+
+
+
+
+  export type std_departmentsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: std_departmentsWhereInput
+    orderBy?: std_departmentsOrderByWithAggregationInput | std_departmentsOrderByWithAggregationInput[]
+    by: Std_departmentsScalarFieldEnum[] | Std_departmentsScalarFieldEnum
+    having?: std_departmentsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Std_departmentsCountAggregateInputType | true
+    _min?: Std_departmentsMinAggregateInputType
+    _max?: Std_departmentsMaxAggregateInputType
+  }
+
+  export type Std_departmentsGroupByOutputType = {
+    department_id: string
+    department_name: string
+    faculty_id: string
+    createdAt: Date
+    _count: Std_departmentsCountAggregateOutputType | null
+    _min: Std_departmentsMinAggregateOutputType | null
+    _max: Std_departmentsMaxAggregateOutputType | null
+  }
+
+  type GetStd_departmentsGroupByPayload<T extends std_departmentsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Std_departmentsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Std_departmentsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Std_departmentsGroupByOutputType[P]>
+            : GetScalarType<T[P], Std_departmentsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type std_departmentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    department_id?: boolean
+    department_name?: boolean
+    faculty_id?: boolean
+    createdAt?: boolean
+    faculty?: boolean | facultyDefaultArgs<ExtArgs>
+    alumni?: boolean | std_departments$alumniArgs<ExtArgs>
+    professors?: boolean | std_departments$professorsArgs<ExtArgs>
+    _count?: boolean | Std_departmentsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["std_departments"]>
+
+  export type std_departmentsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    department_id?: boolean
+    department_name?: boolean
+    faculty_id?: boolean
+    createdAt?: boolean
+    faculty?: boolean | facultyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["std_departments"]>
+
+  export type std_departmentsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    department_id?: boolean
+    department_name?: boolean
+    faculty_id?: boolean
+    createdAt?: boolean
+    faculty?: boolean | facultyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["std_departments"]>
+
+  export type std_departmentsSelectScalar = {
+    department_id?: boolean
+    department_name?: boolean
+    faculty_id?: boolean
+    createdAt?: boolean
+  }
+
+  export type std_departmentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"department_id" | "department_name" | "faculty_id" | "createdAt", ExtArgs["result"]["std_departments"]>
+  export type std_departmentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    faculty?: boolean | facultyDefaultArgs<ExtArgs>
+    alumni?: boolean | std_departments$alumniArgs<ExtArgs>
+    professors?: boolean | std_departments$professorsArgs<ExtArgs>
+    _count?: boolean | Std_departmentsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type std_departmentsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    faculty?: boolean | facultyDefaultArgs<ExtArgs>
+  }
+  export type std_departmentsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    faculty?: boolean | facultyDefaultArgs<ExtArgs>
+  }
+
+  export type $std_departmentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "std_departments"
+    objects: {
+      faculty: Prisma.$facultyPayload<ExtArgs>
+      alumni: Prisma.$alumniPayload<ExtArgs>[]
+      professors: Prisma.$professorPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      department_id: string
+      department_name: string
+      faculty_id: string
+      createdAt: Date
+    }, ExtArgs["result"]["std_departments"]>
+    composites: {}
+  }
+
+  type std_departmentsGetPayload<S extends boolean | null | undefined | std_departmentsDefaultArgs> = $Result.GetResult<Prisma.$std_departmentsPayload, S>
+
+  type std_departmentsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<std_departmentsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Std_departmentsCountAggregateInputType | true
+    }
+
+  export interface std_departmentsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['std_departments'], meta: { name: 'std_departments' } }
+    /**
+     * Find zero or one Std_departments that matches the filter.
+     * @param {std_departmentsFindUniqueArgs} args - Arguments to find a Std_departments
+     * @example
+     * // Get one Std_departments
+     * const std_departments = await prisma.std_departments.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends std_departmentsFindUniqueArgs>(args: SelectSubset<T, std_departmentsFindUniqueArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Std_departments that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {std_departmentsFindUniqueOrThrowArgs} args - Arguments to find a Std_departments
+     * @example
+     * // Get one Std_departments
+     * const std_departments = await prisma.std_departments.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends std_departmentsFindUniqueOrThrowArgs>(args: SelectSubset<T, std_departmentsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Std_departments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {std_departmentsFindFirstArgs} args - Arguments to find a Std_departments
+     * @example
+     * // Get one Std_departments
+     * const std_departments = await prisma.std_departments.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends std_departmentsFindFirstArgs>(args?: SelectSubset<T, std_departmentsFindFirstArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Std_departments that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {std_departmentsFindFirstOrThrowArgs} args - Arguments to find a Std_departments
+     * @example
+     * // Get one Std_departments
+     * const std_departments = await prisma.std_departments.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends std_departmentsFindFirstOrThrowArgs>(args?: SelectSubset<T, std_departmentsFindFirstOrThrowArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Std_departments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {std_departmentsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Std_departments
+     * const std_departments = await prisma.std_departments.findMany()
+     * 
+     * // Get first 10 Std_departments
+     * const std_departments = await prisma.std_departments.findMany({ take: 10 })
+     * 
+     * // Only select the `department_id`
+     * const std_departmentsWithDepartment_idOnly = await prisma.std_departments.findMany({ select: { department_id: true } })
+     * 
+     */
+    findMany<T extends std_departmentsFindManyArgs>(args?: SelectSubset<T, std_departmentsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Std_departments.
+     * @param {std_departmentsCreateArgs} args - Arguments to create a Std_departments.
+     * @example
+     * // Create one Std_departments
+     * const Std_departments = await prisma.std_departments.create({
+     *   data: {
+     *     // ... data to create a Std_departments
+     *   }
+     * })
+     * 
+     */
+    create<T extends std_departmentsCreateArgs>(args: SelectSubset<T, std_departmentsCreateArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Std_departments.
+     * @param {std_departmentsCreateManyArgs} args - Arguments to create many Std_departments.
+     * @example
+     * // Create many Std_departments
+     * const std_departments = await prisma.std_departments.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends std_departmentsCreateManyArgs>(args?: SelectSubset<T, std_departmentsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Std_departments and returns the data saved in the database.
+     * @param {std_departmentsCreateManyAndReturnArgs} args - Arguments to create many Std_departments.
+     * @example
+     * // Create many Std_departments
+     * const std_departments = await prisma.std_departments.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Std_departments and only return the `department_id`
+     * const std_departmentsWithDepartment_idOnly = await prisma.std_departments.createManyAndReturn({
+     *   select: { department_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends std_departmentsCreateManyAndReturnArgs>(args?: SelectSubset<T, std_departmentsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Std_departments.
+     * @param {std_departmentsDeleteArgs} args - Arguments to delete one Std_departments.
+     * @example
+     * // Delete one Std_departments
+     * const Std_departments = await prisma.std_departments.delete({
+     *   where: {
+     *     // ... filter to delete one Std_departments
+     *   }
+     * })
+     * 
+     */
+    delete<T extends std_departmentsDeleteArgs>(args: SelectSubset<T, std_departmentsDeleteArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Std_departments.
+     * @param {std_departmentsUpdateArgs} args - Arguments to update one Std_departments.
+     * @example
+     * // Update one Std_departments
+     * const std_departments = await prisma.std_departments.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends std_departmentsUpdateArgs>(args: SelectSubset<T, std_departmentsUpdateArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Std_departments.
+     * @param {std_departmentsDeleteManyArgs} args - Arguments to filter Std_departments to delete.
+     * @example
+     * // Delete a few Std_departments
+     * const { count } = await prisma.std_departments.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends std_departmentsDeleteManyArgs>(args?: SelectSubset<T, std_departmentsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Std_departments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {std_departmentsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Std_departments
+     * const std_departments = await prisma.std_departments.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends std_departmentsUpdateManyArgs>(args: SelectSubset<T, std_departmentsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Std_departments and returns the data updated in the database.
+     * @param {std_departmentsUpdateManyAndReturnArgs} args - Arguments to update many Std_departments.
+     * @example
+     * // Update many Std_departments
+     * const std_departments = await prisma.std_departments.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Std_departments and only return the `department_id`
+     * const std_departmentsWithDepartment_idOnly = await prisma.std_departments.updateManyAndReturn({
+     *   select: { department_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends std_departmentsUpdateManyAndReturnArgs>(args: SelectSubset<T, std_departmentsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Std_departments.
+     * @param {std_departmentsUpsertArgs} args - Arguments to update or create a Std_departments.
+     * @example
+     * // Update or create a Std_departments
+     * const std_departments = await prisma.std_departments.upsert({
+     *   create: {
+     *     // ... data to create a Std_departments
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Std_departments we want to update
+     *   }
+     * })
+     */
+    upsert<T extends std_departmentsUpsertArgs>(args: SelectSubset<T, std_departmentsUpsertArgs<ExtArgs>>): Prisma__std_departmentsClient<$Result.GetResult<Prisma.$std_departmentsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Std_departments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {std_departmentsCountArgs} args - Arguments to filter Std_departments to count.
+     * @example
+     * // Count the number of Std_departments
+     * const count = await prisma.std_departments.count({
+     *   where: {
+     *     // ... the filter for the Std_departments we want to count
+     *   }
+     * })
+    **/
+    count<T extends std_departmentsCountArgs>(
+      args?: Subset<T, std_departmentsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Std_departmentsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Std_departments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Std_departmentsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Std_departmentsAggregateArgs>(args: Subset<T, Std_departmentsAggregateArgs>): Prisma.PrismaPromise<GetStd_departmentsAggregateType<T>>
+
+    /**
+     * Group by Std_departments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {std_departmentsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends std_departmentsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: std_departmentsGroupByArgs['orderBy'] }
+        : { orderBy?: std_departmentsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, std_departmentsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStd_departmentsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the std_departments model
+   */
+  readonly fields: std_departmentsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for std_departments.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__std_departmentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    faculty<T extends facultyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, facultyDefaultArgs<ExtArgs>>): Prisma__facultyClient<$Result.GetResult<Prisma.$facultyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    alumni<T extends std_departments$alumniArgs<ExtArgs> = {}>(args?: Subset<T, std_departments$alumniArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    professors<T extends std_departments$professorsArgs<ExtArgs> = {}>(args?: Subset<T, std_departments$professorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$professorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the std_departments model
+   */
+  interface std_departmentsFieldRefs {
+    readonly department_id: FieldRef<"std_departments", 'String'>
+    readonly department_name: FieldRef<"std_departments", 'String'>
+    readonly faculty_id: FieldRef<"std_departments", 'String'>
+    readonly createdAt: FieldRef<"std_departments", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * std_departments findUnique
+   */
+  export type std_departmentsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * Filter, which std_departments to fetch.
+     */
+    where: std_departmentsWhereUniqueInput
+  }
+
+  /**
+   * std_departments findUniqueOrThrow
+   */
+  export type std_departmentsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * Filter, which std_departments to fetch.
+     */
+    where: std_departmentsWhereUniqueInput
+  }
+
+  /**
+   * std_departments findFirst
+   */
+  export type std_departmentsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * Filter, which std_departments to fetch.
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of std_departments to fetch.
+     */
+    orderBy?: std_departmentsOrderByWithRelationInput | std_departmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for std_departments.
+     */
+    cursor?: std_departmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` std_departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` std_departments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of std_departments.
+     */
+    distinct?: Std_departmentsScalarFieldEnum | Std_departmentsScalarFieldEnum[]
+  }
+
+  /**
+   * std_departments findFirstOrThrow
+   */
+  export type std_departmentsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * Filter, which std_departments to fetch.
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of std_departments to fetch.
+     */
+    orderBy?: std_departmentsOrderByWithRelationInput | std_departmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for std_departments.
+     */
+    cursor?: std_departmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` std_departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` std_departments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of std_departments.
+     */
+    distinct?: Std_departmentsScalarFieldEnum | Std_departmentsScalarFieldEnum[]
+  }
+
+  /**
+   * std_departments findMany
+   */
+  export type std_departmentsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * Filter, which std_departments to fetch.
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of std_departments to fetch.
+     */
+    orderBy?: std_departmentsOrderByWithRelationInput | std_departmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing std_departments.
+     */
+    cursor?: std_departmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` std_departments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` std_departments.
+     */
+    skip?: number
+    distinct?: Std_departmentsScalarFieldEnum | Std_departmentsScalarFieldEnum[]
+  }
+
+  /**
+   * std_departments create
+   */
+  export type std_departmentsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a std_departments.
+     */
+    data: XOR<std_departmentsCreateInput, std_departmentsUncheckedCreateInput>
+  }
+
+  /**
+   * std_departments createMany
+   */
+  export type std_departmentsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many std_departments.
+     */
+    data: std_departmentsCreateManyInput | std_departmentsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * std_departments createManyAndReturn
+   */
+  export type std_departmentsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * The data used to create many std_departments.
+     */
+    data: std_departmentsCreateManyInput | std_departmentsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * std_departments update
+   */
+  export type std_departmentsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a std_departments.
+     */
+    data: XOR<std_departmentsUpdateInput, std_departmentsUncheckedUpdateInput>
+    /**
+     * Choose, which std_departments to update.
+     */
+    where: std_departmentsWhereUniqueInput
+  }
+
+  /**
+   * std_departments updateMany
+   */
+  export type std_departmentsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update std_departments.
+     */
+    data: XOR<std_departmentsUpdateManyMutationInput, std_departmentsUncheckedUpdateManyInput>
+    /**
+     * Filter which std_departments to update
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * Limit how many std_departments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * std_departments updateManyAndReturn
+   */
+  export type std_departmentsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * The data used to update std_departments.
+     */
+    data: XOR<std_departmentsUpdateManyMutationInput, std_departmentsUncheckedUpdateManyInput>
+    /**
+     * Filter which std_departments to update
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * Limit how many std_departments to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * std_departments upsert
+   */
+  export type std_departmentsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the std_departments to update in case it exists.
+     */
+    where: std_departmentsWhereUniqueInput
+    /**
+     * In case the std_departments found by the `where` argument doesn't exist, create a new std_departments with this data.
+     */
+    create: XOR<std_departmentsCreateInput, std_departmentsUncheckedCreateInput>
+    /**
+     * In case the std_departments was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<std_departmentsUpdateInput, std_departmentsUncheckedUpdateInput>
+  }
+
+  /**
+   * std_departments delete
+   */
+  export type std_departmentsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+    /**
+     * Filter which std_departments to delete.
+     */
+    where: std_departmentsWhereUniqueInput
+  }
+
+  /**
+   * std_departments deleteMany
+   */
+  export type std_departmentsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which std_departments to delete
+     */
+    where?: std_departmentsWhereInput
+    /**
+     * Limit how many std_departments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * std_departments.alumni
+   */
+  export type std_departments$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+    orderBy?: alumniOrderByWithRelationInput | alumniOrderByWithRelationInput[]
+    cursor?: alumniWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AlumniScalarFieldEnum | AlumniScalarFieldEnum[]
+  }
+
+  /**
+   * std_departments.professors
+   */
+  export type std_departments$professorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the professor
+     */
+    select?: professorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the professor
+     */
+    omit?: professorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: professorInclude<ExtArgs> | null
+    where?: professorWhereInput
+    orderBy?: professorOrderByWithRelationInput | professorOrderByWithRelationInput[]
+    cursor?: professorWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessorScalarFieldEnum | ProfessorScalarFieldEnum[]
+  }
+
+  /**
+   * std_departments without action
+   */
+  export type std_departmentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the std_departments
+     */
+    select?: std_departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the std_departments
+     */
+    omit?: std_departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: std_departmentsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model edu_level
+   */
+
+  export type AggregateEdu_level = {
+    _count: Edu_levelCountAggregateOutputType | null
+    _min: Edu_levelMinAggregateOutputType | null
+    _max: Edu_levelMaxAggregateOutputType | null
+  }
+
+  export type Edu_levelMinAggregateOutputType = {
+    edu_levelId: string | null
+    edu_level_name: string | null
+    createdAt: Date | null
+  }
+
+  export type Edu_levelMaxAggregateOutputType = {
+    edu_levelId: string | null
+    edu_level_name: string | null
+    createdAt: Date | null
+  }
+
+  export type Edu_levelCountAggregateOutputType = {
+    edu_levelId: number
+    edu_level_name: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type Edu_levelMinAggregateInputType = {
+    edu_levelId?: true
+    edu_level_name?: true
+    createdAt?: true
+  }
+
+  export type Edu_levelMaxAggregateInputType = {
+    edu_levelId?: true
+    edu_level_name?: true
+    createdAt?: true
+  }
+
+  export type Edu_levelCountAggregateInputType = {
+    edu_levelId?: true
+    edu_level_name?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type Edu_levelAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which edu_level to aggregate.
+     */
+    where?: edu_levelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of edu_levels to fetch.
+     */
+    orderBy?: edu_levelOrderByWithRelationInput | edu_levelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: edu_levelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` edu_levels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` edu_levels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned edu_levels
+    **/
+    _count?: true | Edu_levelCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Edu_levelMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Edu_levelMaxAggregateInputType
+  }
+
+  export type GetEdu_levelAggregateType<T extends Edu_levelAggregateArgs> = {
+        [P in keyof T & keyof AggregateEdu_level]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEdu_level[P]>
+      : GetScalarType<T[P], AggregateEdu_level[P]>
+  }
+
+
+
+
+  export type edu_levelGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: edu_levelWhereInput
+    orderBy?: edu_levelOrderByWithAggregationInput | edu_levelOrderByWithAggregationInput[]
+    by: Edu_levelScalarFieldEnum[] | Edu_levelScalarFieldEnum
+    having?: edu_levelScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Edu_levelCountAggregateInputType | true
+    _min?: Edu_levelMinAggregateInputType
+    _max?: Edu_levelMaxAggregateInputType
+  }
+
+  export type Edu_levelGroupByOutputType = {
+    edu_levelId: string
+    edu_level_name: string
+    createdAt: Date
+    _count: Edu_levelCountAggregateOutputType | null
+    _min: Edu_levelMinAggregateOutputType | null
+    _max: Edu_levelMaxAggregateOutputType | null
+  }
+
+  type GetEdu_levelGroupByPayload<T extends edu_levelGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Edu_levelGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Edu_levelGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Edu_levelGroupByOutputType[P]>
+            : GetScalarType<T[P], Edu_levelGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type edu_levelSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    edu_levelId?: boolean
+    edu_level_name?: boolean
+    createdAt?: boolean
+    alumni?: boolean | edu_level$alumniArgs<ExtArgs>
+    _count?: boolean | Edu_levelCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["edu_level"]>
+
+  export type edu_levelSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    edu_levelId?: boolean
+    edu_level_name?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["edu_level"]>
+
+  export type edu_levelSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    edu_levelId?: boolean
+    edu_level_name?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["edu_level"]>
+
+  export type edu_levelSelectScalar = {
+    edu_levelId?: boolean
+    edu_level_name?: boolean
+    createdAt?: boolean
+  }
+
+  export type edu_levelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"edu_levelId" | "edu_level_name" | "createdAt", ExtArgs["result"]["edu_level"]>
+  export type edu_levelInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alumni?: boolean | edu_level$alumniArgs<ExtArgs>
+    _count?: boolean | Edu_levelCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type edu_levelIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type edu_levelIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $edu_levelPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "edu_level"
+    objects: {
+      alumni: Prisma.$alumniPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      edu_levelId: string
+      edu_level_name: string
+      createdAt: Date
+    }, ExtArgs["result"]["edu_level"]>
+    composites: {}
+  }
+
+  type edu_levelGetPayload<S extends boolean | null | undefined | edu_levelDefaultArgs> = $Result.GetResult<Prisma.$edu_levelPayload, S>
+
+  type edu_levelCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<edu_levelFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Edu_levelCountAggregateInputType | true
+    }
+
+  export interface edu_levelDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['edu_level'], meta: { name: 'edu_level' } }
+    /**
+     * Find zero or one Edu_level that matches the filter.
+     * @param {edu_levelFindUniqueArgs} args - Arguments to find a Edu_level
+     * @example
+     * // Get one Edu_level
+     * const edu_level = await prisma.edu_level.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends edu_levelFindUniqueArgs>(args: SelectSubset<T, edu_levelFindUniqueArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Edu_level that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {edu_levelFindUniqueOrThrowArgs} args - Arguments to find a Edu_level
+     * @example
+     * // Get one Edu_level
+     * const edu_level = await prisma.edu_level.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends edu_levelFindUniqueOrThrowArgs>(args: SelectSubset<T, edu_levelFindUniqueOrThrowArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Edu_level that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {edu_levelFindFirstArgs} args - Arguments to find a Edu_level
+     * @example
+     * // Get one Edu_level
+     * const edu_level = await prisma.edu_level.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends edu_levelFindFirstArgs>(args?: SelectSubset<T, edu_levelFindFirstArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Edu_level that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {edu_levelFindFirstOrThrowArgs} args - Arguments to find a Edu_level
+     * @example
+     * // Get one Edu_level
+     * const edu_level = await prisma.edu_level.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends edu_levelFindFirstOrThrowArgs>(args?: SelectSubset<T, edu_levelFindFirstOrThrowArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Edu_levels that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {edu_levelFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Edu_levels
+     * const edu_levels = await prisma.edu_level.findMany()
+     * 
+     * // Get first 10 Edu_levels
+     * const edu_levels = await prisma.edu_level.findMany({ take: 10 })
+     * 
+     * // Only select the `edu_levelId`
+     * const edu_levelWithEdu_levelIdOnly = await prisma.edu_level.findMany({ select: { edu_levelId: true } })
+     * 
+     */
+    findMany<T extends edu_levelFindManyArgs>(args?: SelectSubset<T, edu_levelFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Edu_level.
+     * @param {edu_levelCreateArgs} args - Arguments to create a Edu_level.
+     * @example
+     * // Create one Edu_level
+     * const Edu_level = await prisma.edu_level.create({
+     *   data: {
+     *     // ... data to create a Edu_level
+     *   }
+     * })
+     * 
+     */
+    create<T extends edu_levelCreateArgs>(args: SelectSubset<T, edu_levelCreateArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Edu_levels.
+     * @param {edu_levelCreateManyArgs} args - Arguments to create many Edu_levels.
+     * @example
+     * // Create many Edu_levels
+     * const edu_level = await prisma.edu_level.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends edu_levelCreateManyArgs>(args?: SelectSubset<T, edu_levelCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Edu_levels and returns the data saved in the database.
+     * @param {edu_levelCreateManyAndReturnArgs} args - Arguments to create many Edu_levels.
+     * @example
+     * // Create many Edu_levels
+     * const edu_level = await prisma.edu_level.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Edu_levels and only return the `edu_levelId`
+     * const edu_levelWithEdu_levelIdOnly = await prisma.edu_level.createManyAndReturn({
+     *   select: { edu_levelId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends edu_levelCreateManyAndReturnArgs>(args?: SelectSubset<T, edu_levelCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Edu_level.
+     * @param {edu_levelDeleteArgs} args - Arguments to delete one Edu_level.
+     * @example
+     * // Delete one Edu_level
+     * const Edu_level = await prisma.edu_level.delete({
+     *   where: {
+     *     // ... filter to delete one Edu_level
+     *   }
+     * })
+     * 
+     */
+    delete<T extends edu_levelDeleteArgs>(args: SelectSubset<T, edu_levelDeleteArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Edu_level.
+     * @param {edu_levelUpdateArgs} args - Arguments to update one Edu_level.
+     * @example
+     * // Update one Edu_level
+     * const edu_level = await prisma.edu_level.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends edu_levelUpdateArgs>(args: SelectSubset<T, edu_levelUpdateArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Edu_levels.
+     * @param {edu_levelDeleteManyArgs} args - Arguments to filter Edu_levels to delete.
+     * @example
+     * // Delete a few Edu_levels
+     * const { count } = await prisma.edu_level.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends edu_levelDeleteManyArgs>(args?: SelectSubset<T, edu_levelDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Edu_levels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {edu_levelUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Edu_levels
+     * const edu_level = await prisma.edu_level.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends edu_levelUpdateManyArgs>(args: SelectSubset<T, edu_levelUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Edu_levels and returns the data updated in the database.
+     * @param {edu_levelUpdateManyAndReturnArgs} args - Arguments to update many Edu_levels.
+     * @example
+     * // Update many Edu_levels
+     * const edu_level = await prisma.edu_level.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Edu_levels and only return the `edu_levelId`
+     * const edu_levelWithEdu_levelIdOnly = await prisma.edu_level.updateManyAndReturn({
+     *   select: { edu_levelId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends edu_levelUpdateManyAndReturnArgs>(args: SelectSubset<T, edu_levelUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Edu_level.
+     * @param {edu_levelUpsertArgs} args - Arguments to update or create a Edu_level.
+     * @example
+     * // Update or create a Edu_level
+     * const edu_level = await prisma.edu_level.upsert({
+     *   create: {
+     *     // ... data to create a Edu_level
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Edu_level we want to update
+     *   }
+     * })
+     */
+    upsert<T extends edu_levelUpsertArgs>(args: SelectSubset<T, edu_levelUpsertArgs<ExtArgs>>): Prisma__edu_levelClient<$Result.GetResult<Prisma.$edu_levelPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Edu_levels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {edu_levelCountArgs} args - Arguments to filter Edu_levels to count.
+     * @example
+     * // Count the number of Edu_levels
+     * const count = await prisma.edu_level.count({
+     *   where: {
+     *     // ... the filter for the Edu_levels we want to count
+     *   }
+     * })
+    **/
+    count<T extends edu_levelCountArgs>(
+      args?: Subset<T, edu_levelCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Edu_levelCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Edu_level.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Edu_levelAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Edu_levelAggregateArgs>(args: Subset<T, Edu_levelAggregateArgs>): Prisma.PrismaPromise<GetEdu_levelAggregateType<T>>
+
+    /**
+     * Group by Edu_level.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {edu_levelGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends edu_levelGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: edu_levelGroupByArgs['orderBy'] }
+        : { orderBy?: edu_levelGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, edu_levelGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEdu_levelGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the edu_level model
+   */
+  readonly fields: edu_levelFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for edu_level.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__edu_levelClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alumni<T extends edu_level$alumniArgs<ExtArgs> = {}>(args?: Subset<T, edu_level$alumniArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$alumniPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the edu_level model
+   */
+  interface edu_levelFieldRefs {
+    readonly edu_levelId: FieldRef<"edu_level", 'String'>
+    readonly edu_level_name: FieldRef<"edu_level", 'String'>
+    readonly createdAt: FieldRef<"edu_level", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * edu_level findUnique
+   */
+  export type edu_levelFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * Filter, which edu_level to fetch.
+     */
+    where: edu_levelWhereUniqueInput
+  }
+
+  /**
+   * edu_level findUniqueOrThrow
+   */
+  export type edu_levelFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * Filter, which edu_level to fetch.
+     */
+    where: edu_levelWhereUniqueInput
+  }
+
+  /**
+   * edu_level findFirst
+   */
+  export type edu_levelFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * Filter, which edu_level to fetch.
+     */
+    where?: edu_levelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of edu_levels to fetch.
+     */
+    orderBy?: edu_levelOrderByWithRelationInput | edu_levelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for edu_levels.
+     */
+    cursor?: edu_levelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` edu_levels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` edu_levels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of edu_levels.
+     */
+    distinct?: Edu_levelScalarFieldEnum | Edu_levelScalarFieldEnum[]
+  }
+
+  /**
+   * edu_level findFirstOrThrow
+   */
+  export type edu_levelFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * Filter, which edu_level to fetch.
+     */
+    where?: edu_levelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of edu_levels to fetch.
+     */
+    orderBy?: edu_levelOrderByWithRelationInput | edu_levelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for edu_levels.
+     */
+    cursor?: edu_levelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` edu_levels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` edu_levels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of edu_levels.
+     */
+    distinct?: Edu_levelScalarFieldEnum | Edu_levelScalarFieldEnum[]
+  }
+
+  /**
+   * edu_level findMany
+   */
+  export type edu_levelFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * Filter, which edu_levels to fetch.
+     */
+    where?: edu_levelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of edu_levels to fetch.
+     */
+    orderBy?: edu_levelOrderByWithRelationInput | edu_levelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing edu_levels.
+     */
+    cursor?: edu_levelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` edu_levels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` edu_levels.
+     */
+    skip?: number
+    distinct?: Edu_levelScalarFieldEnum | Edu_levelScalarFieldEnum[]
+  }
+
+  /**
+   * edu_level create
+   */
+  export type edu_levelCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * The data needed to create a edu_level.
+     */
+    data: XOR<edu_levelCreateInput, edu_levelUncheckedCreateInput>
+  }
+
+  /**
+   * edu_level createMany
+   */
+  export type edu_levelCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many edu_levels.
+     */
+    data: edu_levelCreateManyInput | edu_levelCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * edu_level createManyAndReturn
+   */
+  export type edu_levelCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * The data used to create many edu_levels.
+     */
+    data: edu_levelCreateManyInput | edu_levelCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * edu_level update
+   */
+  export type edu_levelUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * The data needed to update a edu_level.
+     */
+    data: XOR<edu_levelUpdateInput, edu_levelUncheckedUpdateInput>
+    /**
+     * Choose, which edu_level to update.
+     */
+    where: edu_levelWhereUniqueInput
+  }
+
+  /**
+   * edu_level updateMany
+   */
+  export type edu_levelUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update edu_levels.
+     */
+    data: XOR<edu_levelUpdateManyMutationInput, edu_levelUncheckedUpdateManyInput>
+    /**
+     * Filter which edu_levels to update
+     */
+    where?: edu_levelWhereInput
+    /**
+     * Limit how many edu_levels to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * edu_level updateManyAndReturn
+   */
+  export type edu_levelUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * The data used to update edu_levels.
+     */
+    data: XOR<edu_levelUpdateManyMutationInput, edu_levelUncheckedUpdateManyInput>
+    /**
+     * Filter which edu_levels to update
+     */
+    where?: edu_levelWhereInput
+    /**
+     * Limit how many edu_levels to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * edu_level upsert
+   */
+  export type edu_levelUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * The filter to search for the edu_level to update in case it exists.
+     */
+    where: edu_levelWhereUniqueInput
+    /**
+     * In case the edu_level found by the `where` argument doesn't exist, create a new edu_level with this data.
+     */
+    create: XOR<edu_levelCreateInput, edu_levelUncheckedCreateInput>
+    /**
+     * In case the edu_level was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<edu_levelUpdateInput, edu_levelUncheckedUpdateInput>
+  }
+
+  /**
+   * edu_level delete
+   */
+  export type edu_levelDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+    /**
+     * Filter which edu_level to delete.
+     */
+    where: edu_levelWhereUniqueInput
+  }
+
+  /**
+   * edu_level deleteMany
+   */
+  export type edu_levelDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which edu_levels to delete
+     */
+    where?: edu_levelWhereInput
+    /**
+     * Limit how many edu_levels to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * edu_level.alumni
+   */
+  export type edu_level$alumniArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the alumni
+     */
+    select?: alumniSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the alumni
+     */
+    omit?: alumniOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: alumniInclude<ExtArgs> | null
+    where?: alumniWhereInput
+    orderBy?: alumniOrderByWithRelationInput | alumniOrderByWithRelationInput[]
+    cursor?: alumniWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AlumniScalarFieldEnum | AlumniScalarFieldEnum[]
+  }
+
+  /**
+   * edu_level without action
+   */
+  export type edu_levelDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the edu_level
+     */
+    select?: edu_levelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the edu_level
+     */
+    omit?: edu_levelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: edu_levelInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model setting
    */
 
@@ -19612,6 +23387,34 @@ export namespace Prisma {
   export type Import_historyScalarFieldEnum = (typeof Import_historyScalarFieldEnum)[keyof typeof Import_historyScalarFieldEnum]
 
 
+  export const FacultyScalarFieldEnum: {
+    faculty_id: 'faculty_id',
+    faculty_name: 'faculty_name',
+    createdAt: 'createdAt'
+  };
+
+  export type FacultyScalarFieldEnum = (typeof FacultyScalarFieldEnum)[keyof typeof FacultyScalarFieldEnum]
+
+
+  export const Std_departmentsScalarFieldEnum: {
+    department_id: 'department_id',
+    department_name: 'department_name',
+    faculty_id: 'faculty_id',
+    createdAt: 'createdAt'
+  };
+
+  export type Std_departmentsScalarFieldEnum = (typeof Std_departmentsScalarFieldEnum)[keyof typeof Std_departmentsScalarFieldEnum]
+
+
+  export const Edu_levelScalarFieldEnum: {
+    edu_levelId: 'edu_levelId',
+    edu_level_name: 'edu_level_name',
+    createdAt: 'createdAt'
+  };
+
+  export type Edu_levelScalarFieldEnum = (typeof Edu_levelScalarFieldEnum)[keyof typeof Edu_levelScalarFieldEnum]
+
+
   export const SettingScalarFieldEnum: {
     id: 'id',
     regis_payment_qrcode: 'regis_payment_qrcode',
@@ -19875,6 +23678,9 @@ export namespace Prisma {
     regis_alumni?: XOR<Regis_alumniNullableScalarRelationFilter, regis_alumniWhereInput> | null
     importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
     sendTextHistory?: SendTextHistoryListRelationFilter
+    faculty?: XOR<FacultyNullableScalarRelationFilter, facultyWhereInput> | null
+    stdDepartments?: XOR<Std_departmentsNullableScalarRelationFilter, std_departmentsWhereInput> | null
+    eduLevel?: XOR<Edu_levelNullableScalarRelationFilter, edu_levelWhereInput> | null
   }
 
   export type alumniOrderByWithRelationInput = {
@@ -19902,6 +23708,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniOrderByWithRelationInput
     importHistory?: import_historyOrderByWithRelationInput
     sendTextHistory?: sendTextHistoryOrderByRelationAggregateInput
+    faculty?: facultyOrderByWithRelationInput
+    stdDepartments?: std_departmentsOrderByWithRelationInput
+    eduLevel?: edu_levelOrderByWithRelationInput
   }
 
   export type alumniWhereUniqueInput = Prisma.AtLeast<{
@@ -19932,6 +23741,9 @@ export namespace Prisma {
     regis_alumni?: XOR<Regis_alumniNullableScalarRelationFilter, regis_alumniWhereInput> | null
     importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
     sendTextHistory?: SendTextHistoryListRelationFilter
+    faculty?: XOR<FacultyNullableScalarRelationFilter, facultyWhereInput> | null
+    stdDepartments?: XOR<Std_departmentsNullableScalarRelationFilter, std_departmentsWhereInput> | null
+    eduLevel?: XOR<Edu_levelNullableScalarRelationFilter, edu_levelWhereInput> | null
   }, "alumni_id" | "alumni_id">
 
   export type alumniOrderByWithAggregationInput = {
@@ -20444,9 +24256,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"professor"> | Date | string
     otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
     sendTextHistory?: SendTextHistoryListRelationFilter
+    faculty?: XOR<FacultyNullableScalarRelationFilter, facultyWhereInput> | null
     user_privacy?: XOR<User_privacyNullableScalarRelationFilter, user_privacyWhereInput> | null
     alumni_contract?: Alumni_contractListRelationFilter
     importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
+    stdDepartments?: XOR<Std_departmentsNullableScalarRelationFilter, std_departmentsWhereInput> | null
   }
 
   export type professorOrderByWithRelationInput = {
@@ -20468,9 +24282,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
     otp?: otpOrderByWithRelationInput
     sendTextHistory?: sendTextHistoryOrderByRelationAggregateInput
+    faculty?: facultyOrderByWithRelationInput
     user_privacy?: user_privacyOrderByWithRelationInput
     alumni_contract?: alumni_contractOrderByRelationAggregateInput
     importHistory?: import_historyOrderByWithRelationInput
+    stdDepartments?: std_departmentsOrderByWithRelationInput
   }
 
   export type professorWhereUniqueInput = Prisma.AtLeast<{
@@ -20495,9 +24311,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"professor"> | Date | string
     otp?: XOR<OtpNullableScalarRelationFilter, otpWhereInput> | null
     sendTextHistory?: SendTextHistoryListRelationFilter
+    faculty?: XOR<FacultyNullableScalarRelationFilter, facultyWhereInput> | null
     user_privacy?: XOR<User_privacyNullableScalarRelationFilter, user_privacyWhereInput> | null
     alumni_contract?: Alumni_contractListRelationFilter
     importHistory?: XOR<Import_historyNullableScalarRelationFilter, import_historyWhereInput> | null
+    stdDepartments?: XOR<Std_departmentsNullableScalarRelationFilter, std_departmentsWhereInput> | null
   }, "professor_id" | "professor_id">
 
   export type professorOrderByWithAggregationInput = {
@@ -20993,6 +24811,158 @@ export namespace Prisma {
     created_at?: DateTimeWithAggregatesFilter<"import_history"> | Date | string
   }
 
+  export type facultyWhereInput = {
+    AND?: facultyWhereInput | facultyWhereInput[]
+    OR?: facultyWhereInput[]
+    NOT?: facultyWhereInput | facultyWhereInput[]
+    faculty_id?: StringFilter<"faculty"> | string
+    faculty_name?: StringFilter<"faculty"> | string
+    createdAt?: DateTimeFilter<"faculty"> | Date | string
+    department?: Std_departmentsListRelationFilter
+    alumni?: AlumniListRelationFilter
+    professors?: ProfessorListRelationFilter
+  }
+
+  export type facultyOrderByWithRelationInput = {
+    faculty_id?: SortOrder
+    faculty_name?: SortOrder
+    createdAt?: SortOrder
+    department?: std_departmentsOrderByRelationAggregateInput
+    alumni?: alumniOrderByRelationAggregateInput
+    professors?: professorOrderByRelationAggregateInput
+  }
+
+  export type facultyWhereUniqueInput = Prisma.AtLeast<{
+    faculty_id?: string
+    AND?: facultyWhereInput | facultyWhereInput[]
+    OR?: facultyWhereInput[]
+    NOT?: facultyWhereInput | facultyWhereInput[]
+    faculty_name?: StringFilter<"faculty"> | string
+    createdAt?: DateTimeFilter<"faculty"> | Date | string
+    department?: Std_departmentsListRelationFilter
+    alumni?: AlumniListRelationFilter
+    professors?: ProfessorListRelationFilter
+  }, "faculty_id" | "faculty_id">
+
+  export type facultyOrderByWithAggregationInput = {
+    faculty_id?: SortOrder
+    faculty_name?: SortOrder
+    createdAt?: SortOrder
+    _count?: facultyCountOrderByAggregateInput
+    _max?: facultyMaxOrderByAggregateInput
+    _min?: facultyMinOrderByAggregateInput
+  }
+
+  export type facultyScalarWhereWithAggregatesInput = {
+    AND?: facultyScalarWhereWithAggregatesInput | facultyScalarWhereWithAggregatesInput[]
+    OR?: facultyScalarWhereWithAggregatesInput[]
+    NOT?: facultyScalarWhereWithAggregatesInput | facultyScalarWhereWithAggregatesInput[]
+    faculty_id?: StringWithAggregatesFilter<"faculty"> | string
+    faculty_name?: StringWithAggregatesFilter<"faculty"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"faculty"> | Date | string
+  }
+
+  export type std_departmentsWhereInput = {
+    AND?: std_departmentsWhereInput | std_departmentsWhereInput[]
+    OR?: std_departmentsWhereInput[]
+    NOT?: std_departmentsWhereInput | std_departmentsWhereInput[]
+    department_id?: StringFilter<"std_departments"> | string
+    department_name?: StringFilter<"std_departments"> | string
+    faculty_id?: StringFilter<"std_departments"> | string
+    createdAt?: DateTimeFilter<"std_departments"> | Date | string
+    faculty?: XOR<FacultyScalarRelationFilter, facultyWhereInput>
+    alumni?: AlumniListRelationFilter
+    professors?: ProfessorListRelationFilter
+  }
+
+  export type std_departmentsOrderByWithRelationInput = {
+    department_id?: SortOrder
+    department_name?: SortOrder
+    faculty_id?: SortOrder
+    createdAt?: SortOrder
+    faculty?: facultyOrderByWithRelationInput
+    alumni?: alumniOrderByRelationAggregateInput
+    professors?: professorOrderByRelationAggregateInput
+  }
+
+  export type std_departmentsWhereUniqueInput = Prisma.AtLeast<{
+    department_id?: string
+    AND?: std_departmentsWhereInput | std_departmentsWhereInput[]
+    OR?: std_departmentsWhereInput[]
+    NOT?: std_departmentsWhereInput | std_departmentsWhereInput[]
+    department_name?: StringFilter<"std_departments"> | string
+    faculty_id?: StringFilter<"std_departments"> | string
+    createdAt?: DateTimeFilter<"std_departments"> | Date | string
+    faculty?: XOR<FacultyScalarRelationFilter, facultyWhereInput>
+    alumni?: AlumniListRelationFilter
+    professors?: ProfessorListRelationFilter
+  }, "department_id" | "department_id">
+
+  export type std_departmentsOrderByWithAggregationInput = {
+    department_id?: SortOrder
+    department_name?: SortOrder
+    faculty_id?: SortOrder
+    createdAt?: SortOrder
+    _count?: std_departmentsCountOrderByAggregateInput
+    _max?: std_departmentsMaxOrderByAggregateInput
+    _min?: std_departmentsMinOrderByAggregateInput
+  }
+
+  export type std_departmentsScalarWhereWithAggregatesInput = {
+    AND?: std_departmentsScalarWhereWithAggregatesInput | std_departmentsScalarWhereWithAggregatesInput[]
+    OR?: std_departmentsScalarWhereWithAggregatesInput[]
+    NOT?: std_departmentsScalarWhereWithAggregatesInput | std_departmentsScalarWhereWithAggregatesInput[]
+    department_id?: StringWithAggregatesFilter<"std_departments"> | string
+    department_name?: StringWithAggregatesFilter<"std_departments"> | string
+    faculty_id?: StringWithAggregatesFilter<"std_departments"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"std_departments"> | Date | string
+  }
+
+  export type edu_levelWhereInput = {
+    AND?: edu_levelWhereInput | edu_levelWhereInput[]
+    OR?: edu_levelWhereInput[]
+    NOT?: edu_levelWhereInput | edu_levelWhereInput[]
+    edu_levelId?: StringFilter<"edu_level"> | string
+    edu_level_name?: StringFilter<"edu_level"> | string
+    createdAt?: DateTimeFilter<"edu_level"> | Date | string
+    alumni?: AlumniListRelationFilter
+  }
+
+  export type edu_levelOrderByWithRelationInput = {
+    edu_levelId?: SortOrder
+    edu_level_name?: SortOrder
+    createdAt?: SortOrder
+    alumni?: alumniOrderByRelationAggregateInput
+  }
+
+  export type edu_levelWhereUniqueInput = Prisma.AtLeast<{
+    edu_levelId?: string
+    AND?: edu_levelWhereInput | edu_levelWhereInput[]
+    OR?: edu_levelWhereInput[]
+    NOT?: edu_levelWhereInput | edu_levelWhereInput[]
+    edu_level_name?: StringFilter<"edu_level"> | string
+    createdAt?: DateTimeFilter<"edu_level"> | Date | string
+    alumni?: AlumniListRelationFilter
+  }, "edu_levelId" | "edu_levelId">
+
+  export type edu_levelOrderByWithAggregationInput = {
+    edu_levelId?: SortOrder
+    edu_level_name?: SortOrder
+    createdAt?: SortOrder
+    _count?: edu_levelCountOrderByAggregateInput
+    _max?: edu_levelMaxOrderByAggregateInput
+    _min?: edu_levelMinOrderByAggregateInput
+  }
+
+  export type edu_levelScalarWhereWithAggregatesInput = {
+    AND?: edu_levelScalarWhereWithAggregatesInput | edu_levelScalarWhereWithAggregatesInput[]
+    OR?: edu_levelScalarWhereWithAggregatesInput[]
+    NOT?: edu_levelScalarWhereWithAggregatesInput | edu_levelScalarWhereWithAggregatesInput[]
+    edu_levelId?: StringWithAggregatesFilter<"edu_level"> | string
+    edu_level_name?: StringWithAggregatesFilter<"edu_level"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"edu_level"> | Date | string
+  }
+
   export type settingWhereInput = {
     AND?: settingWhereInput | settingWhereInput[]
     OR?: settingWhereInput[]
@@ -21235,9 +25205,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -21248,6 +25215,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateInput = {
@@ -21287,9 +25257,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -21300,6 +25267,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateInput = {
@@ -21358,9 +25328,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21896,15 +25863,15 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutProfessorInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
     importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
   }
 
   export type professorUncheckedCreateInput = {
@@ -21942,15 +25909,15 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutProfessorNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
     importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
   }
 
   export type professorUncheckedUpdateInput = {
@@ -22007,8 +25974,6 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -22519,6 +26484,162 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type facultyCreateInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    department?: std_departmentsCreateNestedManyWithoutFacultyInput
+    alumni?: alumniCreateNestedManyWithoutFacultyInput
+    professors?: professorCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyUncheckedCreateInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    department?: std_departmentsUncheckedCreateNestedManyWithoutFacultyInput
+    alumni?: alumniUncheckedCreateNestedManyWithoutFacultyInput
+    professors?: professorUncheckedCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyUpdateInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: std_departmentsUpdateManyWithoutFacultyNestedInput
+    alumni?: alumniUpdateManyWithoutFacultyNestedInput
+    professors?: professorUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type facultyUncheckedUpdateInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: std_departmentsUncheckedUpdateManyWithoutFacultyNestedInput
+    alumni?: alumniUncheckedUpdateManyWithoutFacultyNestedInput
+    professors?: professorUncheckedUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type facultyCreateManyInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+  }
+
+  export type facultyUpdateManyMutationInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type facultyUncheckedUpdateManyInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type std_departmentsCreateInput = {
+    department_id: string
+    department_name: string
+    createdAt?: Date | string
+    faculty: facultyCreateNestedOneWithoutDepartmentInput
+    alumni?: alumniCreateNestedManyWithoutStdDepartmentsInput
+    professors?: professorCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsUncheckedCreateInput = {
+    department_id: string
+    department_name: string
+    faculty_id: string
+    createdAt?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutStdDepartmentsInput
+    professors?: professorUncheckedCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsUpdateInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faculty?: facultyUpdateOneRequiredWithoutDepartmentNestedInput
+    alumni?: alumniUpdateManyWithoutStdDepartmentsNestedInput
+    professors?: professorUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type std_departmentsUncheckedUpdateInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutStdDepartmentsNestedInput
+    professors?: professorUncheckedUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type std_departmentsCreateManyInput = {
+    department_id: string
+    department_name: string
+    faculty_id: string
+    createdAt?: Date | string
+  }
+
+  export type std_departmentsUpdateManyMutationInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type std_departmentsUncheckedUpdateManyInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type edu_levelCreateInput = {
+    edu_levelId: string
+    edu_level_name: string
+    createdAt?: Date | string
+    alumni?: alumniCreateNestedManyWithoutEduLevelInput
+  }
+
+  export type edu_levelUncheckedCreateInput = {
+    edu_levelId: string
+    edu_level_name: string
+    createdAt?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutEduLevelInput
+  }
+
+  export type edu_levelUpdateInput = {
+    edu_levelId?: StringFieldUpdateOperationsInput | string
+    edu_level_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUpdateManyWithoutEduLevelNestedInput
+  }
+
+  export type edu_levelUncheckedUpdateInput = {
+    edu_levelId?: StringFieldUpdateOperationsInput | string
+    edu_level_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutEduLevelNestedInput
+  }
+
+  export type edu_levelCreateManyInput = {
+    edu_levelId: string
+    edu_level_name: string
+    createdAt?: Date | string
+  }
+
+  export type edu_levelUpdateManyMutationInput = {
+    edu_levelId?: StringFieldUpdateOperationsInput | string
+    edu_level_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type edu_levelUncheckedUpdateManyInput = {
+    edu_levelId?: StringFieldUpdateOperationsInput | string
+    edu_level_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type settingCreateInput = {
     regis_payment_qrcode?: string | null
     regis_payment?: number | null
@@ -22904,6 +27025,21 @@ export namespace Prisma {
     every?: sendTextHistoryWhereInput
     some?: sendTextHistoryWhereInput
     none?: sendTextHistoryWhereInput
+  }
+
+  export type FacultyNullableScalarRelationFilter = {
+    is?: facultyWhereInput | null
+    isNot?: facultyWhereInput | null
+  }
+
+  export type Std_departmentsNullableScalarRelationFilter = {
+    is?: std_departmentsWhereInput | null
+    isNot?: std_departmentsWhereInput | null
+  }
+
+  export type Edu_levelNullableScalarRelationFilter = {
+    is?: edu_levelWhereInput | null
+    isNot?: edu_levelWhereInput | null
   }
 
   export type work_expreriencesOrderByRelationAggregateInput = {
@@ -23690,6 +27826,78 @@ export namespace Prisma {
     total_rows?: SortOrder
   }
 
+  export type Std_departmentsListRelationFilter = {
+    every?: std_departmentsWhereInput
+    some?: std_departmentsWhereInput
+    none?: std_departmentsWhereInput
+  }
+
+  export type std_departmentsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type facultyCountOrderByAggregateInput = {
+    faculty_id?: SortOrder
+    faculty_name?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type facultyMaxOrderByAggregateInput = {
+    faculty_id?: SortOrder
+    faculty_name?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type facultyMinOrderByAggregateInput = {
+    faculty_id?: SortOrder
+    faculty_name?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FacultyScalarRelationFilter = {
+    is?: facultyWhereInput
+    isNot?: facultyWhereInput
+  }
+
+  export type std_departmentsCountOrderByAggregateInput = {
+    department_id?: SortOrder
+    department_name?: SortOrder
+    faculty_id?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type std_departmentsMaxOrderByAggregateInput = {
+    department_id?: SortOrder
+    department_name?: SortOrder
+    faculty_id?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type std_departmentsMinOrderByAggregateInput = {
+    department_id?: SortOrder
+    department_name?: SortOrder
+    faculty_id?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type edu_levelCountOrderByAggregateInput = {
+    edu_levelId?: SortOrder
+    edu_level_name?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type edu_levelMaxOrderByAggregateInput = {
+    edu_levelId?: SortOrder
+    edu_level_name?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type edu_levelMinOrderByAggregateInput = {
+    edu_levelId?: SortOrder
+    edu_level_name?: SortOrder
+    createdAt?: SortOrder
+  }
+
   export type settingCountOrderByAggregateInput = {
     id?: SortOrder
     regis_payment_qrcode?: SortOrder
@@ -23850,6 +28058,24 @@ export namespace Prisma {
     connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
   }
 
+  export type facultyCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<facultyCreateWithoutAlumniInput, facultyUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: facultyCreateOrConnectWithoutAlumniInput
+    connect?: facultyWhereUniqueInput
+  }
+
+  export type std_departmentsCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<std_departmentsCreateWithoutAlumniInput, std_departmentsUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutAlumniInput
+    connect?: std_departmentsWhereUniqueInput
+  }
+
+  export type edu_levelCreateNestedOneWithoutAlumniInput = {
+    create?: XOR<edu_levelCreateWithoutAlumniInput, edu_levelUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: edu_levelCreateOrConnectWithoutAlumniInput
+    connect?: edu_levelWhereUniqueInput
+  }
+
   export type otpUncheckedCreateNestedOneWithoutAlumniInput = {
     create?: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
     connectOrCreate?: otpCreateOrConnectWithoutAlumniInput
@@ -23989,6 +28215,36 @@ export namespace Prisma {
     update?: sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput | sendTextHistoryUpdateWithWhereUniqueWithoutAlumniInput[]
     updateMany?: sendTextHistoryUpdateManyWithWhereWithoutAlumniInput | sendTextHistoryUpdateManyWithWhereWithoutAlumniInput[]
     deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
+  }
+
+  export type facultyUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<facultyCreateWithoutAlumniInput, facultyUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: facultyCreateOrConnectWithoutAlumniInput
+    upsert?: facultyUpsertWithoutAlumniInput
+    disconnect?: facultyWhereInput | boolean
+    delete?: facultyWhereInput | boolean
+    connect?: facultyWhereUniqueInput
+    update?: XOR<XOR<facultyUpdateToOneWithWhereWithoutAlumniInput, facultyUpdateWithoutAlumniInput>, facultyUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type std_departmentsUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<std_departmentsCreateWithoutAlumniInput, std_departmentsUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutAlumniInput
+    upsert?: std_departmentsUpsertWithoutAlumniInput
+    disconnect?: std_departmentsWhereInput | boolean
+    delete?: std_departmentsWhereInput | boolean
+    connect?: std_departmentsWhereUniqueInput
+    update?: XOR<XOR<std_departmentsUpdateToOneWithWhereWithoutAlumniInput, std_departmentsUpdateWithoutAlumniInput>, std_departmentsUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type edu_levelUpdateOneWithoutAlumniNestedInput = {
+    create?: XOR<edu_levelCreateWithoutAlumniInput, edu_levelUncheckedCreateWithoutAlumniInput>
+    connectOrCreate?: edu_levelCreateOrConnectWithoutAlumniInput
+    upsert?: edu_levelUpsertWithoutAlumniInput
+    disconnect?: edu_levelWhereInput | boolean
+    delete?: edu_levelWhereInput | boolean
+    connect?: edu_levelWhereUniqueInput
+    update?: XOR<XOR<edu_levelUpdateToOneWithWhereWithoutAlumniInput, edu_levelUpdateWithoutAlumniInput>, edu_levelUncheckedUpdateWithoutAlumniInput>
   }
 
   export type otpUncheckedUpdateOneWithoutAlumniNestedInput = {
@@ -24194,6 +28450,12 @@ export namespace Prisma {
     connect?: sendTextHistoryWhereUniqueInput | sendTextHistoryWhereUniqueInput[]
   }
 
+  export type facultyCreateNestedOneWithoutProfessorsInput = {
+    create?: XOR<facultyCreateWithoutProfessorsInput, facultyUncheckedCreateWithoutProfessorsInput>
+    connectOrCreate?: facultyCreateOrConnectWithoutProfessorsInput
+    connect?: facultyWhereUniqueInput
+  }
+
   export type user_privacyCreateNestedOneWithoutProfessorInput = {
     create?: XOR<user_privacyCreateWithoutProfessorInput, user_privacyUncheckedCreateWithoutProfessorInput>
     connectOrCreate?: user_privacyCreateOrConnectWithoutProfessorInput
@@ -24211,6 +28473,12 @@ export namespace Prisma {
     create?: XOR<import_historyCreateWithoutProfessorInput, import_historyUncheckedCreateWithoutProfessorInput>
     connectOrCreate?: import_historyCreateOrConnectWithoutProfessorInput
     connect?: import_historyWhereUniqueInput
+  }
+
+  export type std_departmentsCreateNestedOneWithoutProfessorsInput = {
+    create?: XOR<std_departmentsCreateWithoutProfessorsInput, std_departmentsUncheckedCreateWithoutProfessorsInput>
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutProfessorsInput
+    connect?: std_departmentsWhereUniqueInput
   }
 
   export type otpUncheckedCreateNestedOneWithoutProfessorInput = {
@@ -24263,6 +28531,16 @@ export namespace Prisma {
     deleteMany?: sendTextHistoryScalarWhereInput | sendTextHistoryScalarWhereInput[]
   }
 
+  export type facultyUpdateOneWithoutProfessorsNestedInput = {
+    create?: XOR<facultyCreateWithoutProfessorsInput, facultyUncheckedCreateWithoutProfessorsInput>
+    connectOrCreate?: facultyCreateOrConnectWithoutProfessorsInput
+    upsert?: facultyUpsertWithoutProfessorsInput
+    disconnect?: facultyWhereInput | boolean
+    delete?: facultyWhereInput | boolean
+    connect?: facultyWhereUniqueInput
+    update?: XOR<XOR<facultyUpdateToOneWithWhereWithoutProfessorsInput, facultyUpdateWithoutProfessorsInput>, facultyUncheckedUpdateWithoutProfessorsInput>
+  }
+
   export type user_privacyUpdateOneWithoutProfessorNestedInput = {
     create?: XOR<user_privacyCreateWithoutProfessorInput, user_privacyUncheckedCreateWithoutProfessorInput>
     connectOrCreate?: user_privacyCreateOrConnectWithoutProfessorInput
@@ -24295,6 +28573,16 @@ export namespace Prisma {
     delete?: import_historyWhereInput | boolean
     connect?: import_historyWhereUniqueInput
     update?: XOR<XOR<import_historyUpdateToOneWithWhereWithoutProfessorInput, import_historyUpdateWithoutProfessorInput>, import_historyUncheckedUpdateWithoutProfessorInput>
+  }
+
+  export type std_departmentsUpdateOneWithoutProfessorsNestedInput = {
+    create?: XOR<std_departmentsCreateWithoutProfessorsInput, std_departmentsUncheckedCreateWithoutProfessorsInput>
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutProfessorsInput
+    upsert?: std_departmentsUpsertWithoutProfessorsInput
+    disconnect?: std_departmentsWhereInput | boolean
+    delete?: std_departmentsWhereInput | boolean
+    connect?: std_departmentsWhereUniqueInput
+    update?: XOR<XOR<std_departmentsUpdateToOneWithWhereWithoutProfessorsInput, std_departmentsUpdateWithoutProfessorsInput>, std_departmentsUncheckedUpdateWithoutProfessorsInput>
   }
 
   export type otpUncheckedUpdateOneWithoutProfessorNestedInput = {
@@ -24667,6 +28955,272 @@ export namespace Prisma {
     deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
   }
 
+  export type std_departmentsCreateNestedManyWithoutFacultyInput = {
+    create?: XOR<std_departmentsCreateWithoutFacultyInput, std_departmentsUncheckedCreateWithoutFacultyInput> | std_departmentsCreateWithoutFacultyInput[] | std_departmentsUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutFacultyInput | std_departmentsCreateOrConnectWithoutFacultyInput[]
+    createMany?: std_departmentsCreateManyFacultyInputEnvelope
+    connect?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+  }
+
+  export type alumniCreateNestedManyWithoutFacultyInput = {
+    create?: XOR<alumniCreateWithoutFacultyInput, alumniUncheckedCreateWithoutFacultyInput> | alumniCreateWithoutFacultyInput[] | alumniUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutFacultyInput | alumniCreateOrConnectWithoutFacultyInput[]
+    createMany?: alumniCreateManyFacultyInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type professorCreateNestedManyWithoutFacultyInput = {
+    create?: XOR<professorCreateWithoutFacultyInput, professorUncheckedCreateWithoutFacultyInput> | professorCreateWithoutFacultyInput[] | professorUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutFacultyInput | professorCreateOrConnectWithoutFacultyInput[]
+    createMany?: professorCreateManyFacultyInputEnvelope
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+  }
+
+  export type std_departmentsUncheckedCreateNestedManyWithoutFacultyInput = {
+    create?: XOR<std_departmentsCreateWithoutFacultyInput, std_departmentsUncheckedCreateWithoutFacultyInput> | std_departmentsCreateWithoutFacultyInput[] | std_departmentsUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutFacultyInput | std_departmentsCreateOrConnectWithoutFacultyInput[]
+    createMany?: std_departmentsCreateManyFacultyInputEnvelope
+    connect?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+  }
+
+  export type alumniUncheckedCreateNestedManyWithoutFacultyInput = {
+    create?: XOR<alumniCreateWithoutFacultyInput, alumniUncheckedCreateWithoutFacultyInput> | alumniCreateWithoutFacultyInput[] | alumniUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutFacultyInput | alumniCreateOrConnectWithoutFacultyInput[]
+    createMany?: alumniCreateManyFacultyInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type professorUncheckedCreateNestedManyWithoutFacultyInput = {
+    create?: XOR<professorCreateWithoutFacultyInput, professorUncheckedCreateWithoutFacultyInput> | professorCreateWithoutFacultyInput[] | professorUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutFacultyInput | professorCreateOrConnectWithoutFacultyInput[]
+    createMany?: professorCreateManyFacultyInputEnvelope
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+  }
+
+  export type std_departmentsUpdateManyWithoutFacultyNestedInput = {
+    create?: XOR<std_departmentsCreateWithoutFacultyInput, std_departmentsUncheckedCreateWithoutFacultyInput> | std_departmentsCreateWithoutFacultyInput[] | std_departmentsUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutFacultyInput | std_departmentsCreateOrConnectWithoutFacultyInput[]
+    upsert?: std_departmentsUpsertWithWhereUniqueWithoutFacultyInput | std_departmentsUpsertWithWhereUniqueWithoutFacultyInput[]
+    createMany?: std_departmentsCreateManyFacultyInputEnvelope
+    set?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    disconnect?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    delete?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    connect?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    update?: std_departmentsUpdateWithWhereUniqueWithoutFacultyInput | std_departmentsUpdateWithWhereUniqueWithoutFacultyInput[]
+    updateMany?: std_departmentsUpdateManyWithWhereWithoutFacultyInput | std_departmentsUpdateManyWithWhereWithoutFacultyInput[]
+    deleteMany?: std_departmentsScalarWhereInput | std_departmentsScalarWhereInput[]
+  }
+
+  export type alumniUpdateManyWithoutFacultyNestedInput = {
+    create?: XOR<alumniCreateWithoutFacultyInput, alumniUncheckedCreateWithoutFacultyInput> | alumniCreateWithoutFacultyInput[] | alumniUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutFacultyInput | alumniCreateOrConnectWithoutFacultyInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutFacultyInput | alumniUpsertWithWhereUniqueWithoutFacultyInput[]
+    createMany?: alumniCreateManyFacultyInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutFacultyInput | alumniUpdateWithWhereUniqueWithoutFacultyInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutFacultyInput | alumniUpdateManyWithWhereWithoutFacultyInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type professorUpdateManyWithoutFacultyNestedInput = {
+    create?: XOR<professorCreateWithoutFacultyInput, professorUncheckedCreateWithoutFacultyInput> | professorCreateWithoutFacultyInput[] | professorUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutFacultyInput | professorCreateOrConnectWithoutFacultyInput[]
+    upsert?: professorUpsertWithWhereUniqueWithoutFacultyInput | professorUpsertWithWhereUniqueWithoutFacultyInput[]
+    createMany?: professorCreateManyFacultyInputEnvelope
+    set?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    disconnect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    delete?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    update?: professorUpdateWithWhereUniqueWithoutFacultyInput | professorUpdateWithWhereUniqueWithoutFacultyInput[]
+    updateMany?: professorUpdateManyWithWhereWithoutFacultyInput | professorUpdateManyWithWhereWithoutFacultyInput[]
+    deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
+  }
+
+  export type std_departmentsUncheckedUpdateManyWithoutFacultyNestedInput = {
+    create?: XOR<std_departmentsCreateWithoutFacultyInput, std_departmentsUncheckedCreateWithoutFacultyInput> | std_departmentsCreateWithoutFacultyInput[] | std_departmentsUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: std_departmentsCreateOrConnectWithoutFacultyInput | std_departmentsCreateOrConnectWithoutFacultyInput[]
+    upsert?: std_departmentsUpsertWithWhereUniqueWithoutFacultyInput | std_departmentsUpsertWithWhereUniqueWithoutFacultyInput[]
+    createMany?: std_departmentsCreateManyFacultyInputEnvelope
+    set?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    disconnect?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    delete?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    connect?: std_departmentsWhereUniqueInput | std_departmentsWhereUniqueInput[]
+    update?: std_departmentsUpdateWithWhereUniqueWithoutFacultyInput | std_departmentsUpdateWithWhereUniqueWithoutFacultyInput[]
+    updateMany?: std_departmentsUpdateManyWithWhereWithoutFacultyInput | std_departmentsUpdateManyWithWhereWithoutFacultyInput[]
+    deleteMany?: std_departmentsScalarWhereInput | std_departmentsScalarWhereInput[]
+  }
+
+  export type alumniUncheckedUpdateManyWithoutFacultyNestedInput = {
+    create?: XOR<alumniCreateWithoutFacultyInput, alumniUncheckedCreateWithoutFacultyInput> | alumniCreateWithoutFacultyInput[] | alumniUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutFacultyInput | alumniCreateOrConnectWithoutFacultyInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutFacultyInput | alumniUpsertWithWhereUniqueWithoutFacultyInput[]
+    createMany?: alumniCreateManyFacultyInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutFacultyInput | alumniUpdateWithWhereUniqueWithoutFacultyInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutFacultyInput | alumniUpdateManyWithWhereWithoutFacultyInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type professorUncheckedUpdateManyWithoutFacultyNestedInput = {
+    create?: XOR<professorCreateWithoutFacultyInput, professorUncheckedCreateWithoutFacultyInput> | professorCreateWithoutFacultyInput[] | professorUncheckedCreateWithoutFacultyInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutFacultyInput | professorCreateOrConnectWithoutFacultyInput[]
+    upsert?: professorUpsertWithWhereUniqueWithoutFacultyInput | professorUpsertWithWhereUniqueWithoutFacultyInput[]
+    createMany?: professorCreateManyFacultyInputEnvelope
+    set?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    disconnect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    delete?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    update?: professorUpdateWithWhereUniqueWithoutFacultyInput | professorUpdateWithWhereUniqueWithoutFacultyInput[]
+    updateMany?: professorUpdateManyWithWhereWithoutFacultyInput | professorUpdateManyWithWhereWithoutFacultyInput[]
+    deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
+  }
+
+  export type facultyCreateNestedOneWithoutDepartmentInput = {
+    create?: XOR<facultyCreateWithoutDepartmentInput, facultyUncheckedCreateWithoutDepartmentInput>
+    connectOrCreate?: facultyCreateOrConnectWithoutDepartmentInput
+    connect?: facultyWhereUniqueInput
+  }
+
+  export type alumniCreateNestedManyWithoutStdDepartmentsInput = {
+    create?: XOR<alumniCreateWithoutStdDepartmentsInput, alumniUncheckedCreateWithoutStdDepartmentsInput> | alumniCreateWithoutStdDepartmentsInput[] | alumniUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutStdDepartmentsInput | alumniCreateOrConnectWithoutStdDepartmentsInput[]
+    createMany?: alumniCreateManyStdDepartmentsInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type professorCreateNestedManyWithoutStdDepartmentsInput = {
+    create?: XOR<professorCreateWithoutStdDepartmentsInput, professorUncheckedCreateWithoutStdDepartmentsInput> | professorCreateWithoutStdDepartmentsInput[] | professorUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutStdDepartmentsInput | professorCreateOrConnectWithoutStdDepartmentsInput[]
+    createMany?: professorCreateManyStdDepartmentsInputEnvelope
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+  }
+
+  export type alumniUncheckedCreateNestedManyWithoutStdDepartmentsInput = {
+    create?: XOR<alumniCreateWithoutStdDepartmentsInput, alumniUncheckedCreateWithoutStdDepartmentsInput> | alumniCreateWithoutStdDepartmentsInput[] | alumniUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutStdDepartmentsInput | alumniCreateOrConnectWithoutStdDepartmentsInput[]
+    createMany?: alumniCreateManyStdDepartmentsInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type professorUncheckedCreateNestedManyWithoutStdDepartmentsInput = {
+    create?: XOR<professorCreateWithoutStdDepartmentsInput, professorUncheckedCreateWithoutStdDepartmentsInput> | professorCreateWithoutStdDepartmentsInput[] | professorUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutStdDepartmentsInput | professorCreateOrConnectWithoutStdDepartmentsInput[]
+    createMany?: professorCreateManyStdDepartmentsInputEnvelope
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+  }
+
+  export type facultyUpdateOneRequiredWithoutDepartmentNestedInput = {
+    create?: XOR<facultyCreateWithoutDepartmentInput, facultyUncheckedCreateWithoutDepartmentInput>
+    connectOrCreate?: facultyCreateOrConnectWithoutDepartmentInput
+    upsert?: facultyUpsertWithoutDepartmentInput
+    connect?: facultyWhereUniqueInput
+    update?: XOR<XOR<facultyUpdateToOneWithWhereWithoutDepartmentInput, facultyUpdateWithoutDepartmentInput>, facultyUncheckedUpdateWithoutDepartmentInput>
+  }
+
+  export type alumniUpdateManyWithoutStdDepartmentsNestedInput = {
+    create?: XOR<alumniCreateWithoutStdDepartmentsInput, alumniUncheckedCreateWithoutStdDepartmentsInput> | alumniCreateWithoutStdDepartmentsInput[] | alumniUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutStdDepartmentsInput | alumniCreateOrConnectWithoutStdDepartmentsInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutStdDepartmentsInput | alumniUpsertWithWhereUniqueWithoutStdDepartmentsInput[]
+    createMany?: alumniCreateManyStdDepartmentsInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutStdDepartmentsInput | alumniUpdateWithWhereUniqueWithoutStdDepartmentsInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutStdDepartmentsInput | alumniUpdateManyWithWhereWithoutStdDepartmentsInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type professorUpdateManyWithoutStdDepartmentsNestedInput = {
+    create?: XOR<professorCreateWithoutStdDepartmentsInput, professorUncheckedCreateWithoutStdDepartmentsInput> | professorCreateWithoutStdDepartmentsInput[] | professorUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutStdDepartmentsInput | professorCreateOrConnectWithoutStdDepartmentsInput[]
+    upsert?: professorUpsertWithWhereUniqueWithoutStdDepartmentsInput | professorUpsertWithWhereUniqueWithoutStdDepartmentsInput[]
+    createMany?: professorCreateManyStdDepartmentsInputEnvelope
+    set?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    disconnect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    delete?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    update?: professorUpdateWithWhereUniqueWithoutStdDepartmentsInput | professorUpdateWithWhereUniqueWithoutStdDepartmentsInput[]
+    updateMany?: professorUpdateManyWithWhereWithoutStdDepartmentsInput | professorUpdateManyWithWhereWithoutStdDepartmentsInput[]
+    deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
+  }
+
+  export type alumniUncheckedUpdateManyWithoutStdDepartmentsNestedInput = {
+    create?: XOR<alumniCreateWithoutStdDepartmentsInput, alumniUncheckedCreateWithoutStdDepartmentsInput> | alumniCreateWithoutStdDepartmentsInput[] | alumniUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutStdDepartmentsInput | alumniCreateOrConnectWithoutStdDepartmentsInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutStdDepartmentsInput | alumniUpsertWithWhereUniqueWithoutStdDepartmentsInput[]
+    createMany?: alumniCreateManyStdDepartmentsInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutStdDepartmentsInput | alumniUpdateWithWhereUniqueWithoutStdDepartmentsInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutStdDepartmentsInput | alumniUpdateManyWithWhereWithoutStdDepartmentsInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type professorUncheckedUpdateManyWithoutStdDepartmentsNestedInput = {
+    create?: XOR<professorCreateWithoutStdDepartmentsInput, professorUncheckedCreateWithoutStdDepartmentsInput> | professorCreateWithoutStdDepartmentsInput[] | professorUncheckedCreateWithoutStdDepartmentsInput[]
+    connectOrCreate?: professorCreateOrConnectWithoutStdDepartmentsInput | professorCreateOrConnectWithoutStdDepartmentsInput[]
+    upsert?: professorUpsertWithWhereUniqueWithoutStdDepartmentsInput | professorUpsertWithWhereUniqueWithoutStdDepartmentsInput[]
+    createMany?: professorCreateManyStdDepartmentsInputEnvelope
+    set?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    disconnect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    delete?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    connect?: professorWhereUniqueInput | professorWhereUniqueInput[]
+    update?: professorUpdateWithWhereUniqueWithoutStdDepartmentsInput | professorUpdateWithWhereUniqueWithoutStdDepartmentsInput[]
+    updateMany?: professorUpdateManyWithWhereWithoutStdDepartmentsInput | professorUpdateManyWithWhereWithoutStdDepartmentsInput[]
+    deleteMany?: professorScalarWhereInput | professorScalarWhereInput[]
+  }
+
+  export type alumniCreateNestedManyWithoutEduLevelInput = {
+    create?: XOR<alumniCreateWithoutEduLevelInput, alumniUncheckedCreateWithoutEduLevelInput> | alumniCreateWithoutEduLevelInput[] | alumniUncheckedCreateWithoutEduLevelInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutEduLevelInput | alumniCreateOrConnectWithoutEduLevelInput[]
+    createMany?: alumniCreateManyEduLevelInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type alumniUncheckedCreateNestedManyWithoutEduLevelInput = {
+    create?: XOR<alumniCreateWithoutEduLevelInput, alumniUncheckedCreateWithoutEduLevelInput> | alumniCreateWithoutEduLevelInput[] | alumniUncheckedCreateWithoutEduLevelInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutEduLevelInput | alumniCreateOrConnectWithoutEduLevelInput[]
+    createMany?: alumniCreateManyEduLevelInputEnvelope
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+  }
+
+  export type alumniUpdateManyWithoutEduLevelNestedInput = {
+    create?: XOR<alumniCreateWithoutEduLevelInput, alumniUncheckedCreateWithoutEduLevelInput> | alumniCreateWithoutEduLevelInput[] | alumniUncheckedCreateWithoutEduLevelInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutEduLevelInput | alumniCreateOrConnectWithoutEduLevelInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutEduLevelInput | alumniUpsertWithWhereUniqueWithoutEduLevelInput[]
+    createMany?: alumniCreateManyEduLevelInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutEduLevelInput | alumniUpdateWithWhereUniqueWithoutEduLevelInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutEduLevelInput | alumniUpdateManyWithWhereWithoutEduLevelInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
+  export type alumniUncheckedUpdateManyWithoutEduLevelNestedInput = {
+    create?: XOR<alumniCreateWithoutEduLevelInput, alumniUncheckedCreateWithoutEduLevelInput> | alumniCreateWithoutEduLevelInput[] | alumniUncheckedCreateWithoutEduLevelInput[]
+    connectOrCreate?: alumniCreateOrConnectWithoutEduLevelInput | alumniCreateOrConnectWithoutEduLevelInput[]
+    upsert?: alumniUpsertWithWhereUniqueWithoutEduLevelInput | alumniUpsertWithWhereUniqueWithoutEduLevelInput[]
+    createMany?: alumniCreateManyEduLevelInputEnvelope
+    set?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    disconnect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    delete?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    connect?: alumniWhereUniqueInput | alumniWhereUniqueInput[]
+    update?: alumniUpdateWithWhereUniqueWithoutEduLevelInput | alumniUpdateWithWhereUniqueWithoutEduLevelInput[]
+    updateMany?: alumniUpdateManyWithWhereWithoutEduLevelInput | alumniUpdateManyWithWhereWithoutEduLevelInput[]
+    deleteMany?: alumniScalarWhereInput | alumniScalarWhereInput[]
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -24908,9 +29462,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -24920,6 +29471,9 @@ export namespace Prisma {
     alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutRegis_alumniInput = {
@@ -24974,9 +29528,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -24986,6 +29537,9 @@ export namespace Prisma {
     alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutRegis_alumniInput = {
@@ -25289,6 +29843,65 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type facultyCreateWithoutAlumniInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    department?: std_departmentsCreateNestedManyWithoutFacultyInput
+    professors?: professorCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyUncheckedCreateWithoutAlumniInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    department?: std_departmentsUncheckedCreateNestedManyWithoutFacultyInput
+    professors?: professorUncheckedCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyCreateOrConnectWithoutAlumniInput = {
+    where: facultyWhereUniqueInput
+    create: XOR<facultyCreateWithoutAlumniInput, facultyUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type std_departmentsCreateWithoutAlumniInput = {
+    department_id: string
+    department_name: string
+    createdAt?: Date | string
+    faculty: facultyCreateNestedOneWithoutDepartmentInput
+    professors?: professorCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsUncheckedCreateWithoutAlumniInput = {
+    department_id: string
+    department_name: string
+    faculty_id: string
+    createdAt?: Date | string
+    professors?: professorUncheckedCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsCreateOrConnectWithoutAlumniInput = {
+    where: std_departmentsWhereUniqueInput
+    create: XOR<std_departmentsCreateWithoutAlumniInput, std_departmentsUncheckedCreateWithoutAlumniInput>
+  }
+
+  export type edu_levelCreateWithoutAlumniInput = {
+    edu_levelId: string
+    edu_level_name: string
+    createdAt?: Date | string
+  }
+
+  export type edu_levelUncheckedCreateWithoutAlumniInput = {
+    edu_levelId: string
+    edu_level_name: string
+    createdAt?: Date | string
+  }
+
+  export type edu_levelCreateOrConnectWithoutAlumniInput = {
+    where: edu_levelWhereUniqueInput
+    create: XOR<edu_levelCreateWithoutAlumniInput, edu_levelUncheckedCreateWithoutAlumniInput>
+  }
+
   export type otpUpsertWithoutAlumniInput = {
     update: XOR<otpUpdateWithoutAlumniInput, otpUncheckedUpdateWithoutAlumniInput>
     create: XOR<otpCreateWithoutAlumniInput, otpUncheckedCreateWithoutAlumniInput>
@@ -25579,6 +30192,83 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"sendTextHistory"> | Date | string
   }
 
+  export type facultyUpsertWithoutAlumniInput = {
+    update: XOR<facultyUpdateWithoutAlumniInput, facultyUncheckedUpdateWithoutAlumniInput>
+    create: XOR<facultyCreateWithoutAlumniInput, facultyUncheckedCreateWithoutAlumniInput>
+    where?: facultyWhereInput
+  }
+
+  export type facultyUpdateToOneWithWhereWithoutAlumniInput = {
+    where?: facultyWhereInput
+    data: XOR<facultyUpdateWithoutAlumniInput, facultyUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type facultyUpdateWithoutAlumniInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: std_departmentsUpdateManyWithoutFacultyNestedInput
+    professors?: professorUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type facultyUncheckedUpdateWithoutAlumniInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: std_departmentsUncheckedUpdateManyWithoutFacultyNestedInput
+    professors?: professorUncheckedUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type std_departmentsUpsertWithoutAlumniInput = {
+    update: XOR<std_departmentsUpdateWithoutAlumniInput, std_departmentsUncheckedUpdateWithoutAlumniInput>
+    create: XOR<std_departmentsCreateWithoutAlumniInput, std_departmentsUncheckedCreateWithoutAlumniInput>
+    where?: std_departmentsWhereInput
+  }
+
+  export type std_departmentsUpdateToOneWithWhereWithoutAlumniInput = {
+    where?: std_departmentsWhereInput
+    data: XOR<std_departmentsUpdateWithoutAlumniInput, std_departmentsUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type std_departmentsUpdateWithoutAlumniInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faculty?: facultyUpdateOneRequiredWithoutDepartmentNestedInput
+    professors?: professorUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type std_departmentsUncheckedUpdateWithoutAlumniInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    professors?: professorUncheckedUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type edu_levelUpsertWithoutAlumniInput = {
+    update: XOR<edu_levelUpdateWithoutAlumniInput, edu_levelUncheckedUpdateWithoutAlumniInput>
+    create: XOR<edu_levelCreateWithoutAlumniInput, edu_levelUncheckedCreateWithoutAlumniInput>
+    where?: edu_levelWhereInput
+  }
+
+  export type edu_levelUpdateToOneWithWhereWithoutAlumniInput = {
+    where?: edu_levelWhereInput
+    data: XOR<edu_levelUpdateWithoutAlumniInput, edu_levelUncheckedUpdateWithoutAlumniInput>
+  }
+
+  export type edu_levelUpdateWithoutAlumniInput = {
+    edu_levelId?: StringFieldUpdateOperationsInput | string
+    edu_level_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type edu_levelUncheckedUpdateWithoutAlumniInput = {
+    edu_levelId?: StringFieldUpdateOperationsInput | string
+    edu_level_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type alumniCreateWithoutAlumni_contractInput = {
     alumni_id: string
     prefix: string
@@ -25590,9 +30280,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -25602,6 +30289,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutAlumni_contractInput = {
@@ -25646,14 +30336,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutProfessorInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
     importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
   }
 
   export type professorUncheckedCreateWithoutAlumni_contractInput = {
@@ -25705,9 +30395,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -25717,6 +30404,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutAlumni_contractInput = {
@@ -25767,14 +30457,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutProfessorNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
     importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
   }
 
   export type professorUncheckedUpdateWithoutAlumni_contractInput = {
@@ -25810,9 +30500,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -25822,6 +30509,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutWork_expreriencesInput = {
@@ -25876,9 +30566,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -25888,6 +30575,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutWork_expreriencesInput = {
@@ -25926,9 +30616,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -25938,6 +30625,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutStudy_expreriencesInput = {
@@ -25992,9 +30682,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -26004,6 +30691,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutStudy_expreriencesInput = {
@@ -26042,9 +30732,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -26054,6 +30741,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutUser_privacyInput = {
@@ -26098,14 +30788,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutProfessorInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
     importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
   }
 
   export type professorUncheckedCreateWithoutUser_privacyInput = {
@@ -26157,9 +30847,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -26169,6 +30856,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutUser_privacyInput = {
@@ -26219,14 +30909,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutProfessorNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
     importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
   }
 
   export type professorUncheckedUpdateWithoutUser_privacyInput = {
@@ -26302,6 +30992,27 @@ export namespace Prisma {
   export type sendTextHistoryCreateManyProfessorInputEnvelope = {
     data: sendTextHistoryCreateManyProfessorInput | sendTextHistoryCreateManyProfessorInput[]
     skipDuplicates?: boolean
+  }
+
+  export type facultyCreateWithoutProfessorsInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    department?: std_departmentsCreateNestedManyWithoutFacultyInput
+    alumni?: alumniCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyUncheckedCreateWithoutProfessorsInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    department?: std_departmentsUncheckedCreateNestedManyWithoutFacultyInput
+    alumni?: alumniUncheckedCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyCreateOrConnectWithoutProfessorsInput = {
+    where: facultyWhereUniqueInput
+    create: XOR<facultyCreateWithoutProfessorsInput, facultyUncheckedCreateWithoutProfessorsInput>
   }
 
   export type user_privacyCreateWithoutProfessorInput = {
@@ -26414,6 +31125,27 @@ export namespace Prisma {
     create: XOR<import_historyCreateWithoutProfessorInput, import_historyUncheckedCreateWithoutProfessorInput>
   }
 
+  export type std_departmentsCreateWithoutProfessorsInput = {
+    department_id: string
+    department_name: string
+    createdAt?: Date | string
+    faculty: facultyCreateNestedOneWithoutDepartmentInput
+    alumni?: alumniCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsUncheckedCreateWithoutProfessorsInput = {
+    department_id: string
+    department_name: string
+    faculty_id: string
+    createdAt?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsCreateOrConnectWithoutProfessorsInput = {
+    where: std_departmentsWhereUniqueInput
+    create: XOR<std_departmentsCreateWithoutProfessorsInput, std_departmentsUncheckedCreateWithoutProfessorsInput>
+  }
+
   export type otpUpsertWithoutProfessorInput = {
     update: XOR<otpUpdateWithoutProfessorInput, otpUncheckedUpdateWithoutProfessorInput>
     create: XOR<otpCreateWithoutProfessorInput, otpUncheckedCreateWithoutProfessorInput>
@@ -26454,6 +31186,33 @@ export namespace Prisma {
   export type sendTextHistoryUpdateManyWithWhereWithoutProfessorInput = {
     where: sendTextHistoryScalarWhereInput
     data: XOR<sendTextHistoryUpdateManyMutationInput, sendTextHistoryUncheckedUpdateManyWithoutProfessorInput>
+  }
+
+  export type facultyUpsertWithoutProfessorsInput = {
+    update: XOR<facultyUpdateWithoutProfessorsInput, facultyUncheckedUpdateWithoutProfessorsInput>
+    create: XOR<facultyCreateWithoutProfessorsInput, facultyUncheckedCreateWithoutProfessorsInput>
+    where?: facultyWhereInput
+  }
+
+  export type facultyUpdateToOneWithWhereWithoutProfessorsInput = {
+    where?: facultyWhereInput
+    data: XOR<facultyUpdateWithoutProfessorsInput, facultyUncheckedUpdateWithoutProfessorsInput>
+  }
+
+  export type facultyUpdateWithoutProfessorsInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: std_departmentsUpdateManyWithoutFacultyNestedInput
+    alumni?: alumniUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type facultyUncheckedUpdateWithoutProfessorsInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    department?: std_departmentsUncheckedUpdateManyWithoutFacultyNestedInput
+    alumni?: alumniUncheckedUpdateManyWithoutFacultyNestedInput
   }
 
   export type user_privacyUpsertWithoutProfessorInput = {
@@ -26570,6 +31329,33 @@ export namespace Prisma {
     finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     alumni?: alumniUncheckedUpdateManyWithoutImportHistoryNestedInput
+  }
+
+  export type std_departmentsUpsertWithoutProfessorsInput = {
+    update: XOR<std_departmentsUpdateWithoutProfessorsInput, std_departmentsUncheckedUpdateWithoutProfessorsInput>
+    create: XOR<std_departmentsCreateWithoutProfessorsInput, std_departmentsUncheckedCreateWithoutProfessorsInput>
+    where?: std_departmentsWhereInput
+  }
+
+  export type std_departmentsUpdateToOneWithWhereWithoutProfessorsInput = {
+    where?: std_departmentsWhereInput
+    data: XOR<std_departmentsUpdateWithoutProfessorsInput, std_departmentsUncheckedUpdateWithoutProfessorsInput>
+  }
+
+  export type std_departmentsUpdateWithoutProfessorsInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faculty?: facultyUpdateOneRequiredWithoutDepartmentNestedInput
+    alumni?: alumniUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type std_departmentsUncheckedUpdateWithoutProfessorsInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutStdDepartmentsNestedInput
   }
 
   export type sendTextHistoryCreateWithoutAdminInput = {
@@ -26746,14 +31532,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
     importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
   }
 
   export type professorUncheckedCreateWithoutSendTextHistoryInput = {
@@ -26835,9 +31621,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -26847,6 +31630,9 @@ export namespace Prisma {
     alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutSendTextHistoryInput = {
@@ -26902,14 +31688,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
     importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
   }
 
   export type professorUncheckedUpdateWithoutSendTextHistoryInput = {
@@ -27003,9 +31789,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -27015,6 +31798,9 @@ export namespace Prisma {
     alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutSendTextHistoryInput = {
@@ -27054,14 +31840,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
     importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
   }
 
   export type professorUncheckedCreateWithoutOtpInput = {
@@ -27143,9 +31929,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
@@ -27155,6 +31938,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     importHistory?: import_historyCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutOtpInput = {
@@ -27210,14 +31996,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
     importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
   }
 
   export type professorUncheckedUpdateWithoutOtpInput = {
@@ -27311,9 +32097,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
@@ -27323,6 +32106,9 @@ export namespace Prisma {
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutOtpInput = {
@@ -27402,9 +32188,6 @@ export namespace Prisma {
     canUse?: boolean
     year_start?: string | null
     year_end?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
-    edu_levelId?: string | null
     createtAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutAlumniInput
@@ -27414,6 +32197,9 @@ export namespace Prisma {
     alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
     regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
   }
 
   export type alumniUncheckedCreateWithoutImportHistoryInput = {
@@ -27463,14 +32249,14 @@ export namespace Prisma {
     univercity_position?: string | null
     allowedAccount?: boolean
     email?: string | null
-    facultyId?: string | null
-    departmentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     otp?: otpCreateNestedOneWithoutProfessorInput
     sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
     user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
     alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
   }
 
   export type professorUncheckedCreateWithoutImportHistoryInput = {
@@ -27626,6 +32412,474 @@ export namespace Prisma {
     import_historyId?: StringNullableFilter<"professor"> | string | null
     createdAt?: DateTimeFilter<"professor"> | Date | string
     updatedAt?: DateTimeFilter<"professor"> | Date | string
+  }
+
+  export type std_departmentsCreateWithoutFacultyInput = {
+    department_id: string
+    department_name: string
+    createdAt?: Date | string
+    alumni?: alumniCreateNestedManyWithoutStdDepartmentsInput
+    professors?: professorCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsUncheckedCreateWithoutFacultyInput = {
+    department_id: string
+    department_name: string
+    createdAt?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutStdDepartmentsInput
+    professors?: professorUncheckedCreateNestedManyWithoutStdDepartmentsInput
+  }
+
+  export type std_departmentsCreateOrConnectWithoutFacultyInput = {
+    where: std_departmentsWhereUniqueInput
+    create: XOR<std_departmentsCreateWithoutFacultyInput, std_departmentsUncheckedCreateWithoutFacultyInput>
+  }
+
+  export type std_departmentsCreateManyFacultyInputEnvelope = {
+    data: std_departmentsCreateManyFacultyInput | std_departmentsCreateManyFacultyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type alumniCreateWithoutFacultyInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutFacultyInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutFacultyInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutFacultyInput, alumniUncheckedCreateWithoutFacultyInput>
+  }
+
+  export type alumniCreateManyFacultyInputEnvelope = {
+    data: alumniCreateManyFacultyInput | alumniCreateManyFacultyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type professorCreateWithoutFacultyInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutProfessorsInput
+  }
+
+  export type professorUncheckedCreateWithoutFacultyInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
+  }
+
+  export type professorCreateOrConnectWithoutFacultyInput = {
+    where: professorWhereUniqueInput
+    create: XOR<professorCreateWithoutFacultyInput, professorUncheckedCreateWithoutFacultyInput>
+  }
+
+  export type professorCreateManyFacultyInputEnvelope = {
+    data: professorCreateManyFacultyInput | professorCreateManyFacultyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type std_departmentsUpsertWithWhereUniqueWithoutFacultyInput = {
+    where: std_departmentsWhereUniqueInput
+    update: XOR<std_departmentsUpdateWithoutFacultyInput, std_departmentsUncheckedUpdateWithoutFacultyInput>
+    create: XOR<std_departmentsCreateWithoutFacultyInput, std_departmentsUncheckedCreateWithoutFacultyInput>
+  }
+
+  export type std_departmentsUpdateWithWhereUniqueWithoutFacultyInput = {
+    where: std_departmentsWhereUniqueInput
+    data: XOR<std_departmentsUpdateWithoutFacultyInput, std_departmentsUncheckedUpdateWithoutFacultyInput>
+  }
+
+  export type std_departmentsUpdateManyWithWhereWithoutFacultyInput = {
+    where: std_departmentsScalarWhereInput
+    data: XOR<std_departmentsUpdateManyMutationInput, std_departmentsUncheckedUpdateManyWithoutFacultyInput>
+  }
+
+  export type std_departmentsScalarWhereInput = {
+    AND?: std_departmentsScalarWhereInput | std_departmentsScalarWhereInput[]
+    OR?: std_departmentsScalarWhereInput[]
+    NOT?: std_departmentsScalarWhereInput | std_departmentsScalarWhereInput[]
+    department_id?: StringFilter<"std_departments"> | string
+    department_name?: StringFilter<"std_departments"> | string
+    faculty_id?: StringFilter<"std_departments"> | string
+    createdAt?: DateTimeFilter<"std_departments"> | Date | string
+  }
+
+  export type alumniUpsertWithWhereUniqueWithoutFacultyInput = {
+    where: alumniWhereUniqueInput
+    update: XOR<alumniUpdateWithoutFacultyInput, alumniUncheckedUpdateWithoutFacultyInput>
+    create: XOR<alumniCreateWithoutFacultyInput, alumniUncheckedCreateWithoutFacultyInput>
+  }
+
+  export type alumniUpdateWithWhereUniqueWithoutFacultyInput = {
+    where: alumniWhereUniqueInput
+    data: XOR<alumniUpdateWithoutFacultyInput, alumniUncheckedUpdateWithoutFacultyInput>
+  }
+
+  export type alumniUpdateManyWithWhereWithoutFacultyInput = {
+    where: alumniScalarWhereInput
+    data: XOR<alumniUpdateManyMutationInput, alumniUncheckedUpdateManyWithoutFacultyInput>
+  }
+
+  export type professorUpsertWithWhereUniqueWithoutFacultyInput = {
+    where: professorWhereUniqueInput
+    update: XOR<professorUpdateWithoutFacultyInput, professorUncheckedUpdateWithoutFacultyInput>
+    create: XOR<professorCreateWithoutFacultyInput, professorUncheckedCreateWithoutFacultyInput>
+  }
+
+  export type professorUpdateWithWhereUniqueWithoutFacultyInput = {
+    where: professorWhereUniqueInput
+    data: XOR<professorUpdateWithoutFacultyInput, professorUncheckedUpdateWithoutFacultyInput>
+  }
+
+  export type professorUpdateManyWithWhereWithoutFacultyInput = {
+    where: professorScalarWhereInput
+    data: XOR<professorUpdateManyMutationInput, professorUncheckedUpdateManyWithoutFacultyInput>
+  }
+
+  export type facultyCreateWithoutDepartmentInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    alumni?: alumniCreateNestedManyWithoutFacultyInput
+    professors?: professorCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyUncheckedCreateWithoutDepartmentInput = {
+    faculty_id: string
+    faculty_name: string
+    createdAt?: Date | string
+    alumni?: alumniUncheckedCreateNestedManyWithoutFacultyInput
+    professors?: professorUncheckedCreateNestedManyWithoutFacultyInput
+  }
+
+  export type facultyCreateOrConnectWithoutDepartmentInput = {
+    where: facultyWhereUniqueInput
+    create: XOR<facultyCreateWithoutDepartmentInput, facultyUncheckedCreateWithoutDepartmentInput>
+  }
+
+  export type alumniCreateWithoutStdDepartmentsInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    eduLevel?: edu_levelCreateNestedOneWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutStdDepartmentsInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutStdDepartmentsInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutStdDepartmentsInput, alumniUncheckedCreateWithoutStdDepartmentsInput>
+  }
+
+  export type alumniCreateManyStdDepartmentsInputEnvelope = {
+    data: alumniCreateManyStdDepartmentsInput | alumniCreateManyStdDepartmentsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type professorCreateWithoutStdDepartmentsInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutProfessorInput
+    faculty?: facultyCreateNestedOneWithoutProfessorsInput
+    user_privacy?: user_privacyCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractCreateNestedManyWithoutProfessorInput
+    importHistory?: import_historyCreateNestedOneWithoutProfessorInput
+  }
+
+  export type professorUncheckedCreateWithoutStdDepartmentsInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    import_historyId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpUncheckedCreateNestedOneWithoutProfessorInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutProfessorInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutProfessorInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedManyWithoutProfessorInput
+  }
+
+  export type professorCreateOrConnectWithoutStdDepartmentsInput = {
+    where: professorWhereUniqueInput
+    create: XOR<professorCreateWithoutStdDepartmentsInput, professorUncheckedCreateWithoutStdDepartmentsInput>
+  }
+
+  export type professorCreateManyStdDepartmentsInputEnvelope = {
+    data: professorCreateManyStdDepartmentsInput | professorCreateManyStdDepartmentsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type facultyUpsertWithoutDepartmentInput = {
+    update: XOR<facultyUpdateWithoutDepartmentInput, facultyUncheckedUpdateWithoutDepartmentInput>
+    create: XOR<facultyCreateWithoutDepartmentInput, facultyUncheckedCreateWithoutDepartmentInput>
+    where?: facultyWhereInput
+  }
+
+  export type facultyUpdateToOneWithWhereWithoutDepartmentInput = {
+    where?: facultyWhereInput
+    data: XOR<facultyUpdateWithoutDepartmentInput, facultyUncheckedUpdateWithoutDepartmentInput>
+  }
+
+  export type facultyUpdateWithoutDepartmentInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUpdateManyWithoutFacultyNestedInput
+    professors?: professorUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type facultyUncheckedUpdateWithoutDepartmentInput = {
+    faculty_id?: StringFieldUpdateOperationsInput | string
+    faculty_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutFacultyNestedInput
+    professors?: professorUncheckedUpdateManyWithoutFacultyNestedInput
+  }
+
+  export type alumniUpsertWithWhereUniqueWithoutStdDepartmentsInput = {
+    where: alumniWhereUniqueInput
+    update: XOR<alumniUpdateWithoutStdDepartmentsInput, alumniUncheckedUpdateWithoutStdDepartmentsInput>
+    create: XOR<alumniCreateWithoutStdDepartmentsInput, alumniUncheckedCreateWithoutStdDepartmentsInput>
+  }
+
+  export type alumniUpdateWithWhereUniqueWithoutStdDepartmentsInput = {
+    where: alumniWhereUniqueInput
+    data: XOR<alumniUpdateWithoutStdDepartmentsInput, alumniUncheckedUpdateWithoutStdDepartmentsInput>
+  }
+
+  export type alumniUpdateManyWithWhereWithoutStdDepartmentsInput = {
+    where: alumniScalarWhereInput
+    data: XOR<alumniUpdateManyMutationInput, alumniUncheckedUpdateManyWithoutStdDepartmentsInput>
+  }
+
+  export type professorUpsertWithWhereUniqueWithoutStdDepartmentsInput = {
+    where: professorWhereUniqueInput
+    update: XOR<professorUpdateWithoutStdDepartmentsInput, professorUncheckedUpdateWithoutStdDepartmentsInput>
+    create: XOR<professorCreateWithoutStdDepartmentsInput, professorUncheckedCreateWithoutStdDepartmentsInput>
+  }
+
+  export type professorUpdateWithWhereUniqueWithoutStdDepartmentsInput = {
+    where: professorWhereUniqueInput
+    data: XOR<professorUpdateWithoutStdDepartmentsInput, professorUncheckedUpdateWithoutStdDepartmentsInput>
+  }
+
+  export type professorUpdateManyWithWhereWithoutStdDepartmentsInput = {
+    where: professorScalarWhereInput
+    data: XOR<professorUpdateManyMutationInput, professorUncheckedUpdateManyWithoutStdDepartmentsInput>
+  }
+
+  export type alumniCreateWithoutEduLevelInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    otp?: otpCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniCreateNestedOneWithoutAlumniInput
+    importHistory?: import_historyCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryCreateNestedManyWithoutAlumniInput
+    faculty?: facultyCreateNestedOneWithoutAlumniInput
+    stdDepartments?: std_departmentsCreateNestedOneWithoutAlumniInput
+  }
+
+  export type alumniUncheckedCreateWithoutEduLevelInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+    otp?: otpUncheckedCreateNestedOneWithoutAlumniInput
+    work_expreriences?: work_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    study_expreriences?: studey_expreriencesUncheckedCreateNestedManyWithoutAlumniInput
+    user_privacy?: user_privacyUncheckedCreateNestedOneWithoutAlumniInput
+    alumni_contract?: alumni_contractUncheckedCreateNestedOneWithoutAlumniInput
+    regis_alumni?: regis_alumniUncheckedCreateNestedOneWithoutAlumniInput
+    sendTextHistory?: sendTextHistoryUncheckedCreateNestedManyWithoutAlumniInput
+  }
+
+  export type alumniCreateOrConnectWithoutEduLevelInput = {
+    where: alumniWhereUniqueInput
+    create: XOR<alumniCreateWithoutEduLevelInput, alumniUncheckedCreateWithoutEduLevelInput>
+  }
+
+  export type alumniCreateManyEduLevelInputEnvelope = {
+    data: alumniCreateManyEduLevelInput | alumniCreateManyEduLevelInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type alumniUpsertWithWhereUniqueWithoutEduLevelInput = {
+    where: alumniWhereUniqueInput
+    update: XOR<alumniUpdateWithoutEduLevelInput, alumniUncheckedUpdateWithoutEduLevelInput>
+    create: XOR<alumniCreateWithoutEduLevelInput, alumniUncheckedCreateWithoutEduLevelInput>
+  }
+
+  export type alumniUpdateWithWhereUniqueWithoutEduLevelInput = {
+    where: alumniWhereUniqueInput
+    data: XOR<alumniUpdateWithoutEduLevelInput, alumniUncheckedUpdateWithoutEduLevelInput>
+  }
+
+  export type alumniUpdateManyWithWhereWithoutEduLevelInput = {
+    where: alumniScalarWhereInput
+    data: XOR<alumniUpdateManyMutationInput, alumniUncheckedUpdateManyWithoutEduLevelInput>
   }
 
   export type work_expreriencesCreateManyAlumniInput = {
@@ -28077,9 +33331,6 @@ export namespace Prisma {
     canUse?: BoolFieldUpdateOperationsInput | boolean
     year_start?: NullableStringFieldUpdateOperationsInput | string | null
     year_end?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
-    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
     createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutAlumniNestedInput
@@ -28089,6 +33340,9 @@ export namespace Prisma {
     alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
     regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
   }
 
   export type alumniUncheckedUpdateWithoutImportHistoryInput = {
@@ -28146,14 +33400,14 @@ export namespace Prisma {
     univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
     allowedAccount?: BoolFieldUpdateOperationsInput | boolean
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     otp?: otpUpdateOneWithoutProfessorNestedInput
     sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
     user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
     alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
   }
 
   export type professorUncheckedUpdateWithoutImportHistoryInput = {
@@ -28194,6 +33448,452 @@ export namespace Prisma {
     departmentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type std_departmentsCreateManyFacultyInput = {
+    department_id: string
+    department_name: string
+    createdAt?: Date | string
+  }
+
+  export type alumniCreateManyFacultyInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    departmentId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+  }
+
+  export type professorCreateManyFacultyInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    departmentId?: string | null
+    import_historyId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type std_departmentsUpdateWithoutFacultyInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUpdateManyWithoutStdDepartmentsNestedInput
+    professors?: professorUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type std_departmentsUncheckedUpdateWithoutFacultyInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    alumni?: alumniUncheckedUpdateManyWithoutStdDepartmentsNestedInput
+    professors?: professorUncheckedUpdateManyWithoutStdDepartmentsNestedInput
+  }
+
+  export type std_departmentsUncheckedUpdateManyWithoutFacultyInput = {
+    department_id?: StringFieldUpdateOperationsInput | string
+    department_name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type alumniUpdateWithoutFacultyInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutFacultyInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateManyWithoutFacultyInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type professorUpdateWithoutFacultyInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutProfessorsNestedInput
+  }
+
+  export type professorUncheckedUpdateWithoutFacultyInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateManyWithoutFacultyInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type alumniCreateManyStdDepartmentsInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    edu_levelId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+  }
+
+  export type professorCreateManyStdDepartmentsInput = {
+    professor_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    academic_rank?: string | null
+    canUse?: boolean
+    univercity_position?: string | null
+    allowedAccount?: boolean
+    email?: string | null
+    facultyId?: string | null
+    import_historyId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type alumniUpdateWithoutStdDepartmentsInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    eduLevel?: edu_levelUpdateOneWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutStdDepartmentsInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateManyWithoutStdDepartmentsInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    edu_levelId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type professorUpdateWithoutStdDepartmentsInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutProfessorNestedInput
+    faculty?: facultyUpdateOneWithoutProfessorsNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUpdateManyWithoutProfessorNestedInput
+    importHistory?: import_historyUpdateOneWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateWithoutStdDepartmentsInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUncheckedUpdateOneWithoutProfessorNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutProfessorNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutProfessorNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateManyWithoutProfessorNestedInput
+  }
+
+  export type professorUncheckedUpdateManyWithoutStdDepartmentsInput = {
+    professor_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    academic_rank?: NullableStringFieldUpdateOperationsInput | string | null
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    univercity_position?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type alumniCreateManyEduLevelInput = {
+    alumni_id: string
+    prefix: string
+    fname: string
+    lname: string
+    profile?: string | null
+    passwordHash?: string | null
+    allowedAccount?: boolean
+    canUse?: boolean
+    year_start?: string | null
+    year_end?: string | null
+    facultyId?: string | null
+    departmentId?: string | null
+    createtAt?: Date | string
+    updatedAt?: Date | string
+    import_historyId?: string | null
+  }
+
+  export type alumniUpdateWithoutEduLevelInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    otp?: otpUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUpdateOneWithoutAlumniNestedInput
+    importHistory?: import_historyUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUpdateManyWithoutAlumniNestedInput
+    faculty?: facultyUpdateOneWithoutAlumniNestedInput
+    stdDepartments?: std_departmentsUpdateOneWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateWithoutEduLevelInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: otpUncheckedUpdateOneWithoutAlumniNestedInput
+    work_expreriences?: work_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    study_expreriences?: studey_expreriencesUncheckedUpdateManyWithoutAlumniNestedInput
+    user_privacy?: user_privacyUncheckedUpdateOneWithoutAlumniNestedInput
+    alumni_contract?: alumni_contractUncheckedUpdateOneWithoutAlumniNestedInput
+    regis_alumni?: regis_alumniUncheckedUpdateOneWithoutAlumniNestedInput
+    sendTextHistory?: sendTextHistoryUncheckedUpdateManyWithoutAlumniNestedInput
+  }
+
+  export type alumniUncheckedUpdateManyWithoutEduLevelInput = {
+    alumni_id?: StringFieldUpdateOperationsInput | string
+    prefix?: StringFieldUpdateOperationsInput | string
+    fname?: StringFieldUpdateOperationsInput | string
+    lname?: StringFieldUpdateOperationsInput | string
+    profile?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    allowedAccount?: BoolFieldUpdateOperationsInput | boolean
+    canUse?: BoolFieldUpdateOperationsInput | boolean
+    year_start?: NullableStringFieldUpdateOperationsInput | string | null
+    year_end?: NullableStringFieldUpdateOperationsInput | string | null
+    facultyId?: NullableStringFieldUpdateOperationsInput | string | null
+    departmentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createtAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    import_historyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

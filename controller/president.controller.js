@@ -44,8 +44,16 @@ const fontStyle = `
 export const presidentController = {
   alumni_list: async ({ set, query }) => {
     try {
-      const { page, facultyId, departmentId, take, search, sort, current } =
-        query;
+      const {
+        page,
+        facultyId,
+        departmentId,
+        take,
+        search,
+        sort,
+        current,
+        selectEduLevel,
+      } = query;
       const skip = take * (page - 1);
 
       let filter = {};
@@ -91,6 +99,12 @@ export const presidentController = {
               },
             },
           ],
+        };
+      }
+      if (selectEduLevel) {
+        filter = {
+          ...filter,
+          edu_levelId: selectEduLevel,
         };
       }
       let work = {};
@@ -5555,6 +5569,429 @@ export const presidentController = {
           "Content-Disposition": `attachment; filename="report.pdf"; filename*=UTF-8''${encodeURIComponent("รายงานข้อมูล")}`,
         },
       });
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  create_faculty: async ({ set, body }) => {
+    try {
+      const { faculty_id, faculty_name } = body;
+      if (!faculty_id || !faculty_name) return (set.status = 400);
+
+      // findExit id
+      const isExist = await prisma.faculty.findFirst({
+        where: {
+          faculty_id,
+        },
+      });
+      if (isExist) return { err: "พบรหัสคณะนี้ถูกใช้งานแล้ว" };
+
+      const create = await prisma.faculty.create({
+        data: body,
+      });
+      if (!create) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  update_faculty: async ({ set, body, params }) => {
+    try {
+      const { id } = params;
+      if (!id) return (set.status = 400);
+
+      const { faculty_id, faculty_name } = body;
+      if (!faculty_id || !faculty_name) return (set.status = 400);
+
+      // findExit id
+      const isExist = await prisma.faculty.findFirst({
+        where: {
+          faculty_id: id,
+        },
+        select: {
+          faculty_id: true,
+        },
+      });
+      if (!isExist) return (set.status = 400);
+      if (id !== isExist?.faculty_id) {
+        if (isExist) return { err: "พบรหัสคณะนี้ถูกใช้งานแล้ว" };
+      }
+
+      const create = await prisma.faculty.update({
+        where: {
+          faculty_id: id,
+        },
+        data: body,
+      });
+      if (!create) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  get_faculty_list: async ({ set, query }) => {
+    try {
+      const { search, page, isOptions } = query;
+      let filter = {};
+      if (search) {
+        filter = {
+          OR: [
+            {
+              faculty_id: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+            {
+              faculty_name: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+          ],
+        };
+      }
+      const take = 10;
+      const skip = take * (page - 1);
+      const [data, total] = await Promise.all([
+        prisma.faculty.findMany({
+          ...(!isOptions && {
+            take,
+            skip,
+          }),
+          where: filter,
+          orderBy: {
+            createdAt: "desc",
+          },
+          select: {
+            faculty_id: true,
+            faculty_name: true,
+          },
+        }),
+        prisma.faculty.count(),
+      ]);
+
+      set.status = 200;
+      return {
+        data,
+        total,
+        totalPage: Math.ceil(total / take) < 1 ? 1 : Math.ceil(total / take),
+      };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  delete_faculty: async ({ set, params }) => {
+    try {
+      const { id } = params;
+      if (!id) return (set.status = 400);
+      const del = await prisma.faculty.delete({
+        where: { faculty_id: id },
+      });
+      if (!del) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  create_department: async ({ set, body }) => {
+    try {
+      const { faculty_id, department_id, department_name } = body;
+      // console.log("🚀 ~ body:", body);
+      if (!faculty_id || !department_id || !department_name)
+        return (set.status = 400);
+
+      // findExit id
+      const isExist = await prisma.std_departments.findFirst({
+        where: {
+          department_id,
+        },
+      });
+      if (isExist) return { err: "พบรหัสสาขาวิชานี้ถูกใช้งานแล้ว" };
+
+      const create = await prisma.std_departments.create({
+        data: body,
+      });
+
+      if (!create) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  update_std_department: async ({ set, body, params }) => {
+    try {
+      const { id } = params;
+      if (!id) return (set.status = 400);
+
+      const { faculty_id, department_id, department_name } = body;
+      if (!faculty_id || !department_id || !department_name)
+        return (set.status = 400);
+
+      // findExit id
+      const isExist = await prisma.std_departments.findFirst({
+        where: {
+          department_id: id,
+        },
+      });
+      if (!isExist) return (set.status = 400);
+      if (id !== isExist?.department_id) {
+        if (isExist) return { err: "พบรหัสคณะนี้ถูกใช้งานแล้ว" };
+      }
+
+      const create = await prisma.std_departments.update({
+        where: {
+          department_id: id,
+        },
+        data: {
+          faculty_id,
+          department_id,
+          department_name,
+        },
+      });
+      if (!create) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  get_department_list: async ({ set, query }) => {
+    try {
+      const { search, page, isOptions, selectFacultyId } = query;
+      let filter = {};
+      if (search) {
+        filter = {
+          OR: [
+            {
+              department_id: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+            {
+              department_name: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+          ],
+        };
+      }
+      if (selectFacultyId) {
+        filter = {
+          ...filter,
+          faculty_id: selectFacultyId,
+        };
+      }
+      const take = 10;
+      const skip = take * (page - 1);
+      const [data, total] = await Promise.all([
+        prisma.std_departments.findMany({
+          ...(!isOptions && {
+            take,
+            skip,
+          }),
+          orderBy: {
+            createdAt: "desc",
+          },
+          where: filter,
+          select: {
+            department_id: true,
+            department_name: true,
+            faculty: {
+              select: {
+                faculty_id: true,
+                faculty_name: true,
+              },
+            },
+          },
+        }),
+        prisma.std_departments.count(),
+      ]);
+
+      set.status = 200;
+      return {
+        data,
+        total,
+        totalPage: Math.ceil(total / take) < 1 ? 1 : Math.ceil(total / take),
+      };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  delete_std_department: async ({ set, params }) => {
+    try {
+      const { id } = params;
+      if (!id) return (set.status = 400);
+      const del = await prisma.std_departments.delete({
+        where: { department_id: id },
+      });
+      if (!del) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  create_edulevel: async ({ set, body }) => {
+    try {
+      const { edu_levelId, edu_level_name } = body;
+      // console.log("🚀 ~ body:", body);
+      if (!edu_levelId || !edu_level_name) return (set.status = 400);
+
+      // findExit id
+      const isExist = await prisma.edu_level.findFirst({
+        where: {
+          edu_levelId,
+        },
+      });
+      if (isExist) return { err: "พบรหัสระดับการศึกษานี้ถูกใช้งานแล้ว" };
+
+      const create = await prisma.edu_level.create({
+        data: body,
+      });
+
+      if (!create) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  get_edu_level_list: async ({ set, query }) => {
+    try {
+      const { search, page, isOptions } = query;
+      let filter = {};
+      if (search) {
+        filter = {
+          OR: [
+            {
+              edu_levelId: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+            {
+              edu_level_name: {
+                contains: search,
+                mode: "insensitive",
+              },
+            },
+          ],
+        };
+      }
+
+      const take = 10;
+      const skip = take * (page - 1);
+      const [data, total] = await Promise.all([
+        prisma.edu_level.findMany({
+          ...(!isOptions && {
+            take,
+            skip,
+          }),
+          orderBy: {
+            createdAt: "desc",
+          },
+          where: filter,
+          select: {
+            edu_levelId: true,
+            edu_level_name: true,
+          },
+        }),
+        prisma.edu_level.count(),
+      ]);
+
+      set.status = 200;
+      return {
+        data,
+        total,
+        totalPage: Math.ceil(total / take) < 1 ? 1 : Math.ceil(total / take),
+      };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  delete_edu_level: async ({ set, params }) => {
+    try {
+      const { id } = params;
+      if (!id) return (set.status = 400);
+      const del = await prisma.edu_level.delete({
+        where: { edu_levelId: id },
+      });
+      if (!del) return (set.status = 400);
+
+      set.status = 200;
+      return { ok: true };
+    } catch (error) {
+      console.error(error);
+      set.status = 500;
+      return { error };
+    }
+  },
+  update_edu_level: async ({ set, body, params }) => {
+    try {
+      const { id } = params;
+      console.log("🚀 ~ id:", id);
+      if (!id) return (set.status = 400);
+
+      const { edu_levelId, edu_level_name } = body;
+      // console.log("🚀 ~ body:", body);
+      if (!edu_levelId || !edu_level_name) return (set.status = 400);
+
+      // findExit id
+      const isExist = await prisma.edu_level.findFirst({
+        where: {
+          edu_levelId: id,
+        },
+      });
+      if (!isExist) return (set.status = 400);
+      if (id !== isExist?.edu_levelId) {
+        if (isExist) return { err: "พบรหัสระดับการศึกษานี้ถูกใช้งานแล้ว" };
+      }
+
+      const create = await prisma.edu_level.update({
+        where: {
+          edu_levelId: id,
+        },
+        data: body,
+      });
+
+      set.status = 200;
+      return { ok: true };
     } catch (error) {
       console.error(error);
       set.status = 500;

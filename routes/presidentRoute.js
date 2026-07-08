@@ -242,6 +242,7 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   })
   // get regis setting
   .get("/get-setting-data", presidentController.get_setting_data)
+
   // save regis payment slip
   .post(
     "/setting-edit-qrcode-payment/:id",
@@ -294,5 +295,47 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   })
   // export alumni overview
   .get("/export-alumni-overview", presidentController.export_alumni_overview, {
+    beforeHandle: middleware.auth,
+  })
+  // create fac
+  .post("/create-faculty", presidentController?.create_faculty, {
+    beforeHandle: middleware.auth,
+  })
+  // update fac
+  .post("/edit-faculty/:id", presidentController.update_faculty, {
+    beforeHandle: middleware.auth,
+  })
+  // get facultyList
+  .get("/get-facultys", presidentController.get_faculty_list)
+  // delete
+  .delete("/delete-fac/:id", presidentController.delete_faculty, {
+    beforeHandle: middleware.auth,
+  })
+  // crate department
+  .post("/create-department", presidentController?.create_department, {
+    beforeHandle: middleware.auth,
+  })
+  // update department
+  .post("/edit-department/:id", presidentController.update_std_department, {
+    beforeHandle: middleware.auth,
+  })
+  // get departments
+  .get("/get-departments", presidentController.get_department_list)
+  // delete departments
+  .delete("/delete-dep/:id", presidentController.delete_std_department, {
+    beforeHandle: middleware.auth,
+  })
+  // create edulevel
+  .post("/create-edulevel", presidentController.create_edulevel, {
+    beforeHandle: middleware.auth,
+  })
+  // edu level list
+  .get("/get-edulevels", presidentController.get_edu_level_list)
+  // delete edu
+  .delete("/delete-edulevel/:id", presidentController?.delete_edu_level, {
+    beforeHandle: middleware.auth,
+  })
+  // update edu
+  .post("/edit-edulevel/:id", presidentController.update_edu_level, {
     beforeHandle: middleware.auth,
   });

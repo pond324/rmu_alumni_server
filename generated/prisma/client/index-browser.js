@@ -318,6 +318,25 @@ exports.Prisma.Import_historyScalarFieldEnum = {
   created_at: 'created_at'
 };
 
+exports.Prisma.FacultyScalarFieldEnum = {
+  faculty_id: 'faculty_id',
+  faculty_name: 'faculty_name',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.Std_departmentsScalarFieldEnum = {
+  department_id: 'department_id',
+  department_name: 'department_name',
+  faculty_id: 'faculty_id',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.Edu_levelScalarFieldEnum = {
+  edu_levelId: 'edu_levelId',
+  edu_level_name: 'edu_level_name',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SettingScalarFieldEnum = {
   id: 'id',
   regis_payment_qrcode: 'regis_payment_qrcode',
@@ -369,6 +388,9 @@ exports.Prisma.ModelName = {
   otp: 'otp',
   news_donatios: 'news_donatios',
   import_history: 'import_history',
+  faculty: 'faculty',
+  std_departments: 'std_departments',
+  edu_level: 'edu_level',
   setting: 'setting'
 };
 

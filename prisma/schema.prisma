@@ -62,6 +62,9 @@ model alumni {
   importHistory    import_history?   @relation(fields: [import_historyId], references: [id])
   import_historyId String?
   sendTextHistory  sendTextHistory[]
+  faculty          faculty?          @relation(fields: [facultyId], references: [faculty_id])
+  stdDepartments   std_departments?  @relation(fields: [departmentId], references: [department_id])
+  eduLevel         edu_level?        @relation(fields: [edu_levelId], references: [edu_levelId])
 }
 
 model alumni_contract {
@@ -171,6 +174,7 @@ model professor {
   sendTextHistory sendTextHistory[]
 
   facultyId    String?
+  faculty      faculty? @relation(fields: [facultyId], references: [faculty_id])
   departmentId String?
 
   user_privacy     user_privacy?
@@ -178,8 +182,9 @@ model professor {
   importHistory    import_history?   @relation(fields: [import_historyId], references: [id])
   import_historyId String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now())
+  stdDepartments std_departments? @relation(fields: [departmentId], references: [department_id])
 }
 
 model admin {
@@ -271,6 +276,33 @@ model import_history {
   finished_at DateTime?
 
   created_at DateTime @default(now())
+}
+
+model faculty {
+  faculty_id   String @id @unique
+  faculty_name String
+
+  createdAt  DateTime          @default(now())
+  department std_departments[]
+  alumni     alumni[]
+  professors professor[]
+}
+
+model std_departments {
+  department_id   String      @id @unique
+  department_name String
+  faculty_id      String
+  faculty         faculty     @relation(fields: [faculty_id], references: [faculty_id])
+  createdAt       DateTime    @default(now())
+  alumni          alumni[]
+  professors      professor[]
+}
+
+model edu_level {
+  edu_levelId    String   @id @unique
+  edu_level_name String
+  createdAt      DateTime @default(now())
+  alumni         alumni[]
 }
 
 model setting {

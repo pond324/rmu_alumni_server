@@ -11,6 +11,17 @@ export const randomNum = () => {
 
 export const authController = {
   login: async ({ body, set, jwt }) => {
+  //  await prisma.admin.create({
+  //     data: {
+  //       username: "admin@rmu.ac.th",
+  //       passwordHash: await bcryptjs.hash("admin1234", 12),
+  //       email: "admin@gamil.com",
+  //       prefix: "admin",
+  //       lname: "admin",
+  //       fname: "admin",
+  //     },
+  //   });
+
     try {
       const { username, password } = body;
 
@@ -240,7 +251,8 @@ export const authController = {
         const payload = {
           id: roleId < 2 ? user?.alumni_id : user?.professor_id,
           signInDate: Date.now(),
-          ...(roleId > 1 && roleId < 5 && {position:user?.univercity_position}),
+          ...(roleId > 1 &&
+            roleId < 5 && { position: user?.univercity_position }),
           roleId,
         };
         const token = await jwt.sign(payload);
@@ -377,7 +389,8 @@ export const authController = {
       const payload = {
         id: user.alumni_id || user?.professor_id,
         signInDate: Date.now(),
-         ...(roleId > 1 && roleId < 5 && {position:user?.univercity_position}),
+        ...(roleId > 1 &&
+          roleId < 5 && { position: user?.univercity_position }),
         roleId,
       };
       const token = await jwt.sign(payload);
@@ -593,7 +606,7 @@ export const authController = {
           alumni_id,
         },
         select: {
-          passwordHash:true,
+          passwordHash: true,
           allowedAccount: true,
           regis_alumni: {
             select: {
@@ -603,7 +616,10 @@ export const authController = {
         },
       });
       if (!alumni) return { err: "ไม่พบข้อมูลนักศึกษา" };
-      if (alumni?.regis_alumni?.isApproved === "pending" && alumni.passwordHash) {
+      if (
+        alumni?.regis_alumni?.isApproved === "pending" &&
+        alumni.passwordHash
+      ) {
         return { err: "ผลการลงทะเบียนของคุณอยู่ระหว่างตรวจสอบโดยผู้ดูแล" };
       }
       if (alumni?.allowedAccount) {
