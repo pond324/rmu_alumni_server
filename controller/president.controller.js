@@ -4799,7 +4799,6 @@ export const presidentController = {
   edit_setting_qrcode_payment: async ({ set, body, params }) => {
     try {
       const { id } = params;
-      if (!id) return (set.status = 400);
 
       const {
         file,
@@ -4808,93 +4807,116 @@ export const presidentController = {
         regis_payment_account_number,
         regis_payment_account_back,
       } = body;
+
       if (
-        !file ||
-        !regis_payment ||
+        regis_payment === undefined ||
         !regis_payment_account_back ||
         !regis_payment_account_name ||
         !regis_payment_account_number
-      )
-        return (set.status = 400);
+      ) {
+        set.status = 400;
+        return { error: "กรุณากรอกข้อมูลให้ครบถ้วน" };
+      }
 
-      const findOldSlip = await prisma.setting.findFirst({
-        where: {
-          id: Number(id),
-        },
-        select: {
-          regis_payment_qrcode: true,
-        },
-      });
-      const sftp = await sftpConfig();
-      if (findOldSlip.regis_payment_qrcode) {
-        // ลบไฟล์ในเครื่อง
-        const imgPath = path.join(
-          import.meta.dir,
-          "../public/upload",
-          findOldSlip.regis_payment_qrcode,
-        );
-        if (existsSync(imgPath)) {
-          await unlink(imgPath);
-          const remotePath =
-            process.env.SFTP_PATH + findOldSlip.regis_payment_qrcode;
-          await sftp.delete(remotePath);
+      let settingRecord = null;
+      if (id && id !== "undefined" && id !== "default" && !isNaN(Number(id))) {
+        settingRecord = await prisma.setting.findFirst({
+          where: {
+            id: Number(id),
+          },
+        });
+      }
+      if (!settingRecord) {
+        settingRecord = await prisma.setting.findFirst();
+      }
+
+      let imgName = settingRecord?.regis_payment_qrcode || null;
+
+      if (file && typeof file === "object" && (file.size > 0 || file.name)) {
+        if (settingRecord?.regis_payment_qrcode) {
+          // ลบไฟล์ในเครื่อง
+          const oldImgPath = path.join(
+            import.meta.dir,
+            "../public/upload",
+            settingRecord.regis_payment_qrcode,
+          );
+          if (existsSync(oldImgPath)) {
+            try {
+              await unlink(oldImgPath);
+            } catch (e) {
+              console.error("Local unlink error:", e);
+            }
+          }
+          try {
+            const sftp = await sftpConfig();
+            const remotePath =
+              process.env.SFTP_PATH + settingRecord.regis_payment_qrcode;
+            await sftp.delete(remotePath);
+          } catch (e) {
+            console.error("SFTP delete error:", e);
+          }
+        }
+
+        const sanitizedName =
+          file?.name?.replace(/[^a-zA-Z0-9.-]/g, "_") || "qrcode.png";
+        imgName = `${Date.now()}_${sanitizedName}`;
+
+        const uploadDir = path.join(import.meta.dir, "../public/upload");
+        if (!existsSync(uploadDir)) {
+          await fsPromises.mkdir(uploadDir, { recursive: true });
+        }
+
+        const localPath = path.join(uploadDir, imgName);
+        await Bun.write(localPath, file);
+
+        try {
+          const sftp = await sftpConfig();
+          const remotePath = process.env.SFTP_PATH + imgName;
+          const remoteDir = remotePath.substring(0, remotePath.lastIndexOf("/"));
+          try {
+            await sftp.mkdir(remoteDir, true);
+          } catch (mkdirerr) {
+            if (mkdirerr.code !== 4) {
+              console.error("SFTP mkdir error:", mkdirerr);
+            }
+          }
+
+          await sftp.put(localPath, remotePath, {
+            writeStreamOptions: {
+              flags: "w",
+              mode: 0o666,
+            },
+          });
+        } catch (sftpErr) {
+          console.error("SFTP upload error (ignoring to allow local saving):", sftpErr);
         }
       }
 
-      const sanitizedName =
-        file?.name?.replace(/[^a-zA-Z0-9.-]/g, "_") || "image.jpg";
-      const imgName = `${Date.now()}_${sanitizedName}`;
+      const updateData = {
+        regis_payment: Number(regis_payment),
+        regis_payment_account_back,
+        regis_payment_account_name,
+        regis_payment_account_number,
+        ...(imgName ? { regis_payment_qrcode: imgName } : {}),
+      };
 
-      // Local path (Windows)
-      const localPath = `./public/upload/${imgName}`;
-      const remotePath = process.env.SFTP_PATH + imgName;
-
-      // บันทึกไฟล์ใน local
-      await Bun.write(localPath, file);
-
-      // ตรวจสอบว่าโฟลเดอร์บนเซิร์ฟเวอร์มีอยู่ไหม
-      const remoteDir = remotePath.substring(0, remotePath.lastIndexOf("/"));
-      try {
-        await sftp.mkdir(remoteDir, true);
-      } catch (mkdirerr) {
-        // โฟลเดอร์อาจมีอยู่แล้ว
-        if (mkdirerr.code !== 4) {
-          throw mkdirerr;
-        }
+      if (settingRecord) {
+        await prisma.setting.update({
+          where: {
+            id: settingRecord.id,
+          },
+          data: updateData,
+        });
+      } else {
+        await prisma.setting.create({
+          data: updateData,
+        });
       }
-
-      // อัปโหลดไปยังเซิร์ฟเวอร์ผ่าน SFTP
-      await sftp.put(localPath, remotePath, {
-        writeStreamOptions: {
-          flags: "w",
-          mode: 0o666,
-        },
-      });
-
-      // ตรวจสอบว่าอัปโหลดสำเร็จ
-      const uploaded = await sftp.exists(remotePath);
-      if (!uploaded) {
-        throw new err("File upload verification failed");
-      }
-
-      // update
-      const update = await prisma.setting.update({
-        where: {
-          id: Number(id),
-        },
-        data: {
-          regis_payment_qrcode: imgName,
-          regis_payment: Number(regis_payment),
-          regis_payment_account_back,
-          regis_payment_account_name,
-          regis_payment_account_number,
-        },
-      });
 
       set.status = 200;
       return { ok: true };
     } catch (error) {
-      console.error(error);
+      console.error("edit_setting_qrcode_payment error:", error);
       set.status = 500;
       return { error };
     }
