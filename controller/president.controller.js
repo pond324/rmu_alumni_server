@@ -21,6 +21,7 @@ import {
   uploadFolderToDrive,
 } from "../libs/oauth-drive-service";
 import AdmZip from "adm-zip";
+import { readSpreadsheet } from "../libs/read-sheet";
 
 const logoBase64 = fs.readFileSync("./public/logo_rmu.png", {
   encoding: "base64",
@@ -40,6 +41,41 @@ const fontStyle = `
     * { font-family: 'Sarabun', sans-serif; }
   </style>
 `;
+
+const getPuppeteerExecutablePath = () => {
+  const envPath = process.env.PUPPETEER_EXECUTABLE_PATH;
+  if (envPath && fs.existsSync(envPath)) {
+    return envPath;
+  }
+  const windowsPaths = [
+    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+    process.env.LOCALAPPDATA
+      ? `${process.env.LOCALAPPDATA}\\Google\\Chrome\\Application\\chrome.exe`
+      : null,
+    process.env.PROGRAMFILES
+      ? `${process.env.PROGRAMFILES}\\Google\\Chrome\\Application\\chrome.exe`
+      : null,
+    process.env["PROGRAMFILES(X86)"]
+      ? `${process.env["PROGRAMFILES(X86)"]}\\Google\\Chrome\\Application\\chrome.exe`
+      : null,
+    "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+    process.env["PROGRAMFILES(X86)"]
+      ? `${process.env["PROGRAMFILES(X86)"]}\\Microsoft\\Edge\\Application\\msedge.exe`
+      : null,
+    process.env.PROGRAMFILES
+      ? `${process.env.PROGRAMFILES}\\Microsoft\\Edge\\Application\\msedge.exe`
+      : null,
+  ].filter(Boolean);
+
+  for (const p of windowsPaths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+  return undefined;
+};
 
 export const presidentController = {
   alumni_list: async ({ set, query }) => {
@@ -1011,15 +1047,42 @@ export const presidentController = {
   },
   import_alumni_data: async ({ set, body, store }) => {
     try {
-      const { data, file, fileSize } = body;
-      const dataParse = JSON.parse(data);
-      if (!data || !file) return (set.status = 400);
+      const { file, fileSize } = body;
+      if (!file) return (set.status = 400);
+      const setting = await prisma.setting.findMany({
+        select: {
+          skipAlumniDuplicate: true,
+          allowedAlumniAccount: true,
+        },
+      });
+
+      const rows = await readSpreadsheet(file);
+
+      const data = rows.map((row) => ({
+        alumni_id: String(row.alumni_id).trim(),
+        prefix: row.prefix?.trim(),
+        fname: row.fname?.trim(),
+        lname: row.lname?.trim(),
+
+        facultyId: String(row.facultyId),
+        departmentId: String(row.departmentId),
+        edu_levelId: String(row.edu_levelId),
+
+        year_start: String(row.year_start),
+        year_end: String(row.year_end),
+      }));
+
+      await prisma.alumni.createMany({
+        data,
+        ...(setting[0].skipAlumniDuplicate && { skipDuplicates: true }),
+      });
+
       const addHistory = await prisma.import_history.create({
         data: {
           file_name: file?.name,
           import_type: "alumni",
           file_size: Number(fileSize),
-          total_rows: dataParse?.length || 0,
+          total_rows: data?.length || 0,
           admin: {
             connect: {
               admin_id: store?.user?.id,
@@ -1032,22 +1095,6 @@ export const presidentController = {
         },
       });
       if (!addHistory) return (set.status = 400);
-
-      const setting = await prisma.setting.findMany({
-        select: {
-          skipAlumniDuplicate: true,
-          allowedAlumniAccount: true,
-        },
-      });
-
-      await prisma.alumni.createMany({
-        data: dataParse.map((row) => ({
-          ...row,
-          ...(!setting[0].allowedAlumniAccount && { canUse: false }),
-          import_historyId: addHistory.id,
-        })),
-        ...(setting[0].skipAlumniDuplicate && { skipDuplicates: true }),
-      });
 
       set.status = 200;
       return { ok: true };
@@ -1496,14 +1543,14 @@ export const presidentController = {
           .map((s) => String(s));
       };
 
-      if (selecetFacultyId.length > 0) {
+      if (selecetFacultyId?.length > 0) {
         filter = {
           facultyId: {
             in: normallizedData(selecetFacultyId),
           },
         };
       }
-      if (selectDepartmentId.length > 0) {
+      if (selectDepartmentId?.length > 0) {
         filter = {
           ...filter,
           departmentId: {
@@ -1513,8 +1560,8 @@ export const presidentController = {
       }
       if (
         selectFileType == 1 &&
-        !selectRegisStatus.includes("all") &&
-        !selectRegisStatus.includes("no_regis")
+        !selectRegisStatus?.includes("all") &&
+        !selectRegisStatus?.includes("no_regis")
       ) {
         filter = {
           ...filter,
@@ -1523,13 +1570,13 @@ export const presidentController = {
           },
         };
       }
-      if (selectFileType == 1 && selectRegisStatus.includes("no_regis")) {
+      if (selectFileType == 1 && selectRegisStatus?.includes("no_regis")) {
         filter = {
           ...filter,
           regis_alumni: null,
         };
       }
-      if (selectYearStart.length > 0) {
+      if (selectYearStart?.length > 0) {
         filter = {
           ...filter,
           year_start: { in: selectYearStart },
@@ -1766,7 +1813,7 @@ export const presidentController = {
           }),
         ]);
         const browser = await puppeteer.launch({
-          executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+          executablePath: getPuppeteerExecutablePath(),
           headless: true,
           args: [
             "--no-sandbox",
@@ -2432,7 +2479,7 @@ export const presidentController = {
           },
         };
       }
-      if (selectDepartmentId.length > 0) {
+      if (selectDepartmentId?.length > 0) {
         filter = {
           ...filter,
           departmentId: {
@@ -2441,7 +2488,7 @@ export const presidentController = {
         };
       }
 
-      if (selectYearStart.length > 0) {
+      if (selectYearStart?.length > 0) {
         filter = {
           ...filter,
           year_start: { in: selectYearStart },
@@ -2645,7 +2692,7 @@ export const presidentController = {
         ]);
 
         const browser = await puppeteer.launch({
-          executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+          executablePath: getPuppeteerExecutablePath(),
           headless: true,
           args: [
             "--no-sandbox",
@@ -3140,7 +3187,7 @@ export const presidentController = {
         ]);
 
         const browser = await puppeteer.launch({
-          executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+          executablePath: getPuppeteerExecutablePath(),
           headless: true,
           args: [
             "--no-sandbox",
@@ -4779,7 +4826,7 @@ export const presidentController = {
         },
       });
       const sftp = await sftpConfig();
-      if (findOldSlip) {
+      if (findOldSlip.regis_payment_qrcode) {
         // ลบไฟล์ในเครื่อง
         const imgPath = path.join(
           import.meta.dir,
@@ -5145,39 +5192,48 @@ export const presidentController = {
   },
   export_alumni_overview: async ({ set, query, store }) => {
     try {
-      // console.log("🚀 ~ query:", body);
       const { selecetFacultyId, selectDepartmentId, selectYearStart } = query;
       let filter = {};
       const normallizedData = (data) => {
         if (!data) return [];
-        return data
-          .filter((s) => s || s !== null || s !== undefined)
+        const arr = Array.isArray(data) ? data : [data];
+        return arr
+          .filter((s) => s !== null && s !== undefined && s !== "")
           .map((s) => String(s));
       };
 
       const { roleId } = store.user;
-      // console.log("🚀 ~ store:", store);
+
+      const normFac = normallizedData(selecetFacultyId);
+      const normDep = normallizedData(selectDepartmentId);
+      const normYear = normallizedData(selectYearStart);
 
       let filterFac =
-        normallizedData(selecetFacultyId).length > 1
+        normFac.length > 0
           ? {
               facultyId: {
-                in: normallizedData(selecetFacultyId),
+                in: normFac,
               },
             }
           : {};
       let filterDep =
-        normallizedData(selectDepartmentId).length > 1
+        normDep.length > 0
           ? {
               departmentId: {
-                in: normallizedData(selectDepartmentId),
+                in: normDep,
               },
             }
           : {};
       let filterYear =
-        selectYearStart.length > 1
-          ? { year_start: { in: selectYearStart } }
+        normYear.length > 0
+          ? { year_start: { in: normYear } }
           : {};
+
+      if (normYear.length > 0) {
+        filterFac = { ...filterFac, ...filterYear };
+        filterDep = { ...filterDep, ...filterYear };
+      }
+
       if (roleId <= 3) {
         const user = await prisma.professor.findFirst({
           where: {
@@ -5189,13 +5245,17 @@ export const presidentController = {
           },
         });
 
-        filterFac = {
-          facultyId: user.facultyId,
-        };
-        if (roleId < 3) {
-          filterDep = {
-            departmentId: user.departmentId,
+        if (user) {
+          filterFac = {
+            ...filterFac,
+            facultyId: user.facultyId,
           };
+          if (roleId < 3) {
+            filterDep = {
+              ...filterDep,
+              departmentId: user.departmentId,
+            };
+          }
         }
       }
 
@@ -5471,7 +5531,7 @@ export const presidentController = {
       // console.log("🚀 ~ filter:", filter);
 
       const browser = await puppeteer.launch({
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+        executablePath: getPuppeteerExecutablePath(),
         headless: true,
         args: [
           "--no-sandbox",
@@ -5678,7 +5738,9 @@ export const presidentController = {
             faculty_name: true,
           },
         }),
-        prisma.faculty.count(),
+        prisma.faculty.count({
+          where: filter,
+        }),
       ]);
 
       set.status = 200;

@@ -262,25 +262,23 @@ export const dashboardController = {
         }),
       ]);
 
+      const targetKey = roleId < 3 || query?.facultyId ? "departmentId" : "facultyId";
       const result = working.map((w) => {
-        const u = unemployed.find((x) =>
-          roleId < 3 || query?.facultyId
-            ? x.departmentId === w.departmentId
-            : x.facultyId === w.facultyId,
-        ) || {
+        const u = unemployed.find((x) => x[targetKey] === w[targetKey]) || {
           _count: { alumni_id: 0 },
         };
         return {
-          id: roleId < 3 || query?.facultyId ? w.departmentId : w?.facultyId,
+          id: w[targetKey],
           working: w._count.alumni_id,
           unemployed: u._count.alumni_id,
         };
       });
 
       unemployed.forEach((u) => {
-        if (!result.find((r) => r.id === u.facultyId)) {
+        const targetId = u[targetKey];
+        if (!result.find((r) => r.id === targetId)) {
           result.push({
-            id: roleId < 3 || query?.facultyId ? u.departmentId : u.facultyId,
+            id: targetId,
             working: 0,
             unemployed: u._count.alumni_id,
           });
@@ -592,9 +590,11 @@ export const dashboardController = {
           year_end: query?.selectYearEnd,
         };
       }
-      // groupBy ตามคณะ
-      const result = await prisma.alumni.groupBy({
-        by: [roleId < 3 || query?.facultyId ? "departmentId" : "facultyId"],
+      const keyName = roleId < 3 || query?.facultyId ? "departmentId" : "facultyId";
+
+      // groupBy ตามคณะ/สาขา เพื่อนับจำนวนศิษย์เก่าทั้งหมด
+      const totalAlumniGroup = await prisma.alumni.groupBy({
+        by: [keyName],
         _count: { alumni_id: true },
         where: {
           ...queryStr,
@@ -604,33 +604,35 @@ export const dashboardController = {
         },
       });
 
-      // นับศิษย์เก่าทั้งหมดแยกตามคณะ เอาเฉพาะศิษย์เก่าที่กรอกข้อมูลการทำงาน
-      const totalByFaculty = await prisma.alumni.groupBy({
-        by: [roleId < 3 || query?.facultyId ? "departmentId" : "facultyId"],
+      // นับศิษย์เก่าที่มีงานทำแยกตามคณะ/สาขา
+      const workingAlumniGroup = await prisma.alumni.groupBy({
+        by: [keyName],
         _count: { alumni_id: true },
         where: {
+          ...queryStr,
           work_expreriences: {
-            some: {},
+            some: { isCurrent: true },
           },
         },
       });
 
-      // map มาคำนวณเปอร์เซ็นต์
-      const percentByFaculty = result.map((r) => {
-        const total =
-          totalByFaculty.find((t) => t.facultyId === r.facultyId)?._count
+      // คำนวณเปอร์เซ็นต์การมีงานทำ (มีงานทำ / ทั้งหมด * 100)
+      const percentByGroup = totalAlumniGroup.map((r) => {
+        const workingCount =
+          workingAlumniGroup.find((t) => t[keyName] === r[keyName])?._count
             .alumni_id || 0;
+        const total = r._count.alumni_id || 0;
         return {
-          id: roleId < 3 || query?.facultyId ? r?.departmentId : r.facultyId,
+          id: r[keyName],
           percent:
             total > 0
-              ? ((r._count.alumni_id / total) * 100).toFixed(2)
-              : "0.00",
+              ? Number(((workingCount / total) * 100).toFixed(2))
+              : 0,
         };
       });
 
       set.status = 200;
-      return percentByFaculty; // [{ facultyId, employed, total, percent }, ...]
+      return percentByGroup;
     } catch (err) {
       console.error(err);
       set.status = 500;

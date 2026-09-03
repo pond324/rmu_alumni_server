@@ -1635,7 +1635,6 @@ export const alumniController = {
   edit_regis_get_otp: async ({ set, body }) => {
     try {
       const { alumni_id } = body;
-      console.log("🚀 ~ body:", body);
       if (!alumni_id) return (set.status = 400);
 
       const alumni = await prisma.regis_alumni.findFirst({

@@ -10,8 +10,8 @@ const authRoutes = new Elysia({ prefix: "/auth" })
     app
       .use(
         rateLimit({
-          duration: 10 * 60 * 1000,
-          max: 5,
+          duration: 15 * 60 * 1000,
+          max: 10,
           generator: (req) => {
             // จำกัดทั้ง IP และ username
             const ip = req.headers.get("x-forwarded-for") || req.ip;

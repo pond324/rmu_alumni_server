@@ -11,16 +11,16 @@ export const randomNum = () => {
 
 export const authController = {
   login: async ({ body, set, jwt }) => {
-  //  await prisma.admin.create({
-  //     data: {
-  //       username: "admin@rmu.ac.th",
-  //       passwordHash: await bcryptjs.hash("admin1234", 12),
-  //       email: "admin@gamil.com",
-  //       prefix: "admin",
-  //       lname: "admin",
-  //       fname: "admin",
-  //     },
-  //   });
+    //  await prisma.admin.create({
+    //     data: {
+    //       username: "admin@rmu.ac.th",
+    //       passwordHash: await bcryptjs.hash("admin1234", 12),
+    //       email: "admin@gamil.com",
+    //       prefix: "admin",
+    //       lname: "admin",
+    //       fname: "admin",
+    //     },
+    //   });
 
     try {
       const { username, password } = body;
@@ -241,6 +241,7 @@ export const authController = {
           email: toEmail,
         };
       } else {
+          console.log("🚀 ~ password:", password)
         const isMatch = await bcryptjs.compare(
           password,
           user.passwordHash || "",
@@ -615,6 +616,7 @@ export const authController = {
           },
         },
       });
+      // console.log("🚀 ~ alumni:", alumni)
       if (!alumni) return { err: "ไม่พบข้อมูลนักศึกษา" };
       if (
         alumni?.regis_alumni?.isApproved === "pending" &&
@@ -691,6 +693,7 @@ export const authController = {
   regis_create_password: async ({ set, body }) => {
     try {
       const { alumni_id, newPass } = body;
+      // console.log("🚀 ~ newPass:", newPass)
       if (!alumni_id || !newPass) return (set.status = 400);
 
       const alumni = await prisma.alumni.findFirst({
@@ -705,6 +708,16 @@ export const authController = {
           departmentId: true,
           year_start: true,
           year_end: true,
+          alumni_contract: {
+            select: {
+              id: true,
+            },
+          },
+          user_privacy: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
       if (!alumni) return (set.status = 400);
@@ -729,19 +742,23 @@ export const authController = {
       });
 
       // สร้างช่องทางติดต่อศิษย์เก่า
-      await prisma.alumni_contract.create({
-        data: {
-          alumniId: alumni_id,
-          email1: alumni_id + "@rmu.ac.th",
-        },
-      });
+      if (!alumni?.alumni_contract?.id) {
+        await prisma.alumni_contract.create({
+          data: {
+            alumniId: alumni_id,
+            email1: alumni_id + "@rmu.ac.th",
+          },
+        });
+      }
 
-      // สร้างการอนุญาตความเป็นส่วนตัวเริ่มต้น
-      await prisma.user_privacy.create({
-        data: {
-          alumniId: alumni_id,
-        },
-      });
+      if (!alumni?.user_privacy?.id) {
+        // สร้างการอนุญาตความเป็นส่วนตัวเริ่มต้น
+        await prisma.user_privacy.create({
+          data: {
+            alumniId: alumni_id,
+          },
+        });
+      }
 
       set.status = 200;
       return { ok: true, alumni };
