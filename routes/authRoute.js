@@ -9,22 +9,12 @@ const authRoutes = new Elysia({ prefix: "/auth" })
   .guard((app) =>
     app
       .use(
-      // rateLimit({
-      //   duration: 15 * 60 * 1000,
-      //   max: 10,
-      //   generator: (req) => {
-      //     // จำกัดทั้ง IP และ username
-      //     const ip = req.headers.get("x-forwarded-for") || req.ip;
-      //     // หมายเหตุ: ต้องดึง username จาก request body
-      //     return ip;
-      //   },
-      //   message: "พยายามเข้าสู่ระบบบ่อยเกินไป กรุณาลองใหม่ในอีก 10 นาที",
-      //   onLimit: (req) => {
-      //     // ✅ เพิ่ม logging
-      //     console.warn(`Rate limit exceeded: ${req.ip}`);
-      //   },
-      // }),
-    )
+        rateLimit({
+          duration: 15 * 60 * 1000,
+          max: 20,
+          errorResponse: "พยายามเข้าสู่ระบบหรือส่งคำขอบ่อยเกินไป กรุณาลองใหม่ในอีก 15 นาที"
+        })
+      )
       .post("/login", authController.login)
       // auth otp
       .post("/key-auth", authController.authSuccess)

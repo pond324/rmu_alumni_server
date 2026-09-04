@@ -241,7 +241,6 @@ export const authController = {
           email: toEmail,
         };
       } else {
-          console.log("🚀 ~ password:", password)
         const isMatch = await bcryptjs.compare(
           password,
           user.passwordHash || "",
@@ -325,6 +324,20 @@ export const authController = {
       });
       if (!otp) {
         return { err: "รหัสยืนยันตัวตนไม่ถูกต้อง" };
+      }
+
+      // Check OTP expiry (5 minutes TTL)
+      const OTP_TTL_MS = 5 * 60 * 1000;
+      if (Date.now() - new Date(otp.createdAt).getTime() > OTP_TTL_MS) {
+        await prisma.otp.deleteMany({
+          where: {
+            code,
+            ...(roleId === 1
+              ? { alumniId: user.alumni_id }
+              : { professorId: user.professor_id }),
+          },
+        });
+        return { err: "รหัสยืนยันตัวตนหมดอายุ กรุณาขอรหัสใหม่อีกครั้ง" };
       }
 
       // otp correct then delete otp
@@ -673,6 +686,18 @@ export const authController = {
       });
       if (!otpCorrect) {
         return { err: "รหัสยืนยันตัวตนไม่ถูกต้อง" };
+      }
+
+      // Check OTP expiry (5 minutes TTL)
+      const OTP_TTL_MS = 5 * 60 * 1000;
+      if (Date.now() - new Date(otpCorrect.createdAt).getTime() > OTP_TTL_MS) {
+        await prisma.otp.deleteMany({
+          where: {
+            code: otp,
+            alumniId: alumni_id,
+          },
+        });
+        return { err: "รหัสยืนยันตัวตนหมดอายุ กรุณาขอรหัสใหม่อีกครั้ง" };
       }
 
       await prisma.otp.deleteMany({

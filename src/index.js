@@ -22,6 +22,13 @@ const app = new Elysia({ prefix: "/rmu-api" })
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     }),
   )
+  // security headers
+  .onRequest(({ set }) => {
+    set.headers["X-Content-Type-Options"] = "nosniff";
+    set.headers["X-Frame-Options"] = "SAMEORIGIN";
+    set.headers["X-XSS-Protection"] = "1; mode=block";
+    set.headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
+  })
   // jwt
   .use(
     jwt({

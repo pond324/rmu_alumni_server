@@ -2244,12 +2244,14 @@ export const presidentController = {
       return { error };
     }
   },
-  delete_alumni_data: async ({ set, params, query, store }) => {
+  delete_alumni_data: async ({ set, params, query, body, store }) => {
     try {
       const { alumniId } = params;
       if (!alumniId) return (set.status = 400);
 
-      const { toggleDeleteType, reason, password } = query;
+      const toggleDeleteType = body?.toggleDeleteType ?? query?.toggleDeleteType;
+      const reason = body?.reason || query?.reason;
+      const password = body?.password || query?.password;
       if (!reason || !password) return (set.status = 400);
 
       const admin = await prisma.admin.findFirst({

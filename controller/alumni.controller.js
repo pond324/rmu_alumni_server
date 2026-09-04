@@ -1690,6 +1690,18 @@ export const alumniController = {
       });
       if (!findCorrectOTP) return { err: "รหัสยืนยันตัวตนไม่ถูกต้อง" };
 
+      // Check OTP expiry (5 minutes TTL)
+      const OTP_TTL_MS = 5 * 60 * 1000;
+      if (Date.now() - new Date(findCorrectOTP.createdAt).getTime() > OTP_TTL_MS) {
+        await prisma.otp.deleteMany({
+          where: {
+            code: otp,
+            alumniId: alumni_id,
+          },
+        });
+        return { err: "รหัสยืนยันตัวตนหมดอายุ กรุณาขอรหัสใหม่อีกครั้ง" };
+      }
+
       await prisma.otp.deleteMany({
         where: {
           code: otp,
