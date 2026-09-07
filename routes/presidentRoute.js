@@ -14,7 +14,7 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   })
   // get many news
   .get("/get-news-donate", presidentController.get_news_donate, {
-    beforeHandle: middleware.staff,
+    beforeHandle: middleware.auth,
   })
   // delete news
   .delete("/delete-news/:id", presidentController.delete_news, {
@@ -22,7 +22,7 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   })
   // get by Id
   .get("/get-news/:id", presidentController.get_news_byId, {
-    beforeHandle: middleware.staff,
+    beforeHandle: middleware.auth,
   })
   //   update
   .post("/update-news/:id", presidentController.update_news, {
@@ -34,11 +34,11 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   })
   // update view
   .put("/update-news-view/:id", presidentController.update_view, {
-    beforeHandle: middleware.staff,
+    beforeHandle: middleware.auth,
   })
   // get other
   .get("/get-other-news/:category/:id", presidentController.get_other__news, {
-    beforeHandle: middleware.staff,
+    beforeHandle: middleware.auth,
   })
   // send email
   .post("/sendemail", presidentController.send_email, {
@@ -228,7 +228,7 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   .get(
     "/news-groupby-category",
     presidentController.get_news_groupby_category,
-    { beforeHandle: middleware.staff },
+    { beforeHandle: middleware.auth },
   )
   // get user canuse
   .get(
@@ -238,7 +238,7 @@ export const presidentRoutes = new Elysia({ prefix: "/president" })
   )
   // get popular news
   .get("/get-popularnews", presidentController.get_popular_news, {
-    beforeHandle: middleware.staff,
+    beforeHandle: middleware.auth,
   })
   // get regis setting
   .get("/get-setting-data", presidentController.get_setting_data)
